@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "airflow-providers-lokalise"
+name = "navitia-client"
 authors = [
     {name = "Jonathan Perron", email = "jonathan@perron.bzh"},
 ]
