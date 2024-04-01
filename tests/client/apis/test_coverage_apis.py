@@ -5,20 +5,10 @@ from navitia_client.client.apis.coverage_apis import CoverageApis
 from navitia_client.entities import Region
 
 
-@pytest.fixture
-def mock_session():
-    return MagicMock()
-
-
-@pytest.fixture
-def coverage_apis(mock_session):
-    return CoverageApis(
-        session=mock_session, base_navitia_url="https://api.navitia.io/v1"
-    )
-
-
-def test_list_covered_areas(mock_session, coverage_apis):
-    mock_response = {
+@pytest.patch("navitia_client.client.apis.coverage_apis.CoverageApis")
+def test_list_covered_areas(coverage_apis_mock: MagicMock) -> None:
+    # Given
+    coverage_apis_mock._get_navitia_api.return_value = {
         "regions": [
             {
                 "id": "region1",
@@ -32,7 +22,6 @@ def test_list_covered_areas(mock_session, coverage_apis):
             }
         ]
     }
-    mock_session.get.return_value.json.return_value = mock_response
     regions = coverage_apis.list_covered_areas()
     assert len(regions) == 1
     assert isinstance(regions[0], Region)
