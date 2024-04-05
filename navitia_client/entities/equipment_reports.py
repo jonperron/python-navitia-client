@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .line import Line
+from .line_and_route import Line
 from .equipment import StopAreaEquipments
 
 

@@ -3,8 +3,7 @@ from dataclasses import dataclass
 from .base_entity import BaseEntity
 from .physical_mode import CommercialMode
 from .network import Network
-from .line import Line
-from .route import Route
+from .line_and_route import Line, Route
 from .stop_area import StopArea, StopPoint
 from .trip import Trip
 

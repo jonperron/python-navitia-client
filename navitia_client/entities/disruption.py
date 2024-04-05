@@ -4,7 +4,7 @@ from enum import Enum
 from typing import Sequence
 
 from .pt_object import PtObject
-from .route import Route
+from .line_and_route import Route
 from .stop_area import StopPoint
 
 

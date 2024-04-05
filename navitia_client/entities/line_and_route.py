@@ -1,9 +1,10 @@
 from dataclasses import dataclass
+
 from typing import Sequence
 
 from .base_entity import BaseEntity
 from .physical_mode import CommercialMode, PhysicalMode
-from .route import Route
+from .place import Place
 
 
 @dataclass
@@ -12,6 +13,13 @@ class Line(BaseEntity):
     color: str
     opening_time: str
     closing_time: str
-    routes: Sequence[Route]
+    routes: Sequence["Route"]
     commercial_mode: CommercialMode
     physical_modes: Sequence[PhysicalMode]
+
+
+@dataclass
+class Route(BaseEntity):
+    is_frequence: bool
+    line: Line
+    direction: Place
