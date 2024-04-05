@@ -3,7 +3,9 @@ from datetime import datetime
 from enum import Enum
 from typing import Sequence
 
-from navitia_client.entities.public_transport import PtObject, Route, StopPoint
+from .pt_object import PtObject
+from .route import Route
+from .stop_area import StopPoint
 
 
 class DisruptionStatus(Enum):
