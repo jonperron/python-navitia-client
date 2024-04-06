@@ -12,8 +12,7 @@ from .address import Address
 from .physical_mode import PhysicalModeId, CommercialMode, PhysicalMode
 from .place import Place, PlaceEmbeddedType
 from .pt_object import PtObject, PtObjectEmbeddedType
-from .line import Line
-from .route import Route
+from .line_and_route import Line, Route
 from .disruption import DisruptionStatus, Disruption
 from .context import Context
 from .pt_datetime import PTDatetime
