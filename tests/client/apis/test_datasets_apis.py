@@ -41,7 +41,7 @@ def test_list_covered_areas(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    datasets = datasets_apis.list_datasets()
+    datasets = datasets_apis.list_datasets(region_id="bar")
 
     # Then
     assert len(datasets) == 1
@@ -86,7 +86,9 @@ def test_get_region_by_id(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    datasets = datasets_apis.get_dataset_by_id("foo:foo-piv")
+    datasets = datasets_apis.get_dataset_by_id(
+        region_id="bar", dataset_id="foo:foo-piv"
+    )
 
     # Then
     assert len(datasets) == 1
@@ -114,7 +116,9 @@ def test_get_region_by_id_missing_contributor(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    datasets = datasets_apis.get_dataset_by_id("foo:foo-piv")
+    datasets = datasets_apis.get_dataset_by_id(
+        region_id="bar", dataset_id="foo:foo-piv"
+    )
 
     # Then
     assert len(datasets) == 0
