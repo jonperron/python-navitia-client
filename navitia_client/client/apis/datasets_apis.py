@@ -8,7 +8,7 @@ from navitia_client.entities.dataset import Dataset
 
 class DatasetsApiClient(ApiBaseClient):
     @staticmethod
-    def _get_regions_from_response(raw_datasets_response: Any) -> Sequence[Dataset]:
+    def _get_datasets_from_response(raw_datasets_response: Any) -> Sequence[Dataset]:
         datasets = []
         for dataset in raw_datasets_response:
             dataset_contributor = dataset.get("contributor")
@@ -41,9 +41,9 @@ class DatasetsApiClient(ApiBaseClient):
     def list_datasets(self) -> Sequence[Dataset]:
         results = self.get_navitia_api(f"{self.base_navitia_url}/datasets")
         raw_results = results.json()["datasets"]
-        return DatasetsApiClient._get_regions_from_response(raw_results)
+        return DatasetsApiClient._get_datasets_from_response(raw_results)
 
     def get_dataset_by_id(self, dataset_id: str) -> Sequence[Dataset]:
         results = self.get_navitia_api(f"{self.base_navitia_url}/coverage/{dataset_id}")
         raw_results = results.json()["datasets"]
-        return DatasetsApiClient._get_regions_from_response(raw_results)
+        return DatasetsApiClient._get_datasets_from_response(raw_results)
