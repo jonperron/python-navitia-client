@@ -32,7 +32,7 @@ As of April 7th 2024, the library supports the following [APIs](https://doc.navi
 | API                                       | Supported ? |
 | ----------------------------------------- | ----------- |
 | Coverage                                  | ✅           |
-| Datasets                                  | ❌           |
+| Datasets                                  | ✅           |
 | Contributors                              | ❌           |
 | Inverted geocoding                        | ❌           |
 | Public transportation Objects exploration | ❌           |
