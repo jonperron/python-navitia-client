@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+from navitia_client.client.apis.contributors_apis import ContributorsApiClient
 from navitia_client.client.apis.coverage_apis import CoverageApiClient
 from navitia_client.client.apis.datasets_apis import DatasetsApiClient
 
@@ -20,5 +21,11 @@ class NavitiaClient:
     @property
     def datasets(self) -> DatasetsApiClient:
         return DatasetsApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def contributors(self) -> ContributorsApiClient:
+        return ContributorsApiClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )

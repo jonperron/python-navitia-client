@@ -33,7 +33,7 @@ As of April 7th 2024, the library supports the following [APIs](https://doc.navi
 | ----------------------------------------- | ----------- |
 | Coverage                                  | ✅           |
 | Datasets                                  | ✅           |
-| Contributors                              | ❌           |
+| Contributors                              | ✅           |
 | Inverted geocoding                        | ❌           |
 | Public transportation Objects exploration | ❌           |
 | Autocomplete on Public Transport objects  | ❌           |
