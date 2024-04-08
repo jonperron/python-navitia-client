@@ -52,12 +52,7 @@ class CoverageApiClient(ApiBaseClient):
         return regions
 
     def get_region_by_coordinates(self, lon: float, lat: float) -> Sequence[Region]:
-        results = self.get_navitia_api(
-            f"{self.base_navitia_url}/coverage/"
-            + "{"
-            + "{0};{1}".format(lon, lat)
-            + "}"
-        )
+        results = self.get_navitia_api(f"{self.base_navitia_url}/coverage/{lon};{lat}")
         result_regions = results.json()["regions"]
         regions = CoverageApiClient._get_regions_from_response(result_regions)
 
