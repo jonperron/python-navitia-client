@@ -1,10 +1,12 @@
 from dataclasses import dataclass
 
-from typing import Sequence
+from typing import Any, Optional, Sequence
 
-from .base_entity import BaseEntity
-from .physical_mode import CommercialMode, PhysicalMode
-from .place import Place
+from navitia_client.entities.direction import Direction
+from navitia_client.entities.network import Network
+
+from navitia_client.entities.base_entity import BaseEntity
+from navitia_client.entities.physical_mode import CommercialMode, PhysicalMode
 
 
 @dataclass
@@ -13,13 +15,60 @@ class Line(BaseEntity):
     color: str
     opening_time: str
     closing_time: str
-    routes: Sequence["Route"]
+    routes: Optional[Sequence["Route"]]
     commercial_mode: CommercialMode
     physical_modes: Sequence[PhysicalMode]
+    text_color: Optional[str]
+    network: Network
+
+    @staticmethod
+    def from_json(
+        payload: Any,
+    ) -> "Line":
+        routes = (
+            [Route.from_json(route) for route in payload["routes"]]
+            if "routes" in payload
+            else None
+        )
+
+        physical_modes = [
+            PhysicalMode.from_json(physical_mode)
+            for physical_mode in payload["physical_modes"]
+        ]
+
+        return Line(
+            id=payload["id"],
+            name=payload["name"],
+            code=payload["code"],
+            color=payload["color"],
+            opening_time=payload["opening_time"],
+            closing_time=payload["closing_time"],
+            routes=routes,
+            commercial_mode=CommercialMode.from_json(payload["commercial_mode"]),
+            physical_modes=physical_modes,
+            text_color=payload["text_color"],
+            network=Network.from_json(payload["network"]),
+        )
 
 
 @dataclass
 class Route(BaseEntity):
     is_frequence: bool
-    line: Line
-    direction: Place
+    line: Optional[Line]
+    direction: Direction
+    direction_type: str
+
+    @staticmethod
+    def from_json(
+        payload: dict[str, Any],
+    ) -> "Route":
+        line = Line.from_json(payload["line"]) if "line" in payload else None
+
+        return Route(
+            id=payload["id"],
+            name=payload["name"],
+            is_frequence=bool(payload["is_frequence"]),
+            direction_type=payload["direction_type"],
+            direction=Direction.from_json(payload["direction"]),
+            line=line,
+        )

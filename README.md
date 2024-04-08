@@ -27,7 +27,7 @@ A base URL for Navitia IO is hardcoded and provided to NavitiaClient by default.
 
 ##  API support
 
-As of April 7th 2024, the library supports the following [APIs](https://doc.navitia.io/#api-catalog):
+The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 
 | API                                       | Supported ? |
 | ----------------------------------------- | ----------- |
@@ -35,7 +35,7 @@ As of April 7th 2024, the library supports the following [APIs](https://doc.navi
 | Datasets                                  | ✅           |
 | Contributors                              | ✅           |
 | Inverted geocoding                        | ❌           |
-| Public transportation Objects exploration | ❌           |
+| Public transportation Objects exploration | ✅           |
 | Autocomplete on Public Transport objects  | ❌           |
 | Autocomplete on geographical objects      | ❌           |
 | Places nearby                             | ❌           |

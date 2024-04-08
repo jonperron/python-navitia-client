@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Sequence
+from typing import Any, Optional, Sequence
 
 from .base_entity import BaseEntity
 
@@ -27,11 +27,65 @@ class PhysicalModeId(Enum):
 
 @dataclass
 class CommercialMode(BaseEntity):
-    physical_mode: Sequence["PhysicalMode"]
+    physical_modes: Optional[Sequence["PhysicalMode"]]
+
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "CommercialMode":
+        physical_modes = (
+            [
+                PhysicalMode.from_json(physical_mode)
+                for physical_mode in payload["physical_modes"]
+            ]
+            if "physical_modes" in payload
+            else None
+        )
+
+        return CommercialMode(
+            id=payload["id"],
+            name=payload["name"],
+            physical_modes=physical_modes,
+        )
+
+
+@dataclass
+class CO2EmissionRate(BaseEntity):
+    pass
+
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "CO2EmissionRate":
+        return CO2EmissionRate(
+            id=payload["id"],
+            name=payload["name"],
+        )
 
 
 @dataclass
 class PhysicalMode:
     id: PhysicalModeId
     name: str
-    commercial_modes: Sequence[CommercialMode]
+    co2_emission_rate: Optional[CO2EmissionRate]
+    commercial_modes: Optional[Sequence[CommercialMode]]
+
+    @staticmethod
+    def from_json(
+        payload: dict[str, Any],
+    ) -> "PhysicalMode":
+        co2_emission_rate = (
+            payload["co2_emission_rate"] if "co2_emission_rate" in payload else None
+        )
+
+        commercial_modes = (
+            [
+                CommercialMode.from_json(commercial_mode)
+                for commercial_mode in payload["commercial_modes"]
+            ]
+            if "commercial_modes" in payload
+            else None
+        )
+
+        return PhysicalMode(
+            id=payload["id"],
+            name=payload["name"],
+            co2_emission_rate=co2_emission_rate,
+            commercial_modes=commercial_modes,
+        )

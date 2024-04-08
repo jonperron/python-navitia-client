@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Sequence
+from typing import Any, Optional, Sequence
 
 from .pt_object import PtObject
 from .line_and_route import Route
@@ -15,17 +15,17 @@ class DisruptionStatus(Enum):
 
 
 class Effect(Enum):
-    NO_SERVICE = "no_service"
-    REDUCED_SERVICE = "reduced_service"
-    SIGNIFICANT_DELAYS = "significant_delays"
-    DETOUR = "detour"
-    ADDITIONAL_SERVICE = "additional_service"
-    MODIFIED_SERVICE = "modified_service"
-    OTHER_EFFECT = "other_effect"
-    UNKNOWN_EFFECT = "unknown_effect"
-    STOP_MOVED = "stop_moved"
-    NO_EFFECT = "no_effect"
-    ACCESSIBILITY_ISSUE = "accessibility_issue"
+    NO_SERVICE = "NO_SERVICE"
+    REDUCED_SERVICE = "REDUCED_SERVICE"
+    SIGNIFICANT_DELAYS = "SIGNIFICANT_DELAYS"
+    DETOUR = "DETOUR"
+    ADDITIONAL_SERVICE = "ADDITIONAL_SERVICE"
+    MODIFIED_SERVICE = "MODIFIED_SERVICE"
+    OTHER_EFFECT = "OTHER_EFFECT"
+    UNKNOWN_EFFECT = "UNKNOWN_EFFECT"
+    STOP_MOVED = "STOP_MOVED"
+    NO_EFFECT = "NO_EFFECT"
+    ACCESSIBILITY_ISSUE = "ACCESSIBILITY_ISSUE"
 
 
 @dataclass
@@ -35,11 +35,27 @@ class Severity:
     name: str
     effect: Effect
 
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "Severity":
+        return Severity(
+            color=payload["color"],
+            priority=payload["priority"],
+            name=payload["name"],
+            effect=Effect(payload["effect"]),
+        )
+
 
 @dataclass
 class DisruptionPeriod:
     begin: datetime
     end: datetime
+
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "DisruptionPeriod":
+        return DisruptionPeriod(
+            begin=datetime.strptime(payload["begin"], "%Y%m%dT%H%M%S"),
+            end=datetime.strptime(payload["end"], "%Y%m%dT%H%M%S"),
+        )
 
 
 @dataclass
@@ -48,18 +64,40 @@ class Channel:
     content_type: str
     name: str
 
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "Channel":
+        return Channel(
+            id=payload["id"], content_type=payload["content_type"], name=payload["name"]
+        )
+
 
 @dataclass
 class DisruptionMessage:
     text: str
     channel: Channel
 
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "DisruptionMessage":
+        return DisruptionMessage(
+            text=payload["text"], channel=Channel.from_json(payload["channel"])
+        )
+
 
 @dataclass
 class ImpactedSection:
     section_from: PtObject
     section_to: PtObject
-    routes: Route
+    routes: Sequence[Route]
+
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "ImpactedSection":
+        routes = [Route.from_json(route_data) for route_data in payload["routes"]]
+
+        return ImpactedSection(
+            section_from=PtObject.from_json(payload["section_from"]),
+            section_to=PtObject.from_json(payload["section_to"]),
+            routes=routes,
+        )
 
 
 class StopTimeEffect(Enum):
@@ -74,19 +112,62 @@ class ImpactedStop:
     stop_point: StopPoint
     amended_departure_time: str
     amended_arrival_time: str
-    base_departure_time: str
-    base_arrival_time: str
+    base_departure_time: Optional[str]
+    base_arrival_time: Optional[str]
     cause: str
     stop_time_effect: StopTimeEffect  # written as deprecated in the doc
     arrival_status: StopTimeEffect
     departure_status: StopTimeEffect
+    is_detour: bool
+
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "ImpactedStop":
+        print(payload)
+        return ImpactedStop(
+            amended_arrival_time=payload["amended_arrival_time"],
+            amended_departure_time=payload["amended_departure_time"],
+            arrival_status=StopTimeEffect(payload["arrival_status"]),
+            base_arrival_time=payload["base_arrival_time"]
+            if "base_arrival_time" in payload
+            else None,
+            base_departure_time=payload["base_departure_time"]
+            if "base_departure_time" in payload
+            else None,
+            cause=payload["cause"],
+            departure_status=StopTimeEffect(payload["departure_status"]),
+            is_detour=bool(payload["is_detour"]),
+            stop_point=StopPoint.from_json(payload["stop_point"]),
+            stop_time_effect=StopTimeEffect(payload["stop_time_effect"]),
+        )
 
 
 @dataclass
 class ImpactedObject:
-    pt_object: PtObject
-    impacted_section: ImpactedSection
-    impacted_stops: Sequence[ImpactedStop]
+    pt_object: Optional[PtObject]
+    impacted_section: Optional[ImpactedSection]
+    impacted_stops: Optional[Sequence[ImpactedStop]]
+
+    @staticmethod
+    def from_json(
+        payload: dict[str, Any],
+    ) -> "ImpactedObject":
+        impacted_stops = (
+            [
+                ImpactedStop.from_json(impacted_stop_data)
+                for impacted_stop_data in payload["impacted_stops"]
+            ]
+            if "impacted_stops" in payload
+            else None
+        )
+        return ImpactedObject(
+            pt_object=PtObject.from_json(payload["pt_object"])
+            if "pt_object" in payload
+            else None,
+            impacted_section=ImpactedSection.from_json(payload["impacted_section"])
+            if "impacted_section" in payload
+            else None,
+            impacted_stops=impacted_stops,
+        )
 
 
 @dataclass
@@ -97,9 +178,41 @@ class Disruption:
     impact_id: str
     severity: Severity
     application_periods: Sequence[DisruptionPeriod]
-    messages: Sequence[DisruptionMessage]
+    messages: Optional[Sequence[DisruptionMessage]]
     updated_at: datetime
     impacted_objects: Sequence[ImpactedObject]
     cause: str
-    category: str
+    category: Optional[str]
     contributor: str
+
+    @staticmethod
+    def from_json(
+        payload: dict[str, Any],
+    ) -> "Disruption":
+        application_periods = [
+            DisruptionPeriod.from_json(application_period)
+            for application_period in payload["application_periods"]
+        ]
+        messages = (
+            [DisruptionMessage.from_json(message) for message in payload["messages"]]
+            if "messages" in payload
+            else None
+        )
+        impacted_objects = [
+            ImpactedObject.from_json(object) for object in payload["impacted_objects"]
+        ]
+
+        return Disruption(
+            id=payload["id"],
+            status=DisruptionStatus(payload["status"]),
+            disruption_id=payload["disruption_id"],
+            impact_id=payload["impact_id"],
+            severity=Severity.from_json(payload["severity"]),
+            application_periods=application_periods,
+            messages=messages,
+            updated_at=datetime.strptime(payload["updated_at"], "%Y%m%dT%H%M%S"),
+            impacted_objects=impacted_objects,
+            cause=payload["cause"],
+            category=payload.get("category"),
+            contributor=payload["contributor"],
+        )
