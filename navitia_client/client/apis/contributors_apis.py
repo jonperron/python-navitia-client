@@ -10,15 +10,8 @@ class ContributorsApiClient(ApiBaseClient):
         raw_contributors_response: Any,
     ) -> Sequence[Contributor]:
         contributors = []
-        for contributor in raw_contributors_response:
-            contributors.append(
-                Contributor(
-                    id=contributor.get("id"),
-                    name=contributor.get("name"),
-                    license=contributor.get("license"),
-                    website=contributor.get("website"),
-                ),
-            )
+        for contributor_data in raw_contributors_response:
+            contributors.append(Contributor.from_json(contributor_data))
 
         return contributors
 
