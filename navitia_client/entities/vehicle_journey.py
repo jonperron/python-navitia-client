@@ -13,9 +13,9 @@ class ActivePeriod:
     begin: datetime
     end: datetime
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "ActivePeriod":
-        return ActivePeriod(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "ActivePeriod":
+        return cls(
             begin=datetime.strptime(payload["begin"], "%Y%m%d"),
             end=datetime.strptime(payload["end"], "%Y%m%d"),
         )
@@ -31,9 +31,9 @@ class WeekPattern:
     saturday: bool
     sunday: bool
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "WeekPattern":
-        return WeekPattern(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "WeekPattern":
+        return cls(
             monday=bool(payload["monday"]),
             tuesday=bool(payload["tuesday"]),
             wednesday=bool(payload["wednesday"]),
@@ -49,9 +49,9 @@ class Calendar:
     active_periods: Sequence[ActivePeriod]
     week_pattern: WeekPattern
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "Calendar":
-        return Calendar(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "Calendar":
+        return cls(
             active_periods=[
                 ActivePeriod.from_json(data) for data in payload["active_periods"]
             ],
@@ -64,9 +64,9 @@ class Code:
     type: str
     value: str
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "Code":
-        return Code(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "Code":
+        return cls(
             type=payload["type"],
             value=payload["value"],
         )
@@ -76,9 +76,9 @@ class Code:
 class JourneyPattern(BaseEntity):
     pass
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "JourneyPattern":
-        return JourneyPattern(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "JourneyPattern":
+        return cls(
             id=payload["id"],
             name=payload["name"],
         )
@@ -96,9 +96,9 @@ class StopTime:
     utc_arrival_time: int
     utc_departure_time: int
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "StopTime":
-        return StopTime(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "StopTime":
+        return cls(
             arrival_time=payload["arrival_time"],
             departure_time=payload["departure_time"],
             drop_off_allowed=bool(payload["drop_off_allowed"]),
@@ -116,9 +116,9 @@ class ValidityPattern:
     beginning_date: datetime
     days: str
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "ValidityPattern":
-        return ValidityPattern(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "ValidityPattern":
+        return cls(
             beginning_date=datetime.strptime(payload["beginning_date"], "%Y%m%d"),
             days=payload["days"],
         )
@@ -135,9 +135,9 @@ class VehicleJourney(BaseEntity):
     trip: Trip
     validity_pattern: ValidityPattern
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "VehicleJourney":
-        return VehicleJourney(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "VehicleJourney":
+        return cls(
             id=payload["id"],
             name=payload["name"],
             calendars=[Calendar.from_json(data) for data in payload["calendars"]],

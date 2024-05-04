@@ -32,9 +32,9 @@ class PtObject(BaseEntity):
     route: Optional[Route]
     trip: Optional[Trip]
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "PtObject":
-        return PtObject(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "PtObject":
+        return cls(
             id=payload["id"],
             name=payload["name"],
             quality=payload["quality"],

@@ -1,8 +1,6 @@
-from datetime import datetime
 from typing import Any, Sequence
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.contributor import Contributor
 from navitia_client.entities.dataset import Dataset
 
 
@@ -15,26 +13,7 @@ class DatasetsApiClient(ApiBaseClient):
             if not dataset_contributor:
                 continue
 
-            datasets.append(
-                Dataset(
-                    contributor=Contributor(
-                        id=dataset_contributor.get("id"),
-                        name=dataset_contributor.get("name"),
-                        license=dataset_contributor.get("license"),
-                        website=dataset_contributor.get("website"),
-                    ),
-                    description=dataset.get("description"),
-                    end_validation_date=datetime.strptime(
-                        dataset.get("end_validation_date"), "%Y%m%dT%H%M%S"
-                    ),
-                    id=dataset.get("id"),
-                    realtime_level=dataset.get("realtime_level"),
-                    start_validation_date=datetime.strptime(
-                        dataset.get("start_validation_date"), "%Y%m%dT%H%M%S"
-                    ),
-                    system=dataset.get("system"),
-                )
-            )
+            datasets.append(Dataset.from_json(dataset))
 
         return datasets
 

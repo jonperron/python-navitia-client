@@ -8,6 +8,6 @@ from .base_entity import BaseEntity
 class Trip(BaseEntity):
     pass
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "Trip":
-        return Trip(id=payload["id"], name=payload["name"])
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "Trip":
+        return cls(id=payload["id"], name=payload["name"])

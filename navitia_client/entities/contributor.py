@@ -9,9 +9,9 @@ class Contributor(BaseEntity):
     license: str
     website: Optional[str]
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "Contributor":
-        return Contributor(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "Contributor":
+        return cls(
             id=payload["id"],
             name=payload["name"],
             license=payload["license"],

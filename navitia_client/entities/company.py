@@ -8,9 +8,9 @@ from .base_entity import BaseEntity
 class Company(BaseEntity):
     pass
 
-    @staticmethod
-    def from_json(payload: Any) -> "Company":
-        return Company(
+    @classmethod
+    def from_json(cls, payload: Any) -> "Company":
+        return cls(
             id=payload.get("id"),
             name=payload.get("name"),
         )
