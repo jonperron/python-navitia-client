@@ -14,6 +14,31 @@ class Region(BaseEntity):
     start_production_date: Optional[datetime]
     status: Optional[str]
 
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "Region":
+        return Region(
+            id=payload["id"],
+            name=payload["name"],
+            dataset_created_at=datetime.fromisoformat(payload["dataset_created_at"])
+            if "dataset_created_at" in payload
+            else None,
+            end_production_date=datetime.strptime(
+                payload["end_production_date"], "%Y%m%d"
+            )
+            if "end_production_date" in payload
+            else None,
+            last_load_at=datetime.fromisoformat(payload["last_load_at"])
+            if "last_load_at" in payload
+            else None,
+            shape=payload["shape"],
+            start_production_date=datetime.strptime(
+                payload["start_production_date"], "%Y%m%d"
+            )
+            if "end_production_date" in payload
+            else None,
+            status=payload["status"],
+        )
+
 
 @dataclass
 class AdministrativeRegion(BaseEntity):
