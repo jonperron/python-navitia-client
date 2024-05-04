@@ -29,8 +29,8 @@ class PhysicalModeId(Enum):
 class CommercialMode(BaseEntity):
     physical_modes: Optional[Sequence["PhysicalMode"]]
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "CommercialMode":
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "CommercialMode":
         physical_modes = (
             [
                 PhysicalMode.from_json(physical_mode)
@@ -40,7 +40,7 @@ class CommercialMode(BaseEntity):
             else None
         )
 
-        return CommercialMode(
+        return cls(
             id=payload["id"],
             name=payload["name"],
             physical_modes=physical_modes,
@@ -51,9 +51,9 @@ class CommercialMode(BaseEntity):
 class CO2EmissionRate(BaseEntity):
     pass
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "CO2EmissionRate":
-        return CO2EmissionRate(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "CO2EmissionRate":
+        return cls(
             id=payload["id"],
             name=payload["name"],
         )
@@ -66,8 +66,9 @@ class PhysicalMode:
     co2_emission_rate: Optional[CO2EmissionRate]
     commercial_modes: Optional[Sequence[CommercialMode]]
 
-    @staticmethod
+    @classmethod
     def from_json(
+        cls,
         payload: dict[str, Any],
     ) -> "PhysicalMode":
         co2_emission_rate = (
@@ -83,7 +84,7 @@ class PhysicalMode:
             else None
         )
 
-        return PhysicalMode(
+        return cls(
             id=payload["id"],
             name=payload["name"],
             co2_emission_rate=co2_emission_rate,

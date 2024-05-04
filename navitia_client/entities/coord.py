@@ -7,9 +7,9 @@ class Coord:
     lon: float
     lat: float
 
-    @staticmethod
-    def from_json(payload: Any) -> "Coord":
-        return Coord(
+    @classmethod
+    def from_json(cls, payload: Any) -> "Coord":
+        return cls(
             lon=payload.get("lon"),
             lat=payload.get("lat"),
         )

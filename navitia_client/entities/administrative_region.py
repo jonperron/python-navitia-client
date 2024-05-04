@@ -14,9 +14,9 @@ class Region(BaseEntity):
     start_production_date: Optional[datetime]
     status: Optional[str]
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "Region":
-        return Region(
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "Region":
+        return cls(
             id=payload["id"],
             name=payload["name"],
             dataset_created_at=datetime.fromisoformat(payload["dataset_created_at"])

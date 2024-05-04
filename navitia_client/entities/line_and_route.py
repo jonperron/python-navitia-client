@@ -21,8 +21,9 @@ class Line(BaseEntity):
     text_color: Optional[str]
     network: Network
 
-    @staticmethod
+    @classmethod
     def from_json(
+        cls,
         payload: Any,
     ) -> "Line":
         routes = (
@@ -36,7 +37,7 @@ class Line(BaseEntity):
             for physical_mode in payload["physical_modes"]
         ]
 
-        return Line(
+        return cls(
             id=payload["id"],
             name=payload["name"],
             code=payload["code"],
@@ -58,13 +59,14 @@ class Route(BaseEntity):
     direction: Direction
     direction_type: str
 
-    @staticmethod
+    @classmethod
     def from_json(
+        cls,
         payload: dict[str, Any],
     ) -> "Route":
         line = Line.from_json(payload["line"]) if "line" in payload else None
 
-        return Route(
+        return cls(
             id=payload["id"],
             name=payload["name"],
             is_frequence=bool(payload["is_frequence"]),

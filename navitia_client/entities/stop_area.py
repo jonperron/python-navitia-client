@@ -14,8 +14,8 @@ class StopArea(BaseEntity):
     administrative_regions: Optional[Sequence[AdministrativeRegion]]
     stop_points: Optional[Sequence["StopPoint"]]
 
-    @staticmethod
-    def from_json(payload: dict[str, Any]) -> "StopArea":
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "StopArea":
         administrative_regions = (
             [
                 AdministrativeRegion.from_json(region)
@@ -31,7 +31,7 @@ class StopArea(BaseEntity):
             else None
         )
 
-        return StopArea(
+        return cls(
             id=payload["id"],
             name=payload["name"],
             label=payload["label"],
@@ -49,8 +49,9 @@ class StopPoint(BaseEntity):
     equipments: Sequence[str]
     stop_area: Optional[StopArea]
 
-    @staticmethod
+    @classmethod
     def from_json(
+        cls,
         payload: dict[str, Any],
     ) -> "StopPoint":
         administrative_regions = (
@@ -66,7 +67,7 @@ class StopPoint(BaseEntity):
             StopArea.from_json(payload["stop_area"]) if "stop_area" in payload else None
         )
 
-        return StopPoint(
+        return cls(
             id=payload["id"],
             name=payload["name"],
             label=payload["label"],
