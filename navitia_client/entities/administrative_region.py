@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Optional
+from typing import Any, Optional
 from .base_entity import BaseEntity
 from .coord import Coord
 
@@ -21,3 +21,14 @@ class AdministrativeRegion(BaseEntity):
     coord: Coord
     level: int
     zip_code: str
+
+    @staticmethod
+    def from_json(payload: dict[str, Any]) -> "AdministrativeRegion":
+        return AdministrativeRegion(
+            id=payload["id"],
+            name=payload["name"],
+            label=payload["label"],
+            coord=Coord.from_json(payload["coord"]),
+            level=payload["level"],
+            zip_code=payload["zip_code"],
+        )
