@@ -252,12 +252,20 @@ def test_list_entity_collection_from_region(
                     "days": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100",
                 },
             },
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    vehicle_journeys = vehicle_journeys_apis.list_entity_collection_from_region("tuz")
+    vehicle_journeys, _ = vehicle_journeys_apis.list_entity_collection_from_region(
+        "tuz"
+    )
 
     # Then
     assert len(vehicle_journeys) == 2
@@ -424,12 +432,18 @@ def test_get_entity_by_id(
                     "days": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100",
                 },
             },
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    vehicle_journeys = vehicle_journeys_apis.get_entity_by_id("tuz", "1")
+    vehicle_journeys, _ = vehicle_journeys_apis.get_entity_by_id("tuz", "1")
 
     # Then
     assert len(vehicle_journeys) == 1

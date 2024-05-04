@@ -5,6 +5,7 @@ import pytest
 
 from navitia_client.client.apis.coverage_apis import CoverageApiClient
 from navitia_client.entities.administrative_region import Region
+from navitia_client.entities.pagination import Pagination
 
 
 @pytest.fixture
@@ -32,12 +33,18 @@ def test_list_covered_areas(
                 "start_production_date": "20220101",
                 "status": "active",
             }
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    regions = coverage_apis.list_covered_areas()
+    regions, pagination = coverage_apis.list_covered_areas()
 
     # Then
     assert len(regions) == 1
@@ -50,6 +57,7 @@ def test_list_covered_areas(
     assert regions[0].shape == "shape_data"
     assert regions[0].start_production_date == datetime(2022, 1, 1, 0, 0)
     assert regions[0].status == "active"
+    assert isinstance(pagination, Pagination)
 
 
 @patch.object(CoverageApiClient, "get_navitia_api")
@@ -69,17 +77,24 @@ def test_get_region_by_id(
                 "shape": "shape_data",
                 "start_production_date": "20220101",
                 "status": "active",
-            }
-        ]
+            },
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    regions = coverage_apis.get_region_by_id("12")
+    regions, pagination = coverage_apis.get_region_by_id("12")
 
     # Then
     assert len(regions) == 1
     assert isinstance(regions[0], Region)
+    assert isinstance(pagination, Pagination)
 
 
 @patch.object(CoverageApiClient, "get_navitia_api")
@@ -99,14 +114,21 @@ def test_get_region_by_coordinates(
                 "shape": "shape_data",
                 "start_production_date": "20220101",
                 "status": "active",
-            }
-        ]
+            },
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    regions = coverage_apis.get_region_by_coordinates(12.5, 13.2)
+    regions, pagination = coverage_apis.get_region_by_coordinates(12.5, 13.2)
 
     # Then
     assert len(regions) == 1
     assert isinstance(regions[0], Region)
+    assert isinstance(pagination, Pagination)

@@ -4,6 +4,7 @@ import pytest
 
 from navitia_client.client.apis.contributors_apis import ContributorsApiClient
 from navitia_client.entities.contributor import Contributor
+from navitia_client.entities.pagination import Pagination
 
 
 @pytest.fixture
@@ -28,11 +29,17 @@ def test_list_contributors(
                 "website": "",
             }
         ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    contributors = contributors_apis.list_contributors(region_id="bar")
+    contributors, pagination = contributors_apis.list_contributors(region_id="bar")
 
     # Then
     assert len(contributors) == 1
@@ -41,6 +48,7 @@ def test_list_contributors(
     assert contributors[0].id == "foo:foo-piv"
     assert contributors[0].license == "Private"
     assert contributors[0].website == ""
+    assert isinstance(pagination, Pagination)
 
 
 @patch.object(ContributorsApiClient, "get_navitia_api")
@@ -58,11 +66,17 @@ def test_get_region_by_id(
                 "website": "",
             }
         ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    contributors = contributors_apis.get_contributor_on_dataset(
+    contributors, _ = contributors_apis.get_contributor_on_dataset(
         region_id="bar", dataset_id="foo:xxx"
     )
 
