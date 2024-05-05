@@ -5,6 +5,7 @@ import pytest
 from navitia_client.client.apis.public_transport_objects_apis import (
     PublicTransportObjectsApiClient,
 )
+from navitia_client.entities.pt_object import PtObject
 
 
 @pytest.fixture
@@ -52,12 +53,6 @@ def test_list_contributors(
                 },
             }
         ],
-        "pagination": {
-            "items_on_page": 25,
-            "items_per_page": 25,
-            "start_page": 0,
-            "total_result": 99,
-        },
     }
     mock_get_navitia_api.return_value = mock_response
 
@@ -68,3 +63,4 @@ def test_list_contributors(
 
     # Then
     assert len(pt_objects) == 1
+    assert isinstance(pt_objects[0], PtObject)

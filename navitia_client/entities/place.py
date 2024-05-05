@@ -1,9 +1,9 @@
 from dataclasses import dataclass
+from typing import Any
 
 from .address import Address
 from .administrative_region import AdministrativeRegion
 from .base_entity import BaseEntity
-from .equipment import StopAreaEquipments
 from .poi import POI
 from .stop_area import StopArea, StopPoint
 
@@ -20,10 +20,15 @@ class PlaceEmbeddedType:
 @dataclass
 class Place(BaseEntity):
     quality: int
-    embedded_type: PlaceEmbeddedType
-    administrative_region: AdministrativeRegion
-    stop_area: StopAreaEquipments
-    poi: POI
-    address: Address
+    embedded_type: str
+    stop_area: StopArea
 
-    stop_point: StopPoint
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "Place":
+        return cls(
+            id=payload["id"],
+            name=payload["name"],
+            embedded_type=payload["embedded_type"],
+            quality=payload["quality"],
+            stop_area=StopArea.from_json(payload["stop_area"]),
+        )
