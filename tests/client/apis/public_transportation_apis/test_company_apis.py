@@ -26,12 +26,18 @@ def test_list_entity_collection_from_region(
                 "id": "company:foo:0012",
                 "name": "Foo gmbh",
             }
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    companies = company_apis.list_entity_collection_from_region("tuz")
+    companies, _ = company_apis.list_entity_collection_from_region("tuz")
 
     # Then
     assert len(companies) == 1
@@ -51,13 +57,19 @@ def test_get_entity_by_id(
                 "id": "company:foo:0012",
                 "name": "Foo gmbh",
             }
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    networks = company_apis.get_entity_by_id("tuz", "1")
+    companies, _ = company_apis.get_entity_by_id("tuz", "1")
 
     # Then
-    assert len(networks) == 1
-    assert isinstance(networks[0], Company)
+    assert len(companies) == 1
+    assert isinstance(companies[0], Company)

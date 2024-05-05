@@ -344,12 +344,18 @@ def test_list_entity_collection_from_region(
                 "updated_at": "20240409T071857",
                 "uri": "d240df5f-acfb-48c5-add3-b8ea49e66f89",
             },
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    disruptions = disruption_apis.list_entity_collection_from_region("tuz")
+    disruptions, _ = disruption_apis.list_entity_collection_from_region("tuz")
 
     # Then
     assert len(disruptions) == 3
@@ -400,12 +406,18 @@ def test_get_entity_by_id(
                 "updated_at": "20240409T071857",
                 "uri": "000000",
             },
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    disruptions = disruption_apis.get_entity_by_id("tuz", "1")
+    disruptions, _ = disruption_apis.get_entity_by_id("tuz", "1")
 
     # Then
     assert len(disruptions) == 1

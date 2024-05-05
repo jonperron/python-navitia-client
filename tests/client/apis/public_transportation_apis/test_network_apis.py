@@ -23,12 +23,18 @@ def test_list_entity_collection_from_region(
         "networks": [
             {"id": "network:foo", "links": [], "name": "Foo"},
             {"id": "network:bar", "links": [], "name": "Bar"},
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    networks = network_apis.list_entity_collection_from_region("tuz")
+    networks, _ = network_apis.list_entity_collection_from_region("tuz")
 
     # Then
     assert len(networks) == 2
@@ -44,12 +50,18 @@ def test_get_entity_by_id(
     mock_response.json.return_value = {
         "networks": [
             {"id": "network:foo", "links": [], "name": "Foo"},
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    networks = network_apis.get_entity_by_id("tuz", "1")
+    networks, _ = network_apis.get_entity_by_id("tuz", "1")
 
     # Then
     assert len(networks) == 1

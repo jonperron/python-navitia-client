@@ -1,7 +1,8 @@
-from typing import Any, Sequence
+from typing import Any, Sequence, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.contributor import Contributor
+from navitia_client.entities.pagination import Pagination
 
 
 class ContributorsApiClient(ApiBaseClient):
@@ -15,18 +16,26 @@ class ContributorsApiClient(ApiBaseClient):
 
         return contributors
 
-    def list_contributors(self, region_id: str) -> Sequence[Contributor]:
+    def list_contributors(
+        self, region_id: str, start_page: int = 0, count: int = 25
+    ) -> Tuple[Sequence[Contributor], Pagination]:
         results = self.get_navitia_api(
-            f"{self.base_navitia_url}/coverage/{region_id}/contributors"
+            f"{self.base_navitia_url}/coverage/{region_id}/contributors?start_page={start_page}&count={count}"
         )
         raw_results = results.json()["contributors"]
-        return ContributorsApiClient._get_contributors_from_response(raw_results)
+        pagination = Pagination.from_json(results.json()["pagination"])
+        return ContributorsApiClient._get_contributors_from_response(
+            raw_results
+        ), pagination
 
     def get_contributor_on_dataset(
-        self, region_id: str, dataset_id: str
-    ) -> Sequence[Contributor]:
+        self, region_id: str, dataset_id: str, start_page: int = 0, count: int = 25
+    ) -> Tuple[Sequence[Contributor], Pagination]:
         results = self.get_navitia_api(
-            f"{self.base_navitia_url}/coverage/{region_id}/contributors/{dataset_id}"
+            f"{self.base_navitia_url}/coverage/{region_id}/contributors/{dataset_id}?start_page={start_page}&count={count}"
         )
         raw_results = results.json()["contributors"]
-        return ContributorsApiClient._get_contributors_from_response(raw_results)
+        pagination = Pagination.from_json(results.json()["pagination"])
+        return ContributorsApiClient._get_contributors_from_response(
+            raw_results
+        ), pagination

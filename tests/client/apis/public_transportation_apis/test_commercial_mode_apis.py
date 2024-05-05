@@ -25,12 +25,20 @@ def test_list_entity_collection_from_region(
         "commercial_modes": [
             {"id": "commercial_mode:buz", "name": "Buz"},
             {"id": "commercial_mode:foo", "name": "foo"},
-        ]
+        ],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    commercial_modes = commercial_modes_apis.list_entity_collection_from_region("tuz")
+    commercial_modes, _ = commercial_modes_apis.list_entity_collection_from_region(
+        "tuz"
+    )
 
     # Then
     assert len(commercial_modes) == 2
@@ -44,12 +52,18 @@ def test_get_entity_by_id(
     # Given
     mock_response = MagicMock()
     mock_response.json.return_value = {
-        "commercial_modes": [{"id": "commercial_mode:foo", "name": "foo"}]
+        "commercial_modes": [{"id": "commercial_mode:foo", "name": "foo"}],
+        "pagination": {
+            "items_on_page": 25,
+            "items_per_page": 25,
+            "start_page": 0,
+            "total_result": 99,
+        },
     }
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    commercial_modes = commercial_modes_apis.get_entity_by_id("tuz", "1")
+    commercial_modes, _ = commercial_modes_apis.get_entity_by_id("tuz", "1")
 
     # Then
     assert len(commercial_modes) == 1
