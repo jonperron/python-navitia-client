@@ -36,7 +36,7 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Contributors                              | ✅           |
 | Inverted geocoding                        | ❌           |
 | Public transportation Objects exploration | ✅           |
-| Autocomplete on Public Transport objects  | ❌           |
+| Autocomplete on Public Transport objects  | ✅           |
 | Autocomplete on geographical objects      | ❌           |
 | Places nearby                             | ❌           |
 | Journeys                                  | ❌           |

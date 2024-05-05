@@ -66,7 +66,6 @@ class StopPoint(BaseEntity):
         stop_area = (
             StopArea.from_json(payload["stop_area"]) if "stop_area" in payload else None
         )
-
         return cls(
             id=payload["id"],
             name=payload["name"],

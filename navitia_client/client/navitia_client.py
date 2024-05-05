@@ -3,6 +3,9 @@ from dataclasses import dataclass
 from navitia_client.client.apis.contributors_apis import ContributorsApiClient
 from navitia_client.client.apis.coverage_apis import CoverageApiClient
 from navitia_client.client.apis.datasets_apis import DatasetsApiClient
+from navitia_client.client.apis.public_transport_objects_apis import (
+    PublicTransportObjectsApiClient,
+)
 from navitia_client.client.apis.public_transportation_apis import (
     CommercialModeApiClient,
     CompanyApiClient,
@@ -101,5 +104,11 @@ class NavitiaClient:
     @property
     def vehicle_journeys(self) -> VehicleJourneyApiClient:
         return VehicleJourneyApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def pt_objects(self) -> PublicTransportObjectsApiClient:
+        return PublicTransportObjectsApiClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )
