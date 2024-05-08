@@ -16,7 +16,7 @@ def pt_objects_apis():
 
 
 @patch.object(PublicTransportObjectsApiClient, "get_navitia_api")
-def test_list_contributors(
+def test_list_objects(
     mock_get_navitia_api: MagicMock, pt_objects_apis: PublicTransportObjectsApiClient
 ) -> None:
     # Given
