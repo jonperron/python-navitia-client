@@ -1,6 +1,6 @@
 # navitia-client
 
-This repository provides A Python client to use [navitia.io APIs](https://doc.navitia.io).
+This repository provides a unofficial Python wrapper to use [navitia.io APIs](https://doc.navitia.io).
 
 ##  Pre-requisites
 
@@ -63,5 +63,11 @@ You are free to contribute to the repo. Please read [Contributing.md](CONTRIBUTI
 
 ##  Additional questions
 
-* IS this client asynchronous ?
+* Are you affiliated with Navitia ?
+No. This is an unofficial wrapper for the Navitia.io APIs.
+
+* Is this client asynchronous ?
 No, and it is not planned to. If you want to add async support, feel free to contribute.
+
+* Is this client production ready ?
+Yes and no. For my own purpose, it is, but I cannot guarantee that everything will behave well. If you spot a bug, please open an issue in the repo.
