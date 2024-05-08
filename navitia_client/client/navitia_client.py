@@ -4,6 +4,7 @@ from navitia_client.client.apis.contributors_apis import ContributorsApiClient
 from navitia_client.client.apis.coverage_apis import CoverageApiClient
 from navitia_client.client.apis.datasets_apis import DatasetsApiClient
 from navitia_client.client.apis.place_apis import PlacesApiClient
+from navitia_client.client.apis.places_nearby_apis import PlacesNearbyApiClient
 from navitia_client.client.apis.public_transport_objects_apis import (
     PublicTransportObjectsApiClient,
 )
@@ -117,5 +118,11 @@ class NavitiaClient:
     @property
     def places(self) -> PlacesApiClient:
         return PlacesApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def places_nearby(self) -> PlacesNearbyApiClient:
+        return PlacesNearbyApiClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )

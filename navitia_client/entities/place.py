@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, Optional
 
 from .address import Address
 from .administrative_region import AdministrativeRegion
@@ -21,7 +21,8 @@ class PlaceEmbeddedType:
 class Place(BaseEntity):
     quality: int
     embedded_type: str
-    stop_area: StopArea
+    stop_area: Optional[StopArea]
+    stop_point: Optional[StopPoint]
 
     @classmethod
     def from_json(cls, payload: dict[str, Any]) -> "Place":
@@ -30,5 +31,10 @@ class Place(BaseEntity):
             name=payload["name"],
             embedded_type=payload["embedded_type"],
             quality=payload["quality"],
-            stop_area=StopArea.from_json(payload["stop_area"]),
+            stop_area=StopArea.from_json(payload["stop_area"])
+            if "stop_area" in payload
+            else None,
+            stop_point=StopPoint.from_json(payload["stop_point"])
+            if "stop_point" in payload
+            else None,
         )
