@@ -25,6 +25,7 @@ from navitia_client.client.apis.public_transportation_apis import (
 from navitia_client.client.apis.public_transportation_apis.stop_point_apis import (
     StopPointApiClient,
 )
+from navitia_client.client.apis.route_schedules_apis import RouteSchedulesApiClient
 
 BASE_NAVITIA_URL: str = "https://api.navitia.io/v1/"
 
@@ -133,5 +134,11 @@ class NavitiaClient:
     @property
     def inverted_geocoding(self) -> InvertedGeocodingApiClient:
         return InvertedGeocodingApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def route_schedules(self) -> RouteSchedulesApiClient:
+        return RouteSchedulesApiClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )

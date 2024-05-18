@@ -9,8 +9,8 @@ class Network(BaseEntity):
     pass
 
     @classmethod
-    def from_json(cls, payload: Any) -> "Network":
+    def from_json(cls, payload: dict[str, Any]) -> "Network":
         return cls(
-            id=payload.get("id"),
-            name=payload.get("name"),
+            id=payload["id"],
+            name=payload["name"],
         )

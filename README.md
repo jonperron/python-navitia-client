@@ -41,7 +41,7 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Places nearby                             | ✅           |
 | Journeys                                  | ❌           |
 | Isochrones                                | ❌           |
-| Route Schedules                           | ❌           |
+| Route Schedules                           | ✅           |
 | Stop Schedules                            | ❌           |
 | Terminus Schedules                        | ❌           |
 | Departures                                | ❌           |
