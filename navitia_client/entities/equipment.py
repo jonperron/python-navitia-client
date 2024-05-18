@@ -6,7 +6,7 @@ from .base_entity import BaseEntity
 from .stop_area import StopArea
 
 
-class Equiment(Enum):
+class Equipment(Enum):
     WHEELCHAIR_ACCESSIBILITY = "has_wheelchair_accessibility"
     BIKE_ACCEPTED = "has_bike_accepted"
     AIR_CONDITIONED = "has_air_conditioned"
