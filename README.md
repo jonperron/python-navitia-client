@@ -29,26 +29,26 @@ A base URL for Navitia IO is hardcoded and provided to NavitiaClient by default.
 
 The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 
-| API                                       | Supported ? |
-| ----------------------------------------- | ----------- |
-| Coverage                                  | ✅           |
-| Datasets                                  | ✅           |
-| Contributors                              | ✅           |
-| Inverted geocoding                        | ✅           |
-| Public transportation Objects exploration | ✅           |
-| Autocomplete on Public Transport objects  | ✅           |
-| Autocomplete on geographical objects      | ✅           |
-| Places nearby                             | ✅           |
-| Journeys                                  | ❌           |
-| Isochrones                                | ❌           |
-| Route Schedules                           | ✅           |
-| Stop Schedules                            | ✅           |
-| Terminus Schedules                        | ✅           |
-| Departures                                | ✅           |
-| Arrivals                                  | ✅           |
-| Line reports                              | ❌           |
-| Traffic reports                           | ❌           |
-| Equipment_Reports                         | ❌           |
+| API                                       | Supported ? | Comment                                 |
+| ----------------------------------------- | ----------- | --------------------------------------- |
+| Coverage                                  | ✅           |                                         |
+| Datasets                                  | ✅           |                                         |
+| Contributors                              | ✅           |                                         |
+| Inverted geocoding                        | ✅           |                                         |
+| Public transportation Objects exploration | ✅           |                                         |
+| Autocomplete on Public Transport objects  | ✅           |                                         |
+| Autocomplete on geographical objects      | ✅           |                                         |
+| Places nearby                             | ✅           |                                         |
+| Journeys                                  | ❌           |                                         |
+| Isochrones                                | ❌           |                                         |
+| Route Schedules                           | ✅           |                                         |
+| Stop Schedules                            | ✅           |                                         |
+| Terminus Schedules                        | ✅           |                                         |
+| Departures                                | ✅           |                                         |
+| Arrivals                                  | ✅           |                                         |
+| Line reports                              | ✅           | Beta endpoint according to API response |
+| Traffic reports                           | ❌           |                                         |
+| Equipment_Reports                         | ❌           |                                         |
 
 ##  Dependencies
 

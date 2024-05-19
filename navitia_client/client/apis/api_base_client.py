@@ -3,6 +3,7 @@ from requests import Response, Session  # type: ignore
 from navitia_client.client.exceptions import (
     NavitiaAccessTokenMissingError,
     NavitiaForbiddenAccessError,
+    NavitiaNotFoundError,
     NavitiaUnknownObjectError,
     NavitiaUnableToParseError,
 )
@@ -24,6 +25,8 @@ class ApiBaseClient:
                     raise NavitiaUnableToParseError(error_message)
                 case "unknown_object":
                     raise NavitiaUnknownObjectError(error_message)
+                case "no_solution":
+                    raise NavitiaNotFoundError(error_message)
 
         if "message" in json_payload:
             error_message = json_payload["message"]

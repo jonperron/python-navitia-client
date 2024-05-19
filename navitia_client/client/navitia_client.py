@@ -8,6 +8,7 @@ from navitia_client.client.apis.departure_apis import DepartureApiClient
 from navitia_client.client.apis.inverted_geocoding_apis import (
     InvertedGeocodingApiClient,
 )
+from navitia_client.client.apis.line_report_apis import LineReportsApiClient
 from navitia_client.client.apis.place_apis import PlacesApiClient
 from navitia_client.client.apis.places_nearby_apis import PlacesNearbyApiClient
 from navitia_client.client.apis.public_transport_objects_apis import (
@@ -170,5 +171,11 @@ class NavitiaClient:
     @property
     def arrivals(self) -> ArrivalApiClient:
         return ArrivalApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def line_reports(self) -> LineReportsApiClient:
+        return LineReportsApiClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )
