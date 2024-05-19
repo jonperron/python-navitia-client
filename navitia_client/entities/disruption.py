@@ -173,48 +173,61 @@ class ImpactedObject:
 @dataclass
 class Disruption:
     id: str
-    status: DisruptionStatus
-    disruption_id: str
-    impact_id: str
-    severity: Severity
-    application_periods: Sequence[DisruptionPeriod]
+    status: Optional[DisruptionStatus]
+    disruption_id: Optional[str]
+    impact_id: Optional[str]
+    severity: Optional[Severity]
+    application_periods: Optional[Sequence[DisruptionPeriod]]
     messages: Optional[Sequence[DisruptionMessage]]
-    updated_at: datetime
-    impacted_objects: Sequence[ImpactedObject]
-    cause: str
+    updated_at: Optional[datetime]
+    impacted_objects: Optional[Sequence[ImpactedObject]]
+    cause: Optional[str]
     category: Optional[str]
-    contributor: str
+    contributor: Optional[str]
 
     @classmethod
     def from_payload(
         cls,
         payload: dict[str, Any],
     ) -> "Disruption":
-        application_periods = [
-            DisruptionPeriod.from_payload(application_period)
-            for application_period in payload["application_periods"]
-        ]
+        print(payload)
+        application_periods = (
+            [
+                DisruptionPeriod.from_payload(application_period)
+                for application_period in payload["application_periods"]
+            ]
+            if "application_periods" in payload
+            else None
+        )
         messages = (
             [DisruptionMessage.from_payload(message) for message in payload["messages"]]
             if "messages" in payload
             else None
         )
-        impacted_objects = [
-            ImpactedObject.from_payload(object)
-            for object in payload["impacted_objects"]
-        ]
+        impacted_objects = (
+            [
+                ImpactedObject.from_payload(object)
+                for object in payload["impacted_objects"]
+            ]
+            if "impacted_objects" in payload
+            else None
+        )
 
         return cls(
             id=payload["id"],
-            status=DisruptionStatus(payload["status"]),
-            disruption_id=payload["disruption_id"],
-            impact_id=payload["impact_id"],
-            severity=Severity.from_payload(payload["severity"]),
+            status=DisruptionStatus(payload["status"]) if "status" in payload else None,
+            disruption_id=payload.get("disruption_id"),
+            impact_id=payload.get("impact_id"),
+            severity=Severity.from_payload(payload["severity"])
+            if "severity" in payload
+            else None,
             application_periods=application_periods,
             messages=messages,
-            updated_at=datetime.strptime(payload["updated_at"], "%Y%m%dT%H%M%S"),
+            updated_at=datetime.strptime(payload["updated_at"], "%Y%m%dT%H%M%S")
+            if "updated_at" in payload
+            else None,
             impacted_objects=impacted_objects,
-            cause=payload["cause"],
+            cause=payload.get("cause"),
             category=payload.get("category"),
-            contributor=payload["contributor"],
+            contributor=payload.get("contributor"),
         )

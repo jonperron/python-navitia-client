@@ -47,7 +47,7 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Departures                                | ✅           |                                         |
 | Arrivals                                  | ✅           |                                         |
 | Line reports                              | ✅           | Beta endpoint according to API response |
-| Traffic reports                           | ❌           |                                         |
+| Traffic reports                           | ✅           | Beta endpoint according to API response |
 | Equipment_Reports                         | ❌           |                                         |
 
 ##  Dependencies
