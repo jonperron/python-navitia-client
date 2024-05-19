@@ -45,7 +45,7 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Stop Schedules                            | ✅           |
 | Terminus Schedules                        | ✅           |
 | Departures                                | ✅           |
-| Arrivals                                  | ❌           |
+| Arrivals                                  | ✅           |
 | Line reports                              | ❌           |
 | Traffic reports                           | ❌           |
 | Equipment_Reports                         | ❌           |
