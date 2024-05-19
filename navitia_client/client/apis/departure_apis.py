@@ -2,21 +2,19 @@ from datetime import datetime
 from typing import Any, Optional, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.pagination import Pagination
-from navitia_client.entities.stop_schedule import TerminusSchedule
+from navitia_client.entities.departure import Departure
 
 
-class TerminusSchedulesApiClient(ApiBaseClient):
+class DepartureApiClient(ApiBaseClient):
     @staticmethod
-    def _get_terminus_schedule_objects_from_response(
+    def _get_departure_objects_from_response(
         response: Any,
-    ) -> Sequence[TerminusSchedule]:
-        terminus_schedules = []
-        for terminus_schedule_data in response:
-            terminus_schedules.append(
-                TerminusSchedule.from_payload(terminus_schedule_data)
-            )
+    ) -> Sequence[Departure]:
+        departures = []
+        for departure_data in response:
+            departures.append(Departure.from_payload(departure_data))
 
-        return terminus_schedules
+        return departures
 
     @staticmethod
     def _generate_filter_query(filters: dict[str, Any]) -> str:
@@ -24,17 +22,15 @@ class TerminusSchedulesApiClient(ApiBaseClient):
         filter_query = "&".join([f"{key}={value}" for key, value in filters.items()])
         return "?" + filter_query if filter_query else ""
 
-    def _get_stop_schedules(
+    def _get_departures(
         self, url: str, filters: dict
-    ) -> Tuple[Sequence[TerminusSchedule], Pagination]:
+    ) -> Tuple[Sequence[Departure], Pagination]:
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
-        raw_results = results.json()["terminus_schedules"]
+        raw_results = results.json()["departures"]
         pagination = Pagination.from_payload(results.json()["pagination"])
-        return self._get_terminus_schedule_objects_from_response(
-            raw_results
-        ), pagination
+        return self._get_departure_objects_from_response(raw_results), pagination
 
-    def list_terminus_schedules(
+    def list_departures(
         self,
         region_id: Optional[str] = None,
         resource_path: Optional[str] = None,
@@ -45,12 +41,11 @@ class TerminusSchedulesApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
-        items_per_schedule: int = 1,
         forbidden_uris: Optional[Sequence[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Tuple[Sequence[TerminusSchedule], Pagination]:
+    ) -> Tuple[Sequence[Departure], Pagination]:
         request_url: str | None = None
         if region_id and resource_path:
             # See https://doc.navitia.io/#route-schedules for URL description
@@ -69,11 +64,10 @@ class TerminusSchedulesApiClient(ApiBaseClient):
             "from_datetime": from_datetime,
             "duration": duration,
             "depth": depth,
-            "items_per_schedule": items_per_schedule,
             "disable_geojson": disable_geojson,
             "forbidden_uris[]": forbidden_uris,
             "data_freshness": data_freshness,
             "direction_type": direction_type,
         }
 
-        return self._get_stop_schedules(request_url, filters)
+        return self._get_departures(request_url, filters)

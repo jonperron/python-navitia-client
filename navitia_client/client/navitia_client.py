@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from navitia_client.client.apis.contributors_apis import ContributorsApiClient
 from navitia_client.client.apis.coverage_apis import CoverageApiClient
 from navitia_client.client.apis.datasets_apis import DatasetsApiClient
+from navitia_client.client.apis.departure_apis import DepartureApiClient
 from navitia_client.client.apis.inverted_geocoding_apis import (
     InvertedGeocodingApiClient,
 )
@@ -156,5 +157,11 @@ class NavitiaClient:
     @property
     def terminus_schedules(self) -> TerminusSchedulesApiClient:
         return TerminusSchedulesApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def departures(self) -> DepartureApiClient:
+        return DepartureApiClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )
