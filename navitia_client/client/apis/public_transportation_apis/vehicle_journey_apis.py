@@ -13,7 +13,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
     def _get_entity_from_response(raw_entity_response: Any) -> Sequence[VehicleJourney]:
         entities = []
         for entity in raw_entity_response:
-            entities.append(VehicleJourney.from_json(entity))
+            entities.append(VehicleJourney.from_payload(entity))
         return entities
 
     def list_entity_collection_from_region(

@@ -13,7 +13,7 @@ class PhysicalModeApiClient(ApiBaseClient, EntityApi[PhysicalMode]):
     def _get_entity_from_response(raw_entity_response: Any) -> Sequence[PhysicalMode]:
         entities = []
         for entity in raw_entity_response:
-            entities.append(PhysicalMode.from_json(entity))
+            entities.append(PhysicalMode.from_payload(entity))
         return entities
 
     def list_entity_collection_from_region(

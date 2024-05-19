@@ -12,7 +12,7 @@ class StopSchedulesApiClient(ApiBaseClient):
     ) -> Sequence[StopSchedule]:
         stop_schedules = []
         for stop_schedule_data in response:
-            stop_schedules.append(StopSchedule.from_json(stop_schedule_data))
+            stop_schedules.append(StopSchedule.from_payload(stop_schedule_data))
 
         return stop_schedules
 
@@ -27,7 +27,7 @@ class StopSchedulesApiClient(ApiBaseClient):
     ) -> Tuple[Sequence[StopSchedule], Pagination]:
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         raw_results = results.json()["stop_schedules"]
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return self._get_stop_schedule_objects_from_response(raw_results), pagination
 
     def list_stop_schedules(

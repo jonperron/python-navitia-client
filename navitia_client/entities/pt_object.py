@@ -33,25 +33,25 @@ class PtObject(BaseEntity):
     trip: Optional[Trip]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "PtObject":
+    def from_payload(cls, payload: dict[str, Any]) -> "PtObject":
         return cls(
             id=payload["id"],
             name=payload["name"],
             quality=payload["quality"],
             embedded_type=payload["embedded_type"],
-            stop_area=StopArea.from_json(payload["stop_area"])
+            stop_area=StopArea.from_payload(payload["stop_area"])
             if "stop_area" in payload
             else None,
-            stop_point=StopPoint.from_json(payload["stop_point"])
+            stop_point=StopPoint.from_payload(payload["stop_point"])
             if "stop_point" in payload
             else None,
-            network=Network.from_json(payload["network"])
+            network=Network.from_payload(payload["network"])
             if "network" in payload
             else None,
-            commercial_mode=CommercialMode.from_json(payload["commercial_mode"])
+            commercial_mode=CommercialMode.from_payload(payload["commercial_mode"])
             if "commercial_mode" in payload
             else None,
-            line=Line.from_json(payload["line"]) if "line" in payload else None,
-            route=Route.from_json(payload["route"]) if "route" in payload else None,
-            trip=Trip.from_json(payload["trip"]) if "trip" in payload else None,
+            line=Line.from_payload(payload["line"]) if "line" in payload else None,
+            route=Route.from_payload(payload["route"]) if "route" in payload else None,
+            trip=Trip.from_payload(payload["trip"]) if "trip" in payload else None,
         )

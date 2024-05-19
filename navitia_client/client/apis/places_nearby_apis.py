@@ -9,7 +9,7 @@ class PlacesNearbyApiClient(ApiBaseClient):
     def _get_pt_objects_from_response(response: Any) -> Sequence[Place]:
         entities = []
         for entity_data in response:
-            entities.append(Place.from_json(entity_data))
+            entities.append(Place.from_payload(entity_data))
 
         return entities
 
@@ -24,7 +24,7 @@ class PlacesNearbyApiClient(ApiBaseClient):
     ) -> Tuple[Sequence[Place], Pagination]:
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         raw_results = results.json()["places_nearby"]
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return self._get_pt_objects_from_response(raw_results), pagination
 
     def list_objects(

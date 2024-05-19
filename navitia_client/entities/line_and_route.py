@@ -22,18 +22,18 @@ class Line(BaseEntity):
     network: Network
 
     @classmethod
-    def from_json(
+    def from_payload(
         cls,
         payload: Any,
     ) -> "Line":
         routes = (
-            [Route.from_json(route) for route in payload["routes"]]
+            [Route.from_payload(route) for route in payload["routes"]]
             if "routes" in payload
             else None
         )
 
         physical_modes = [
-            PhysicalMode.from_json(physical_mode)
+            PhysicalMode.from_payload(physical_mode)
             for physical_mode in payload["physical_modes"]
         ]
 
@@ -45,10 +45,10 @@ class Line(BaseEntity):
             opening_time=payload["opening_time"],
             closing_time=payload["closing_time"],
             routes=routes,
-            commercial_mode=CommercialMode.from_json(payload["commercial_mode"]),
+            commercial_mode=CommercialMode.from_payload(payload["commercial_mode"]),
             physical_modes=physical_modes,
             text_color=payload["text_color"],
-            network=Network.from_json(payload["network"]),
+            network=Network.from_payload(payload["network"]),
         )
 
 
@@ -60,17 +60,17 @@ class Route(BaseEntity):
     direction_type: str
 
     @classmethod
-    def from_json(
+    def from_payload(
         cls,
         payload: dict[str, Any],
     ) -> "Route":
-        line = Line.from_json(payload["line"]) if "line" in payload else None
+        line = Line.from_payload(payload["line"]) if "line" in payload else None
 
         return cls(
             id=payload["id"],
             name=payload["name"],
             is_frequence=bool(payload["is_frequence"]),
             direction_type=payload["direction_type"],
-            direction=Direction.from_json(payload["direction"]),
+            direction=Direction.from_payload(payload["direction"]),
             line=line,
         )

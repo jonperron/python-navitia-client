@@ -10,7 +10,7 @@ class Pagination:
     start_page: int = 0
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Pagination":
+    def from_payload(cls, payload: dict[str, Any]) -> "Pagination":
         return cls(
             items_on_page=payload["items_on_page"],
             items_per_page=payload["items_per_page"],

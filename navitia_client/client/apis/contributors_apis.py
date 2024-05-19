@@ -12,7 +12,7 @@ class ContributorsApiClient(ApiBaseClient):
     ) -> Sequence[Contributor]:
         contributors = []
         for contributor_data in raw_contributors_response:
-            contributors.append(Contributor.from_json(contributor_data))
+            contributors.append(Contributor.from_payload(contributor_data))
 
         return contributors
 
@@ -23,7 +23,7 @@ class ContributorsApiClient(ApiBaseClient):
             f"{self.base_navitia_url}/coverage/{region_id}/contributors?start_page={start_page}&count={count}"
         )
         raw_results = results.json()["contributors"]
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return ContributorsApiClient._get_contributors_from_response(
             raw_results
         ), pagination
@@ -35,7 +35,7 @@ class ContributorsApiClient(ApiBaseClient):
             f"{self.base_navitia_url}/coverage/{region_id}/contributors/{dataset_id}?start_page={start_page}&count={count}"
         )
         raw_results = results.json()["contributors"]
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return ContributorsApiClient._get_contributors_from_response(
             raw_results
         ), pagination

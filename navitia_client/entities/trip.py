@@ -9,5 +9,5 @@ class Trip(BaseEntity):
     pass
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Trip":
+    def from_payload(cls, payload: dict[str, Any]) -> "Trip":
         return cls(id=payload["id"], name=payload["name"])

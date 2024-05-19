@@ -8,7 +8,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
     def _get_regions_from_response(response: Any) -> Sequence[Place]:
         entities = []
         for entity_data in response:
-            entities.append(Place.from_json(entity_data))
+            entities.append(Place.from_payload(entity_data))
 
         return entities
 

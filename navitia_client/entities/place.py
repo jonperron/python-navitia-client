@@ -25,16 +25,16 @@ class Place(BaseEntity):
     stop_point: Optional[StopPoint]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Place":
+    def from_payload(cls, payload: dict[str, Any]) -> "Place":
         return cls(
             id=payload["id"],
             name=payload["name"],
             embedded_type=payload["embedded_type"],
             quality=payload["quality"],
-            stop_area=StopArea.from_json(payload["stop_area"])
+            stop_area=StopArea.from_payload(payload["stop_area"])
             if "stop_area" in payload
             else None,
-            stop_point=StopPoint.from_json(payload["stop_point"])
+            stop_point=StopPoint.from_payload(payload["stop_point"])
             if "stop_point" in payload
             else None,
         )

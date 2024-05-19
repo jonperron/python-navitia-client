@@ -10,7 +10,7 @@ class CoverageApiClient(ApiBaseClient):
     def _get_regions_from_response(raw_regions_response: Any) -> Sequence[Region]:
         regions = []
         for region_data in raw_regions_response:
-            regions.append(Region.from_json(region_data))
+            regions.append(Region.from_payload(region_data))
         return regions
 
     def list_covered_areas(
@@ -21,7 +21,7 @@ class CoverageApiClient(ApiBaseClient):
         )
         result_regions = results.json()["regions"]
         regions = CoverageApiClient._get_regions_from_response(result_regions)
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return regions, pagination
 
     def get_region_by_id(
@@ -32,7 +32,7 @@ class CoverageApiClient(ApiBaseClient):
         )
         result_regions = results.json()["regions"]
         regions = CoverageApiClient._get_regions_from_response(result_regions)
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return regions, pagination
 
     def get_region_by_coordinates(
@@ -43,5 +43,5 @@ class CoverageApiClient(ApiBaseClient):
         )
         result_regions = results.json()["regions"]
         regions = CoverageApiClient._get_regions_from_response(result_regions)
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return regions, pagination

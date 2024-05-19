@@ -10,10 +10,10 @@ class RouteSchedule:
     table: ScheduleTable
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "RouteSchedule":
+    def from_payload(cls, payload: dict[str, Any]) -> "RouteSchedule":
         return cls(
-            display_informations=DisplayInformation.from_json(
+            display_informations=DisplayInformation.from_payload(
                 payload["display_informations"]
             ),
-            table=ScheduleTable.from_json(payload["table"]),
+            table=ScheduleTable.from_payload(payload["table"]),
         )

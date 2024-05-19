@@ -11,7 +11,7 @@ class RouteSchedulesApiClient(ApiBaseClient):
     ) -> Sequence[RouteSchedule]:
         route_schedules = []
         for route_schedule_data in response:
-            route_schedules.append(RouteSchedule.from_json(route_schedule_data))
+            route_schedules.append(RouteSchedule.from_payload(route_schedule_data))
 
         return route_schedules
 

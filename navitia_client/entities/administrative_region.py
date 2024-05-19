@@ -15,7 +15,7 @@ class Region(BaseEntity):
     status: Optional[str]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Region":
+    def from_payload(cls, payload: dict[str, Any]) -> "Region":
         return cls(
             id=payload["id"],
             name=payload["name"],
@@ -48,12 +48,12 @@ class AdministrativeRegion(BaseEntity):
     zip_code: str
 
     @staticmethod
-    def from_json(payload: dict[str, Any]) -> "AdministrativeRegion":
+    def from_payload(payload: dict[str, Any]) -> "AdministrativeRegion":
         return AdministrativeRegion(
             id=payload["id"],
             name=payload["name"],
             label=payload["label"],
-            coord=Coord.from_json(payload["coord"]),
+            coord=Coord.from_payload(payload["coord"]),
             level=payload["level"],
             zip_code=payload["zip_code"],
         )

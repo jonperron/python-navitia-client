@@ -14,7 +14,7 @@ class ActivePeriod:
     end: datetime
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "ActivePeriod":
+    def from_payload(cls, payload: dict[str, Any]) -> "ActivePeriod":
         return cls(
             begin=datetime.strptime(payload["begin"], "%Y%m%d"),
             end=datetime.strptime(payload["end"], "%Y%m%d"),
@@ -32,7 +32,7 @@ class WeekPattern:
     sunday: bool
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "WeekPattern":
+    def from_payload(cls, payload: dict[str, Any]) -> "WeekPattern":
         return cls(
             monday=bool(payload["monday"]),
             tuesday=bool(payload["tuesday"]),
@@ -50,12 +50,12 @@ class Calendar:
     week_pattern: WeekPattern
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Calendar":
+    def from_payload(cls, payload: dict[str, Any]) -> "Calendar":
         return cls(
             active_periods=[
-                ActivePeriod.from_json(data) for data in payload["active_periods"]
+                ActivePeriod.from_payload(data) for data in payload["active_periods"]
             ],
-            week_pattern=WeekPattern.from_json(payload["week_pattern"]),
+            week_pattern=WeekPattern.from_payload(payload["week_pattern"]),
         )
 
 
@@ -65,7 +65,7 @@ class Code:
     value: str
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Code":
+    def from_payload(cls, payload: dict[str, Any]) -> "Code":
         return cls(
             type=payload["type"],
             value=payload["value"],
@@ -77,7 +77,7 @@ class JourneyPattern(BaseEntity):
     pass
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "JourneyPattern":
+    def from_payload(cls, payload: dict[str, Any]) -> "JourneyPattern":
         return cls(
             id=payload["id"],
             name=payload["name"],
@@ -97,7 +97,7 @@ class StopTime:
     utc_departure_time: int
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "StopTime":
+    def from_payload(cls, payload: dict[str, Any]) -> "StopTime":
         return cls(
             arrival_time=payload["arrival_time"],
             departure_time=payload["departure_time"],
@@ -105,7 +105,7 @@ class StopTime:
             headsign=payload["headsign"],
             pickup_allowed=bool(payload["pickup_allowed"]),
             skipped_stop=bool(payload["skipped_stop"]),
-            stop_point=StopPoint.from_json(payload["stop_point"]),
+            stop_point=StopPoint.from_payload(payload["stop_point"]),
             utc_arrival_time=payload["utc_arrival_time"],
             utc_departure_time=payload["utc_departure_time"],
         )
@@ -117,7 +117,7 @@ class ValidityPattern:
     days: str
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "ValidityPattern":
+    def from_payload(cls, payload: dict[str, Any]) -> "ValidityPattern":
         return cls(
             beginning_date=datetime.strptime(payload["beginning_date"], "%Y%m%d"),
             days=payload["days"],
@@ -136,16 +136,18 @@ class VehicleJourney(BaseEntity):
     validity_pattern: ValidityPattern
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "VehicleJourney":
+    def from_payload(cls, payload: dict[str, Any]) -> "VehicleJourney":
         return cls(
             id=payload["id"],
             name=payload["name"],
-            calendars=[Calendar.from_json(data) for data in payload["calendars"]],
-            codes=[Code.from_json(data) for data in payload["codes"]],
-            disruptions=[Disruption.from_json(data) for data in payload["disruptions"]],
+            calendars=[Calendar.from_payload(data) for data in payload["calendars"]],
+            codes=[Code.from_payload(data) for data in payload["codes"]],
+            disruptions=[
+                Disruption.from_payload(data) for data in payload["disruptions"]
+            ],
             headsign=payload["headsign"],
-            journey_pattern=JourneyPattern.from_json(payload["journey_pattern"]),
-            stop_times=[StopTime.from_json(data) for data in payload["stop_times"]],
-            trip=Trip.from_json(payload["trip"]),
-            validity_pattern=ValidityPattern.from_json(payload["validity_pattern"]),
+            journey_pattern=JourneyPattern.from_payload(payload["journey_pattern"]),
+            stop_times=[StopTime.from_payload(data) for data in payload["stop_times"]],
+            trip=Trip.from_payload(payload["trip"]),
+            validity_pattern=ValidityPattern.from_payload(payload["validity_pattern"]),
         )

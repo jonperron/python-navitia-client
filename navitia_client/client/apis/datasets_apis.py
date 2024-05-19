@@ -14,7 +14,7 @@ class DatasetsApiClient(ApiBaseClient):
             if not dataset_contributor:
                 continue
 
-            datasets.append(Dataset.from_json(dataset))
+            datasets.append(Dataset.from_payload(dataset))
 
         return datasets
 
@@ -25,7 +25,7 @@ class DatasetsApiClient(ApiBaseClient):
             f"{self.base_navitia_url}/coverage/{region_id}/datasets?start_page={start_page}&count={count}"
         )
         raw_results = results.json()["datasets"]
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return DatasetsApiClient._get_datasets_from_response(raw_results), pagination
 
     def get_dataset_by_id(
@@ -35,5 +35,5 @@ class DatasetsApiClient(ApiBaseClient):
             f"{self.base_navitia_url}/coverage/{region_id}/datasets/{dataset_id}?start_page={start_page}&count={count}"
         )
         raw_results = results.json()["datasets"]
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return DatasetsApiClient._get_datasets_from_response(raw_results), pagination

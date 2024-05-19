@@ -10,7 +10,7 @@ class Contributor(BaseEntity):
     website: Optional[str]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Contributor":
+    def from_payload(cls, payload: dict[str, Any]) -> "Contributor":
         return cls(
             id=payload["id"],
             name=payload["name"],

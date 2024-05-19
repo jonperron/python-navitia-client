@@ -47,7 +47,7 @@ class EntityApi(Generic[TEntity], ABC):
         query_string = self._generate_filter_query(filters)
         results = self.get_navitia_api(url + query_string)
         raw_results = results.json()[entity]
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return self._get_entity_from_response(raw_results), pagination
 
     @abstractmethod

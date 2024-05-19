@@ -30,10 +30,10 @@ class CommercialMode(BaseEntity):
     physical_modes: Optional[Sequence["PhysicalMode"]]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "CommercialMode":
+    def from_payload(cls, payload: dict[str, Any]) -> "CommercialMode":
         physical_modes = (
             [
-                PhysicalMode.from_json(physical_mode)
+                PhysicalMode.from_payload(physical_mode)
                 for physical_mode in payload["physical_modes"]
             ]
             if "physical_modes" in payload
@@ -52,7 +52,7 @@ class CO2EmissionRate(BaseEntity):
     pass
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "CO2EmissionRate":
+    def from_payload(cls, payload: dict[str, Any]) -> "CO2EmissionRate":
         return cls(
             id=payload["id"],
             name=payload["name"],
@@ -67,7 +67,7 @@ class PhysicalMode:
     commercial_modes: Optional[Sequence[CommercialMode]]
 
     @classmethod
-    def from_json(
+    def from_payload(
         cls,
         payload: dict[str, Any],
     ) -> "PhysicalMode":
@@ -77,7 +77,7 @@ class PhysicalMode:
 
         commercial_modes = (
             [
-                CommercialMode.from_json(commercial_mode)
+                CommercialMode.from_payload(commercial_mode)
                 for commercial_mode in payload["commercial_modes"]
             ]
             if "commercial_modes" in payload
