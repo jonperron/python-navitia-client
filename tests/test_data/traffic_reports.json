@@ -1,0 +1,99 @@
+{
+    "context": {
+        "current_datetime": "20240519T190317",
+        "timezone": "Europe/Paris"
+    },
+    "disruptions": [
+        {
+            "application_periods": [
+                {
+                    "begin": "20240518T090000",
+                    "end": "20240518T105200"
+                }
+            ],
+            "cause": "",
+            "contributor": "realtime.sncf.piv",
+            "disruption_id": "090889b6-7804-4609-83fe-b46259c7aff3",
+            "disruption_uri": "090889b6-7804-4609-83fe-b46259c7aff3",
+            "id": "090889b6-7804-4609-83fe-b46259c7aff3",
+            "impact_id": "090889b6-7804-4609-83fe-b46259c7aff3",
+            "impacted_objects": [
+                {
+                    "pt_object": {
+                        "embedded_type": "trip",
+                        "id": "SNCF:2024-05-18:9586:1187:LongDistanceTrain",
+                        "name": "SNCF:2024-05-18:9586:1187:LongDistanceTrain",
+                        "quality": 0,
+                        "trip": {
+                            "id": "SNCF:2024-05-18:9586:1187:LongDistanceTrain",
+                            "name": "9586"
+                        }
+                    }
+                }
+            ],
+            "messages": [
+                {
+                    "channel": {
+                        "content_type": "",
+                        "id": "rt",
+                        "name": "rt",
+                        "types": [
+                            "web",
+                            "mobile"
+                        ]
+                    },
+                    "text": "Conditions météorologiques"
+                }
+            ],
+            "severity": {
+                "color": "#000000",
+                "effect": "NO_SERVICE",
+                "name": "trip canceled",
+                "priority": 42
+            },
+            "status": "past",
+            "updated_at": "20240519T073529",
+            "uri": "090889b6-7804-4609-83fe-b46259c7aff3"
+        }
+    ],
+    "pagination": {
+        "items_on_page": 1,
+        "items_per_page": 1,
+        "start_page": 0,
+        "total_result": 6
+    },
+    "traffic_reports": [
+        {
+            "network": {
+                "id": "network:SNCF:DBS",
+                "links": [],
+                "name": "DB SNCF"
+            },
+            "vehicle_journeys": [
+                {
+                    "codes": [
+                        {
+                            "type": "rt_piv",
+                            "value": "2024-05-18:81399:1187:rail:international:FERRE"
+                        },
+                        {
+                            "type": "source",
+                            "value": "ff413b310c98dc227a8447c5fb471063"
+                        }
+                    ],
+                    "disruptions": [
+                        {
+                            "id": "8464c43c-84ff-462d-b829-671bedfe26c1",
+                            "internal": true,
+                            "rel": "disruptions",
+                            "templated": false,
+                            "type": "disruption"
+                        }
+                    ],
+                    "headsign": "81399",
+                    "id": "vehicle_journey:SNCF:2024-05-18:81399:1187:LongDistanceTrain"
+                }
+            ]
+        }
+    ]
+}

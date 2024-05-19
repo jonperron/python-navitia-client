@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Sequence
+from typing import Any, Optional, Sequence
 
 from navitia_client.entities.base_entity import BaseEntity
 from navitia_client.entities.disruption import Disruption
@@ -125,29 +125,39 @@ class ValidityPattern:
 
 
 @dataclass
-class VehicleJourney(BaseEntity):
-    calendars: Sequence[Calendar]
+class VehicleJourney:
+    id: str
+    name: Optional[str]
+    calendars: Optional[Sequence[Calendar]]
     codes: Sequence[Code]
     disruptions: Sequence[Disruption]
     headsign: str
-    journey_pattern: JourneyPattern
-    stop_times: Sequence[StopTime]
-    trip: Trip
-    validity_pattern: ValidityPattern
+    journey_pattern: Optional[JourneyPattern]
+    stop_times: Optional[Sequence[StopTime]]
+    trip: Optional[Trip]
+    validity_pattern: Optional[ValidityPattern]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "VehicleJourney":
         return cls(
             id=payload["id"],
-            name=payload["name"],
-            calendars=[Calendar.from_payload(data) for data in payload["calendars"]],
+            name=payload.get("name"),
+            calendars=[Calendar.from_payload(data) for data in payload["calendars"]]
+            if "calendars" in payload
+            else None,
             codes=[Code.from_payload(data) for data in payload["codes"]],
             disruptions=[
                 Disruption.from_payload(data) for data in payload["disruptions"]
             ],
             headsign=payload["headsign"],
-            journey_pattern=JourneyPattern.from_payload(payload["journey_pattern"]),
-            stop_times=[StopTime.from_payload(data) for data in payload["stop_times"]],
-            trip=Trip.from_payload(payload["trip"]),
-            validity_pattern=ValidityPattern.from_payload(payload["validity_pattern"]),
+            journey_pattern=JourneyPattern.from_payload(payload["journey_pattern"])
+            if "journey_pattern" in payload
+            else None,
+            stop_times=[StopTime.from_payload(data) for data in payload["stop_times"]]
+            if "stop_times" in payload
+            else None,
+            trip=Trip.from_payload(payload["trip"]) if "trip" in payload else None,
+            validity_pattern=ValidityPattern.from_payload(payload["validity_pattern"])
+            if "validity_pattern" in payload
+            else None,
         )

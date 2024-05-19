@@ -33,6 +33,7 @@ from navitia_client.client.apis.stop_schedules_apis import StopSchedulesApiClien
 from navitia_client.client.apis.terminus_schedules_apis import (
     TerminusSchedulesApiClient,
 )
+from navitia_client.client.apis.traffic_report_apis import TrafficReportsApiClient
 
 BASE_NAVITIA_URL: str = "https://api.navitia.io/v1/"
 
@@ -177,5 +178,11 @@ class NavitiaClient:
     @property
     def line_reports(self) -> LineReportsApiClient:
         return LineReportsApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def traffic_reports(self) -> TrafficReportsApiClient:
+        return TrafficReportsApiClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )
