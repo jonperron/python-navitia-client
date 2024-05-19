@@ -18,10 +18,10 @@ class Link:
     def _build_entity_list_from_payload(
         entity_class: Type, payload: list[dict[str, Any]]
     ) -> Sequence[Any]:
-        return [entity_class.from_json(item) for item in payload]
+        return [entity_class.from_payload(item) for item in payload]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Link":
+    def from_payload(cls, payload: dict[str, Any]) -> "Link":
         entity_mapping = {
             "lines": Line,
             "vehicle_journeys": VehicleJourney,

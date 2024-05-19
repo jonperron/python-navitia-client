@@ -11,7 +11,7 @@ class Direction(BaseEntity):
     stop_area: StopArea
 
     @classmethod
-    def from_json(
+    def from_payload(
         cls,
         payload: dict[str, Any],
     ) -> "Direction":
@@ -20,5 +20,5 @@ class Direction(BaseEntity):
             name=payload["name"],
             embedded_type=payload["embedded_type"],
             quality=payload["quality"],
-            stop_area=StopArea.from_json(payload["stop_area"]),
+            stop_area=StopArea.from_payload(payload["stop_area"]),
         )

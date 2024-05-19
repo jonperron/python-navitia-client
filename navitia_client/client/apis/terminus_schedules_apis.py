@@ -13,7 +13,7 @@ class TerminusSchedulesApiClient(ApiBaseClient):
         terminus_schedules = []
         for terminus_schedule_data in response:
             terminus_schedules.append(
-                TerminusSchedule.from_json(terminus_schedule_data)
+                TerminusSchedule.from_payload(terminus_schedule_data)
             )
 
         return terminus_schedules
@@ -29,7 +29,7 @@ class TerminusSchedulesApiClient(ApiBaseClient):
     ) -> Tuple[Sequence[TerminusSchedule], Pagination]:
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         raw_results = results.json()["terminus_schedules"]
-        pagination = Pagination.from_json(results.json()["pagination"])
+        pagination = Pagination.from_payload(results.json()["pagination"])
         return self._get_terminus_schedule_object_from_response(raw_results), pagination
 
     def list_terminus_schedules(

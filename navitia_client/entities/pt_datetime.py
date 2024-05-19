@@ -13,7 +13,7 @@ class PTDatetime:
     links: Sequence[Link]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "PTDatetime":
+    def from_payload(cls, payload: dict[str, Any]) -> "PTDatetime":
         return cls(
             additional_informations=[
                 additional_information
@@ -27,5 +27,5 @@ class PTDatetime:
             arrival_date_time=datetime.strptime(payload["arrival_date_time"], "%Y%m%d")
             if "arrival_date_time" in payload
             else None,
-            links=[Link.from_json(link) for link in payload["links"]],
+            links=[Link.from_payload(link) for link in payload["links"]],
         )

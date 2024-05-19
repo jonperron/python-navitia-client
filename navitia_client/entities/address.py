@@ -14,15 +14,15 @@ class Address(BaseEntity):
     administrative_regions: Sequence[AdministrativeRegion]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Address":
+    def from_payload(cls, payload: dict[str, Any]) -> "Address":
         return Address(
             id=payload["id"],
             name=payload["name"],
             label=payload["label"],
-            coord=Coord.from_json(payload["coord"]),
+            coord=Coord.from_payload(payload["coord"]),
             house_number=payload["house_number"],
             administrative_regions=[
-                AdministrativeRegion.from_json(data)
+                AdministrativeRegion.from_payload(data)
                 for data in payload["administrative_regions)"]
             ],
         )

@@ -27,14 +27,16 @@ class StopSchedule:
     additional_informations: Optional[AdditionalInformationEnum]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "StopSchedule":
+    def from_payload(cls, payload: dict[str, Any]) -> "StopSchedule":
         return cls(
-            display_informations=DisplayInformation.from_json(
+            display_informations=DisplayInformation.from_payload(
                 payload["display_informations"]
             ),
-            route=Route.from_json(payload["route"]),
-            date_times=[PTDatetime.from_json(data) for data in payload["date_times"]],
-            stop_point=StopPoint.from_json(payload["stop_point"]),
+            route=Route.from_payload(payload["route"]),
+            date_times=[
+                PTDatetime.from_payload(data) for data in payload["date_times"]
+            ],
+            stop_point=StopPoint.from_payload(payload["stop_point"]),
             additional_informations=AdditionalInformationEnum(
                 payload["additional_informations"]
             )
@@ -46,8 +48,8 @@ class StopSchedule:
 @dataclass
 class TerminusSchedule(StopSchedule):
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "TerminusSchedule":
-        stop_schedule = super(TerminusSchedule, cls).from_json(payload)
+    def from_payload(cls, payload: dict[str, Any]) -> "TerminusSchedule":
+        stop_schedule = super(TerminusSchedule, cls).from_payload(payload)
         return cls(
             display_informations=stop_schedule.display_informations,
             route=stop_schedule.route,

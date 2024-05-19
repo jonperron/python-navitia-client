@@ -16,9 +16,9 @@ class Dataset:
     system: Optional[str]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Dataset":
+    def from_payload(cls, payload: dict[str, Any]) -> "Dataset":
         return cls(
-            contributor=Contributor.from_json(payload["contributor"]),
+            contributor=Contributor.from_payload(payload["contributor"]),
             description=payload["description"],
             end_validation_date=datetime.strptime(
                 payload["end_validation_date"], "%Y%m%dT%H%M%S"

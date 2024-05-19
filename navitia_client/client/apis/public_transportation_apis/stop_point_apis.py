@@ -13,7 +13,7 @@ class StopPointApiClient(ApiBaseClient, EntityApi[StopPoint]):
     def _get_entity_from_response(raw_entity_response: Any) -> Sequence[StopPoint]:
         entities = []
         for entity in raw_entity_response:
-            entities.append(StopPoint.from_json(entity))
+            entities.append(StopPoint.from_payload(entity))
         return entities
 
     def list_entity_collection_from_region(

@@ -14,16 +14,16 @@ class ScheduleTableHeader:
     links: Sequence[Link]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "ScheduleTableHeader":
+    def from_payload(cls, payload: dict[str, Any]) -> "ScheduleTableHeader":
         return cls(
             additional_informations=[
                 additional_information
                 for additional_information in payload["additional_informations"]
             ],
-            display_informations=DisplayInformation.from_json(
+            display_informations=DisplayInformation.from_payload(
                 payload["display_informations"]
             ),
-            links=[Link.from_json(link) for link in payload["links"]],
+            links=[Link.from_payload(link) for link in payload["links"]],
         )
 
 
@@ -33,12 +33,13 @@ class ScheduleTableRow:
     stop_point: StopPoint
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "ScheduleTableRow":
+    def from_payload(cls, payload: dict[str, Any]) -> "ScheduleTableRow":
         return cls(
             date_times=[
-                PTDatetime.from_json(date_time) for date_time in payload["date_times"]
+                PTDatetime.from_payload(date_time)
+                for date_time in payload["date_times"]
             ],
-            stop_point=StopPoint.from_json(payload["stop_point"]),
+            stop_point=StopPoint.from_payload(payload["stop_point"]),
         )
 
 
@@ -48,11 +49,11 @@ class ScheduleTable:
     rows: Sequence[ScheduleTableRow]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "ScheduleTable":
+    def from_payload(cls, payload: dict[str, Any]) -> "ScheduleTable":
         return cls(
             headers=[
-                ScheduleTableHeader.from_json(table_header)
+                ScheduleTableHeader.from_payload(table_header)
                 for table_header in payload["headers"]
             ],
-            rows=[ScheduleTableRow.from_json(row) for row in payload["rows"]],
+            rows=[ScheduleTableRow.from_payload(row) for row in payload["rows"]],
         )

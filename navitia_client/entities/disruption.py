@@ -36,7 +36,7 @@ class Severity:
     effect: Effect
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Severity":
+    def from_payload(cls, payload: dict[str, Any]) -> "Severity":
         return cls(
             color=payload["color"],
             priority=payload["priority"],
@@ -51,7 +51,7 @@ class DisruptionPeriod:
     end: datetime
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "DisruptionPeriod":
+    def from_payload(cls, payload: dict[str, Any]) -> "DisruptionPeriod":
         return cls(
             begin=datetime.strptime(payload["begin"], "%Y%m%dT%H%M%S"),
             end=datetime.strptime(payload["end"], "%Y%m%dT%H%M%S"),
@@ -65,7 +65,7 @@ class Channel:
     name: str
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "Channel":
+    def from_payload(cls, payload: dict[str, Any]) -> "Channel":
         return cls(
             id=payload["id"], content_type=payload["content_type"], name=payload["name"]
         )
@@ -77,8 +77,10 @@ class DisruptionMessage:
     channel: Channel
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "DisruptionMessage":
-        return cls(text=payload["text"], channel=Channel.from_json(payload["channel"]))
+    def from_payload(cls, payload: dict[str, Any]) -> "DisruptionMessage":
+        return cls(
+            text=payload["text"], channel=Channel.from_payload(payload["channel"])
+        )
 
 
 @dataclass
@@ -88,12 +90,12 @@ class ImpactedSection:
     routes: Sequence[Route]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "ImpactedSection":
-        routes = [Route.from_json(route_data) for route_data in payload["routes"]]
+    def from_payload(cls, payload: dict[str, Any]) -> "ImpactedSection":
+        routes = [Route.from_payload(route_data) for route_data in payload["routes"]]
 
         return cls(
-            section_from=PtObject.from_json(payload["section_from"]),
-            section_to=PtObject.from_json(payload["section_to"]),
+            section_from=PtObject.from_payload(payload["section_from"]),
+            section_to=PtObject.from_payload(payload["section_to"]),
             routes=routes,
         )
 
@@ -119,7 +121,7 @@ class ImpactedStop:
     is_detour: bool
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "ImpactedStop":
+    def from_payload(cls, payload: dict[str, Any]) -> "ImpactedStop":
         return cls(
             amended_arrival_time=payload["amended_arrival_time"],
             amended_departure_time=payload["amended_departure_time"],
@@ -133,7 +135,7 @@ class ImpactedStop:
             cause=payload["cause"],
             departure_status=StopTimeEffect(payload["departure_status"]),
             is_detour=bool(payload["is_detour"]),
-            stop_point=StopPoint.from_json(payload["stop_point"]),
+            stop_point=StopPoint.from_payload(payload["stop_point"]),
             stop_time_effect=StopTimeEffect(payload["stop_time_effect"]),
         )
 
@@ -145,23 +147,23 @@ class ImpactedObject:
     impacted_stops: Optional[Sequence[ImpactedStop]]
 
     @classmethod
-    def from_json(
+    def from_payload(
         cls,
         payload: dict[str, Any],
     ) -> "ImpactedObject":
         impacted_stops = (
             [
-                ImpactedStop.from_json(impacted_stop_data)
+                ImpactedStop.from_payload(impacted_stop_data)
                 for impacted_stop_data in payload["impacted_stops"]
             ]
             if "impacted_stops" in payload
             else None
         )
         return cls(
-            pt_object=PtObject.from_json(payload["pt_object"])
+            pt_object=PtObject.from_payload(payload["pt_object"])
             if "pt_object" in payload
             else None,
-            impacted_section=ImpactedSection.from_json(payload["impacted_section"])
+            impacted_section=ImpactedSection.from_payload(payload["impacted_section"])
             if "impacted_section" in payload
             else None,
             impacted_stops=impacted_stops,
@@ -184,21 +186,22 @@ class Disruption:
     contributor: str
 
     @classmethod
-    def from_json(
+    def from_payload(
         cls,
         payload: dict[str, Any],
     ) -> "Disruption":
         application_periods = [
-            DisruptionPeriod.from_json(application_period)
+            DisruptionPeriod.from_payload(application_period)
             for application_period in payload["application_periods"]
         ]
         messages = (
-            [DisruptionMessage.from_json(message) for message in payload["messages"]]
+            [DisruptionMessage.from_payload(message) for message in payload["messages"]]
             if "messages" in payload
             else None
         )
         impacted_objects = [
-            ImpactedObject.from_json(object) for object in payload["impacted_objects"]
+            ImpactedObject.from_payload(object)
+            for object in payload["impacted_objects"]
         ]
 
         return cls(
@@ -206,7 +209,7 @@ class Disruption:
             status=DisruptionStatus(payload["status"]),
             disruption_id=payload["disruption_id"],
             impact_id=payload["impact_id"],
-            severity=Severity.from_json(payload["severity"]),
+            severity=Severity.from_payload(payload["severity"]),
             application_periods=application_periods,
             messages=messages,
             updated_at=datetime.strptime(payload["updated_at"], "%Y%m%dT%H%M%S"),

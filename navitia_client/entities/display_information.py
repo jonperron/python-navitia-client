@@ -21,7 +21,7 @@ class DisplayInformation:
     description: Optional[str]
 
     @classmethod
-    def from_json(cls, payload: dict[str, Any]) -> "DisplayInformation":
+    def from_payload(cls, payload: dict[str, Any]) -> "DisplayInformation":
         return cls(
             network=payload["network"],
             physical_mode=payload.get("physical_mode"),

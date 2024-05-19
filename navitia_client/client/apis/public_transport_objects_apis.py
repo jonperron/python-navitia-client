@@ -8,7 +8,7 @@ class PublicTransportObjectsApiClient(ApiBaseClient):
     def _get_pt_objects_from_response(response: Any) -> Sequence[PtObject]:
         pt_objects = []
         for pt_objects_data in response:
-            pt_objects.append(PtObject.from_json(pt_objects_data))
+            pt_objects.append(PtObject.from_payload(pt_objects_data))
 
         return pt_objects
 
