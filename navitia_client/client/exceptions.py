@@ -12,3 +12,7 @@ class NavitiaUnknownObjectError(Exception):
 
 class NavitiaUnableToParseError(Exception):
     pass
+
+
+class NavitiaNotFoundError(Exception):
+    pass
