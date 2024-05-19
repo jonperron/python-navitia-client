@@ -1,0 +1,43 @@
+from dataclasses import dataclass
+from enum import Enum
+from typing import Any, Optional, Sequence
+
+from navitia_client.entities.display_information import DisplayInformation
+from navitia_client.entities.line_and_route import Route
+from navitia_client.entities.pt_datetime import PTDatetime
+from navitia_client.entities.stop_area import StopPoint
+
+
+@dataclass
+class AdditionalInformationEnum(Enum):
+    DATE_OUT_OF_BOUNDS = "date_out_of_bounds"
+    NO_DEPARTURE_THIS_DAY = "no_departure_this_day"
+    NO_ACTIVE_CIRCULATION_THIS_DAY = "no_active_circulation_this_day"
+    TERMINUS = "terminus"
+    PARTIAL_TERMINUS = "partial_terminus"
+    ACTIVE_DISRUPTION = "active_disruption"
+
+
+@dataclass
+class StopSchedule:
+    display_informations: DisplayInformation
+    route: Route
+    date_times: Sequence[PTDatetime]
+    stop_point: StopPoint
+    additional_informations: Optional[AdditionalInformationEnum]
+
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "StopSchedule":
+        return cls(
+            display_informations=DisplayInformation.from_json(
+                payload["display_informations"]
+            ),
+            route=Route.from_json(payload["route"]),
+            date_times=[PTDatetime.from_json(data) for data in payload["date_times"]],
+            stop_point=StopPoint.from_json(payload["stop_point"]),
+            additional_informations=AdditionalInformationEnum(
+                payload["additional_informations"]
+            )
+            if payload["additional_informations"]
+            else None,
+        )

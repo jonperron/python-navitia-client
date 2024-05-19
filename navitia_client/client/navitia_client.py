@@ -26,6 +26,7 @@ from navitia_client.client.apis.public_transportation_apis.stop_point_apis impor
     StopPointApiClient,
 )
 from navitia_client.client.apis.route_schedules_apis import RouteSchedulesApiClient
+from navitia_client.client.apis.stop_schedules_apis import StopSchedulesApiClient
 
 BASE_NAVITIA_URL: str = "https://api.navitia.io/v1/"
 
@@ -140,5 +141,11 @@ class NavitiaClient:
     @property
     def route_schedules(self) -> RouteSchedulesApiClient:
         return RouteSchedulesApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def stop_schedules(self) -> StopSchedulesApiClient:
+        return StopSchedulesApiClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )
