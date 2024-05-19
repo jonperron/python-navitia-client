@@ -41,3 +41,17 @@ class StopSchedule:
             if payload["additional_informations"]
             else None,
         )
+
+
+@dataclass
+class TerminusSchedule(StopSchedule):
+    @classmethod
+    def from_json(cls, payload: dict[str, Any]) -> "TerminusSchedule":
+        stop_schedule = super(TerminusSchedule, cls).from_json(payload)
+        return cls(
+            display_informations=stop_schedule.display_informations,
+            route=stop_schedule.route,
+            date_times=stop_schedule.date_times,
+            stop_point=stop_schedule.stop_point,
+            additional_informations=stop_schedule.additional_informations,
+        )

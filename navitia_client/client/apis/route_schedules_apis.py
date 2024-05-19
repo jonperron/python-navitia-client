@@ -6,7 +6,9 @@ from navitia_client.entities.route_schedule import RouteSchedule
 
 class RouteSchedulesApiClient(ApiBaseClient):
     @staticmethod
-    def _get_pt_objects_from_response(response: Any) -> Sequence[RouteSchedule]:
+    def _get_route_schedule_object_from_response(
+        response: Any,
+    ) -> Sequence[RouteSchedule]:
         route_schedules = []
         for route_schedule_data in response:
             route_schedules.append(RouteSchedule.from_json(route_schedule_data))
@@ -22,7 +24,7 @@ class RouteSchedulesApiClient(ApiBaseClient):
     def _get_places_nearby(self, url: str, filters: dict) -> Sequence[RouteSchedule]:
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         raw_results = results.json()["route_schedules"]
-        return self._get_pt_objects_from_response(raw_results)
+        return self._get_route_schedule_object_from_response(raw_results)
 
     def list_route_schedules(
         self,

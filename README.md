@@ -43,7 +43,7 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Isochrones                                | ❌           |
 | Route Schedules                           | ✅           |
 | Stop Schedules                            | ✅           |
-| Terminus Schedules                        | ❌           |
+| Terminus Schedules                        | ✅           |
 | Departures                                | ❌           |
 | Arrivals                                  | ❌           |
 | Line reports                              | ❌           |
