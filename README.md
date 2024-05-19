@@ -42,7 +42,7 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Journeys                                  | ❌           |
 | Isochrones                                | ❌           |
 | Route Schedules                           | ✅           |
-| Stop Schedules                            | ❌           |
+| Stop Schedules                            | ✅           |
 | Terminus Schedules                        | ❌           |
 | Departures                                | ❌           |
 | Arrivals                                  | ❌           |

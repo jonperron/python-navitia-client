@@ -16,7 +16,7 @@ class DisplayInformation:
     headsign: Optional[str]
     label: Optional[str]
     name: str
-    trip_short_name: str
+    trip_short_name: Optional[str]
     equipments: Optional[Sequence[Equipment]]
     description: Optional[str]
 
@@ -33,7 +33,7 @@ class DisplayInformation:
             headsign=payload.get("headsign"),
             label=payload.get("label"),
             name=payload["name"],
-            trip_short_name=payload["trip_short_name"],
+            trip_short_name=payload.get("trip_short_name"),
             equipments=[
                 Equipment(equipment_data) for equipment_data in payload["equipments"]
             ]
