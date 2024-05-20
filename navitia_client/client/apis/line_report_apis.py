@@ -35,9 +35,10 @@ class LineReportsApiClient(ApiBaseClient):
         forbidden_uris: Optional[Sequence[str]] = None,
         disable_geojson: bool = False,
     ) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
-        request_url = (
-            f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/line_reports"
-        )
+        if resource_path:
+            request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/line_reports"
+        else:
+            request_url = f"{self.base_navitia_url}/coverage/{region_id}/line_reports"
 
         filters = {
             "count": count,
