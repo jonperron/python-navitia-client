@@ -1,0 +1,110 @@
+{
+    "context": {
+        "current_datetime": "20240508T184211",
+        "timezone": "Europe/Paris"
+    },
+    "disruptions": [],
+    "pagination": {
+        "items_on_page": 2,
+        "items_per_page": 10,
+        "start_page": 0,
+        "total_result": 2
+    },
+    "places_nearby": [
+        {
+            "distance": "0",
+            "embedded_type": "stop_area",
+            "id": "stop_area:SNCF:87758896",
+            "name": "Saint-Rémy-lès-Chevreuse",
+            "quality": 0,
+            "stop_area": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "codes": [
+                    {
+                        "type": "source",
+                        "value": "87758896"
+                    },
+                    {
+                        "type": "uic",
+                        "value": "87758896"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "id": "stop_area:SNCF:87758896",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "timezone": "Europe/Paris"
+            }
+        },
+        {
+            "distance": "0",
+            "embedded_type": "stop_point",
+            "id": "stop_point:SNCF:87758896:RapidTransit",
+            "name": "Saint-Rémy-lès-Chevreuse",
+            "quality": 0,
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "stop_area": {
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        }
+    ]
+}

@@ -34,14 +34,10 @@ class TerminusSchedulesApiClient(ApiBaseClient):
             raw_results
         ), pagination
 
-    def list_terminus_schedules(
+    def list_terminus_schedules_by_region_id_and_path(
         self,
-        region_id: Optional[str] = None,
-        resource_path: Optional[str] = None,
-        region_lon: Optional[float] = None,
-        region_lat: Optional[float] = None,
-        lon: Optional[float] = None,
-        lat: Optional[float] = None,
+        region_id: str,
+        resource_path: str,
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
@@ -51,19 +47,37 @@ class TerminusSchedulesApiClient(ApiBaseClient):
         disable_geojson: bool = False,
         direction_type: str = "all",
     ) -> Tuple[Sequence[TerminusSchedule], Pagination]:
-        request_url: str | None = None
-        if region_id and resource_path:
-            # See https://doc.navitia.io/#route-schedules for URL description
-            # List of route schedules near the resource
-            request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/terminus_schedules"
-        elif all([region_lon, region_lat, lon, lat]):
-            # List of objects near the resource, navitia guesses the region from coordinates
-            request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/terminus_schedules"
+        request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/terminus_schedules"
 
-        if not request_url:
-            raise ValueError(
-                "Region id and resource path or region coordinates and coordinates must be provided."
-            )
+        filters = {
+            "from_datetime": from_datetime,
+            "duration": duration,
+            "depth": depth,
+            "items_per_schedule": items_per_schedule,
+            "disable_geojson": disable_geojson,
+            "forbidden_uris[]": forbidden_uris,
+            "data_freshness": data_freshness,
+            "direction_type": direction_type,
+        }
+
+        return self._get_stop_schedules(request_url, filters)
+
+    def list_terminus_schedules_by_coordinates(
+        self,
+        region_lon: float,
+        region_lat: float,
+        lon: float,
+        lat: float,
+        from_datetime: datetime = datetime.now(),
+        duration: int = 86400,
+        depth: int = 1,
+        items_per_schedule: int = 1,
+        forbidden_uris: Optional[Sequence[str]] = None,
+        data_freshness: str = "realtime",
+        disable_geojson: bool = False,
+        direction_type: str = "all",
+    ) -> Tuple[Sequence[TerminusSchedule], Pagination]:
+        request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/terminus_schedules"
 
         filters = {
             "from_datetime": from_datetime,
