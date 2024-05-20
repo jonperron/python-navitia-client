@@ -38,7 +38,12 @@ class TrafficReportsApiClient(ApiBaseClient):
         forbidden_uris: Optional[Sequence[str]] = None,
         disable_geojson: bool = False,
     ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
-        request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/traffic_reports"
+        if resource_path:
+            request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/traffic_reports"
+        else:
+            request_url = (
+                f"{self.base_navitia_url}/coverage/{region_id}/traffic_reports"
+            )
 
         filters = {
             "count": count,
