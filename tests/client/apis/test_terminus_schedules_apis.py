@@ -17,7 +17,7 @@ def terminus_schedules_apis():
 
 
 @patch.object(TerminusSchedulesApiClient, "get_navitia_api")
-def test_list_objects(
+def test_list_objects_by_region_id_and_path(
     mock_get_navitia_api: MagicMock, terminus_schedules_apis: TerminusSchedulesApiClient
 ) -> None:
     # Given
@@ -28,8 +28,10 @@ def test_list_objects(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    terminus_schedules, _ = terminus_schedules_apis.list_terminus_schedules(
-        region_id="bar", resource_path="foo:bar:fuzz"
+    terminus_schedules, _ = (
+        terminus_schedules_apis.list_terminus_schedules_by_region_id_and_path(
+            region_id="bar", resource_path="foo:bar:fuzz"
+        )
     )
 
     # Then
@@ -38,16 +40,23 @@ def test_list_objects(
 
 
 @patch.object(TerminusSchedulesApiClient, "get_navitia_api")
-def test_raise_on_missing_region_coordinates(
+def test_list_objects_by_coordinates(
     mock_get_navitia_api: MagicMock, terminus_schedules_apis: TerminusSchedulesApiClient
 ) -> None:
     # Given
     mock_response = MagicMock()
-    mock_response.json.return_value = {}
+    with open("tests/test_data/terminus_schedules.json", encoding="utf-8") as file:
+        mock_response.json.return_value = json.load(file)
+
     mock_get_navitia_api.return_value = mock_response
 
-    # When/Then
-    with pytest.raises(ValueError):
-        terminus_schedules_apis.list_terminus_schedules(
-            region_id="bar",
+    # When
+    terminus_schedules, _ = (
+        terminus_schedules_apis.list_terminus_schedules_by_coordinates(
+            region_lon=1.1, region_lat=1.2, lon=2.1, lat=2.2
         )
+    )
+
+    # Then
+    assert len(terminus_schedules) == 2
+    assert isinstance(terminus_schedules[0], TerminusSchedule)
