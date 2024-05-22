@@ -1,0 +1,1352 @@
+{
+    "context": {
+        "car_direct_path": {
+            "air_pollutants": {
+                "unit": "g",
+                "values": {
+                    "nox": 10.7068,
+                    "pm": 1.3627
+                }
+            },
+            "co2_emission": {
+                "unit": "gEC",
+                "value": 6044.4684509434
+            }
+        },
+        "current_datetime": "20240522T181935",
+        "timezone": "Europe/Paris"
+    },
+    "disruptions": [],
+    "exceptions": [],
+    "journeys": [
+        {
+            "air_pollutants": {
+                "unit": "g",
+                "values": {
+                    "nox": 0.0,
+                    "pm": 0.0
+                }
+            },
+            "arrival_date_time": "20240522T192200",
+            "calendars": [
+                {
+                    "active_periods": [
+                        {
+                            "begin": "20240522",
+                            "end": "20240523"
+                        }
+                    ],
+                    "week_pattern": {
+                        "friday": false,
+                        "monday": false,
+                        "saturday": false,
+                        "sunday": false,
+                        "thursday": false,
+                        "tuesday": false,
+                        "wednesday": true
+                    }
+                }
+            ],
+            "co2_emission": {
+                "unit": "gEC",
+                "value": 298.39992
+            },
+            "departure_date_time": "20240522T182100",
+            "distances": {
+                "bike": 0,
+                "car": 0,
+                "ridesharing": 0,
+                "taxi": 0,
+                "walking": 0
+            },
+            "duration": 3660,
+            "durations": {
+                "bike": 0,
+                "car": 0,
+                "ridesharing": 0,
+                "taxi": 0,
+                "total": 3660,
+                "walking": 0
+            },
+            "fare": {
+                "found": false,
+                "links": [],
+                "total": {
+                    "value": "0.0"
+                }
+            },
+            "links": [
+                {
+                    "href": "https://api.navitia.io/v1/coverage/sncf/journeys?from=stop_area%3ASNCF%3A87758896&to=stop_area%3ASNCF%3A87758011&first_section_mode%5B%5D=walking&last_section_mode%5B%5D=walking&min_nb_transfers=1&direct_path=none&min_nb_journeys=5&is_journey_schedules=true&allowed_id%5B%5D=stop_point%3ASNCF%3A87758607%3ARapidTransit&allowed_id%5B%5D=stop_point%3ASNCF%3A87758896%3ARapidTransit&allowed_id%5B%5D=stop_point%3ASNCF%3A87758011%3ARapidTransit&datetime=20240522T182100",
+                    "rel": "same_journey_schedules",
+                    "templated": false,
+                    "type": "journeys"
+                },
+                {
+                    "href": "https://api.navitia.io/v1/coverage/sncf/journeys?from=stop_area%3ASNCF%3A87758896&to=stop_area%3ASNCF%3A87758011&first_section_mode%5B%5D=walking&last_section_mode%5B%5D=walking&min_nb_transfers=1&direct_path=none&min_nb_journeys=1&is_journey_schedules=true&allowed_id%5B%5D=stop_point%3ASNCF%3A87758607%3ARapidTransit&allowed_id%5B%5D=stop_point%3ASNCF%3A87758896%3ARapidTransit&allowed_id%5B%5D=stop_point%3ASNCF%3A87758011%3ARapidTransit&datetime=20240522T182100&count=1",
+                    "rel": "this_journey",
+                    "templated": false,
+                    "type": "journeys"
+                }
+            ],
+            "nb_transfers": 1,
+            "requested_date_time": "20240522T181935",
+            "sections": [
+                {
+                    "arrival_date_time": "20240522T182100",
+                    "co2_emission": {
+                        "unit": "gEC",
+                        "value": 0.0
+                    },
+                    "departure_date_time": "20240522T182100",
+                    "duration": 0,
+                    "from": {
+                        "embedded_type": "stop_area",
+                        "id": "stop_area:SNCF:87758896",
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "quality": 0,
+                        "stop_area": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "48.7054888",
+                                        "lon": "2.071109"
+                                    },
+                                    "id": "admin:fr:78575",
+                                    "insee": "78575",
+                                    "label": "Saint-Rémy-lès-Chevreuse",
+                                    "level": 8,
+                                    "name": "Saint-Rémy-lès-Chevreuse",
+                                    "zip_code": "78470"
+                                }
+                            ],
+                            "codes": [
+                                {
+                                    "type": "source",
+                                    "value": "87758896"
+                                },
+                                {
+                                    "type": "uic",
+                                    "value": "87758896"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "48.702722",
+                                "lon": "2.070924"
+                            },
+                            "id": "stop_area:SNCF:87758896",
+                            "label": "Saint-Rémy-lès-Chevreuse",
+                            "links": [],
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "timezone": "Europe/Paris"
+                        }
+                    },
+                    "geojson": {
+                        "coordinates": [
+                            [
+                                2.070924,
+                                48.702722
+                            ],
+                            [
+                                2.070924,
+                                48.702722
+                            ]
+                        ],
+                        "properties": [
+                            {
+                                "length": 0
+                            }
+                        ],
+                        "type": "LineString"
+                    },
+                    "id": "4Ko7MPzB4ojhEUDkqdvbVa_0",
+                    "links": [],
+                    "mode": "walking",
+                    "to": {
+                        "embedded_type": "stop_point",
+                        "id": "stop_point:SNCF:87758896:RapidTransit",
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "quality": 0,
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "48.7054888",
+                                        "lon": "2.071109"
+                                    },
+                                    "id": "admin:fr:78575",
+                                    "insee": "78575",
+                                    "label": "Saint-Rémy-lès-Chevreuse",
+                                    "level": 8,
+                                    "name": "Saint-Rémy-lès-Chevreuse",
+                                    "zip_code": "78470"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "48.702722",
+                                "lon": "2.070924"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:87758896:RapidTransit",
+                            "label": "Saint-Rémy-lès-Chevreuse",
+                            "links": [],
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "stop_area": {
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "87758896"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "87758896"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "48.702722",
+                                    "lon": "2.070924"
+                                },
+                                "id": "stop_area:SNCF:87758896",
+                                "label": "Saint-Rémy-lès-Chevreuse",
+                                "links": [],
+                                "name": "Saint-Rémy-lès-Chevreuse",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    "type": "crow_fly"
+                },
+                {
+                    "additional_informations": [
+                        "regular"
+                    ],
+                    "arrival_date_time": "20240522T191000",
+                    "base_arrival_date_time": "20240522T191000",
+                    "base_departure_date_time": "20240522T182100",
+                    "co2_emission": {
+                        "unit": "gEC",
+                        "value": 232.42856
+                    },
+                    "data_freshness": "base_schedule",
+                    "departure_date_time": "20240522T182100",
+                    "display_informations": {
+                        "code": "B",
+                        "color": "427DBD",
+                        "commercial_mode": "RER",
+                        "description": "",
+                        "direction": "Mitry",
+                        "equipments": [],
+                        "headsign": "IJEL",
+                        "label": "B",
+                        "links": [
+                            {
+                                "id": "stop_area:SNCF:87001479",
+                                "internal": true,
+                                "rel": "terminus",
+                                "templated": false,
+                                "type": "stop_area"
+                            }
+                        ],
+                        "name": "B",
+                        "network": "RER",
+                        "physical_mode": "RER",
+                        "text_color": "FFFFFF",
+                        "trip_short_name": "IJEL13"
+                    },
+                    "duration": 2940,
+                    "from": {
+                        "embedded_type": "stop_point",
+                        "id": "stop_point:SNCF:87758896:RapidTransit",
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "quality": 0,
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "48.7054888",
+                                        "lon": "2.071109"
+                                    },
+                                    "id": "admin:fr:78575",
+                                    "insee": "78575",
+                                    "label": "Saint-Rémy-lès-Chevreuse",
+                                    "level": 8,
+                                    "name": "Saint-Rémy-lès-Chevreuse",
+                                    "zip_code": "78470"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "48.702722",
+                                "lon": "2.070924"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:87758896:RapidTransit",
+                            "label": "Saint-Rémy-lès-Chevreuse",
+                            "links": [],
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "stop_area": {
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "87758896"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "87758896"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "48.702722",
+                                    "lon": "2.070924"
+                                },
+                                "id": "stop_area:SNCF:87758896",
+                                "label": "Saint-Rémy-lès-Chevreuse",
+                                "links": [],
+                                "name": "Saint-Rémy-lès-Chevreuse",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    "geojson": {
+                        "coordinates": [
+                            [
+                                2.070924,
+                                48.702722
+                            ],
+                            [
+                                2.099105,
+                                48.700892
+                            ],
+                            [
+                                2.13674,
+                                48.69819
+                            ],
+                            [
+                                2.152633,
+                                48.69497
+                            ],
+                            [
+                                2.163124,
+                                48.695675
+                            ],
+                            [
+                                2.181772,
+                                48.697617
+                            ],
+                            [
+                                2.191359,
+                                48.70493
+                            ],
+                            [
+                                2.259839,
+                                48.725152
+                            ],
+                            [
+                                2.300973,
+                                48.754675
+                            ],
+                            [
+                                2.304618,
+                                48.762482
+                            ],
+                            [
+                                2.312462,
+                                48.780279
+                            ],
+                            [
+                                2.321012,
+                                48.793228
+                            ],
+                            [
+                                2.327964,
+                                48.798451
+                            ],
+                            [
+                                2.333743,
+                                48.807856
+                            ],
+                            [
+                                2.340909,
+                                48.816303
+                            ],
+                            [
+                                2.339002,
+                                48.82058
+                            ],
+                            [
+                                2.333162,
+                                48.833077
+                            ],
+                            [
+                                2.337069,
+                                48.839923
+                            ],
+                            [
+                                2.340197,
+                                48.846643
+                            ],
+                            [
+                                2.345436,
+                                48.853463
+                            ],
+                            [
+                                2.34814,
+                                48.85983
+                            ]
+                        ],
+                        "properties": [
+                            {
+                                "length": 31927
+                            }
+                        ],
+                        "type": "LineString"
+                    },
+                    "id": "section_0_0",
+                    "links": [
+                        {
+                            "id": "vehicle_journey:SNCF:2024-05-22:IJEL13:1187:RapidTransit",
+                            "type": "vehicle_journey"
+                        },
+                        {
+                            "id": "line:SNCF:B",
+                            "type": "line"
+                        },
+                        {
+                            "id": "route:SNCF:B",
+                            "type": "route"
+                        },
+                        {
+                            "id": "commercial_mode:TNRER",
+                            "type": "commercial_mode"
+                        },
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "type": "physical_mode"
+                        },
+                        {
+                            "id": "network:SNCF:TNRER",
+                            "type": "network"
+                        }
+                    ],
+                    "stop_date_times": [
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T182100",
+                            "base_arrival_date_time": "20240522T182100",
+                            "base_departure_date_time": "20240522T182100",
+                            "departure_date_time": "20240522T182100",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.702722",
+                                    "lon": "2.070924"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758896:RapidTransit",
+                                "label": "Saint-Rémy-lès-Chevreuse",
+                                "links": [],
+                                "name": "Saint-Rémy-lès-Chevreuse"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T182300",
+                            "base_arrival_date_time": "20240522T182300",
+                            "base_departure_date_time": "20240522T182300",
+                            "departure_date_time": "20240522T182300",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.700892",
+                                    "lon": "2.099105"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758888:RapidTransit",
+                                "label": "Courcelle",
+                                "links": [],
+                                "name": "Courcelle"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T182600",
+                            "base_arrival_date_time": "20240522T182600",
+                            "base_departure_date_time": "20240522T182700",
+                            "departure_date_time": "20240522T182700",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.69819",
+                                    "lon": "2.13674"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758870:RapidTransit",
+                                "label": "Gif-sur-Yvette",
+                                "links": [],
+                                "name": "Gif-sur-Yvette"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T182800",
+                            "base_arrival_date_time": "20240522T182800",
+                            "base_departure_date_time": "20240522T182800",
+                            "departure_date_time": "20240522T182800",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.69497",
+                                    "lon": "2.152633"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758862:RapidTransit",
+                                "label": "La",
+                                "links": [],
+                                "name": "La"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T183000",
+                            "base_arrival_date_time": "20240522T183000",
+                            "base_departure_date_time": "20240522T183000",
+                            "departure_date_time": "20240522T183000",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.695675",
+                                    "lon": "2.163124"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758854:RapidTransit",
+                                "label": "Bures-sur-Yvette",
+                                "links": [],
+                                "name": "Bures-sur-Yvette"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T183200",
+                            "base_arrival_date_time": "20240522T183200",
+                            "base_departure_date_time": "20240522T183300",
+                            "departure_date_time": "20240522T183300",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.697617",
+                                    "lon": "2.181772"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758847:RapidTransit",
+                                "label": "Orsay",
+                                "links": [],
+                                "name": "Orsay"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T183400",
+                            "base_arrival_date_time": "20240522T183400",
+                            "base_departure_date_time": "20240522T183500",
+                            "departure_date_time": "20240522T183500",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.70493",
+                                    "lon": "2.191359"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758839:RapidTransit",
+                                "label": "Le",
+                                "links": [],
+                                "name": "Le"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T184000",
+                            "base_arrival_date_time": "20240522T184000",
+                            "base_departure_date_time": "20240522T184100",
+                            "departure_date_time": "20240522T184100",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.725152",
+                                    "lon": "2.259839"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758797:RapidTransit",
+                                "label": "Massy",
+                                "links": [],
+                                "name": "Massy"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T184500",
+                            "base_arrival_date_time": "20240522T184500",
+                            "base_departure_date_time": "20240522T184600",
+                            "departure_date_time": "20240522T184600",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.754675",
+                                    "lon": "2.300973"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758755:RapidTransit",
+                                "label": "Antony",
+                                "links": [],
+                                "name": "Antony"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T184700",
+                            "base_arrival_date_time": "20240522T184700",
+                            "base_departure_date_time": "20240522T184700",
+                            "departure_date_time": "20240522T184700",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.762482",
+                                    "lon": "2.304618"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758748:RapidTransit",
+                                "label": "La",
+                                "links": [],
+                                "name": "La"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T185000",
+                            "base_arrival_date_time": "20240522T185000",
+                            "base_departure_date_time": "20240522T185000",
+                            "departure_date_time": "20240522T185000",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.780279",
+                                    "lon": "2.312462"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758698:RapidTransit",
+                                "label": "Bourg-la-Reine",
+                                "links": [],
+                                "name": "Bourg-la-Reine"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T185200",
+                            "base_arrival_date_time": "20240522T185200",
+                            "base_departure_date_time": "20240522T185300",
+                            "departure_date_time": "20240522T185300",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.793228",
+                                    "lon": "2.321012"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758680:RapidTransit",
+                                "label": "Bagneux",
+                                "links": [],
+                                "name": "Bagneux"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T185400",
+                            "base_arrival_date_time": "20240522T185400",
+                            "base_departure_date_time": "20240522T185500",
+                            "departure_date_time": "20240522T185500",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.798451",
+                                    "lon": "2.327964"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758672:RapidTransit",
+                                "label": "Arcueil",
+                                "links": [],
+                                "name": "Arcueil"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T185600",
+                            "base_arrival_date_time": "20240522T185600",
+                            "base_departure_date_time": "20240522T185700",
+                            "departure_date_time": "20240522T185700",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.807856",
+                                    "lon": "2.333743"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758664:RapidTransit",
+                                "label": "Laplace",
+                                "links": [],
+                                "name": "Laplace"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T185800",
+                            "base_arrival_date_time": "20240522T185800",
+                            "base_departure_date_time": "20240522T185800",
+                            "departure_date_time": "20240522T185800",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.816303",
+                                    "lon": "2.340909"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758656:RapidTransit",
+                                "label": "Gentilly",
+                                "links": [],
+                                "name": "Gentilly"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T185900",
+                            "base_arrival_date_time": "20240522T185900",
+                            "base_departure_date_time": "20240522T190000",
+                            "departure_date_time": "20240522T190000",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.82058",
+                                    "lon": "2.339002"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758649:RapidTransit",
+                                "label": "Cité",
+                                "links": [],
+                                "name": "Cité"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T190200",
+                            "base_arrival_date_time": "20240522T190200",
+                            "base_departure_date_time": "20240522T190300",
+                            "departure_date_time": "20240522T190300",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.833077",
+                                    "lon": "2.333162"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758631:RapidTransit",
+                                "label": "Denfert",
+                                "links": [],
+                                "name": "Denfert"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T190400",
+                            "base_arrival_date_time": "20240522T190400",
+                            "base_departure_date_time": "20240522T190400",
+                            "departure_date_time": "20240522T190400",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.839923",
+                                    "lon": "2.337069"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758623:RapidTransit",
+                                "label": "Port",
+                                "links": [],
+                                "name": "Port"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T190600",
+                            "base_arrival_date_time": "20240522T190600",
+                            "base_departure_date_time": "20240522T190600",
+                            "departure_date_time": "20240522T190600",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.846643",
+                                    "lon": "2.340197"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758615:RapidTransit",
+                                "label": "Luxembourg",
+                                "links": [],
+                                "name": "Luxembourg"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T190800",
+                            "base_arrival_date_time": "20240522T190800",
+                            "base_departure_date_time": "20240522T190800",
+                            "departure_date_time": "20240522T190800",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.853463",
+                                    "lon": "2.345436"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87785436:RapidTransit",
+                                "label": "Saint-Michel",
+                                "links": [],
+                                "name": "Saint-Michel"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T191000",
+                            "base_arrival_date_time": "20240522T191000",
+                            "base_departure_date_time": "20240522T191100",
+                            "departure_date_time": "20240522T191100",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.85983",
+                                    "lon": "2.34814"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758607:RapidTransit",
+                                "label": "Châtelet)",
+                                "links": [],
+                                "name": "Châtelet"
+                            }
+                        }
+                    ],
+                    "to": {
+                        "embedded_type": "stop_point",
+                        "id": "stop_point:SNCF:87758607:RapidTransit",
+                        "name": "Châtelet les Halles (Paris)",
+                        "quality": 0,
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "48.8534951",
+                                        "lon": "2.3483915"
+                                    },
+                                    "id": "admin:fr:75056",
+                                    "insee": "75056",
+                                    "label": "Paris",
+                                    "level": 8,
+                                    "name": "Paris",
+                                    "zip_code": "75000;75116"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "48.85983",
+                                "lon": "2.34814"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:87758607:RapidTransit",
+                            "label": "Châtelet le",
+                            "links": [],
+                            "name": "Châtelet",
+                            "stop_area": {
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "87758607"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "87758607"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "48.85983",
+                                    "lon": "2.34814"
+                                },
+                                "id": "stop_area:SNCF:87758607",
+                                "label": "Châtelet",
+                                "links": [],
+                                "name": "Châtelet",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    "type": "public_transport"
+                },
+                {
+                    "arrival_date_time": "20240522T191200",
+                    "co2_emission": {
+                        "unit": "gEC",
+                        "value": 0.0
+                    },
+                    "departure_date_time": "20240522T191000",
+                    "duration": 120,
+                    "id": "section_1_0",
+                    "links": [],
+                    "type": "waiting"
+                },
+                {
+                    "additional_informations": [
+                        "regular"
+                    ],
+                    "arrival_date_time": "20240522T192200",
+                    "base_arrival_date_time": "20240522T192200",
+                    "base_departure_date_time": "20240522T191200",
+                    "co2_emission": {
+                        "unit": "gEC",
+                        "value": 65.97136
+                    },
+                    "data_freshness": "base_schedule",
+                    "departure_date_time": "20240522T191200",
+                    "display_informations": {
+                        "code": "A",
+                        "color": "D1302F",
+                        "commercial_mode": "RER",
+                        "description": "",
+                        "direction": "Poissy",
+                        "equipments": [],
+                        "headsign": "TAXE",
+                        "label": "A",
+                        "links": [
+                            {
+                                "id": "stop_area:SNCF:87758201",
+                                "internal": true,
+                                "rel": "terminus",
+                                "templated": false,
+                                "type": "stop_area"
+                            }
+                        ],
+                        "name": "A",
+                        "network": "RER",
+                        "physical_mode": "",
+                        "text_color": "FFFFFF",
+                        "trip_short_name": "TAXE59"
+                    },
+                    "duration": 600,
+                    "from": {
+                        "embedded_type": "stop_point",
+                        "id": "stop_point:SNCF:87758607:RapidTransit",
+                        "name": "Châtelet les Halles (Paris)",
+                        "quality": 0,
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "48.8534951",
+                                        "lon": "2.3483915"
+                                    },
+                                    "id": "admin:fr:75056",
+                                    "insee": "75056",
+                                    "label": "Paris",
+                                    "level": 8,
+                                    "name": "Paris",
+                                    "zip_code": "75000;75116"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "48.85983",
+                                "lon": "2.34814"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:87758607:RapidTransit",
+                            "label": "Châtelet les",
+                            "links": [],
+                            "name": "Châtelet les",
+                            "stop_area": {
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "87758607"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "87758607"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "48.85983",
+                                    "lon": "2.34814"
+                                },
+                                "id": "stop_area:SNCF:87758607",
+                                "label": "Châtelet",
+                                "links": [],
+                                "name": "Châtelet",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    "geojson": {
+                        "coordinates": [
+                            [
+                                2.34814,
+                                48.85983
+                            ],
+                            [
+                                2.330432,
+                                48.871956
+                            ],
+                            [
+                                2.29502,
+                                48.874201
+                            ],
+                            [
+                                2.238212,
+                                48.891718
+                            ]
+                        ],
+                        "properties": [
+                            {
+                                "length": 9062
+                            }
+                        ],
+                        "type": "LineString"
+                    },
+                    "id": "section_2_0",
+                    "links": [
+                        {
+                            "id": "vehicle_journey:SNCF:2024-05-22:TAXE59:1187:RapidTransit",
+                            "type": "vehicle_journey"
+                        },
+                        {
+                            "id": "line:SNCF:A",
+                            "type": "line"
+                        },
+                        {
+                            "id": "route:SNCF:A",
+                            "type": "route"
+                        },
+                        {
+                            "id": "commercial_mode:TNRER",
+                            "type": "commercial_mode"
+                        },
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "type": "physical_mode"
+                        },
+                        {
+                            "id": "network:SNCF:TNRER",
+                            "type": "network"
+                        }
+                    ],
+                    "stop_date_times": [
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T191100",
+                            "base_arrival_date_time": "20240522T191100",
+                            "base_departure_date_time": "20240522T191200",
+                            "departure_date_time": "20240522T191200",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.85983",
+                                    "lon": "2.34814"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758607:RapidTransit",
+                                "label": "Châtelet",
+                                "links": [],
+                                "name": "Châtelet"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T191400",
+                            "base_arrival_date_time": "20240522T191400",
+                            "base_departure_date_time": "20240522T191500",
+                            "departure_date_time": "20240522T191500",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.871956",
+                                    "lon": "2.330432"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758599:RapidTransit",
+                                "label": "Auber",
+                                "links": [],
+                                "name": "Auber"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T191800",
+                            "base_arrival_date_time": "20240522T191800",
+                            "base_departure_date_time": "20240522T191800",
+                            "departure_date_time": "20240522T191800",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.874201",
+                                    "lon": "2.29502"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758003:RapidTransit",
+                                "label": "Charles-de-Gaul",
+                                "links": [],
+                                "name": "Charles-de-Gaulle"
+                            }
+                        },
+                        {
+                            "additional_informations": [],
+                            "arrival_date_time": "20240522T192200",
+                            "base_arrival_date_time": "20240522T192200",
+                            "base_departure_date_time": "20240522T192300",
+                            "departure_date_time": "20240522T192300",
+                            "links": [],
+                            "stop_point": {
+                                "coord": {
+                                    "lat": "48.891718",
+                                    "lon": "2.238212"
+                                },
+                                "equipments": [],
+                                "id": "stop_point:SNCF:87758011:RapidTransit",
+                                "label": "La",
+                                "links": [],
+                                "name": "La"
+                            }
+                        }
+                    ],
+                    "to": {
+                        "embedded_type": "stop_point",
+                        "id": "stop_point:SNCF:87758011:RapidTransit",
+                        "name": "La Grande Arche de la Défense",
+                        "quality": 0,
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "48.8841522",
+                                        "lon": "2.2368863"
+                                    },
+                                    "id": "admin:fr:92062",
+                                    "insee": "92062",
+                                    "label": "Puteaux",
+                                    "level": 8,
+                                    "name": "Puteaux",
+                                    "zip_code": "92800"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "48.891718",
+                                "lon": "2.238212"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:87758011:RapidTransit",
+                            "label": "La Grande Arche",
+                            "links": [],
+                            "name": "La Grande Arche de",
+                            "stop_area": {
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "87758011"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "87758011"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "48.891718",
+                                    "lon": "2.238212"
+                                },
+                                "id": "stop_area:SNCF:87758011",
+                                "label": "La",
+                                "links": [],
+                                "name": "La",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    "type": "public_transport"
+                },
+                {
+                    "arrival_date_time": "20240522T192200",
+                    "co2_emission": {
+                        "unit": "gEC",
+                        "value": 0.0
+                    },
+                    "departure_date_time": "20240522T192200",
+                    "duration": 0,
+                    "from": {
+                        "embedded_type": "stop_point",
+                        "id": "stop_point:SNCF:87758011:RapidTransit",
+                        "name": "La Grande Arche de la Défense",
+                        "quality": 0,
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "48.8841522",
+                                        "lon": "2.2368863"
+                                    },
+                                    "id": "admin:fr:92062",
+                                    "insee": "92062",
+                                    "label": "Puteaux",
+                                    "level": 8,
+                                    "name": "Puteaux",
+                                    "zip_code": "92800"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "48.891718",
+                                "lon": "2.238212"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:87758011:RapidTransit",
+                            "label": "La Grande Arche",
+                            "links": [],
+                            "name": "La Grande Arche",
+                            "stop_area": {
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "87758011"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "87758011"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "48.891718",
+                                    "lon": "2.238212"
+                                },
+                                "id": "stop_area:SNCF:87758011",
+                                "label": "La",
+                                "links": [],
+                                "name": "La",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    "geojson": {
+                        "coordinates": [
+                            [
+                                2.238212,
+                                48.891718
+                            ],
+                            [
+                                2.238212,
+                                48.891718
+                            ]
+                        ],
+                        "properties": [
+                            {
+                                "length": 0
+                            }
+                        ],
+                        "type": "LineString"
+                    },
+                    "id": "n3nuk9pa3NNMHFCnyhhG2c_0",
+                    "links": [],
+                    "mode": "walking",
+                    "to": {
+                        "embedded_type": "stop_area",
+                        "id": "stop_area:SNCF:87758011",
+                        "name": "La Grande Arche de la Défense",
+                        "quality": 0,
+                        "stop_area": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "48.8841522",
+                                        "lon": "2.2368863"
+                                    },
+                                    "id": "admin:fr:92062",
+                                    "insee": "92062",
+                                    "label": "Puteaux",
+                                    "level": 8,
+                                    "name": "Puteaux",
+                                    "zip_code": "92800"
+                                }
+                            ],
+                            "codes": [
+                                {
+                                    "type": "source",
+                                    "value": "87758011"
+                                },
+                                {
+                                    "type": "uic",
+                                    "value": "87758011"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "48.891718",
+                                "lon": "2.238212"
+                            },
+                            "id": "stop_area:SNCF:87758011",
+                            "label": "La Grande Arche de)",
+                            "links": [],
+                            "name": "La Grande Arche de",
+                            "timezone": "Europe/Paris"
+                        }
+                    },
+                    "type": "crow_fly"
+                }
+            ],
+            "status": "",
+            "tags": [
+                "walking",
+                "reliable",
+                "ecologic"
+            ],
+            "type": "best"
+        }
+    ],
+    "notes": [],
+    "terminus": [
+        {
+            "codes": [
+                {
+                    "type": "source",
+                    "value": "87001479"
+                },
+                {
+                    "type": "uic",
+                    "value": "87001479"
+                }
+            ],
+            "coord": {
+                "lat": "49.003965",
+                "lon": "2.570665"
+            },
+            "id": "stop_area:SNCF:87001479",
+            "label": "Aéroport - Charles-de-Gaulle 2 RER",
+            "links": [],
+            "name": "Aéroport - Charles-de-Gaulle 2 RER",
+            "timezone": "Europe/Paris"
+        },
+        {
+            "codes": [
+                {
+                    "type": "source",
+                    "value": "87758201"
+                },
+                {
+                    "type": "uic",
+                    "value": "87758201"
+                }
+            ],
+            "coord": {
+                "lat": "48.753076",
+                "lon": "2.505344"
+            },
+            "id": "stop_area:SNCF:87758201",
+            "label": "Boissy-Saint-Léger (Boissy-Saint-Léger)",
+            "links": [],
+            "name": "Boissy-Saint-Léger",
+            "timezone": "Europe/Paris"
+        }
+    ],
+    "tickets": []
+}

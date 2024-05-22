@@ -39,7 +39,7 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Autocomplete on Public Transport objects  | ✅           |                                         |
 | Autocomplete on geographical objects      | ✅           |                                         |
 | Places nearby                             | ✅           |                                         |
-| Journeys                                  | ❌           |                                         |
+| Journeys                                  | ✅           |                                         |
 | Isochrones                                | ❌           |                                         |
 | Route Schedules                           | ✅           |                                         |
 | Stop Schedules                            | ✅           |                                         |
