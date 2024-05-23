@@ -1,16 +1,10 @@
 from datetime import datetime
-from typing import Any, Optional, Sequence
+from typing import Optional, Sequence
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.journey import Journey
 
 
 class JourneyApiClient(ApiBaseClient):
-    @staticmethod
-    def _generate_filter_query(filters: dict[str, Any]) -> str:
-        """Generate query string regarding provided filters"""
-        filter_query = "&".join([f"{key}={value}" for key, value in filters.items()])
-        return "?" + filter_query if filter_query else ""
-
     def _get_journeys(self, url: str, filters: dict) -> Sequence[Journey]:
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         journeys = [Journey.from_payload(data) for data in results.json()["journeys"]]

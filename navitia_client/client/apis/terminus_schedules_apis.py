@@ -18,12 +18,6 @@ class TerminusSchedulesApiClient(ApiBaseClient):
 
         return terminus_schedules
 
-    @staticmethod
-    def _generate_filter_query(filters: dict[str, Any]) -> str:
-        """Generate query string regarding provided filters"""
-        filter_query = "&".join([f"{key}={value}" for key, value in filters.items()])
-        return "?" + filter_query if filter_query else ""
-
     def _get_stop_schedules(
         self, url: str, filters: dict
     ) -> Tuple[Sequence[TerminusSchedule], Pagination]:
