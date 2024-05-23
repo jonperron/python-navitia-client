@@ -13,12 +13,6 @@ class PlacesNearbyApiClient(ApiBaseClient):
 
         return entities
 
-    @staticmethod
-    def _generate_filter_query(filters: dict[str, Any]) -> str:
-        """Generate query string regarding provided filters"""
-        filter_query = "&".join([f"{key}={value}" for key, value in filters.items()])
-        return "?" + filter_query if filter_query else ""
-
     def _get_places_nearby(
         self, url: str, filters: dict
     ) -> Tuple[Sequence[Place], Pagination]:

@@ -1,3 +1,4 @@
+from typing import Any
 from requests import Response, Session  # type: ignore
 
 from navitia_client.client.exceptions import (
@@ -36,6 +37,12 @@ class ApiBaseClient:
                 raise NavitiaForbiddenAccessError(error_message)
 
         return response
+
+    @staticmethod
+    def _generate_filter_query(filters: dict[str, Any]) -> str:
+        """Generate query string regarding provided filters"""
+        filter_query = "&".join([f"{key}={value}" for key, value in filters.items()])
+        return "?" + filter_query if filter_query else ""
 
     def get_navitia_api(self, endpoint: str) -> Response:
         return self._check_response_for_exception(self.session.get(endpoint))

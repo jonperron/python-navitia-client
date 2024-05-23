@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, Optional, Sequence, Tuple
+from typing import Optional, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.disruption import Disruption
 from navitia_client.entities.pagination import Pagination
@@ -7,12 +7,6 @@ from navitia_client.entities.traffic_report import TrafficReport
 
 
 class TrafficReportsApiClient(ApiBaseClient):
-    @staticmethod
-    def _generate_filter_query(filters: dict[str, Any]) -> str:
-        """Generate query string regarding provided filters"""
-        filter_query = "&".join([f"{key}={value}" for key, value in filters.items()])
-        return "?" + filter_query if filter_query else ""
-
     def _get_traffic_reports(
         self, url: str, filters: dict
     ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:

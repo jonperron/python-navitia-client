@@ -15,12 +15,6 @@ class RouteSchedulesApiClient(ApiBaseClient):
 
         return route_schedules
 
-    @staticmethod
-    def _generate_filter_query(filters: dict[str, Any]) -> str:
-        """Generate query string regarding provided filters"""
-        filter_query = "&".join([f"{key}={value}" for key, value in filters.items()])
-        return "?" + filter_query if filter_query else ""
-
     def _get_routes_nearby(self, url: str, filters: dict) -> Sequence[RouteSchedule]:
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         raw_results = results.json()["route_schedules"]
