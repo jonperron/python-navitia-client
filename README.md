@@ -59,7 +59,7 @@ Additional dependencies are described in the [pyproject.toml file](pyproject.tom
 
 ##  Contributing
 
-You are free to contribute to the repo. Please read [Contributing.md](CONTRIBUTING.md).
+You are free to contribute to the repo. Please read [Contributing.md](docs/CONTRIBUTING.md).
 
 ##  Additional questions
 

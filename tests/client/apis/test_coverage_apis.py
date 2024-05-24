@@ -73,7 +73,7 @@ def test_get_region_by_id(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    regions, pagination = coverage_apis.get_region_by_id("12")
+    regions, pagination = coverage_apis.get_coverage_by_region_id("12")
 
     # Then
     assert len(regions) == 1
@@ -110,7 +110,9 @@ def test_get_region_by_coordinates(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    regions, pagination = coverage_apis.get_region_by_coordinates(12.5, 13.2)
+    regions, pagination = (
+        coverage_apis.get_coverage_by_region_coordinates_and_coordinates(12.5, 13.2)
+    )
 
     # Then
     assert len(regions) == 1

@@ -11,6 +11,8 @@ from navitia_client.client.exceptions import (
 
 
 class ApiBaseClient:
+    """Common base client for API calls."""
+
     def __init__(self, auth_token: str, base_navitia_url: str) -> None:
         self.base_navitia_url = base_navitia_url
         self.session = Session()
