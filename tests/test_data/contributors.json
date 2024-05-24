@@ -1,0 +1,16 @@
+{
+    "contributors": [
+        {
+            "id": "foo:foo-piv",
+            "license": "Private",
+            "name": "foo Production",
+            "website": ""
+        }
+    ],
+    "pagination": {
+        "items_on_page": 25,
+        "items_per_page": 25,
+        "start_page": 0,
+        "total_result": 99
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "places": [
+        {
+            "embedded_type": "stop_area",
+            "id": "stop_area:SNCF:87758011",
+            "name": "La Grande Arche de la Défense (Puteaux)",
+            "quality": 70,
+            "stop_area": {
+                "administrative_regions": [
+                    {
+                        "coord": {"lat": "48.8841522", "lon": "2.2368863"},
+                        "id": "admin:fr:92062",
+                        "insee": "92062",
+                        "label": "Puteaux ",
+                        "level": 8,
+                        "name": "Puteaux",
+                        "zip_code": "92800"
+                    }
+                ],
+                "codes": [
+                    {"type": "source", "value": "87758011"},
+                    {"type": "uic", "value": "87758011"}
+                ],
+                "coord": {"lat": "48.891718", "lon": "2.238212"},
+                "id": "stop_area:SNCF:87758011",
+                "label": "La Grande Arche de la Défense (Puteaux)",
+                "links": [],
+                "name": "La Grande Arche de la Défense",
+                "timezone": "Europe/Paris"
+            }
+        }
+    ]
+}

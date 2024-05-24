@@ -1,0 +1,18 @@
+{
+    "datasets": [
+        {
+            "description": "",
+            "end_validation_date": "20240428T020000",
+            "id": "foo:xxx",
+            "realtime_level": "base_schedule",
+            "start_validation_date": "20240405T020000",
+            "system": ""
+        }
+    ],
+    "pagination": {
+        "items_on_page": 25,
+        "items_per_page": 25,
+        "start_page": 0,
+        "total_result": 99
+    }
+}

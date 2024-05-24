@@ -1,0 +1,12 @@
+{
+    "commercial_modes": [
+        {"id": "commercial_mode:buz", "name": "Buz"},
+        {"id": "commercial_mode:foo", "name": "foo"}
+    ],
+    "pagination": {
+        "items_on_page": 25,
+        "items_per_page": 25,
+        "start_page": 0,
+        "total_result": 99
+    }
+}

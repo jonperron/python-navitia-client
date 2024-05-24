@@ -1,0 +1,15 @@
+{
+    "companies": [
+        {
+            "codes": [{"type": "source", "value": "12"}],
+            "id": "company:foo:0012",
+            "name": "Foo gmbh"
+        }
+    ],
+    "pagination": {
+        "items_on_page": 25,
+        "items_per_page": 25,
+        "start_page": 0,
+        "total_result": 99
+    }
+}

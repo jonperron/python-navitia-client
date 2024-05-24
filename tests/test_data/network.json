@@ -1,0 +1,12 @@
+{
+    "networks": [
+        {"id": "network:foo", "links": [], "name": "Foo"},
+        {"id": "network:bar", "links": [], "name": "Bar"}
+    ],
+    "pagination": {
+        "items_on_page": 25,
+        "items_per_page": 25,
+        "start_page": 0,
+        "total_result": 99
+    }
+}

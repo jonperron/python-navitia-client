@@ -1,4 +1,5 @@
 from datetime import datetime
+import json
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -21,26 +22,9 @@ def test_list_covered_areas(
 ) -> None:
     # Given
     mock_response = MagicMock()
-    mock_response.json.return_value = {
-        "regions": [
-            {
-                "id": "region1",
-                "name": "Region 1",
-                "dataset_created_at": "2022-01-01T00:00:00",
-                "end_production_date": "20221231",
-                "last_load_at": "2022-01-01T00:00:00",
-                "shape": "shape_data",
-                "start_production_date": "20220101",
-                "status": "active",
-            }
-        ],
-        "pagination": {
-            "items_on_page": 25,
-            "items_per_page": 25,
-            "start_page": 0,
-            "total_result": 99,
-        },
-    }
+    with open("tests/test_data/coverage.json", encoding="utf-8") as file:
+        mock_response.json.return_value = json.load(file)
+
     mock_get_navitia_api.return_value = mock_response
 
     # When

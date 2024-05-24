@@ -1,0 +1,25 @@
+{
+    "physical_modes": [
+        {
+            "co2_emission_rate": {"unit": "gEC/Km", "value": 0.0},
+            "id": "physical_mode:Bike",
+            "name": "Bike"
+        },
+        {
+            "co2_emission_rate": {"unit": "gEC/Km", "value": 0.0},
+            "id": "physical_mode:BikeSharingService",
+            "name": "BikeSharingService"
+        },
+        {
+            "co2_emission_rate": {"unit": "gEC/Km", "value": 132.0},
+            "id": "physical_mode:Bus",
+            "name": "Bus"
+        }
+    ],
+    "pagination": {
+        "items_on_page": 25,
+        "items_per_page": 25,
+        "start_page": 0,
+        "total_result": 99
+    }
+}

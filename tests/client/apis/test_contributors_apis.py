@@ -1,3 +1,4 @@
+import json
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -20,22 +21,9 @@ def test_list_contributors(
 ) -> None:
     # Given
     mock_response = MagicMock()
-    mock_response.json.return_value = {
-        "contributors": [
-            {
-                "id": "foo:foo-piv",
-                "license": "Private",
-                "name": "foo Production",
-                "website": "",
-            }
-        ],
-        "pagination": {
-            "items_on_page": 25,
-            "items_per_page": 25,
-            "start_page": 0,
-            "total_result": 99,
-        },
-    }
+    with open("tests/test_data/contributors.json", encoding="utf-8") as file:
+        mock_response.json.return_value = json.load(file)
+
     mock_get_navitia_api.return_value = mock_response
 
     # When
@@ -57,22 +45,8 @@ def test_get_region_by_id(
 ) -> None:
     # Given
     mock_response = MagicMock()
-    mock_response.json.return_value = {
-        "contributors": [
-            {
-                "id": "foo:foo-piv",
-                "license": "Private",
-                "name": "foo Production",
-                "website": "",
-            }
-        ],
-        "pagination": {
-            "items_on_page": 25,
-            "items_per_page": 25,
-            "start_page": 0,
-            "total_result": 99,
-        },
-    }
+    with open("tests/test_data/contributors.json", encoding="utf-8") as file:
+        mock_response.json.return_value = json.load(file)
     mock_get_navitia_api.return_value = mock_response
 
     # When
