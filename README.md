@@ -40,7 +40,7 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Autocomplete on geographical objects      | ✅           |                                              |
 | Places nearby                             | ✅           |                                              |
 | Journeys                                  | ✅           |                                              |
-| Isochrones                                | ❌           |                                              |
+| Isochrones                                | ✅           | Beta endpoint according to API response      |
 | Route Schedules                           | ✅           |                                              |
 | Stop Schedules                            | ✅           |                                              |
 | Terminus Schedules                        | ✅           |                                              |
