@@ -1,3 +1,4 @@
+import json
 import pytest
 
 from unittest.mock import MagicMock, patch
@@ -19,21 +20,9 @@ def test_list_entity_collection_from_region(
 ) -> None:
     # Given
     mock_response = MagicMock()
-    mock_response.json.return_value = {
-        "companies": [
-            {
-                "codes": [{"type": "source", "value": "12"}],
-                "id": "company:foo:0012",
-                "name": "Foo gmbh",
-            }
-        ],
-        "pagination": {
-            "items_on_page": 25,
-            "items_per_page": 25,
-            "start_page": 0,
-            "total_result": 99,
-        },
-    }
+    with open("tests/test_data/company.json", encoding="utf-8") as file:
+        mock_response.json.return_value = json.load(file)
+
     mock_get_navitia_api.return_value = mock_response
 
     # When

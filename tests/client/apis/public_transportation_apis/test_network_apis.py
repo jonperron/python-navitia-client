@@ -1,3 +1,4 @@
+import json
 import pytest
 
 from unittest.mock import MagicMock, patch
@@ -19,18 +20,9 @@ def test_list_entity_collection_from_region(
 ) -> None:
     # Given
     mock_response = MagicMock()
-    mock_response.json.return_value = {
-        "networks": [
-            {"id": "network:foo", "links": [], "name": "Foo"},
-            {"id": "network:bar", "links": [], "name": "Bar"},
-        ],
-        "pagination": {
-            "items_on_page": 25,
-            "items_per_page": 25,
-            "start_page": 0,
-            "total_result": 99,
-        },
-    }
+    with open("tests/test_data/network.json", encoding="utf-8") as file:
+        mock_response.json.return_value = json.load(file)
+
     mock_get_navitia_api.return_value = mock_response
 
     # When
@@ -47,22 +39,14 @@ def test_get_entity_by_id(
 ) -> None:
     # Given
     mock_response = MagicMock()
-    mock_response.json.return_value = {
-        "networks": [
-            {"id": "network:foo", "links": [], "name": "Foo"},
-        ],
-        "pagination": {
-            "items_on_page": 25,
-            "items_per_page": 25,
-            "start_page": 0,
-            "total_result": 99,
-        },
-    }
+    with open("tests/test_data/network.json", encoding="utf-8") as file:
+        mock_response.json.return_value = json.load(file)
+
     mock_get_navitia_api.return_value = mock_response
 
     # When
     networks, _ = network_apis.get_entity_by_id("tuz", "1")
 
     # Then
-    assert len(networks) == 1
+    assert len(networks) == 2
     assert isinstance(networks[0], Network)

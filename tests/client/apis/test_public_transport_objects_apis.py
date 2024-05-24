@@ -1,3 +1,4 @@
+import json
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -21,39 +22,11 @@ def test_list_objects(
 ) -> None:
     # Given
     mock_response = MagicMock()
-    mock_response.json.return_value = {
-        "pt_objects": [
-            {
-                "embedded_type": "stop_area",
-                "id": "stop_area:SNCF:87758896",
-                "name": "Saint-Rémy-lès-Chevreuse (Saint-Rémy-lès-Chevreuse)",
-                "quality": 70,
-                "stop_area": {
-                    "administrative_regions": [
-                        {
-                            "coord": {"lat": "48.7054888", "lon": "2.071109"},
-                            "id": "admin:fr:78575",
-                            "insee": "78575",
-                            "label": "Saint-Rémy-lès-Chevreuse " "(78470)",
-                            "level": 8,
-                            "name": "Saint-Rémy-lès-Chevreuse",
-                            "zip_code": "78470",
-                        }
-                    ],
-                    "codes": [
-                        {"type": "source", "value": "87758896"},
-                        {"type": "uic", "value": "87758896"},
-                    ],
-                    "coord": {"lat": "48.702722", "lon": "2.070924"},
-                    "id": "stop_area:SNCF:87758896",
-                    "label": "Saint-Rémy-lès-Chevreuse " "(Saint-Rémy-lès-Chevreuse)",
-                    "links": [],
-                    "name": "Saint-Rémy-lès-Chevreuse",
-                    "timezone": "Europe/Paris",
-                },
-            }
-        ],
-    }
+    with open(
+        "tests/test_data/public_transport_objects.json", encoding="utf-8"
+    ) as file:
+        mock_response.json.return_value = json.load(file)
+
     mock_get_navitia_api.return_value = mock_response
 
     # When

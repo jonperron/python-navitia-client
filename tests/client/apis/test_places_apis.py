@@ -1,3 +1,4 @@
+import json
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -19,39 +20,8 @@ def test_list_objects(
 ) -> None:
     # Given
     mock_response = MagicMock()
-    mock_response.json.return_value = {
-        "places": [
-            {
-                "embedded_type": "stop_area",
-                "id": "stop_area:SNCF:87758011",
-                "name": "La Grande Arche de la Défense (Puteaux)",
-                "quality": 70,
-                "stop_area": {
-                    "administrative_regions": [
-                        {
-                            "coord": {"lat": "48.8841522", "lon": "2.2368863"},
-                            "id": "admin:fr:92062",
-                            "insee": "92062",
-                            "label": "Puteaux " "(92800)",
-                            "level": 8,
-                            "name": "Puteaux",
-                            "zip_code": "92800",
-                        }
-                    ],
-                    "codes": [
-                        {"type": "source", "value": "87758011"},
-                        {"type": "uic", "value": "87758011"},
-                    ],
-                    "coord": {"lat": "48.891718", "lon": "2.238212"},
-                    "id": "stop_area:SNCF:87758011",
-                    "label": "La Grande Arche de la Défense (Puteaux)",
-                    "links": [],
-                    "name": "La Grande Arche de la Défense",
-                    "timezone": "Europe/Paris",
-                },
-            }
-        ]
-    }
+    with open("tests/test_data/places.json", encoding="utf-8") as file:
+        mock_response.json.return_value = json.load(file)
     mock_get_navitia_api.return_value = mock_response
 
     # When
