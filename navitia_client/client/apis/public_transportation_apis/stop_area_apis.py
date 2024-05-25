@@ -6,11 +6,90 @@ from navitia_client.entities.stop_area import StopArea
 
 
 class StopAreaApiClient(ApiBaseClient, EntityApi[StopArea]):
+    """
+    API client for handling 'StopArea' entities in the Navitia API.
+
+    See https://doc.navitia.io/#pt-ref
+
+    Attributes
+    ----------
+    entity_name : str
+        Name of the entity ('stop_areas').
+    get_navitia_api : method
+        Method to get the Navitia API.
+
+    Methods
+    -------
+    _get_entity_from_response(raw_entity_response: Any) -> Sequence[StopArea]:
+        Static method to extract StopArea instances from the raw API response.
+
+    list_entity_collection_from_region(
+        region_id: str,
+        start_page: int = 0,
+        count: int = 25,
+        depth: int = 1,
+        odt: str = "all",
+        distance: int = 200,
+        headsign: Optional[str] = None
+    ) -> Tuple[Sequence[StopArea], Pagination]:
+        List stop areas for a given region.
+
+    get_entity_by_id(
+        region_id: str,
+        object_id: str,
+        start_page: int = 0,
+        count: int = 25,
+        depth: int = 1,
+        odt: str = "all",
+        distance: int = 200,
+        headsign: Optional[str] = None
+    ) -> Tuple[Sequence[StopArea], Pagination]:
+        Get a stop area by its ID in a given region.
+
+    list_entity_collection_from_coordinates(
+        lon: float,
+        lat: float,
+        start_page: int = 0,
+        count: int = 25,
+        depth: int = 1,
+        odt: str = "all",
+        distance: int = 200,
+        headsign: Optional[str] = None
+    ) -> Tuple[Sequence[StopArea], Pagination]:
+        List stop areas for given geographic coordinates.
+
+    get_entity_by_id_and_coordinates(
+        lon: float,
+        lat: float,
+        object_id: str,
+        start_page: int = 0,
+        count: int = 25,
+        depth: int = 1,
+        odt: str = "all",
+        distance: int = 200,
+        headsign: Optional[str] = None
+    ) -> Tuple[Sequence[StopArea], Pagination]:
+        Get a stop area by its ID for given geographic coordinates.
+    """
+
     entity_name: str = "stop_areas"
     get_navitia_api = ApiBaseClient.get_navitia_api
 
     @staticmethod
     def _get_entity_from_response(raw_entity_response: Any) -> Sequence[StopArea]:
+        """
+        Static method to extract StopArea instances from the raw API response.
+
+        Parameters
+        ----------
+        raw_entity_response : Any
+            Raw API response containing StopArea data.
+
+        Returns
+        -------
+        Sequence[StopArea]
+            List of StopArea instances.
+        """
         entities = []
         for entity in raw_entity_response:
             entities.append(StopArea.from_payload(entity))
@@ -26,6 +105,31 @@ class StopAreaApiClient(ApiBaseClient, EntityApi[StopArea]):
         distance: int = 200,
         headsign: Optional[str] = None,
     ) -> Tuple[Sequence[StopArea], Pagination]:
+        """
+        List stop areas for a given region.
+
+        Parameters
+        ----------
+        region_id : str
+            ID of the region.
+        start_page : int, optional
+            Starting page number (default is 0).
+        count : int, optional
+            Number of items per page (default is 25).
+        depth : int, optional
+            Search depth (default is 1).
+        odt : str, optional
+            ODT type filter (default is "all").
+        distance : int, optional
+            Maximum search distance (default is 200).
+        headsign : Optional[str], optional
+            Stop area headsign.
+
+        Returns
+        -------
+        Tuple[Sequence[StopArea], Pagination]
+            List of StopArea instances and pagination information.
+        """
         filters = {
             "start_page": start_page,
             "count": count,
@@ -50,6 +154,33 @@ class StopAreaApiClient(ApiBaseClient, EntityApi[StopArea]):
         distance: int = 200,
         headsign: Optional[str] = None,
     ) -> Tuple[Sequence[StopArea], Pagination]:
+        """
+        Get a stop area by its ID in a given region.
+
+        Parameters
+        ----------
+        region_id : str
+            ID of the region.
+        object_id : str
+            ID of the stop area.
+        start_page : int, optional
+            Starting page number (default is 0).
+        count : int, optional
+            Number of items per page (default is 25).
+        depth : int, optional
+            Search depth (default is 1).
+        odt : str, optional
+            ODT type filter (default is "all").
+        distance : int, optional
+            Maximum search distance (default is 200).
+        headsign : Optional[str], optional
+            Stop area headsign.
+
+        Returns
+        -------
+        Tuple[Sequence[StopArea], Pagination]
+            List of StopArea instances and pagination information.
+        """
         filters = {
             "start_page": start_page,
             "count": count,
@@ -75,6 +206,33 @@ class StopAreaApiClient(ApiBaseClient, EntityApi[StopArea]):
         distance: int = 200,
         headsign: Optional[str] = None,
     ) -> Tuple[Sequence[StopArea], Pagination]:
+        """
+        List stop areas for given geographic coordinates.
+
+        Parameters
+        ----------
+        lon : float
+            Longitude.
+        lat : float
+            Latitude.
+        start_page : int, optional
+            Starting page number (default is 0).
+        count : int, optional
+            Number of items per page (default is 25).
+        depth : int, optional
+            Search depth (default is 1).
+        odt : str, optional
+            ODT type filter (default is "all").
+        distance : int, optional
+            Maximum search distance (default is 200).
+        headsign : Optional[str], optional
+            Stop area headsign.
+
+        Returns
+        -------
+        Tuple[Sequence[StopArea], Pagination]
+            List of StopArea instances and pagination information.
+        """
         filters = {
             "start_page": start_page,
             "count": count,
@@ -101,6 +259,35 @@ class StopAreaApiClient(ApiBaseClient, EntityApi[StopArea]):
         distance: int = 200,
         headsign: Optional[str] = None,
     ) -> Tuple[Sequence[StopArea], Pagination]:
+        """
+        Get a stop area by its ID for given geographic coordinates.
+
+        Parameters
+        ----------
+        lon : float
+            Longitude.
+        lat : float
+            Latitude.
+        object_id : str
+            ID of the stop area.
+        start_page : int, optional
+            Starting page number (default is 0).
+        count : int, optional
+            Number of items per page (default is 25).
+        depth : int, optional
+            Search depth (default is 1).
+        odt : str, optional
+            ODT type filter (default is "all").
+        distance : int, optional
+            Maximum search distance (default is 200).
+        headsign : Optional[str], optional
+            Stop area headsign.
+
+        Returns
+        -------
+        Tuple[Sequence[StopArea], Pagination]
+            List of StopArea instances and pagination information.
+        """
         filters = {
             "start_page": start_page,
             "count": count,
