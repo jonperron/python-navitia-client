@@ -19,5 +19,4 @@ jobs:
         pip install -e .
     - name: Test with pytest
       run: |
-        pip install pytest
-        pytest tests/
+        pytest --cov=navitia_client --cov-report=term --cov-fail-under=80
