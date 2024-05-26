@@ -8,6 +8,8 @@ class JourneyApiClient(ApiBaseClient):
     """
     A client class to interact with the Navitia API for fetching journey data.
 
+    See https://doc.navitia.io/#journeys
+
     Methods
     -------
     _get_journeys(url: str, filters: dict) -> Sequence[Journey]
