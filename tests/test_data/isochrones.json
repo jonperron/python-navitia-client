@@ -1,8 +1,4 @@
 {
-    "context": {
-        "current_datetime": "20240523T094155",
-        "timezone": "Europe/Paris"
-    },
     "isochrones": [
         {
             "from": {
@@ -784,14 +780,6 @@
             "min_date_time": "20240523T094155",
             "min_duration": 0,
             "requested_date_time": "20240523T094155"
-        }
-    ],
-    "links": [
-        {
-            "href": "https://api.navitia.io/v1/coverage/sncf/stop_areas/{stop_area.id}",
-            "rel": "stop_areas",
-            "templated": true,
-            "type": "stop_area"
         }
     ]
 }

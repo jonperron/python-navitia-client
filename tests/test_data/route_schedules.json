@@ -1,767 +1,1344 @@
-{"context": {"current_datetime": "20240510T110403", "timezone": "Europe/Paris"},
- "disruptions": [],
- "exceptions": [],
- "links": [{"href": "http://api.navitia.io/v1/coverage/sncf/addresses/{address.id}",
-            "rel": "addresses",
-            "templated": true,
-            "type": "address"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/stop_points/{stop_point.id}",
-            "rel": "stop_points",
-            "templated": true,
-            "type": "stop_point"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/vehicle_journeys/{vehicle_journey.id}",
-            "rel": "vehicle_journeys",
-            "templated": true,
-            "type": "vehicle_journey"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/networks/{network.id}",
-            "rel": "networks",
-            "templated": true,
-            "type": "network"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/routes/{route.id}",
-            "rel": "routes",
-            "templated": true,
-            "type": "route"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/stop_areas/{stop_area.id}",
-            "rel": "stop_areas",
-            "templated": true,
-            "type": "stop_area"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/physical_modes/{physical_mode.id}",
-            "rel": "physical_modes",
-            "templated": true,
-            "type": "physical_mode"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/commercial_modes/{commercial_mode.id}",
-            "rel": "commercial_modes",
-            "templated": true,
-            "type": "commercial_mode"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/lines/{line.id}",
-            "rel": "lines",
-            "templated": true,
-            "type": "line"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/lines/line:SNCF:0018-87271007-84000588/route_schedules?start_page=0",
-            "templated": false,
-            "type": "last"},
-           {"href": "http://api.navitia.io/v1/coverage/sncf/lines/line:SNCF:0018-87271007-84000588/route_schedules",
-            "templated": false,
-            "type": "first"}],
- "notes": [],
- "pagination": {"items_on_page": 1,
-                "items_per_page": 10,
-                "start_page": 0,
-                "total_result": 1},
- "route_schedules": [{"additional_informations": null,
-                      "display_informations": {"code": "",
-                                               "color": "",
-                                               "commercial_mode": "Eurostar",
-                                               "direction": "Amsterdam Centraal (Amsterdam)",
-                                               "equipments": null,
-                                               "label": "Paris Nord - Amsterdam Centraal",
-                                               "links": [],
-                                               "name": "Paris Nord - Amsterdam Centraal",
-                                               "network": "Eurostar",
-                                               "text_color": "",
-                                               "trip_short_name": null},
-                      "geojson": {"coordinates": [], "type": "MultiLineString"},
-                      "links": [{"id": "line:SNCF:0018-87271007-84000588",
-                                 "type": "line"},
-                                {"id": "route:SNCF:0018-87271007-84000588",
-                                 "type": "route"},
-                                {"id": "commercial_mode:EUROSTAR",
-                                 "type": "commercial_mode"},
-                                {"id": "network:SNCF:EUROSTAR",
-                                 "type": "network"}],
-                      "table": {"headers": [{"additional_informations": ["regular"],
-                                             "display_informations": {"code": "",
-                                                                      "color": "",
-                                                                      "commercial_mode": "",
-                                                                      "description": "",
-                                                                      "direction": "Amsterdam Centraal (Amsterdam)",
-                                                                      "equipments": [],
-                                                                      "headsign": "9339",
-                                                                      "links": [],
-                                                                      "name": "",
-                                                                      "network": "",
-                                                                      "physical_mode": "Train grande vitesse",
-                                                                      "text_color": "",
-                                                                      "trip_short_name": "9339"},
-                                             "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
-                                                        "type": "vehicle_journey"},
-                                                       {"id": "physical_mode:LongDistanceTrain",
-                                                        "type": "physical_mode"}]},
-                                            {"additional_informations": ["regular"],
-                                             "display_informations": {"code": "",
-                                                                      "color": "",
-                                                                      "commercial_mode": "",
-                                                                      "description": "",
-                                                                      "direction": "Amsterdam Centraal (Amsterdam)",
-                                                                      "equipments": [],
-                                                                      "headsign": "9351",
-                                                                      "links": [],
-                                                                      "name": "",
-                                                                      "network": "",
-                                                                      "physical_mode": "Train grande vitesse",
-                                                                      "text_color": "",
-                                                                      "trip_short_name": "9351"},
-                                             "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
-                                                        "type": "vehicle_journey"},
-                                                       {"id": "physical_mode:LongDistanceTrain",
-                                                        "type": "physical_mode"}]},
-                                            {"additional_informations": ["regular"],
-                                             "display_informations": {"code": "",
-                                                                      "color": "",
-                                                                      "commercial_mode": "",
-                                                                      "description": "",
-                                                                      "direction": "Amsterdam Centraal (Amsterdam)",
-                                                                      "equipments": [],
-                                                                      "headsign": "9369",
-                                                                      "links": [],
-                                                                      "name": "",
-                                                                      "network": "",
-                                                                      "physical_mode": "Train grande vitesse",
-                                                                      "text_color": "",
-                                                                      "trip_short_name": "9369"},
-                                             "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
-                                                        "type": "vehicle_journey"},
-                                                       {"id": "physical_mode:LongDistanceTrain",
-                                                        "type": "physical_mode"}]},
-                                            {"additional_informations": ["regular"],
-                                             "display_informations": {"code": "",
-                                                                      "color": "",
-                                                                      "commercial_mode": "",
-                                                                      "description": "",
-                                                                      "direction": "Amsterdam Centraal(Amsterdam)",
-                                                                      "equipments": [],
-                                                                      "headsign": "9381",
-                                                                      "links": [],
-                                                                      "name": "",
-                                                                      "network": "",
-                                                                      "physical_mode": "Train grande vitesse",
-                                                                      "text_color": "",
-                                                                      "trip_short_name": "9381"},
-                                             "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
-                                                        "type": "vehicle_journey"},
-                                                       {"id": "physical_mode:LongDistanceTrain",
-                                                        "type": "physical_mode"}]},
-                                            {"additional_informations": ["regular"],
-                                             "display_informations": {"code": "",
-                                                                      "color": "",
-                                                                      "commercial_mode": "",
-                                                                      "description": "",
-                                                                      "direction": "Amsterdam Centraal (Amsterdam)",
-                                                                      "equipments": [],
-                                                                      "headsign": "9309",
-                                                                      "links": [],
-                                                                      "name": "",
-                                                                      "network": "",
-                                                                      "physical_mode": "Train grande vitesse",
-                                                                      "text_color": "",
-                                                                      "trip_short_name": "9309"},
-                                             "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
-                                                        "type": "vehicle_journey"},
-                                                       {"id": "physical_mode:LongDistanceTrain",
-                                                        "type": "physical_mode"}]},
-                                            {"additional_informations": ["regular"],
-                                             "display_informations": {"code": "",
-                                                                      "color": "",
-                                                                      "commercial_mode": "",
-                                                                      "description": "",
-                                                                      "direction": "Amsterdam Centraal (Amsterdam)",
-                                                                      "equipments": [],
-                                                                      "headsign": "9315",
-                                                                      "links": [],
-                                                                      "name": "",
-                                                                      "network": "",
-                                                                      "physical_mode": "Train grande vitesse",
-                                                                      "text_color": "",
-                                                                      "trip_short_name": "9315"},
-                                             "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
-                                                        "type": "vehicle_journey"},
-                                                       {"id": "physical_mode:LongDistanceTrain",
-                                                        "type": "physical_mode"}]},
-                                            {"additional_informations": ["regular"],
-                                             "display_informations": {"code": "",
-                                                                      "color": "",
-                                                                      "commercial_mode": "",
-                                                                      "description": "",
-                                                                      "direction": "Amsterdam Centraal (Amsterdam)",
-                                                                      "equipments": [],
-                                                                      "headsign": "9327",
-                                                                      "links": [],
-                                                                      "name": "",
-                                                                      "network": "",
-                                                                      "physical_mode": "Train grande vitesse",
-                                                                      "text_color": "",
-                                                                      "trip_short_name": "9327"},
-                                             "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
-                                                        "type": "vehicle_journey"},
-                                                       {"id": "physical_mode:LongDistanceTrain",
-                                                        "type": "physical_mode"}]}],
-                                "rows": [{"date_times": [{"additional_informations": [],
-                                                          "base_date_time": "20240510T122200",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T122200",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T142200",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T142200",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T172500",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T172500",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T192400",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T192400",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T070700",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T070700",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T082500",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T082500",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T102400",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T102400",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"}]}],
-                                          "stop_point": {"administrative_regions": [{"coord": {"lat": "48.8534951",
-                                                                                               "lon": "2.3483915"},
-                                                                                     "id": "admin:fr:75056",
-                                                                                     "insee": "75056",
-                                                                                     "label": "Paris (75000-75116)",
-                                                                                     "level": 8,
-                                                                                     "name": "Paris",
-                                                                                     "zip_code": "75000;75116"}],
-                                                         "commercial_modes": [{"id": "commercial_mode:EUROSTAR",
-                                                                               "name": "Eurostar"},
-                                                                              {"id": "commercial_mode:OUI",
-                                                                               "name": "TGV INOUI"}],
-                                                         "coord": {"lat": "48.880136",
-                                                                   "lon": "2.354851"},
-                                                         "equipments": [],
-                                                         "id": "stop_point:SNCF:87271007:LongDistanceTrain",
-                                                         "label": "Paris Nord (Paris)",
-                                                         "links": [],
-                                                         "name": "Paris Nord",
-                                                         "physical_modes": [{"id": "physical_mode:LongDistanceTrain",
-                                                                             "name": "Train grande vitesse"}],
-                                                         "stop_area": {"administrative_regions": [{"coord": {"lat": "48.8534951",
-                                                                                                             "lon": "2.3483915"},
-                                                                                                   "id": "admin:fr:75056",
-                                                                                                   "insee": "75056",
-                                                                                                   "label": "Paris (75000-75116)",
-                                                                                                   "level": 8,
-                                                                                                   "name": "Paris",
-                                                                                                   "zip_code": "75000;75116"}],
-                                                                       "codes": [{"type": "secondary_id",
-                                                                                  "value": "SNCF:87271023"},
-                                                                                 {"type": "secondary_id",
-                                                                                  "value": "SNCF:87271031"},
-                                                                                 {"type": "source",
-                                                                                  "value": "87271007"},
-                                                                                 {"type": "source",
-                                                                                  "value": "87271023"},
-                                                                                 {"type": "source",
-                                                                                  "value": "87271031"},
-                                                                                 {"type": "uic",
-                                                                                  "value": "87271007"},
-                                                                                 {"type": "uic",
-                                                                                  "value": "87271023"},
-                                                                                 {"type": "uic",
-                                                                                  "value": "87271031"}],
-                                                                       "coord": {"lat": "48.880136",
-                                                                                 "lon": "2.354851"},
-                                                                       "id": "stop_area:SNCF:87271007",
-                                                                       "label": "Paris Nord (Paris)",
-                                                                       "links": [],
-                                                                       "name": "Paris Nord",
-                                                                       "timezone": "Europe/Paris"}}},
-                                         {"date_times": [{"additional_informations": [],
-                                                          "base_date_time": "20240510T135200",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T135200",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T155200",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T155200",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T185200",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T185200",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T205200",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T205200",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T085200",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T085200",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T095200",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T095200",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T115200",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T115200",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"}]}],
-                                          "stop_point": {"administrative_regions": [{"coord": {"lat": "50.8249958",
-                                                                                               "lon": "4.3454841"},
-                                                                                     "id": "admin:osm:relation:58248",
-                                                                                     "label": "Saint-Gilles",
-                                                                                     "level": 8,
-                                                                                     "name": "Saint-Gilles",
-                                                                                     "zip_code": "1060"}],
-                                                         "commercial_modes": [{"id": "commercial_mode:EUROSTAR",
-                                                                               "name": "Eurostar"},
-                                                                              {"id": "commercial_mode:OUI",
-                                                                               "name": "TGV INOUI"}],
-                                                         "coord": {"lat": "50.836",
-                                                                   "lon": "4.336"},
-                                                         "equipments": [],
-                                                         "id": "stop_point:SNCF:88140010:LongDistanceTrain",
-                                                         "label": "Bruxelles-Midi",
-                                                         "links": [],
-                                                         "name": "Bruxelles-Midi",
-                                                         "physical_modes": [{"id": "physical_mode:LongDistanceTrain",
-                                                                             "name": "Train"}],
-                                                         "stop_area": {"administrative_regions": [{"coord": {"lat": "50.8249958",
-                                                                                                             "lon": "4.3454841"},
-                                                                                                   "id": "admin:osm:relation:58248",
-                                                                                                   "label": "Saint-Gilles",
-                                                                                                   "level": 8,
-                                                                                                   "name": "Saint-Gilles",
-                                                                                                   "zip_code": "1060"}],
-                                                                       "codes": [{"type": "source",
-                                                                                  "value": "88140010"},
-                                                                                 {"type": "uic",
-                                                                                  "value": "88140010"}],
-                                                                       "coord": {"lat": "50.836",
-                                                                                 "lon": "4.336"},
-                                                                       "id": "stop_area:SNCF:88140010",
-                                                                       "label": "Bruxelles-Midi",
-                                                                       "links": [],
-                                                                       "name": "Bruxelles-Midi",
-                                                                       "timezone": "Europe/Paris"}}},
-                                         {"date_times": [{"additional_informations": [],
-                                                          "base_date_time": "20240510T143000",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T143000",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T163000",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T163000",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T193000",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T193000",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T213000",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T213000",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T093000",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T093000",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T103000",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T103000",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T123000",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T123000",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"}]}],
-                                          "stop_point": {"administrative_regions": [{"coord": {"lat": "51.2211097",
-                                                                                               "lon": "4.3997081"},
-                                                                                     "id": "admin:osm:relation:59518",
-                                                                                     "label": "Antwerpen",
-                                                                                     "level": 8,
-                                                                                     "name": "Antwerpen",
-                                                                                     "zip_code": ""}],
-                                                         "commercial_modes": [{"id": "commercial_mode:EUROSTAR",
-                                                                               "name": "Eurostar"}],
-                                                         "coord": {"lat": "51.216",
-                                                                   "lon": "4.421"},
-                                                         "equipments": [],
-                                                         "id": "stop_point:SNCF:88210060:LongDistanceTrain",
-                                                         "label": "Antwerpen-Centraal",
-                                                         "links": [],
-                                                         "name": "Antwerpen-Centraal",
-                                                         "physical_modes": [{"id": "physical_mode:LongDistanceTrain",
-                                                                             "name": "Train"}],
-                                                         "stop_area": {"administrative_regions": [{"coord": {"lat": "51.2211097",
-                                                                                                             "lon": "4.3997081"},
-                                                                                                   "id": "admin:osm:relation:59518",
-                                                                                                   "label": "Antwerpen",
-                                                                                                   "level": 8,
-                                                                                                   "name": "Antwerpen",
-                                                                                                   "zip_code": ""}],
-                                                                       "codes": [{"type": "source",
-                                                                                  "value": "88210060"},
-                                                                                 {"type": "uic",
-                                                                                  "value": "88210060"}],
-                                                                       "coord": {"lat": "51.216",
-                                                                                 "lon": "4.421"},
-                                                                       "id": "stop_area:SNCF:88210060",
-                                                                       "label": "Antwerpen-Centraal",
-                                                                       "links": [],
-                                                                       "name": "Antwerpen-Centraal",
-                                                                       "timezone": "Europe/Paris"}}},
-                                         {"date_times": [{"additional_informations": [],
-                                                          "base_date_time": "20240510T150500",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T150500",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T170500",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T170500",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T200500",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T200500",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T220500",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T220500",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T100500",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T100500",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T110500",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T110500",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T130500",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T130500",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"}]}],
-                                          "stop_point": {"administrative_regions": [{"coord": {"lat": "51.9244424",
-                                                                                               "lon": "4.4777499999999995"},
-                                                                                     "id": "admin:osm:relation:1411101",
-                                                                                     "label": "Rotterdam",
-                                                                                     "level": 8,
-                                                                                     "name": "Rotterdam",
-                                                                                     "zip_code": ""}],
-                                                         "commercial_modes": [{"id": "commercial_mode:EUROSTAR",
-                                                                               "name": "Eurostar"}],
-                                                         "coord": {"lat": "51.924845",
-                                                                   "lon": "4.469313"},
-                                                         "equipments": [],
-                                                         "id": "stop_point:SNCF:84005306:LongDistanceTrain",
-                                                         "label": "Rotterdam",
-                                                         "links": [],
-                                                         "name": "Rotterdam",
-                                                         "physical_modes": [{"id": "physical_mode:LongDistanceTrain",
-                                                                             "name": "Train"}],
-                                                         "stop_area": {"administrative_regions": [{"coord": {"lat": "51.9244424",
-                                                                                                             "lon": "4.4777499999999995"},
-                                                                                                   "id": "admin:osm:relation:1411101",
-                                                                                                   "label": "Rotterdam",
-                                                                                                   "level": 8,
-                                                                                                   "name": "Rotterdam",
-                                                                                                   "zip_code": ""}],
-                                                                       "codes": [{"type": "source",
-                                                                                  "value": "84005306"},
-                                                                                 {"type": "uic",
-                                                                                  "value": "84005306"}],
-                                                                       "coord": {"lat": "51.924845",
-                                                                                 "lon": "4.469313"},
-                                                                       "id": "stop_area:SNCF:84005306",
-                                                                       "label": "Rotterdam",
-                                                                       "links": [],
-                                                                       "name": "Rotterdam",
-                                                                       "timezone": "Europe/Paris"}}},
-                                         {"date_times": [{"additional_informations": ["drop_off_only"],
-                                                          "base_date_time": "20240510T152900",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T152900",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": ["drop_off_only"],
-                                                          "base_date_time": "20240510T172900",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T172900",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": ["drop_off_only"],
-                                                          "base_date_time": "20240510T202900",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T202900",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": ["drop_off_only"],
-                                                          "base_date_time": "20240510T222900",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T222900",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": ["drop_off_only"],
-                                                          "base_date_time": "20240511T102900",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T102900",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": ["drop_off_only"],
-                                                          "base_date_time": "20240511T112900",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T112900",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": ["drop_off_only"],
-                                                          "base_date_time": "20240511T132900",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T132900",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"}]}],
-                                          "stop_point": {"administrative_regions": [{"coord": {"lat": "52.3080392",
-                                                                                               "lon": "4.7621975"},
-                                                                                     "id": "admin:osm:relation:1883613",
-                                                                                     "label": "Schiphol",
-                                                                                     "level": 8,
-                                                                                     "name": "Schiphol",
-                                                                                     "zip_code": ""}],
-                                                         "commercial_modes": [{"id": "commercial_mode:EUROSTAR",
-                                                                               "name": "Eurostar"}],
-                                                         "coord": {"lat": "52.309636",
-                                                                   "lon": "4.761985"},
-                                                         "equipments": [],
-                                                         "id": "stop_point:SNCF:84005611:LongDistanceTrain",
-                                                         "label": "Schiphol",
-                                                         "links": [],
-                                                         "name": "Schiphol",
-                                                         "physical_modes": [{"id": "physical_mode:LongDistanceTrain",
-                                                                             "name": "Train"}],
-                                                         "stop_area": {"administrative_regions": [{"coord": {"lat": "52.3080392",
-                                                                                                             "lon": "4.7621975"},
-                                                                                                   "id": "admin:osm:relation:1883613",
-                                                                                                   "label": "Schiphol",
-                                                                                                   "level": 8,
-                                                                                                   "name": "Schiphol",
-                                                                                                   "zip_code": ""}],
-                                                                       "codes": [{"type": "source",
-                                                                                  "value": "84005611"},
-                                                                                 {"type": "uic",
-                                                                                  "value": "84005611"}],
-                                                                       "coord": {"lat": "52.309636",
-                                                                                 "lon": "4.761985"},
-                                                                       "id": "stop_area:SNCF:84005611",
-                                                                       "label": "Schiphol",
-                                                                       "links": [],
-                                                                       "name": "Schiphol",
-                                                                       "timezone": "Europe/Paris"}}},
-                                         {"date_times": [{"additional_informations": [],
-                                                          "base_date_time": "20240510T154400",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T154400",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T174400",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T174400",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T204400",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T204400",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240510T224400",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240510T224400",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T104400",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T104400",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T114400",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T114400",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"}]},
-                                                         {"additional_informations": [],
-                                                          "base_date_time": "20240511T134400",
-                                                          "data_freshness": "base_schedule",
-                                                          "date_time": "20240511T134400",
-                                                          "links": [{"id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
-                                                                     "rel": "vehicle_journeys",
-                                                                     "type": "vehicle_journey",
-                                                                     "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"}]}],
-                                          "stop_point": {"administrative_regions": [{"coord": {"lat": "52.3727598",
-                                                                                               "lon": "4.8936041"},
-                                                                                     "id": "admin:osm:relation:271110",
-                                                                                     "label": "Amsterdam",
-                                                                                     "level": 8,
-                                                                                     "name": "Amsterdam",
-                                                                                     "zip_code": ""}],
-                                                         "commercial_modes": [{"id": "commercial_mode:EUROSTAR",
-                                                                               "name": "Eurostar"}],
-                                                         "coord": {"lat": "52.37908",
-                                                                   "lon": "4.900632"},
-                                                         "equipments": [],
-                                                         "id": "stop_point:SNCF:84000588:LongDistanceTrain",
-                                                         "label": "Amsterdam",
-                                                         "links": [],
-                                                         "name": "Amsterdam",
-                                                         "physical_modes": [{"id": "physical_mode:LongDistanceTrain",
-                                                                             "name": "Train"}],
-                                                         "stop_area": {"administrative_regions": [{"coord": {"lat": "52.3727598",
-                                                                                                             "lon": "4.8936041"},
-                                                                                                   "id": "admin:osm:relation:271110",
-                                                                                                   "label": "Amsterdam",
-                                                                                                   "level": 8,
-                                                                                                   "name": "Amsterdam",
-                                                                                                   "zip_code": ""}],
-                                                                       "codes": [{"type": "source",
-                                                                                  "value": "84000588"},
-                                                                                 {"type": "uic",
-                                                                                  "value": "84000588"}],
-                                                                       "coord": {"lat": "52.37908",
-                                                                                 "lon": "4.900632"},
-                                                                       "id": "stop_area:SNCF:84000588",
-                                                                       "label": "Amsterdam",
-                                                                       "links": [],
-                                                                       "name": "Amsterdam",
-                                                                       "timezone": "Europe/Paris"}}}]}}]}
+{
+    "pagination": {
+        "items_on_page": 1,
+        "items_per_page": 10,
+        "start_page": 0,
+        "total_result": 1
+    },
+    "route_schedules": [
+        {
+            "additional_informations": null,
+            "display_informations": {
+                "code": "",
+                "color": "",
+                "commercial_mode": "Eurostar",
+                "direction": "Amsterdam Centraal (Amsterdam)",
+                "equipments": null,
+                "label": "Paris Nord - Amsterdam Centraal",
+                "links": [],
+                "name": "Paris Nord - Amsterdam Centraal",
+                "network": "Eurostar",
+                "text_color": "",
+                "trip_short_name": null
+            },
+            "geojson": {
+                "coordinates": [],
+                "type": "MultiLineString"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:0018-87271007-84000588",
+                    "type": "line"
+                },
+                {
+                    "id": "route:SNCF:0018-87271007-84000588",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:EUROSTAR",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "network:SNCF:EUROSTAR",
+                    "type": "network"
+                }
+            ],
+            "table": {
+                "headers": [
+                    {
+                        "additional_informations": [
+                            "regular"
+                        ],
+                        "display_informations": {
+                            "code": "",
+                            "color": "",
+                            "commercial_mode": "",
+                            "description": "",
+                            "direction": "Amsterdam Centraal (Amsterdam)",
+                            "equipments": [],
+                            "headsign": "9339",
+                            "links": [],
+                            "name": "",
+                            "network": "",
+                            "physical_mode": "Train grande vitesse",
+                            "text_color": "",
+                            "trip_short_name": "9339"
+                        },
+                        "links": [
+                            {
+                                "id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
+                                "type": "vehicle_journey"
+                            },
+                            {
+                                "id": "physical_mode:LongDistanceTrain",
+                                "type": "physical_mode"
+                            }
+                        ]
+                    },
+                    {
+                        "additional_informations": [
+                            "regular"
+                        ],
+                        "display_informations": {
+                            "code": "",
+                            "color": "",
+                            "commercial_mode": "",
+                            "description": "",
+                            "direction": "Amsterdam Centraal (Amsterdam)",
+                            "equipments": [],
+                            "headsign": "9351",
+                            "links": [],
+                            "name": "",
+                            "network": "",
+                            "physical_mode": "Train grande vitesse",
+                            "text_color": "",
+                            "trip_short_name": "9351"
+                        },
+                        "links": [
+                            {
+                                "id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
+                                "type": "vehicle_journey"
+                            },
+                            {
+                                "id": "physical_mode:LongDistanceTrain",
+                                "type": "physical_mode"
+                            }
+                        ]
+                    },
+                    {
+                        "additional_informations": [
+                            "regular"
+                        ],
+                        "display_informations": {
+                            "code": "",
+                            "color": "",
+                            "commercial_mode": "",
+                            "description": "",
+                            "direction": "Amsterdam Centraal (Amsterdam)",
+                            "equipments": [],
+                            "headsign": "9369",
+                            "links": [],
+                            "name": "",
+                            "network": "",
+                            "physical_mode": "Train grande vitesse",
+                            "text_color": "",
+                            "trip_short_name": "9369"
+                        },
+                        "links": [
+                            {
+                                "id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
+                                "type": "vehicle_journey"
+                            },
+                            {
+                                "id": "physical_mode:LongDistanceTrain",
+                                "type": "physical_mode"
+                            }
+                        ]
+                    },
+                    {
+                        "additional_informations": [
+                            "regular"
+                        ],
+                        "display_informations": {
+                            "code": "",
+                            "color": "",
+                            "commercial_mode": "",
+                            "description": "",
+                            "direction": "Amsterdam Centraal(Amsterdam)",
+                            "equipments": [],
+                            "headsign": "9381",
+                            "links": [],
+                            "name": "",
+                            "network": "",
+                            "physical_mode": "Train grande vitesse",
+                            "text_color": "",
+                            "trip_short_name": "9381"
+                        },
+                        "links": [
+                            {
+                                "id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
+                                "type": "vehicle_journey"
+                            },
+                            {
+                                "id": "physical_mode:LongDistanceTrain",
+                                "type": "physical_mode"
+                            }
+                        ]
+                    },
+                    {
+                        "additional_informations": [
+                            "regular"
+                        ],
+                        "display_informations": {
+                            "code": "",
+                            "color": "",
+                            "commercial_mode": "",
+                            "description": "",
+                            "direction": "Amsterdam Centraal (Amsterdam)",
+                            "equipments": [],
+                            "headsign": "9309",
+                            "links": [],
+                            "name": "",
+                            "network": "",
+                            "physical_mode": "Train grande vitesse",
+                            "text_color": "",
+                            "trip_short_name": "9309"
+                        },
+                        "links": [
+                            {
+                                "id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
+                                "type": "vehicle_journey"
+                            },
+                            {
+                                "id": "physical_mode:LongDistanceTrain",
+                                "type": "physical_mode"
+                            }
+                        ]
+                    },
+                    {
+                        "additional_informations": [
+                            "regular"
+                        ],
+                        "display_informations": {
+                            "code": "",
+                            "color": "",
+                            "commercial_mode": "",
+                            "description": "",
+                            "direction": "Amsterdam Centraal (Amsterdam)",
+                            "equipments": [],
+                            "headsign": "9315",
+                            "links": [],
+                            "name": "",
+                            "network": "",
+                            "physical_mode": "Train grande vitesse",
+                            "text_color": "",
+                            "trip_short_name": "9315"
+                        },
+                        "links": [
+                            {
+                                "id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
+                                "type": "vehicle_journey"
+                            },
+                            {
+                                "id": "physical_mode:LongDistanceTrain",
+                                "type": "physical_mode"
+                            }
+                        ]
+                    },
+                    {
+                        "additional_informations": [
+                            "regular"
+                        ],
+                        "display_informations": {
+                            "code": "",
+                            "color": "",
+                            "commercial_mode": "",
+                            "description": "",
+                            "direction": "Amsterdam Centraal (Amsterdam)",
+                            "equipments": [],
+                            "headsign": "9327",
+                            "links": [],
+                            "name": "",
+                            "network": "",
+                            "physical_mode": "Train grande vitesse",
+                            "text_color": "",
+                            "trip_short_name": "9327"
+                        },
+                        "links": [
+                            {
+                                "id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
+                                "type": "vehicle_journey"
+                            },
+                            {
+                                "id": "physical_mode:LongDistanceTrain",
+                                "type": "physical_mode"
+                            }
+                        ]
+                    }
+                ],
+                "rows": [
+                    {
+                        "date_times": [
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T122200",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T122200",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T142200",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T142200",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T172500",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T172500",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T192400",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T192400",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T070700",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T070700",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T082500",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T082500",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T102400",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T102400",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            }
+                        ],
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "48.8534951",
+                                        "lon": "2.3483915"
+                                    },
+                                    "id": "admin:fr:75056",
+                                    "insee": "75056",
+                                    "label": "Paris (75000-75116)",
+                                    "level": 8,
+                                    "name": "Paris",
+                                    "zip_code": "75000;75116"
+                                }
+                            ],
+                            "commercial_modes": [
+                                {
+                                    "id": "commercial_mode:EUROSTAR",
+                                    "name": "Eurostar"
+                                },
+                                {
+                                    "id": "commercial_mode:OUI",
+                                    "name": "TGV INOUI"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "48.880136",
+                                "lon": "2.354851"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:87271007:LongDistanceTrain",
+                            "label": "Paris Nord (Paris)",
+                            "links": [],
+                            "name": "Paris Nord",
+                            "physical_modes": [
+                                {
+                                    "id": "physical_mode:LongDistanceTrain",
+                                    "name": "Train grande vitesse"
+                                }
+                            ],
+                            "stop_area": {
+                                "administrative_regions": [
+                                    {
+                                        "coord": {
+                                            "lat": "48.8534951",
+                                            "lon": "2.3483915"
+                                        },
+                                        "id": "admin:fr:75056",
+                                        "insee": "75056",
+                                        "label": "Paris (75000-75116)",
+                                        "level": 8,
+                                        "name": "Paris",
+                                        "zip_code": "75000;75116"
+                                    }
+                                ],
+                                "codes": [
+                                    {
+                                        "type": "secondary_id",
+                                        "value": "SNCF:87271023"
+                                    },
+                                    {
+                                        "type": "secondary_id",
+                                        "value": "SNCF:87271031"
+                                    },
+                                    {
+                                        "type": "source",
+                                        "value": "87271007"
+                                    },
+                                    {
+                                        "type": "source",
+                                        "value": "87271023"
+                                    },
+                                    {
+                                        "type": "source",
+                                        "value": "87271031"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "87271007"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "87271023"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "87271031"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "48.880136",
+                                    "lon": "2.354851"
+                                },
+                                "id": "stop_area:SNCF:87271007",
+                                "label": "Paris Nord (Paris)",
+                                "links": [],
+                                "name": "Paris Nord",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    {
+                        "date_times": [
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T135200",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T135200",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T155200",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T155200",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T185200",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T185200",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T205200",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T205200",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T085200",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T085200",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T095200",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T095200",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T115200",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T115200",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            }
+                        ],
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "50.8249958",
+                                        "lon": "4.3454841"
+                                    },
+                                    "id": "admin:osm:relation:58248",
+                                    "label": "Saint-Gilles",
+                                    "level": 8,
+                                    "name": "Saint-Gilles",
+                                    "zip_code": "1060"
+                                }
+                            ],
+                            "commercial_modes": [
+                                {
+                                    "id": "commercial_mode:EUROSTAR",
+                                    "name": "Eurostar"
+                                },
+                                {
+                                    "id": "commercial_mode:OUI",
+                                    "name": "TGV INOUI"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "50.836",
+                                "lon": "4.336"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:88140010:LongDistanceTrain",
+                            "label": "Bruxelles-Midi",
+                            "links": [],
+                            "name": "Bruxelles-Midi",
+                            "physical_modes": [
+                                {
+                                    "id": "physical_mode:LongDistanceTrain",
+                                    "name": "Train"
+                                }
+                            ],
+                            "stop_area": {
+                                "administrative_regions": [
+                                    {
+                                        "coord": {
+                                            "lat": "50.8249958",
+                                            "lon": "4.3454841"
+                                        },
+                                        "id": "admin:osm:relation:58248",
+                                        "label": "Saint-Gilles",
+                                        "level": 8,
+                                        "name": "Saint-Gilles",
+                                        "zip_code": "1060"
+                                    }
+                                ],
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "88140010"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "88140010"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "50.836",
+                                    "lon": "4.336"
+                                },
+                                "id": "stop_area:SNCF:88140010",
+                                "label": "Bruxelles-Midi",
+                                "links": [],
+                                "name": "Bruxelles-Midi",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    {
+                        "date_times": [
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T143000",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T143000",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T163000",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T163000",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T193000",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T193000",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T213000",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T213000",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T093000",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T093000",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T103000",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T103000",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T123000",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T123000",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            }
+                        ],
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "51.2211097",
+                                        "lon": "4.3997081"
+                                    },
+                                    "id": "admin:osm:relation:59518",
+                                    "label": "Antwerpen",
+                                    "level": 8,
+                                    "name": "Antwerpen",
+                                    "zip_code": ""
+                                }
+                            ],
+                            "commercial_modes": [
+                                {
+                                    "id": "commercial_mode:EUROSTAR",
+                                    "name": "Eurostar"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "51.216",
+                                "lon": "4.421"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:88210060:LongDistanceTrain",
+                            "label": "Antwerpen-Centraal",
+                            "links": [],
+                            "name": "Antwerpen-Centraal",
+                            "physical_modes": [
+                                {
+                                    "id": "physical_mode:LongDistanceTrain",
+                                    "name": "Train"
+                                }
+                            ],
+                            "stop_area": {
+                                "administrative_regions": [
+                                    {
+                                        "coord": {
+                                            "lat": "51.2211097",
+                                            "lon": "4.3997081"
+                                        },
+                                        "id": "admin:osm:relation:59518",
+                                        "label": "Antwerpen",
+                                        "level": 8,
+                                        "name": "Antwerpen",
+                                        "zip_code": ""
+                                    }
+                                ],
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "88210060"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "88210060"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "51.216",
+                                    "lon": "4.421"
+                                },
+                                "id": "stop_area:SNCF:88210060",
+                                "label": "Antwerpen-Centraal",
+                                "links": [],
+                                "name": "Antwerpen-Centraal",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    {
+                        "date_times": [
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T150500",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T150500",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T170500",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T170500",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T200500",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T200500",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T220500",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T220500",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T100500",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T100500",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T110500",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T110500",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T130500",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T130500",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            }
+                        ],
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "51.9244424",
+                                        "lon": "4.4777499999999995"
+                                    },
+                                    "id": "admin:osm:relation:1411101",
+                                    "label": "Rotterdam",
+                                    "level": 8,
+                                    "name": "Rotterdam",
+                                    "zip_code": ""
+                                }
+                            ],
+                            "commercial_modes": [
+                                {
+                                    "id": "commercial_mode:EUROSTAR",
+                                    "name": "Eurostar"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "51.924845",
+                                "lon": "4.469313"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:84005306:LongDistanceTrain",
+                            "label": "Rotterdam",
+                            "links": [],
+                            "name": "Rotterdam",
+                            "physical_modes": [
+                                {
+                                    "id": "physical_mode:LongDistanceTrain",
+                                    "name": "Train"
+                                }
+                            ],
+                            "stop_area": {
+                                "administrative_regions": [
+                                    {
+                                        "coord": {
+                                            "lat": "51.9244424",
+                                            "lon": "4.4777499999999995"
+                                        },
+                                        "id": "admin:osm:relation:1411101",
+                                        "label": "Rotterdam",
+                                        "level": 8,
+                                        "name": "Rotterdam",
+                                        "zip_code": ""
+                                    }
+                                ],
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "84005306"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "84005306"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "51.924845",
+                                    "lon": "4.469313"
+                                },
+                                "id": "stop_area:SNCF:84005306",
+                                "label": "Rotterdam",
+                                "links": [],
+                                "name": "Rotterdam",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    {
+                        "date_times": [
+                            {
+                                "additional_informations": [
+                                    "drop_off_only"
+                                ],
+                                "base_date_time": "20240510T152900",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T152900",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [
+                                    "drop_off_only"
+                                ],
+                                "base_date_time": "20240510T172900",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T172900",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [
+                                    "drop_off_only"
+                                ],
+                                "base_date_time": "20240510T202900",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T202900",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [
+                                    "drop_off_only"
+                                ],
+                                "base_date_time": "20240510T222900",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T222900",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [
+                                    "drop_off_only"
+                                ],
+                                "base_date_time": "20240511T102900",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T102900",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [
+                                    "drop_off_only"
+                                ],
+                                "base_date_time": "20240511T112900",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T112900",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [
+                                    "drop_off_only"
+                                ],
+                                "base_date_time": "20240511T132900",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T132900",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            }
+                        ],
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "52.3080392",
+                                        "lon": "4.7621975"
+                                    },
+                                    "id": "admin:osm:relation:1883613",
+                                    "label": "Schiphol",
+                                    "level": 8,
+                                    "name": "Schiphol",
+                                    "zip_code": ""
+                                }
+                            ],
+                            "commercial_modes": [
+                                {
+                                    "id": "commercial_mode:EUROSTAR",
+                                    "name": "Eurostar"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "52.309636",
+                                "lon": "4.761985"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:84005611:LongDistanceTrain",
+                            "label": "Schiphol",
+                            "links": [],
+                            "name": "Schiphol",
+                            "physical_modes": [
+                                {
+                                    "id": "physical_mode:LongDistanceTrain",
+                                    "name": "Train"
+                                }
+                            ],
+                            "stop_area": {
+                                "administrative_regions": [
+                                    {
+                                        "coord": {
+                                            "lat": "52.3080392",
+                                            "lon": "4.7621975"
+                                        },
+                                        "id": "admin:osm:relation:1883613",
+                                        "label": "Schiphol",
+                                        "level": 8,
+                                        "name": "Schiphol",
+                                        "zip_code": ""
+                                    }
+                                ],
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "84005611"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "84005611"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "52.309636",
+                                    "lon": "4.761985"
+                                },
+                                "id": "stop_area:SNCF:84005611",
+                                "label": "Schiphol",
+                                "links": [],
+                                "name": "Schiphol",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    },
+                    {
+                        "date_times": [
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T154400",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T154400",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9339:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T174400",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T174400",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9351:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T204400",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T204400",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9369:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240510T224400",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240510T224400",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-10:9381:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T104400",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T104400",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9309:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T114400",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T114400",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9315:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            },
+                            {
+                                "additional_informations": [],
+                                "base_date_time": "20240511T134400",
+                                "data_freshness": "base_schedule",
+                                "date_time": "20240511T134400",
+                                "links": [
+                                    {
+                                        "id": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain",
+                                        "rel": "vehicle_journeys",
+                                        "type": "vehicle_journey",
+                                        "value": "vehicle_journey:SNCF:2024-05-11:9327:0018:LongDistanceTrain"
+                                    }
+                                ]
+                            }
+                        ],
+                        "stop_point": {
+                            "administrative_regions": [
+                                {
+                                    "coord": {
+                                        "lat": "52.3727598",
+                                        "lon": "4.8936041"
+                                    },
+                                    "id": "admin:osm:relation:271110",
+                                    "label": "Amsterdam",
+                                    "level": 8,
+                                    "name": "Amsterdam",
+                                    "zip_code": ""
+                                }
+                            ],
+                            "commercial_modes": [
+                                {
+                                    "id": "commercial_mode:EUROSTAR",
+                                    "name": "Eurostar"
+                                }
+                            ],
+                            "coord": {
+                                "lat": "52.37908",
+                                "lon": "4.900632"
+                            },
+                            "equipments": [],
+                            "id": "stop_point:SNCF:84000588:LongDistanceTrain",
+                            "label": "Amsterdam",
+                            "links": [],
+                            "name": "Amsterdam",
+                            "physical_modes": [
+                                {
+                                    "id": "physical_mode:LongDistanceTrain",
+                                    "name": "Train"
+                                }
+                            ],
+                            "stop_area": {
+                                "administrative_regions": [
+                                    {
+                                        "coord": {
+                                            "lat": "52.3727598",
+                                            "lon": "4.8936041"
+                                        },
+                                        "id": "admin:osm:relation:271110",
+                                        "label": "Amsterdam",
+                                        "level": 8,
+                                        "name": "Amsterdam",
+                                        "zip_code": ""
+                                    }
+                                ],
+                                "codes": [
+                                    {
+                                        "type": "source",
+                                        "value": "84000588"
+                                    },
+                                    {
+                                        "type": "uic",
+                                        "value": "84000588"
+                                    }
+                                ],
+                                "coord": {
+                                    "lat": "52.37908",
+                                    "lon": "4.900632"
+                                },
+                                "id": "stop_area:SNCF:84000588",
+                                "label": "Amsterdam",
+                                "links": [],
+                                "name": "Amsterdam",
+                                "timezone": "Europe/Paris"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

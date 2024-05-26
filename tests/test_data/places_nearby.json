@@ -1,9 +1,4 @@
 {
-    "context": {
-        "current_datetime": "20240508T184211",
-        "timezone": "Europe/Paris"
-    },
-    "disruptions": [],
     "pagination": {
         "items_on_page": 2,
         "items_per_page": 10,
