@@ -36,6 +36,7 @@ from navitia_client.client.apis.terminus_schedules_apis import (
     TerminusSchedulesApiClient,
 )
 from navitia_client.client.apis.traffic_report_apis import TrafficReportsApiClient
+from navitia_client.client.raw.raw_client import RawClient
 
 BASE_NAVITIA_URL: str = "https://api.navitia.io/v1/"
 
@@ -290,5 +291,12 @@ class NavitiaClient:
     def isochrones(self) -> IsochronesApiClient:
         """Get an instance of IsochronesApiClient for accessing isochrones-related endpoints."""
         return IsochronesApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def raw(self) -> RawClient:
+        """Get an instance of RawClient for accessing APIs and get raw response"""
+        return RawClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )
