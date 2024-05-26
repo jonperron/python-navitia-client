@@ -6,6 +6,14 @@ This repository provides a unofficial Python wrapper to use [navitia.io APIs](ht
 
 To use this library, you will need an access token from [navitia.io](https://navitia.io/tarifs/).
 
+##  Installation
+
+The package is available on PiPy
+
+```bash
+pip install python-navitia-client
+```
+
 ##  API support
 
 The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
@@ -30,16 +38,6 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Line reports                              | ✅           | Beta endpoint according to API response      |
 | Traffic reports                           | ✅           | Beta endpoint according to API response      |
 | Equipment reports                         | ❌           | Beta service, not available to all providers |
-
-##  Installation
-
-The package is not yet available on pip.
-
-For development purpose, you can install it using
-
-```bash
-pip install -e .
-```
 
 ## Usage
 
@@ -70,11 +68,11 @@ datasets, pagination = client.datasets.list_datasets(region_id=<REGION_ID>)
 
 A couple of APIs are paginated, in particular the public transporations APIs.. In such case, you can navigate in the response using the parameters `start_page` and `count`.
 
-An object `Pagination` will be provided by the impacted methods to help you navigatig.
+An object `Pagination` will be provided by the impacted methods to help you navigating.
 
 ### Tips
 
-Few tips on how to use the Navitia APIs are available [here](docs/few_tips.md)
+Few tips on how to use the Navitia APIs are available [here](docs/few_tips.md).
 
 ##  Dependencies
 
