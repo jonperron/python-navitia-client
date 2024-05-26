@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "navitia-client"
+name = "python-navitia-client"
 authors = [
     {name = "Jonathan Perron", email = "jonathan@perron.bzh"},
 ]
@@ -14,14 +14,14 @@ classifiers = [
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3.10",
 ]
-version = "1.0.2"
+version = "1.0.3"
 requires-python = ">=3.10"
 dependencies = [
     "requests>=2.31, < 3",
 ]
 
 [project.urls]
-Source = "https://github.com/jonperron/navitia-client"
+Source = "https://github.com/jonperron/python-navitia-client"
 
 [project.readme]
 file = "README.md"
