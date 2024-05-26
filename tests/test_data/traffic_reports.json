@@ -1,8 +1,4 @@
 {
-    "context": {
-        "current_datetime": "20240519T190317",
-        "timezone": "Europe/Paris"
-    },
     "disruptions": [
         {
             "application_periods": [

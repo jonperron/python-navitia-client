@@ -1,1161 +1,2040 @@
-{"arrivals": [{"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PINS",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PINS74"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PINS74:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T172800",
-                                  "base_arrival_date_time": "20240519T172800",
-                                  "base_departure_date_time": "20240519T172800",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T172800",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}},
-              {"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PINS",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PINS80"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PINS80:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T174300",
-                                  "base_arrival_date_time": "20240519T174300",
-                                  "base_departure_date_time": "20240519T174300",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T174300",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}},
-              {"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PINS",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PINS86"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PINS86:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T175800",
-                                  "base_arrival_date_time": "20240519T175800",
-                                  "base_departure_date_time": "20240519T175800",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T175800",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}},
-              {"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PINS",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PINS92"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PINS92:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T181300",
-                                  "base_arrival_date_time": "20240519T181300",
-                                  "base_departure_date_time": "20240519T181300",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T181300",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}},
-              {"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PINS",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PINS98"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PINS98:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T182800",
-                                  "base_arrival_date_time": "20240519T182800",
-                                  "base_departure_date_time": "20240519T182800",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T182800",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}},
-              {"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PITA",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PITA06"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PITA06:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T184300",
-                                  "base_arrival_date_time": "20240519T184300",
-                                  "base_departure_date_time": "20240519T184300",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T184300",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}},
-              {"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PITA",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PITA12"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PITA12:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T185800",
-                                  "base_arrival_date_time": "20240519T185800",
-                                  "base_departure_date_time": "20240519T185800",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T185800",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}},
-              {"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PITA",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PITA18"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PITA18:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T191300",
-                                  "base_arrival_date_time": "20240519T191300",
-                                  "base_departure_date_time": "20240519T191300",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T191300",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}},
-              {"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PITA",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PITA24"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PITA24:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T192800",
-                                  "base_arrival_date_time": "20240519T192800",
-                                  "base_departure_date_time": "20240519T192800",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T192800",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}},
-              {"display_informations": {"code": "B",
-                                        "color": "427DBD",
-                                        "commercial_mode": "RER",
-                                        "description": "",
-                                        "direction": "Saint-Rémy-lès-Chevreuse ",
-                                        "equipments": [],
-                                        "headsign": "PITA",
-                                        "label": "B",
-                                        "links": [],
-                                        "name": "B",
-                                        "network": "RER",
-                                        "physical_mode": "RER / Transilien",
-                                        "text_color": "FFFFFF",
-                                        "trip_short_name": "PITA30"},
-               "links": [{"id": "line:SNCF:B", "type": "line"},
-                         {"id": "vehicle_journey:SNCF:2024-05-19:PITA30:1187:RapidTransit",
-                          "type": "vehicle_journey"},
-                         {"id": "route:SNCF:B", "type": "route"},
-                         {"id": "commercial_mode:TNRER",
-                          "type": "commercial_mode"},
-                         {"id": "physical_mode:RapidTransit",
-                          "type": "physical_mode"},
-                         {"id": "network:SNCF:TNRER", "type": "network"}],
-               "route": {"direction": {"embedded_type": "stop_area",
-                                       "id": "stop_area:SNCF:87001479",
-                                       "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                       "quality": 0,
-                                       "stop_area": {"codes": [{"type": "source",
-                                                                "value": "87001479"},
-                                                               {"type": "uic",
-                                                                "value": "87001479"}],
-                                                     "coord": {"lat": "49.003965",
-                                                               "lon": "2.570665"},
-                                                     "id": "stop_area:SNCF:87001479",
-                                                     "label": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "links": [],
-                                                     "name": "Aéroport - Charles-de-Gaulle 2 ",
-                                                     "timezone": "Europe/Paris"}},
-                         "direction_type": "forward",
-                         "geojson": {"coordinates": [],
-                                     "type": "MultiLineString"},
-                         "id": "route:SNCF:B",
-                         "is_frequence": "false",
-                         "line": {"closing_time": "012230",
-                                  "code": "B",
-                                  "codes": [],
-                                  "color": "427DBD",
-                                  "commercial_mode": {"id": "commercial_mode:TNRER",
-                                                      "name": "RER"},
-                                  "geojson": {"coordinates": [],
-                                              "type": "MultiLineString"},
-                                  "id": "line:SNCF:B",
-                                  "links": [],
-                                  "name": "B",
-                                  "network": {"id": "network:SNCF:TNRER",
-                                              "links": [],
-                                              "name": "RER"},
-                                  "opening_time": "044700",
-                                  "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                                      "name": "RER "}],
-                                  "text_color": "FFFFFF"},
-                         "links": [],
-                         "name": "B",
-                         "physical_modes": [{"id": "physical_mode:RapidTransit",
-                                             "name": "RER / Transilien"}]},
-               "stop_date_time": {"additional_informations": [],
-                                  "arrival_date_time": "20240519T194300",
-                                  "base_arrival_date_time": "20240519T194300",
-                                  "base_departure_date_time": "20240519T194300",
-                                  "data_freshness": "base_schedule",
-                                  "departure_date_time": "20240519T194300",
-                                  "links": []},
-               "stop_point": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                    "lon": "2.071109"},
-                                                          "id": "admin:fr:78575",
-                                                          "insee": "78575",
-                                                          "label": "Saint-Rémy-lès-Chevreuse",
-                                                          "level": 8,
-                                                          "name": "Saint-Rémy-lès-Chevreuse",
-                                                          "zip_code": "78470"}],
-                              "commercial_modes": [{"id": "commercial_mode:TNRER",
-                                                    "name": "RER"}],
-                              "coord": {"lat": "48.702722", "lon": "2.070924"},
-                              "equipments": [],
-                              "id": "stop_point:SNCF:87758896:RapidTransit",
-                              "label": "Saint-Rémy-lès-Chevreuse",
-                              "links": [],
-                              "name": "Saint-Rémy-lès-Chevreuse",
-                              "physical_modes": [{"co2_emission_rate": {"unit": "gEC/Km",
-                                                                        "value": 7.28},
-                                                  "id": "physical_mode:RapidTransit",
-                                                  "name": "RER / Transilien"}],
-                              "stop_area": {"administrative_regions": [{"coord": {"lat": "48.7054888",
-                                                                                  "lon": "2.071109"},
-                                                                        "id": "admin:fr:78575",
-                                                                        "insee": "78575",
-                                                                        "label": "Saint-Rémy-lès-Chevreuse ",
-                                                                        "level": 8,
-                                                                        "name": "Saint-Rémy-lès-Chevreuse",
-                                                                        "zip_code": "78470"}],
-                                            "codes": [{"type": "source",
-                                                       "value": "87758896"},
-                                                      {"type": "uic",
-                                                       "value": "87758896"}],
-                                            "coord": {"lat": "48.702722",
-                                                      "lon": "2.070924"},
-                                            "id": "stop_area:SNCF:87758896",
-                                            "label": "Saint-Rémy-lès-Chevreuse ",
-                                            "links": [],
-                                            "name": "Saint-Rémy-lès-Chevreuse",
-                                            "timezone": "Europe/Paris"}}}],
- "context": {"current_datetime": "20240519T171749", "timezone": "Europe/Paris"},
- "disruptions": [],
- "exceptions": [],
- "links": [{"href": "https://api.navitia.io/v1/coverage/sncf/vehicle_journeys/{vehicle_journey.id}",
-            "rel": "vehicle_journeys",
-            "templated": true,
-            "type": "vehicle_journey"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/routes/{route.id}",
-            "rel": "routes",
-            "templated": true,
-            "type": "route"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/stop_points/{stop_point.id}",
-            "rel": "stop_points",
-            "templated": true,
-            "type": "stop_point"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/physical_modes/{physical_modes.id}",
-            "rel": "physical_modes",
-            "templated": true,
-            "type": "physical_modes"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/commercial_modes/{commercial_mode.id}",
-            "rel": "commercial_modes",
-            "templated": true,
-            "type": "commercial_mode"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/networks/{network.id}",
-            "rel": "networks",
-            "templated": true,
-            "type": "network"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/lines/{line.id}",
-            "rel": "lines",
-            "templated": true,
-            "type": "line"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/commercial_modes/{commercial_modes.id}",
-            "rel": "commercial_modes",
-            "templated": true,
-            "type": "commercial_modes"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/physical_modes/{physical_mode.id}",
-            "rel": "physical_modes",
-            "templated": true,
-            "type": "physical_mode"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/stop_areas/{stop_area.id}",
-            "rel": "stop_areas",
-            "templated": true,
-            "type": "stop_area"},
-           {"href": "https://api.navitia.io/v1/coverage/sncf/stop_areas/stop_area:SNCF:87758896/arrivals",
-            "templated": false,
-            "type": "first"}],
- "notes": [],
- "pagination": {"items_on_page": 10,
-                "items_per_page": 10,
-                "start_page": 0,
-                "total_result": 10}}
+{
+    "arrivals": [
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PINS",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PINS74"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PINS74:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T172800",
+                "base_arrival_date_time": "20240519T172800",
+                "base_departure_date_time": "20240519T172800",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T172800",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        },
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PINS",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PINS80"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PINS80:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T174300",
+                "base_arrival_date_time": "20240519T174300",
+                "base_departure_date_time": "20240519T174300",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T174300",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        },
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PINS",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PINS86"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PINS86:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T175800",
+                "base_arrival_date_time": "20240519T175800",
+                "base_departure_date_time": "20240519T175800",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T175800",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        },
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PINS",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PINS92"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PINS92:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T181300",
+                "base_arrival_date_time": "20240519T181300",
+                "base_departure_date_time": "20240519T181300",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T181300",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        },
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PINS",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PINS98"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PINS98:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T182800",
+                "base_arrival_date_time": "20240519T182800",
+                "base_departure_date_time": "20240519T182800",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T182800",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        },
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PITA",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PITA06"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PITA06:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T184300",
+                "base_arrival_date_time": "20240519T184300",
+                "base_departure_date_time": "20240519T184300",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T184300",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        },
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PITA",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PITA12"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PITA12:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T185800",
+                "base_arrival_date_time": "20240519T185800",
+                "base_departure_date_time": "20240519T185800",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T185800",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        },
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PITA",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PITA18"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PITA18:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T191300",
+                "base_arrival_date_time": "20240519T191300",
+                "base_departure_date_time": "20240519T191300",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T191300",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        },
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PITA",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PITA24"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PITA24:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T192800",
+                "base_arrival_date_time": "20240519T192800",
+                "base_departure_date_time": "20240519T192800",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T192800",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        },
+        {
+            "display_informations": {
+                "code": "B",
+                "color": "427DBD",
+                "commercial_mode": "RER",
+                "description": "",
+                "direction": "Saint-Rémy-lès-Chevreuse ",
+                "equipments": [],
+                "headsign": "PITA",
+                "label": "B",
+                "links": [],
+                "name": "B",
+                "network": "RER",
+                "physical_mode": "RER / Transilien",
+                "text_color": "FFFFFF",
+                "trip_short_name": "PITA30"
+            },
+            "links": [
+                {
+                    "id": "line:SNCF:B",
+                    "type": "line"
+                },
+                {
+                    "id": "vehicle_journey:SNCF:2024-05-19:PITA30:1187:RapidTransit",
+                    "type": "vehicle_journey"
+                },
+                {
+                    "id": "route:SNCF:B",
+                    "type": "route"
+                },
+                {
+                    "id": "commercial_mode:TNRER",
+                    "type": "commercial_mode"
+                },
+                {
+                    "id": "physical_mode:RapidTransit",
+                    "type": "physical_mode"
+                },
+                {
+                    "id": "network:SNCF:TNRER",
+                    "type": "network"
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "id": "stop_area:SNCF:87001479",
+                    "name": "Aéroport - Charles-de-Gaulle 2 ",
+                    "quality": 0,
+                    "stop_area": {
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87001479"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87001479"
+                            }
+                        ],
+                        "coord": {
+                            "lat": "49.003965",
+                            "lon": "2.570665"
+                        },
+                        "id": "stop_area:SNCF:87001479",
+                        "label": "Aéroport - Charles-de-Gaulle 2 ",
+                        "links": [],
+                        "name": "Aéroport - Charles-de-Gaulle 2 ",
+                        "timezone": "Europe/Paris"
+                    }
+                },
+                "direction_type": "forward",
+                "geojson": {
+                    "coordinates": [],
+                    "type": "MultiLineString"
+                },
+                "id": "route:SNCF:B",
+                "is_frequence": "false",
+                "line": {
+                    "closing_time": "012230",
+                    "code": "B",
+                    "codes": [],
+                    "color": "427DBD",
+                    "commercial_mode": {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    },
+                    "geojson": {
+                        "coordinates": [],
+                        "type": "MultiLineString"
+                    },
+                    "id": "line:SNCF:B",
+                    "links": [],
+                    "name": "B",
+                    "network": {
+                        "id": "network:SNCF:TNRER",
+                        "links": [],
+                        "name": "RER"
+                    },
+                    "opening_time": "044700",
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:RapidTransit",
+                            "name": "RER "
+                        }
+                    ],
+                    "text_color": "FFFFFF"
+                },
+                "links": [],
+                "name": "B",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ]
+            },
+            "stop_date_time": {
+                "additional_informations": [],
+                "arrival_date_time": "20240519T194300",
+                "base_arrival_date_time": "20240519T194300",
+                "base_departure_date_time": "20240519T194300",
+                "data_freshness": "base_schedule",
+                "departure_date_time": "20240519T194300",
+                "links": []
+            },
+            "stop_point": {
+                "administrative_regions": [
+                    {
+                        "coord": {
+                            "lat": "48.7054888",
+                            "lon": "2.071109"
+                        },
+                        "id": "admin:fr:78575",
+                        "insee": "78575",
+                        "label": "Saint-Rémy-lès-Chevreuse",
+                        "level": 8,
+                        "name": "Saint-Rémy-lès-Chevreuse",
+                        "zip_code": "78470"
+                    }
+                ],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:TNRER",
+                        "name": "RER"
+                    }
+                ],
+                "coord": {
+                    "lat": "48.702722",
+                    "lon": "2.070924"
+                },
+                "equipments": [],
+                "id": "stop_point:SNCF:87758896:RapidTransit",
+                "label": "Saint-Rémy-lès-Chevreuse",
+                "links": [],
+                "name": "Saint-Rémy-lès-Chevreuse",
+                "physical_modes": [
+                    {
+                        "co2_emission_rate": {
+                            "unit": "gEC/Km",
+                            "value": 7.28
+                        },
+                        "id": "physical_mode:RapidTransit",
+                        "name": "RER / Transilien"
+                    }
+                ],
+                "stop_area": {
+                    "administrative_regions": [
+                        {
+                            "coord": {
+                                "lat": "48.7054888",
+                                "lon": "2.071109"
+                            },
+                            "id": "admin:fr:78575",
+                            "insee": "78575",
+                            "label": "Saint-Rémy-lès-Chevreuse ",
+                            "level": 8,
+                            "name": "Saint-Rémy-lès-Chevreuse",
+                            "zip_code": "78470"
+                        }
+                    ],
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87758896"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87758896"
+                        }
+                    ],
+                    "coord": {
+                        "lat": "48.702722",
+                        "lon": "2.070924"
+                    },
+                    "id": "stop_area:SNCF:87758896",
+                    "label": "Saint-Rémy-lès-Chevreuse ",
+                    "links": [],
+                    "name": "Saint-Rémy-lès-Chevreuse",
+                    "timezone": "Europe/Paris"
+                }
+            }
+        }
+    ],
+    "pagination": {
+        "items_on_page": 10,
+        "items_per_page": 10,
+        "start_page": 0,
+        "total_result": 10
+    }
+}
