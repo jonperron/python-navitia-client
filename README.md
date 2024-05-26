@@ -6,25 +6,6 @@ This repository provides a unofficial Python wrapper to use [navitia.io APIs](ht
 
 To use this library, you will need an access token from [navitia.io](https://navitia.io/tarifs/).
 
-##  Installation
-
-The package is not yet available on pip.
-
-For development purpose, you can install it using
-
-```bash
-pip install -e .
-```
-
-## Usage
-
-```python
-from navitia_client.client import NavitiaClient
-client = NavitiaClient(auth=<YOUR_TOKEN_HERE>)
-```
-
-A base URL for Navitia IO is hardcoded and provided to NavitiaClient by default. It can be updated using the base_navitia_url parameter.
-
 ##  API support
 
 The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
@@ -49,6 +30,51 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Line reports                              | ✅           | Beta endpoint according to API response      |
 | Traffic reports                           | ✅           | Beta endpoint according to API response      |
 | Equipment reports                         | ❌           | Beta service, not available to all providers |
+
+##  Installation
+
+The package is not yet available on pip.
+
+For development purpose, you can install it using
+
+```bash
+pip install -e .
+```
+
+## Usage
+
+To use this library, you need an authentication token provided by Navitia.io.
+
+### Create client instance
+
+Once created, you will create an instance of the NavitiaClient class with the following:
+
+```python
+from navitia_client.client import NavitiaClient
+client = NavitiaClient(auth=<YOUR_TOKEN_HERE>)
+```
+
+A base URL for Navitia IO is hardcoded and provided to NavitiaClient by default. It can be updated using the base_navitia_url parameter.
+
+###  Access APIs data
+
+URLs are mapped as property in the class `NavitiaClient`. You can find the mapping [here](docs/api_support/).
+
+For example, if you want to have the list of datasets in a given region, use:
+
+```python
+datasets, pagination = client.datasets.list_datasets(region_id=<REGION_ID>)
+```
+
+### Pagination
+
+A couple of APIs are paginated, in particular the public transporations APIs.. In such case, you can navigate in the response using the parameters `start_page` and `count`.
+
+An object `Pagination` will be provided by the impacted methods to help you navigatig.
+
+### Tips
+
+Few tips on how to use the Navitia APIs are available [here](docs/few_tips.md)
 
 ##  Dependencies
 
