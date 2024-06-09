@@ -63,3 +63,68 @@ def test_check_response_for_exception(api_base_client: ApiBaseClient) -> None:
     # When/Then
     with pytest.raises(NavitiaForbiddenAccessError):
         api_base_client._check_response_for_exception(response)
+
+
+def test_generate_filter_query(api_base_client: ApiBaseClient) -> None:
+    # Given
+    filters = {
+        "start_page": 0,
+        "count": 25,
+        "depth": 1,
+    }
+
+    expected_filters_string = "?start_page=0&count=25&depth=1"
+
+    # When
+    generated_filters_string = api_base_client._generate_filter_query(filters)
+
+    # Then
+    assert expected_filters_string == generated_filters_string
+
+
+def test_generate_filter_query_no_filters(api_base_client: ApiBaseClient) -> None:
+    # Given
+    filters = {}  # type: ignore
+
+    expected_filters_string = ""
+
+    # When
+    generated_filters_string = api_base_client._generate_filter_query(filters)
+
+    # Then
+    assert expected_filters_string == generated_filters_string
+
+
+def test_generate_filter_query_arg_is_list(api_base_client: ApiBaseClient) -> None:
+    # Given
+    filters = {
+        "start_page": 0,
+        "count": 25,
+        "depth": 1,
+        "type[]": ["stop_point", "stop_area"],
+    }
+
+    expected_filters_string = (
+        "?start_page=0&count=25&depth=1&type[]=stop_point&type[]=stop_area"
+    )
+
+    # When
+    generated_filters_string = api_base_client._generate_filter_query(filters)
+
+    # Then
+    assert expected_filters_string == generated_filters_string
+
+
+def test_generate_filter_query_arg_list_is_empty(
+    api_base_client: ApiBaseClient,
+) -> None:
+    # Given
+    filters = {"start_page": 0, "count": 25, "depth": 1, "type[]": []}
+
+    expected_filters_string = "?start_page=0&count=25&depth=1"
+
+    # When
+    generated_filters_string = api_base_client._generate_filter_query(filters)
+
+    # Then
+    assert expected_filters_string == generated_filters_string

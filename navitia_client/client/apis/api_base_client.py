@@ -43,8 +43,15 @@ class ApiBaseClient:
     @staticmethod
     def _generate_filter_query(filters: dict[str, Any]) -> str:
         """Generate query string regarding provided filters"""
-        filter_query = "&".join([f"{key}={value}" for key, value in filters.items()])
-        return "?" + filter_query if filter_query else ""
+        filter_query = ""
+        for key, value in filters.items():
+            if isinstance(value, list):
+                filter_query += "".join(
+                    f"&{key}={individual_value}" for individual_value in value
+                )
+            else:
+                filter_query += f"&{key}={value}"
+        return "?" + filter_query[1:] if len(filter_query) > 0 else ""
 
     def get_navitia_api(self, endpoint: str) -> Response:
         return self._check_response_for_exception(self.session.get(endpoint))
