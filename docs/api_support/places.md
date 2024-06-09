@@ -12,9 +12,9 @@ Methods
 
     list_places(
         region_id: str, query: str,
-        type: Sequence[str] = ["stop_area", "address", "poi", "administrative_region"],
+        type: Collection[str] = ["stop_area", "address", "poi", "administrative_region"],
         disable_geojson: bool = False, depth: int = 1,
         from_lon_lat: Optional[Tuple[float, float]] = None
-    ) -> Sequence[Place]
+    ) -> Collection[Place]
         Retrieves a list of places based on the provided query and region ID from the Navitia API.
 ```

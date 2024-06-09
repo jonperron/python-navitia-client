@@ -18,7 +18,7 @@ Methods:
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Line], Pagination]:
+    ) -> Tuple[Collection[Line], Pagination]:
         List lines for a given region.
 
     get_entity_by_id(
@@ -30,7 +30,7 @@ Methods:
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Line], Pagination]:
+    ) -> Tuple[Collection[Line], Pagination]:
         Get a line by its ID in a given region.
 
     list_entity_collection_from_coordinates(
@@ -42,7 +42,7 @@ Methods:
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Line], Pagination]:
+    ) -> Tuple[Collection[Line], Pagination]:
         List lines for given geographic coordinates.
 
     get_entity_by_id_and_coordinates(
@@ -55,6 +55,6 @@ Methods:
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Line], Pagination]:
+    ) -> Tuple[Collection[Line], Pagination]:
         Get a line by its ID for given geographic coordinates.
 ```

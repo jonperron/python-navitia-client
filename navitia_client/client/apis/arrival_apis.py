@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Optional, Collection, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.pagination import Pagination
 from navitia_client.entities.arrival import Arrival
@@ -13,23 +13,23 @@ class ArrivalApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_departure_objects_from_response(response: Any) -> Sequence[Arrival]
+    _get_departure_objects_from_response(response: Any) -> Collection[Arrival]
         A static method to transform raw API response data into a list of Arrival objects.
 
-    _get_departures(url: str, filters: dict) -> Tuple[Sequence[Arrival], Pagination]
+    _get_departures(url: str, filters: dict) -> Tuple[Collection[Arrival], Pagination]
         Internal method to fetch departures based on a given URL and filters.
 
-    list_arrivals_by_region_id_and_path(region_id: str, resource_path: str, from_datetime: datetime = datetime.now(), duration: int = 86400, depth: int = 1, forbidden_uris: Optional[Sequence[str]] = None, data_freshness: str = "realtime", disable_geojson: bool = False, direction_type: str = "all") -> Tuple[Sequence[Arrival], Pagination]
+    list_arrivals_by_region_id_and_path(region_id: str, resource_path: str, from_datetime: datetime = datetime.now(), duration: int = 86400, depth: int = 1, forbidden_uris: Optional[Collection[str]] = None, data_freshness: str = "realtime", disable_geojson: bool = False, direction_type: str = "all") -> Tuple[Collection[Arrival], Pagination]
         Retrieves a list of arrivals for a specific region and resource path.
 
-    list_arrivals_by_coordinates(region_lon: float, region_lat: float, lon: float, lat: float, from_datetime: datetime = datetime.now(), duration: int = 86400, depth: int = 1, forbidden_uris: Optional[Sequence[str]] = None, data_freshness: str = "realtime", disable_geojson: bool = False, direction_type: str = "all") -> Tuple[Sequence[Arrival], Pagination]
+    list_arrivals_by_coordinates(region_lon: float, region_lat: float, lon: float, lat: float, from_datetime: datetime = datetime.now(), duration: int = 86400, depth: int = 1, forbidden_uris: Optional[Collection[str]] = None, data_freshness: str = "realtime", disable_geojson: bool = False, direction_type: str = "all") -> Tuple[Collection[Arrival], Pagination]
         Retrieves a list of arrivals for specific coordinates.
     """
 
     @staticmethod
     def _get_arrival_objects_from_response(
         response: Any,
-    ) -> Sequence[Arrival]:
+    ) -> Collection[Arrival]:
         """
         Converts raw response data into a list of Arrival objects.
 
@@ -40,7 +40,7 @@ class ArrivalApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Arrival]
+        Collection[Arrival]
             A list of Arrival objects created from the raw response data.
         """
 
@@ -52,7 +52,7 @@ class ArrivalApiClient(ApiBaseClient):
 
     def _get_arrivals(
         self, url: str, filters: dict
-    ) -> Tuple[Sequence[Arrival], Pagination]:
+    ) -> Tuple[Collection[Arrival], Pagination]:
         """
         Internal method to fetch departures based on a given URL and filters.
 
@@ -65,7 +65,7 @@ class ArrivalApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Arrival], Pagination]
+        Tuple[Collection[Arrival], Pagination]
             A tuple containing a list of Arrival objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
@@ -80,11 +80,11 @@ class ArrivalApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Tuple[Sequence[Arrival], Pagination]:
+    ) -> Tuple[Collection[Arrival], Pagination]:
         """
         Retrieves a list of arrivals for a specific region and resource path.
 
@@ -100,7 +100,7 @@ class ArrivalApiClient(ApiBaseClient):
             The duration in seconds for which to fetch arrivals (default is 86400 seconds).
         depth : int, optional
             The depth of the search (default is 1).
-        forbidden_uris : Optional[Sequence[str]], optional
+        forbidden_uris : Optional[Collection[str]], optional
             A list of URIs to exclude from the search (default is None).
         data_freshness : str, optional
             The freshness of the data to fetch, either "realtime" or "base_schedule" (default is "realtime").
@@ -111,7 +111,7 @@ class ArrivalApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Arrival], Pagination]
+        Tuple[Collection[Arrival], Pagination]
             A tuple containing a list of Arrival objects and a Pagination object for managing result pages.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/terminus_schedules"
@@ -137,11 +137,11 @@ class ArrivalApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Tuple[Sequence[Arrival], Pagination]:
+    ) -> Tuple[Collection[Arrival], Pagination]:
         """
         Retrieves a list of arrivals for specific coordinates.
 
@@ -161,7 +161,7 @@ class ArrivalApiClient(ApiBaseClient):
             The duration in seconds for which to fetch arrivals (default is 86400 seconds).
         depth : int, optional
             The depth of the search (default is 1).
-        forbidden_uris : Optional[Sequence[str]], optional
+        forbidden_uris : Optional[Collection[str]], optional
             A list of URIs to exclude from the search (default is None).
         data_freshness : str, optional
             The freshness of the data to fetch, either "realtime" or "base_schedule" (default is "realtime").
@@ -172,7 +172,7 @@ class ArrivalApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Arrival], Pagination]
+        Tuple[Collection[Arrival], Pagination]
             A tuple containing a list of Arrival objects and a Pagination object for managing result pages.
         """
         # List of objects near the resource, navitia guesses the region from coordinates

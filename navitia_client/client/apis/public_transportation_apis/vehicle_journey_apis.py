@@ -1,4 +1,4 @@
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Optional, Collection, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.client.apis.public_transportation_apis.entity_apis import EntityApi
 from navitia_client.entities.pagination import Pagination
@@ -20,7 +20,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
 
     Methods
     -------
-    _get_entity_from_response(raw_entity_response: Any) -> Sequence[VehicleJourney]:
+    _get_entity_from_response(raw_entity_response: Any) -> Collection[VehicleJourney]:
         Static method to extract VehicleJourney instances from the raw API response.
 
     list_entity_collection_from_region(
@@ -31,7 +31,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[VehicleJourney], Pagination]:
+    ) -> Tuple[Collection[VehicleJourney], Pagination]:
         List vehicle journeys for a given region.
 
     get_entity_by_id(
@@ -43,7 +43,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[VehicleJourney], Pagination]:
+    ) -> Tuple[Collection[VehicleJourney], Pagination]:
         Get a vehicle journey by its ID in a given region.
 
     list_entity_collection_from_coordinates(
@@ -55,7 +55,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[VehicleJourney], Pagination]:
+    ) -> Tuple[Collection[VehicleJourney], Pagination]:
         List vehicle journeys for given geographic coordinates.
 
     get_entity_by_id_and_coordinates(
@@ -68,7 +68,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[VehicleJourney], Pagination]:
+    ) -> Tuple[Collection[VehicleJourney], Pagination]:
         Get a vehicle journey by its ID for given geographic coordinates.
     """
 
@@ -76,7 +76,9 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
     get_navitia_api = ApiBaseClient.get_navitia_api
 
     @staticmethod
-    def _get_entity_from_response(raw_entity_response: Any) -> Sequence[VehicleJourney]:
+    def _get_entity_from_response(
+        raw_entity_response: Any,
+    ) -> Collection[VehicleJourney]:
         """
         Static method to extract VehicleJourney instances from the raw API response.
 
@@ -87,7 +89,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
 
         Returns
         -------
-        Sequence[VehicleJourney]
+        Collection[VehicleJourney]
             List of VehicleJourney instances.
         """
         entities = []
@@ -104,7 +106,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[VehicleJourney], Pagination]:
+    ) -> Tuple[Collection[VehicleJourney], Pagination]:
         """
         List vehicle journeys for a given region.
 
@@ -127,7 +129,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
 
         Returns
         -------
-        Tuple[Sequence[VehicleJourney], Pagination]
+        Tuple[Collection[VehicleJourney], Pagination]
             List of VehicleJourney instances and pagination information.
         """
 
@@ -154,7 +156,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[VehicleJourney], Pagination]:
+    ) -> Tuple[Collection[VehicleJourney], Pagination]:
         """
         Get a vehicle journey by its ID in a given region.
 
@@ -179,7 +181,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
 
         Returns
         -------
-        Tuple[Sequence[VehicleJourney], Pagination]
+        Tuple[Collection[VehicleJourney], Pagination]
             List of VehicleJourney instances and pagination information.
         """
         filters = {
@@ -206,7 +208,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[VehicleJourney], Pagination]:
+    ) -> Tuple[Collection[VehicleJourney], Pagination]:
         """
         List vehicle journeys for given geographic coordinates.
 
@@ -231,7 +233,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
 
         Returns
         -------
-        Tuple[Sequence[VehicleJourney], Pagination]
+        Tuple[Collection[VehicleJourney], Pagination]
             List of VehicleJourney instances and pagination information.
         """
         filters = {
@@ -259,7 +261,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[VehicleJourney], Pagination]:
+    ) -> Tuple[Collection[VehicleJourney], Pagination]:
         """
         Get a vehicle journey by its ID for given geographic coordinates.
 
@@ -286,7 +288,7 @@ class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):
 
         Returns
         -------
-        Tuple[Sequence[VehicleJourney], Pagination]
+        Tuple[Collection[VehicleJourney], Pagination]
             List of VehicleJourney instances and pagination information.
         """
         filters = {

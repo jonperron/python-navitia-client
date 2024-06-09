@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 
 
 from .base_entity import BaseEntity
@@ -11,8 +11,8 @@ from .administrative_region import AdministrativeRegion
 class StopArea(BaseEntity):
     label: str
     coord: Coord
-    administrative_regions: Optional[Sequence[AdministrativeRegion]]
-    stop_points: Optional[Sequence["StopPoint"]]
+    administrative_regions: Optional[Collection[AdministrativeRegion]]
+    stop_points: Optional[Collection["StopPoint"]]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "StopArea":
@@ -48,8 +48,8 @@ class StopArea(BaseEntity):
 class StopPoint(BaseEntity):
     label: str
     coord: Coord
-    administrative_regions: Optional[Sequence[AdministrativeRegion]]
-    equipments: Sequence[str]
+    administrative_regions: Optional[Collection[AdministrativeRegion]]
+    equipments: Collection[str]
     stop_area: Optional[StopArea]
 
     @classmethod

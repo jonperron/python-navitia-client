@@ -10,9 +10,9 @@ Methods:
 
 ```python
 
-    list_contributors(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Contributor], Pagination]
+    list_contributors(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Collection[Contributor], Pagination]
         Retrieves a list of contributors for a specified region from the Navitia API.
 
-    get_contributor_on_dataset(region_id: str, dataset_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Contributor], Pagination]
+    get_contributor_on_dataset(region_id: str, dataset_id: str, start_page: int = 0, count: int = 25) -> Tuple[Collection[Contributor], Pagination]
         Retrieves a list of contributors for a specified dataset in a region from the Navitia API.
 ```

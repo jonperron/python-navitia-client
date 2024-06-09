@@ -1,19 +1,19 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Sequence
+from typing import Any, Collection
 
 from navitia_client.entities.link import Link
 
 
 @dataclass
 class StopDateTime:
-    additional_informations: Sequence[str]
+    additional_informations: Collection[str]
     arrival_date_time: datetime
     base_arrival_date_time: datetime
     base_departure_date_time: datetime
     data_freshness: str
     departure_date_time: datetime
-    links: Sequence[Link]
+    links: Collection[Link]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "StopDateTime":

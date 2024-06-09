@@ -17,10 +17,10 @@ Methods
         datetime_represents: str = "departure",
         traveler_type: str = "standard",
         data_freshness: str = "realtime",
-        forbidden_uris: Optional[Sequence[str]] = None,
-        allowed_id: Optional[Sequence[str]] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
+        allowed_id: Optional[Collection[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         language: str = "en-GB",
         depth: int = 1,
         max_duration_to_pt: int = 30 * 60,
@@ -36,13 +36,13 @@ Methods
         max_duration: int = 86400,
         wheelchair: bool = False,
         direct_path: str = "indifferent",
-        direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        direct_path_mode: Optional[Collection[str]] = None,
+        add_poi_infos: Collection[str] = [],
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0
-    ) -> Sequence[Journey]
+    ) -> Collection[Journey]
         Fetches journey data based on various parameters.
 
     list_journeys_with_region_id(
@@ -54,10 +54,10 @@ Methods
         datetime_represents: str = "departure",
         traveler_type: str = "standard",
         data_freshness: str = "realtime",
-        forbidden_uris: Optional[Sequence[str]] = None,
-        allowed_id: Optional[Sequence[str]] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
+        allowed_id: Optional[Collection[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         language: str = "en-GB",
         depth: int = 1,
         max_duration_to_pt: int = 30 * 60,
@@ -73,13 +73,13 @@ Methods
         max_duration: int = 86400,
         wheelchair: bool = False,
         direct_path: str = "indifferent",
-        direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        direct_path_mode: Optional[Collection[str]] = None,
+        add_poi_infos: Collection[str] = [],
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0
-    ) -> Sequence[Journey]
+    ) -> Collection[Journey]
         Fetches journey data for a specific region based on various parameters.
 
     list_journeys_with_resource_path(
@@ -91,10 +91,10 @@ Methods
         datetime_represents: str = "departure",
         traveler_type: str = "standard",
         data_freshness: str = "realtime",
-        forbidden_uris: Optional[Sequence[str]] = None,
-        allowed_id: Optional[Sequence[str]] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
+        allowed_id: Optional[Collection[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         language: str = "en-GB",
         depth: int = 1,
         max_duration_to_pt: int = 30 * 60,
@@ -110,12 +110,12 @@ Methods
         max_duration: int = 86400,
         wheelchair: bool = False,
         direct_path: str = "indifferent",
-        direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        direct_path_mode: Optional[Collection[str]] = None,
+        add_poi_infos: Collection[str] = [],
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0
-    ) -> Sequence[Journey]
+    ) -> Collection[Journey]
         Fetches journey data for a specific resource path based on various parameters.
 ```

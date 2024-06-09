@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Sequence
+from typing import Any, Collection
 
 from navitia_client.entities.display_information import DisplayInformation
 from navitia_client.entities.link import Link
@@ -9,9 +9,9 @@ from navitia_client.entities.stop_area import StopPoint
 
 @dataclass
 class ScheduleTableHeader:
-    additional_informations: Sequence[str]
+    additional_informations: Collection[str]
     display_informations: DisplayInformation
-    links: Sequence[Link]
+    links: Collection[Link]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "ScheduleTableHeader":
@@ -29,7 +29,7 @@ class ScheduleTableHeader:
 
 @dataclass
 class ScheduleTableRow:
-    date_times: Sequence[PTDatetime]
+    date_times: Collection[PTDatetime]
     stop_point: StopPoint
 
     @classmethod
@@ -45,8 +45,8 @@ class ScheduleTableRow:
 
 @dataclass
 class ScheduleTable:
-    headers: Sequence[ScheduleTableHeader]
-    rows: Sequence[ScheduleTableRow]
+    headers: Collection[ScheduleTableHeader]
+    rows: Collection[ScheduleTableRow]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "ScheduleTable":

@@ -1,4 +1,4 @@
-from typing import Any, Sequence, Tuple
+from typing import Any, Collection, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.administrative_region import Region
@@ -13,21 +13,21 @@ class CoverageApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_regions_from_response(raw_regions_response: Any) -> Sequence[Region]
+    _get_regions_from_response(raw_regions_response: Any) -> Collection[Region]
         A static method to transform raw API response data into a list of Region objects.
 
-    list_covered_areas(start_page: int = 0, count: int = 25) -> Tuple[Sequence[Region], Pagination]
+    list_covered_areas(start_page: int = 0, count: int = 25) -> Tuple[Collection[Region], Pagination]
         Retrieves a list of covered areas from the Navitia API.
 
-    get_coverage_by_region_id(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Region], Pagination]
+    get_coverage_by_region_id(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Collection[Region], Pagination]
         Retrieves information about a specific region by its ID.
 
-    get_coverage_by_region_coordinates_and_coordinates(lon: float, lat: float, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Region], Pagination]
+    get_coverage_by_region_coordinates_and_coordinates(lon: float, lat: float, start_page: int = 0, count: int = 25) -> Tuple[Collection[Region], Pagination]
         Retrieves information about a region based on coordinates.
     """
 
     @staticmethod
-    def _get_regions_from_response(raw_regions_response: Any) -> Sequence[Region]:
+    def _get_regions_from_response(raw_regions_response: Any) -> Collection[Region]:
         """
         Converts raw response data into a list of Region objects.
 
@@ -38,7 +38,7 @@ class CoverageApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Region]
+        Collection[Region]
             A list of Region objects created from the raw response data.
         """
         regions = []
@@ -48,7 +48,7 @@ class CoverageApiClient(ApiBaseClient):
 
     def list_covered_areas(
         self, start_page: int = 0, count: int = 25
-    ) -> Tuple[Sequence[Region], Pagination]:
+    ) -> Tuple[Collection[Region], Pagination]:
         """
         Retrieves a list of covered areas from the Navitia API.
 
@@ -61,7 +61,7 @@ class CoverageApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Region], Pagination]
+        Tuple[Collection[Region], Pagination]
             A tuple containing a list of Region objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(
@@ -74,7 +74,7 @@ class CoverageApiClient(ApiBaseClient):
 
     def get_coverage_by_region_id(
         self, region_id: str, start_page: int = 0, count: int = 25
-    ) -> Tuple[Sequence[Region], Pagination]:
+    ) -> Tuple[Collection[Region], Pagination]:
         """
         Retrieves information about a specific region by its ID.
 
@@ -89,7 +89,7 @@ class CoverageApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Region], Pagination]
+        Tuple[Collection[Region], Pagination]
             A tuple containing a list of Region objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(
@@ -102,7 +102,7 @@ class CoverageApiClient(ApiBaseClient):
 
     def get_coverage_by_region_coordinates_and_coordinates(
         self, lon: float, lat: float, start_page: int = 0, count: int = 25
-    ) -> Tuple[Sequence[Region], Pagination]:
+    ) -> Tuple[Collection[Region], Pagination]:
         """
         Retrieves information about a region based on coordinates.
 
@@ -119,7 +119,7 @@ class CoverageApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Region], Pagination]
+        Tuple[Collection[Region], Pagination]
             A tuple containing a list of Region objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 
 from navitia_client.entities.base_entity import BaseEntity
 from navitia_client.entities.disruption import Disruption
@@ -46,7 +46,7 @@ class WeekPattern:
 
 @dataclass
 class Calendar:
-    active_periods: Sequence[ActivePeriod]
+    active_periods: Collection[ActivePeriod]
     week_pattern: WeekPattern
 
     @classmethod
@@ -128,12 +128,12 @@ class ValidityPattern:
 class VehicleJourney:
     id: str
     name: Optional[str]
-    calendars: Optional[Sequence[Calendar]]
-    codes: Sequence[Code]
-    disruptions: Sequence[Disruption]
+    calendars: Optional[Collection[Calendar]]
+    codes: Collection[Code]
+    disruptions: Collection[Disruption]
     headsign: str
     journey_pattern: Optional[JourneyPattern]
-    stop_times: Optional[Sequence[StopTime]]
+    stop_times: Optional[Collection[StopTime]]
     trip: Optional[Trip]
     validity_pattern: Optional[ValidityPattern]
 

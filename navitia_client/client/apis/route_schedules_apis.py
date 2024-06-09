@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.route_schedule import RouteSchedule
 
@@ -12,7 +12,7 @@ class RouteSchedulesApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_route_schedule_object_from_response(response: Any) -> Sequence[RouteSchedule]:
+    _get_route_schedule_object_from_response(response: Any) -> Collection[RouteSchedule]:
         A static method to transform raw API response data into a list of RouteSchedule objects.
 
     list_route_schedules_by_region_id_and_path(
@@ -22,11 +22,11 @@ class RouteSchedulesApiClient(ApiBaseClient):
         duration: int = 86400,
         depth: int = 1,
         items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "base_schedule",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Sequence[RouteSchedule]:
+    ) -> Collection[RouteSchedule]:
         Retrieves route schedules for a specified region and resource path from the Navitia API.
 
     list_route_schedules_by_coordinates(
@@ -38,18 +38,18 @@ class RouteSchedulesApiClient(ApiBaseClient):
         duration: int = 86400,
         depth: int = 1,
         items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "base_schedule",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Sequence[RouteSchedule]:
+    ) -> Collection[RouteSchedule]:
         Retrieves route schedules for a specified set of coordinates from the Navitia API.
     """
 
     @staticmethod
     def _get_route_schedule_object_from_response(
         response: Any,
-    ) -> Sequence[RouteSchedule]:
+    ) -> Collection[RouteSchedule]:
         """
         Static method to transform raw API response data into a list of RouteSchedule objects.
 
@@ -57,7 +57,7 @@ class RouteSchedulesApiClient(ApiBaseClient):
             response (Any): The raw API response data.
 
         Returns:
-            Sequence[RouteSchedule]: A sequence of RouteSchedule objects.
+            Collection[RouteSchedule]: A Collection of RouteSchedule objects.
         """
         route_schedules = []
         for route_schedule_data in response:
@@ -65,7 +65,7 @@ class RouteSchedulesApiClient(ApiBaseClient):
 
         return route_schedules
 
-    def _get_routes_nearby(self, url: str, filters: dict) -> Sequence[RouteSchedule]:
+    def _get_routes_nearby(self, url: str, filters: dict) -> Collection[RouteSchedule]:
         """
         Retrieves route schedules from the Navitia API based on provided URL and filters.
 
@@ -74,7 +74,7 @@ class RouteSchedulesApiClient(ApiBaseClient):
             filters (dict): Filters to apply to the API request.
 
         Returns:
-            Sequence[RouteSchedule]: A sequence of RouteSchedule objects.
+            Collection[RouteSchedule]: A Collection of RouteSchedule objects.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         raw_results = results.json()["route_schedules"]
@@ -88,11 +88,11 @@ class RouteSchedulesApiClient(ApiBaseClient):
         duration: int = 86400,
         depth: int = 1,
         items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "base_schedule",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Sequence[RouteSchedule]:
+    ) -> Collection[RouteSchedule]:
         """
         Retrieves route schedules for a specified region and resource path from the Navitia API.
 
@@ -103,13 +103,13 @@ class RouteSchedulesApiClient(ApiBaseClient):
             duration (int, optional): The duration of the schedule in seconds. Defaults to 86400.
             depth (int, optional): The depth of data to retrieve. Defaults to 1.
             items_per_schedule (int, optional): The number of items per schedule. Defaults to 1.
-            forbidden_uris (Optional[Sequence[str]], optional): Forbidden URIs. Defaults to None.
+            forbidden_uris (Optional[Collection[str]], optional): Forbidden URIs. Defaults to None.
             data_freshness (str, optional): The freshness of data to retrieve. Defaults to "base_schedule".
             disable_geojson (bool, optional): Whether to disable GeoJSON in the response. Defaults to False.
             direction_type (str, optional): The direction type. Defaults to "all".
 
         Returns:
-            Sequence[RouteSchedule]: A sequence of RouteSchedule objects.
+            Collection[RouteSchedule]: A Collection of RouteSchedule objects.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/route_schedules"
 
@@ -136,11 +136,11 @@ class RouteSchedulesApiClient(ApiBaseClient):
         duration: int = 86400,
         depth: int = 1,
         items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "base_schedule",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Sequence[RouteSchedule]:
+    ) -> Collection[RouteSchedule]:
         """
         Retrieves route schedules for a specified set of coordinates from the Navitia API.
 
@@ -153,13 +153,13 @@ class RouteSchedulesApiClient(ApiBaseClient):
             duration (int, optional): The duration of the schedule in seconds. Defaults to 86400.
             depth (int, optional): The depth of data to retrieve. Defaults to 1.
             items_per_schedule (int, optional): The number of items per schedule. Defaults to 1.
-            forbidden_uris (Optional[Sequence[str]], optional): Forbidden URIs. Defaults to None.
+            forbidden_uris (Optional[Collection[str]], optional): Forbidden URIs. Defaults to None.
             data_freshness (str, optional): The freshness of data to retrieve. Defaults to "base_schedule".
             disable_geojson (bool, optional): Whether to disable GeoJSON in the response. Defaults to False.
             direction_type (str, optional): The direction type. Defaults to "all".
 
         Returns:
-            Sequence[RouteSchedule]: A sequence of RouteSchedule objects.
+            Collection[RouteSchedule]: A Collection of RouteSchedule objects.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/route_schedules"
 

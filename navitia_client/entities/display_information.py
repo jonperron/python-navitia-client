@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 
 from .equipment import Equipment
 
@@ -17,7 +17,7 @@ class DisplayInformation:
     label: Optional[str]
     name: str
     trip_short_name: Optional[str]
-    equipments: Optional[Sequence[Equipment]]
+    equipments: Optional[Collection[Equipment]]
     description: Optional[str]
 
     @classmethod

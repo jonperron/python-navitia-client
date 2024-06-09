@@ -19,11 +19,11 @@ Methods
         duration: int = 86400,
         depth: int = 1,
         items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Tuple[Sequence[StopSchedule], Pagination]:
+    ) -> Tuple[Collection[StopSchedule], Pagination]:
         Retrieves stop schedules for a specified set of coordinates from the Navitia API.
 
     list_stop_schedules_by_region_id_and_path(
@@ -33,11 +33,11 @@ Methods
         duration: int = 86400,
         depth: int = 1,
         items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Tuple[Sequence[StopSchedule], Pagination]:
+    ) -> Tuple[Collection[StopSchedule], Pagination]:
         Retrieves stop schedules for a specified region and resource path from the Navitia API.
 
 ```

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any, Generic, Optional, Sequence, Tuple, TypeVar
+from typing import Any, Generic, Optional, Collection, Tuple, TypeVar
 
 from navitia_client.entities.company import Company
 from navitia_client.entities.disruption import Disruption
@@ -38,7 +38,7 @@ class EntityApi(Generic[TEntity], ABC):
 
     Methods
     -------
-    _get_entity_from_response(raw_entity_response: Any) -> Sequence[TEntity]:
+    _get_entity_from_response(raw_entity_response: Any) -> Collection[TEntity]:
         Static method to extract entity instances from the raw API response.
 
     _generate_filter_query(filters: dict[str, Any]) -> str:
@@ -48,7 +48,7 @@ class EntityApi(Generic[TEntity], ABC):
         url: str,
         entity: str,
         filters: dict[str, Any]
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         Fetch entity results from the API.
 
     list_entity_collection_from_region(
@@ -59,7 +59,7 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         Abstract method to list entities for a given region.
 
     get_entity_by_id(
@@ -71,7 +71,7 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         Abstract method to get an entity by its ID in a given region.
 
     list_entity_collection_from_coordinates(
@@ -83,7 +83,7 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         Abstract method to list entities for given geographic coordinates.
 
     get_entity_by_id_and_coordinates(
@@ -96,7 +96,7 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         Abstract method to get an entity by its ID for given geographic coordinates.
     """
 
@@ -105,7 +105,7 @@ class EntityApi(Generic[TEntity], ABC):
 
     @staticmethod
     @abstractmethod
-    def _get_entity_from_response(raw_entity_response: Any) -> Sequence[TEntity]:
+    def _get_entity_from_response(raw_entity_response: Any) -> Collection[TEntity]:
         """
         Static method to extract entity instances from the raw API response.
 
@@ -116,7 +116,7 @@ class EntityApi(Generic[TEntity], ABC):
 
         Returns
         -------
-        Sequence[TEntity]
+        Collection[TEntity]
             List of entity instances.
         """
         raise NotImplementedError
@@ -141,7 +141,7 @@ class EntityApi(Generic[TEntity], ABC):
 
     def _get_entity_results(
         self, url: str, entity: str, filters: dict[str, Any]
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         """
         Fetch entity results from the API.
 
@@ -156,7 +156,7 @@ class EntityApi(Generic[TEntity], ABC):
 
         Returns
         -------
-        Tuple[Sequence[TEntity], Pagination]
+        Tuple[Collection[TEntity], Pagination]
             List of entity instances and pagination information.
         """
         query_string = self._generate_filter_query(filters)
@@ -175,7 +175,7 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         """
         List entities for a given region.
 
@@ -198,7 +198,7 @@ class EntityApi(Generic[TEntity], ABC):
 
         Returns
         -------
-        Tuple[Sequence[TEntity], Pagination]
+        Tuple[Collection[TEntity], Pagination]
             List of entities and pagination information.
         """
         raise NotImplementedError
@@ -214,7 +214,7 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         """
         Get an entity by its ID in a given region.
 
@@ -239,7 +239,7 @@ class EntityApi(Generic[TEntity], ABC):
 
         Returns
         -------
-        Tuple[Sequence[TEntity], Pagination]
+        Tuple[Collection[TEntity], Pagination]
             List of entities and pagination information.
         """
         raise NotImplementedError
@@ -255,7 +255,7 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         """
         List entities for given geographic coordinates.
 
@@ -280,7 +280,7 @@ class EntityApi(Generic[TEntity], ABC):
 
         Returns
         -------
-        Tuple[Sequence[TEntity], Pagination]
+        Tuple[Collection[TEntity], Pagination]
             List of entities and pagination information.
         """
         raise NotImplementedError
@@ -297,7 +297,7 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[TEntity], Pagination]:
+    ) -> Tuple[Collection[TEntity], Pagination]:
         """
         Get an entity by its ID for given geographic coordinates.
 
@@ -324,7 +324,7 @@ class EntityApi(Generic[TEntity], ABC):
 
         Returns
         -------
-        Tuple[Sequence[TEntity], Pagination]
+        Tuple[Collection[TEntity], Pagination]
             List of entities and pagination information.
         """
         raise NotImplementedError

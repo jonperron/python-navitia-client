@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 
 from navitia_client.entities.direction import Direction
 from navitia_client.entities.network import Network
@@ -15,9 +15,9 @@ class Line(BaseEntity):
     color: str
     opening_time: str
     closing_time: str
-    routes: Optional[Sequence["Route"]]
+    routes: Optional[Collection["Route"]]
     commercial_mode: CommercialMode
-    physical_modes: Sequence[PhysicalMode]
+    physical_modes: Collection[PhysicalMode]
     text_color: Optional[str]
     network: Network
 

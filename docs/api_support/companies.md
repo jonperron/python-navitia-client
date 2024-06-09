@@ -17,7 +17,7 @@ Methods:
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Company], Pagination]:
+    ) -> Tuple[Collection[Company], Pagination]:
         List companies for a given region.
 
     get_entity_by_id(
@@ -29,7 +29,7 @@ Methods:
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Company], Pagination]:
+    ) -> Tuple[Collection[Company], Pagination]:
         Get a company by its ID in a given region.
 
     list_entity_collection_from_coordinates(
@@ -41,7 +41,7 @@ Methods:
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Company], Pagination]:
+    ) -> Tuple[Collection[Company], Pagination]:
         List companies for given geographic coordinates.
 
     get_entity_by_id_and_coordinates(
@@ -54,6 +54,6 @@ Methods:
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Company], Pagination]:
+    ) -> Tuple[Collection[Company], Pagination]:
         Get a company by its ID for given geographic coordinates.
 ```

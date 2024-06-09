@@ -1,4 +1,4 @@
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Optional, Collection, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.place import Place
 
@@ -11,20 +11,20 @@ class PlacesApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_pt_objects_from_response(response: Any) -> Sequence[Place]
+    _get_pt_objects_from_response(response: Any) -> Collection[Place]
         A static method to transform raw API response data into a list of Place objects.
 
     list_places(
         region_id: str, query: str,
-        type: Sequence[str] = ["stop_area", "address", "poi", "administrative_region"],
+        type: Collection[str] = ["stop_area", "address", "poi", "administrative_region"],
         disable_geojson: bool = False, depth: int = 1,
         from_lon_lat: Optional[Tuple[float, float]] = None
-    ) -> Sequence[Place]
+    ) -> Collection[Place]
         Retrieves a list of places based on the provided query and region ID from the Navitia API.
     """
 
     @staticmethod
-    def _get_pt_objects_from_response(response: Any) -> Sequence[Place]:
+    def _get_pt_objects_from_response(response: Any) -> Collection[Place]:
         """
         Transform raw API response data into a list of Place objects.
 
@@ -32,7 +32,7 @@ class PlacesApiClient(ApiBaseClient):
             response (Any): The raw API response data.
 
         Returns:
-            Sequence[Place]: A list of Place objects.
+            Collection[Place]: A list of Place objects.
         """
         entities = []
         for entity_data in response:
@@ -43,18 +43,23 @@ class PlacesApiClient(ApiBaseClient):
         self,
         region_id: str,
         query: str,
-        type: Sequence[str] = ["stop_area", "address", "poi", "administrative_region"],
+        type: Collection[str] = [
+            "stop_area",
+            "address",
+            "poi",
+            "administrative_region",
+        ],
         disable_geojson: bool = False,
         depth: int = 1,
         from_lon_lat: Optional[Tuple[float, float]] = None,
-    ) -> Sequence[Place]:
+    ) -> Collection[Place]:
         """
         Retrieves a list of places based on the provided query and region ID from the Navitia API.
 
         Parameters:
             region_id (str): The region ID.
             query (str): The query string to search for places.
-            type (Sequence[str], optional): The types of places to include in the search.
+            type (Collection[str], optional): The types of places to include in the search.
                 Defaults to ["stop_area", "address", "poi", "administrative_region"].
             disable_geojson (bool, optional): Whether to disable GeoJSON format in the response.
                 Defaults to False.
@@ -63,7 +68,7 @@ class PlacesApiClient(ApiBaseClient):
                 from which to search for places. Defaults to None.
 
         Returns:
-            Sequence[Place]: A list of Place objects matching the query.
+            Collection[Place]: A list of Place objects matching the query.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/places?q={query}&type={type}&disable_geojson={disable_geojson}&depth={depth}"
         if from_lon_lat:

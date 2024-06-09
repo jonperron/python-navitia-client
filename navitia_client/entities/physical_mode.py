@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 
 from .base_entity import BaseEntity
 
@@ -27,7 +27,7 @@ class PhysicalModeId(Enum):
 
 @dataclass
 class CommercialMode(BaseEntity):
-    physical_modes: Optional[Sequence["PhysicalMode"]]
+    physical_modes: Optional[Collection["PhysicalMode"]]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "CommercialMode":
@@ -64,7 +64,7 @@ class PhysicalMode:
     id: PhysicalModeId
     name: str
     co2_emission_rate: Optional[CO2EmissionRate]
-    commercial_modes: Optional[Sequence[CommercialMode]]
+    commercial_modes: Optional[Collection[CommercialMode]]
 
     @classmethod
     def from_payload(

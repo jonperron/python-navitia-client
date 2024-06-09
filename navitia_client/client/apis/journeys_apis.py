@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional, Sequence
+from typing import Optional, Collection
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.journey import Journey
 
@@ -12,7 +12,7 @@ class JourneyApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_journeys(url: str, filters: dict) -> Sequence[Journey]
+    _get_journeys(url: str, filters: dict) -> Collection[Journey]
         Internal method to fetch journey data based on the provided URL and filters.
 
     list_journeys(
@@ -22,10 +22,10 @@ class JourneyApiClient(ApiBaseClient):
         datetime_represents: str = "departure",
         traveler_type: str = "standard",
         data_freshness: str = "realtime",
-        forbidden_uris: Optional[Sequence[str]] = None,
-        allowed_id: Optional[Sequence[str]] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
+        allowed_id: Optional[Collection[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         language: str = "en-GB",
         depth: int = 1,
         max_duration_to_pt: int = 30 * 60,
@@ -41,13 +41,13 @@ class JourneyApiClient(ApiBaseClient):
         max_duration: int = 86400,
         wheelchair: bool = False,
         direct_path: str = "indifferent",
-        direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        direct_path_mode: Optional[Collection[str]] = None,
+        add_poi_infos: Collection[str] = [],
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0
-    ) -> Sequence[Journey]
+    ) -> Collection[Journey]
         Fetches journey data based on various parameters.
 
     list_journeys_with_region_id(
@@ -59,10 +59,10 @@ class JourneyApiClient(ApiBaseClient):
         datetime_represents: str = "departure",
         traveler_type: str = "standard",
         data_freshness: str = "realtime",
-        forbidden_uris: Optional[Sequence[str]] = None,
-        allowed_id: Optional[Sequence[str]] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
+        allowed_id: Optional[Collection[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         language: str = "en-GB",
         depth: int = 1,
         max_duration_to_pt: int = 30 * 60,
@@ -78,13 +78,13 @@ class JourneyApiClient(ApiBaseClient):
         max_duration: int = 86400,
         wheelchair: bool = False,
         direct_path: str = "indifferent",
-        direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        direct_path_mode: Optional[Collection[str]] = None,
+        add_poi_infos: Collection[str] = [],
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0
-    ) -> Sequence[Journey]
+    ) -> Collection[Journey]
         Fetches journey data for a specific region based on various parameters.
 
     list_journeys_with_resource_path(
@@ -96,10 +96,10 @@ class JourneyApiClient(ApiBaseClient):
         datetime_represents: str = "departure",
         traveler_type: str = "standard",
         data_freshness: str = "realtime",
-        forbidden_uris: Optional[Sequence[str]] = None,
-        allowed_id: Optional[Sequence[str]] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
+        allowed_id: Optional[Collection[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         language: str = "en-GB",
         depth: int = 1,
         max_duration_to_pt: int = 30 * 60,
@@ -115,17 +115,17 @@ class JourneyApiClient(ApiBaseClient):
         max_duration: int = 86400,
         wheelchair: bool = False,
         direct_path: str = "indifferent",
-        direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        direct_path_mode: Optional[Collection[str]] = None,
+        add_poi_infos: Collection[str] = [],
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0
-    ) -> Sequence[Journey]
+    ) -> Collection[Journey]
         Fetches journey data for a specific resource path based on various parameters.
     """
 
-    def _get_journeys(self, url: str, filters: dict) -> Sequence[Journey]:
+    def _get_journeys(self, url: str, filters: dict) -> Collection[Journey]:
         """
         Internal method to fetch journey data based on the provided URL and filters.
 
@@ -138,7 +138,7 @@ class JourneyApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Journey]
+        Collection[Journey]
             A list of Journey objects created from the API response.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
@@ -153,10 +153,10 @@ class JourneyApiClient(ApiBaseClient):
         datetime_represents: str = "departure",
         traveler_type: str = "standard",
         data_freshness: str = "realtime",
-        forbidden_uris: Optional[Sequence[str]] = None,
-        allowed_id: Optional[Sequence[str]] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
+        allowed_id: Optional[Collection[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         language: str = "en-GB",
         depth: int = 1,
         max_duration_to_pt: int = 30 * 60,
@@ -172,13 +172,13 @@ class JourneyApiClient(ApiBaseClient):
         max_duration: int = 86400,
         wheelchair: bool = False,
         direct_path: str = "indifferent",
-        direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        direct_path_mode: Optional[Collection[str]] = None,
+        add_poi_infos: Collection[str] = [],
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0,
-    ) -> Sequence[Journey]:
+    ) -> Collection[Journey]:
         """
         Fetches journey data based on various parameters.
 
@@ -196,13 +196,13 @@ class JourneyApiClient(ApiBaseClient):
             The type of traveler (default is "standard").
         data_freshness : str, optional
             The freshness of the data, can be "realtime" or "base_schedule" (default is "realtime").
-        forbidden_uris : Optional[Sequence[str]], optional
+        forbidden_uris : Optional[Collection[str]], optional
             A list of URIs that are forbidden in the journey calculation.
-        allowed_id : Optional[Sequence[str]], optional
+        allowed_id : Optional[Collection[str]], optional
             A list of allowed IDs for the journey calculation.
-        first_section_mode : Optional[Sequence[str]], optional
+        first_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the first section of the journey.
-        last_section_mode : Optional[Sequence[str]], optional
+        last_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the last section of the journey.
         language : str, optional
             The language for the journey results (default is "en-GB").
@@ -234,9 +234,9 @@ class JourneyApiClient(ApiBaseClient):
             Whether the journey should be wheelchair accessible (default is False).
         direct_path : str, optional
             Preference for direct paths, can be "indifferent", "requested", or "forbidden" (default is "indifferent").
-        direct_path_mode : Optional[Sequence[str]], optional
+        direct_path_mode : Optional[Collection[str]], optional
             Modes of transportation for direct paths.
-        add_poi_infos : Sequence[str], optional
+        add_poi_infos : Collection[str], optional
             Additional points of interest information to be included.
         debug : bool, optional
             Whether to include debug information in the response (default is False).
@@ -249,7 +249,7 @@ class JourneyApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Journey]
+        Collection[Journey]
             A list of Journey objects representing the journey results.
         """
         request_url = f"{self.base_navitia_url}/journeys"
@@ -313,10 +313,10 @@ class JourneyApiClient(ApiBaseClient):
         datetime_represents: str = "departure",
         traveler_type: str = "standard",
         data_freshness: str = "realtime",
-        forbidden_uris: Optional[Sequence[str]] = None,
-        allowed_id: Optional[Sequence[str]] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
+        allowed_id: Optional[Collection[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         language: str = "en-GB",
         depth: int = 1,
         max_duration_to_pt: int = 30 * 60,
@@ -332,13 +332,13 @@ class JourneyApiClient(ApiBaseClient):
         max_duration: int = 86400,
         wheelchair: bool = False,
         direct_path: str = "indifferent",
-        direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        direct_path_mode: Optional[Collection[str]] = None,
+        add_poi_infos: Collection[str] = [],
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0,
-    ) -> Sequence[Journey]:
+    ) -> Collection[Journey]:
         """
         Fetches journey data for a specific region based on various parameters.
 
@@ -358,13 +358,13 @@ class JourneyApiClient(ApiBaseClient):
             The type of traveler (default is "standard").
         data_freshness : str, optional
             The freshness of the data, can be "realtime" or "base_schedule" (default is "realtime").
-        forbidden_uris : Optional[Sequence[str]], optional
+        forbidden_uris : Optional[Collection[str]], optional
             A list of URIs that are forbidden in the journey calculation.
-        allowed_id : Optional[Sequence[str]], optional
+        allowed_id : Optional[Collection[str]], optional
             A list of allowed IDs for the journey calculation.
-        first_section_mode : Optional[Sequence[str]], optional
+        first_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the first section of the journey.
-        last_section_mode : Optional[Sequence[str]], optional
+        last_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the last section of the journey.
         language : str, optional
             The language for the journey results (default is "en-GB").
@@ -396,9 +396,9 @@ class JourneyApiClient(ApiBaseClient):
             Whether the journey should be wheelchair accessible (default is False).
         direct_path : str, optional
             Preference for direct paths, can be "indifferent", "requested", or "forbidden" (default is "indifferent").
-        direct_path_mode : Optional[Sequence[str]], optional
+        direct_path_mode : Optional[Collection[str]], optional
             Modes of transportation for direct paths.
-        add_poi_infos : Sequence[str], optional
+        add_poi_infos : Collection[str], optional
             Additional points of interest information to be included.
         debug : bool, optional
             Whether to include debug information in the response (default is False).
@@ -411,7 +411,7 @@ class JourneyApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Journey]
+        Collection[Journey]
             A list of Journey objects representing the journey results for the specified region.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/journeys"
@@ -475,10 +475,10 @@ class JourneyApiClient(ApiBaseClient):
         datetime_represents: str = "departure",
         traveler_type: str = "standard",
         data_freshness: str = "realtime",
-        forbidden_uris: Optional[Sequence[str]] = None,
-        allowed_id: Optional[Sequence[str]] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
+        allowed_id: Optional[Collection[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         language: str = "en-GB",
         depth: int = 1,
         max_duration_to_pt: int = 30 * 60,
@@ -494,13 +494,13 @@ class JourneyApiClient(ApiBaseClient):
         max_duration: int = 86400,
         wheelchair: bool = False,
         direct_path: str = "indifferent",
-        direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        direct_path_mode: Optional[Collection[str]] = None,
+        add_poi_infos: Collection[str] = [],
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0,
-    ) -> Sequence[Journey]:
+    ) -> Collection[Journey]:
         """
         Fetches journey data for a specific resource path based on various parameters.
 
@@ -520,13 +520,13 @@ class JourneyApiClient(ApiBaseClient):
             The type of traveler (default is "standard").
         data_freshness : str, optional
             The freshness of the data, can be "realtime" or "base_schedule" (default is "realtime").
-        forbidden_uris : Optional[Sequence[str]], optional
+        forbidden_uris : Optional[Collection[str]], optional
             A list of URIs that are forbidden in the journey calculation.
-        allowed_id : Optional[Sequence[str]], optional
+        allowed_id : Optional[Collection[str]], optional
             A list of allowed IDs for the journey calculation.
-        first_section_mode : Optional[Sequence[str]], optional
+        first_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the first section of the journey.
-        last_section_mode : Optional[Sequence[str]], optional
+        last_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the last section of the journey.
         language : str, optional
             The language for the journey results (default is "en-GB").
@@ -558,9 +558,9 @@ class JourneyApiClient(ApiBaseClient):
             Whether the journey should be wheelchair accessible (default is False).
         direct_path : str, optional
             Preference for direct paths, can be "indifferent", "requested", or "forbidden" (default is "indifferent").
-        direct_path_mode : Optional[Sequence[str]], optional
+        direct_path_mode : Optional[Collection[str]], optional
             Modes of transportation for direct paths.
-        add_poi_infos : Sequence[str], optional
+        add_poi_infos : Collection[str], optional
             Additional points of interest information to be included.
         debug : bool, optional
             Whether to include debug information in the response (default is False).
@@ -573,7 +573,7 @@ class JourneyApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Journey]
+        Collection[Journey]
             A list of Journey objects representing the journey results for the specified region.
         """
         request_url = f"{self.base_navitia_url}/coverage/{resource_path}/journeys"

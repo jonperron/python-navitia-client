@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Sequence
+from typing import Any, Collection
 
 
 @dataclass
@@ -21,7 +21,7 @@ class PathItem:
 
 @dataclass
 class Path:
-    segments: Sequence[PathItem]
+    segments: Collection[PathItem]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "Path":

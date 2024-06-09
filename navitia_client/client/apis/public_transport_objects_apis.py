@@ -1,4 +1,4 @@
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.pt_object import PtObject
 
@@ -11,13 +11,13 @@ class PublicTransportObjectsApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_pt_objects_from_response(response: Any) -> Sequence[PtObject]:
+    _get_pt_objects_from_response(response: Any) -> Collection[PtObject]:
         A static method to transform raw API response data into a list of PtObject objects.
 
     list_public_transport_objects(
         region_id: str,
         query: str,
-        type: Sequence[str] = [
+        type: Collection[str] = [
             "network",
             "commercial_mode",
             "line",
@@ -27,12 +27,12 @@ class PublicTransportObjectsApiClient(ApiBaseClient):
         disable_disruption: bool = False,
         depth: int = 1,
         post_query_filter: Optional[str] = None,
-    ) -> Sequence[PtObject]:
+    ) -> Collection[PtObject]:
         Retrieves a list of public transport objects for a specified region from the Navitia API.
     """
 
     @staticmethod
-    def _get_pt_objects_from_response(response: Any) -> Sequence[PtObject]:
+    def _get_pt_objects_from_response(response: Any) -> Collection[PtObject]:
         """
         Static method to transform raw API response data into a list of PtObject objects.
 
@@ -40,7 +40,7 @@ class PublicTransportObjectsApiClient(ApiBaseClient):
             response (Any): The raw API response data.
 
         Returns:
-            Sequence[PtObject]: A sequence of PtObject objects.
+            Collection[PtObject]: A Collection of PtObject objects.
         """
         pt_objects = []
         for pt_objects_data in response:
@@ -52,7 +52,7 @@ class PublicTransportObjectsApiClient(ApiBaseClient):
         self,
         region_id: str,
         query: str,
-        type: Sequence[str] = [
+        type: Collection[str] = [
             "network",
             "commercial_mode",
             "line",
@@ -62,14 +62,14 @@ class PublicTransportObjectsApiClient(ApiBaseClient):
         disable_disruption: bool = False,
         depth: int = 1,
         post_query_filter: Optional[str] = None,
-    ) -> Sequence[PtObject]:
+    ) -> Collection[PtObject]:
         """
         Retrieves a list of public transport objects for a specified region from the Navitia API.
 
         Parameters:
             region_id (str): The region ID.
             query (str): The search query.
-            type (Sequence[str], optional): The types of public transport objects to include
+            type (Collection[str], optional): The types of public transport objects to include
                 in the search. Defaults to ["network", "commercial_mode", "line", "route", "stop_area"].
             disable_disruption (bool, optional): Whether to disable disruption information in the response.
                 Defaults to False.
@@ -77,7 +77,7 @@ class PublicTransportObjectsApiClient(ApiBaseClient):
             post_query_filter (Optional[str], optional): Additional filtering criteria. Defaults to None.
 
         Returns:
-            Sequence[PtObject]: A sequence of PtObject objects.
+            Collection[PtObject]: A Collection of PtObject objects.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/pt_objects?q={query}&type={type}&disable_disruption={disable_disruption}&depth={depth}"
         if post_query_filter:

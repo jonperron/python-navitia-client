@@ -1,16 +1,16 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 
 from navitia_client.entities.link import Link
 
 
 @dataclass
 class PTDatetime:
-    additional_informations: Sequence[str]
+    additional_informations: Collection[str]
     departure_date_time: Optional[datetime]
     arrival_date_time: Optional[datetime]
-    links: Sequence[Link]
+    links: Collection[Link]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "PTDatetime":

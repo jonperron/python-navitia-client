@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Sequence
+from typing import Any, Collection
 
 from .base_entity import BaseEntity
 from .coord import Coord
@@ -11,7 +11,7 @@ class Address(BaseEntity):
     label: str
     coord: Coord
     house_number: int
-    administrative_regions: Sequence[AdministrativeRegion]
+    administrative_regions: Collection[AdministrativeRegion]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "Address":

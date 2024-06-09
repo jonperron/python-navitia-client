@@ -1,4 +1,4 @@
-from typing import Any, Sequence, Tuple
+from typing import Any, Collection, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.dataset import Dataset
@@ -13,18 +13,18 @@ class DatasetsApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_datasets_from_response(raw_datasets_response: Any) -> Sequence[Dataset]
+    _get_datasets_from_response(raw_datasets_response: Any) -> Collection[Dataset]
         A static method to transform raw API response data into a list of Dataset objects.
 
-    list_datasets(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Dataset], Pagination]
+    list_datasets(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Collection[Dataset], Pagination]
         Retrieves a list of datasets for a specified region from the Navitia API.
 
-    get_dataset_by_id(region_id: str, dataset_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Dataset], Pagination]
+    get_dataset_by_id(region_id: str, dataset_id: str, start_page: int = 0, count: int = 25) -> Tuple[Collection[Dataset], Pagination]
         Retrieves information about a specific dataset by its ID within a region.
     """
 
     @staticmethod
-    def _get_datasets_from_response(raw_datasets_response: Any) -> Sequence[Dataset]:
+    def _get_datasets_from_response(raw_datasets_response: Any) -> Collection[Dataset]:
         """
         Converts raw response data into a list of Dataset objects.
 
@@ -35,7 +35,7 @@ class DatasetsApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Dataset]
+        Collection[Dataset]
             A list of Dataset objects created from the raw response data.
         """
         datasets = []
@@ -50,7 +50,7 @@ class DatasetsApiClient(ApiBaseClient):
 
     def list_datasets(
         self, region_id: str, start_page: int = 0, count: int = 25
-    ) -> Tuple[Sequence[Dataset], Pagination]:
+    ) -> Tuple[Collection[Dataset], Pagination]:
         """
         Retrieves a list of datasets for a specified region from the Navitia API.
 
@@ -65,7 +65,7 @@ class DatasetsApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Dataset], Pagination]
+        Tuple[Collection[Dataset], Pagination]
             A tuple containing a list of Dataset objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(
@@ -77,7 +77,7 @@ class DatasetsApiClient(ApiBaseClient):
 
     def get_dataset_by_id(
         self, region_id: str, dataset_id: str, start_page: int = 0, count: int = 25
-    ) -> Tuple[Sequence[Dataset], Pagination]:
+    ) -> Tuple[Collection[Dataset], Pagination]:
         """
         Retrieves information about a specific dataset by its ID within a region.
 
@@ -94,7 +94,7 @@ class DatasetsApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Dataset], Pagination]
+        Tuple[Collection[Dataset], Pagination]
             A tuple containing a list of Dataset objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(

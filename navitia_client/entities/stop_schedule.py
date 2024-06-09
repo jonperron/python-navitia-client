@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 
 from navitia_client.entities.display_information import DisplayInformation
 from navitia_client.entities.line_and_route import Route
@@ -22,7 +22,7 @@ class AdditionalInformationEnum(Enum):
 class StopSchedule:
     display_informations: DisplayInformation
     route: Route
-    date_times: Sequence[PTDatetime]
+    date_times: Collection[PTDatetime]
     stop_point: StopPoint
     additional_informations: Optional[AdditionalInformationEnum]
 

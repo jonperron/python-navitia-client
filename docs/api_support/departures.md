@@ -16,11 +16,11 @@ Methods
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all"
-    ) -> Tuple[Sequence[Departure], Pagination]
+    ) -> Tuple[Collection[Departure], Pagination]
         Retrieves a list of departures for a specified region and resource path from the Navitia API.
 
     list_departures_by_coordinates(
@@ -31,10 +31,10 @@ Methods
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all"
-    ) -> Tuple[Sequence[Departure], Pagination]
+    ) -> Tuple[Collection[Departure], Pagination]
         Retrieves a list of departures for a specified location based on coordinates from the Navitia API.
 ```

@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional, Sequence, Tuple
+from typing import Optional, Collection, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.disruption import Disruption
 from navitia_client.entities.line_report import LineReport
@@ -13,16 +13,16 @@ class LineReportsApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_line_reports(url: str, filters: dict) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
+    _get_line_reports(url: str, filters: dict) -> Tuple[Collection[Disruption], Collection[LineReport]]:
         Retrieves line reports from the specified URL with the provided filters.
 
-    list_line_reports(region_id: Optional[str] = None, resource_path: Optional[str] = None, since: Optional[datetime] = None, until: Optional[datetime] = None, count: int = 25, depth: int = 1, forbidden_uris: Optional[Sequence[str]] = None, disable_geojson: bool = False) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
+    list_line_reports(region_id: Optional[str] = None, resource_path: Optional[str] = None, since: Optional[datetime] = None, until: Optional[datetime] = None, count: int = 25, depth: int = 1, forbidden_uris: Optional[Collection[str]] = None, disable_geojson: bool = False) -> Tuple[Collection[Disruption], Collection[LineReport]]:
         Lists line reports based on specified criteria.
     """
 
     def _get_line_reports(
         self, url: str, filters: dict
-    ) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
+    ) -> Tuple[Collection[Disruption], Collection[LineReport]]:
         """
         Retrieves line reports from the specified URL with the provided filters.
 
@@ -35,8 +35,8 @@ class LineReportsApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Disruption], Sequence[LineReport]]
-            A tuple containing sequences of Disruption and LineReport objects.
+        Tuple[Collection[Disruption], Collection[LineReport]]
+            A tuple containing Collections of Disruption and LineReport objects.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         line_reports = [
@@ -55,9 +55,9 @@ class LineReportsApiClient(ApiBaseClient):
         until: Optional[datetime] = None,
         count: int = 25,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         disable_geojson: bool = False,
-    ) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
+    ) -> Tuple[Collection[Disruption], Collection[LineReport]]:
         """
         Lists line reports based on specified criteria.
 
@@ -75,15 +75,15 @@ class LineReportsApiClient(ApiBaseClient):
             The number of line reports to retrieve, by default 25.
         depth : int, optional
             The depth of the query, by default 1.
-        forbidden_uris : Optional[Sequence[str]], optional
+        forbidden_uris : Optional[Collection[str]], optional
             List of URIs to forbid, by default None.
         disable_geojson : bool, optional
             Whether to disable GeoJSON output, by default False.
 
         Returns
         -------
-        Tuple[Sequence[Disruption], Sequence[LineReport]]
-            A tuple containing sequences of Disruption and LineReport objects.
+        Tuple[Collection[Disruption], Collection[LineReport]]
+            A tuple containing Collections of Disruption and LineReport objects.
         """
         if resource_path:
             request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/line_reports"

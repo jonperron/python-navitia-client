@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Sequence
+from typing import Any, Collection
 
 from navitia_client.entities.line_and_route import Line
 from navitia_client.entities.pt_object import PtObject
@@ -8,7 +8,7 @@ from navitia_client.entities.pt_object import PtObject
 @dataclass
 class LineReport:
     line: Line
-    pt_objets: Sequence[PtObject]
+    pt_objets: Collection[PtObject]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "LineReport":

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 
 from navitia_client.entities.display_information import DisplayInformation
 from navitia_client.entities.link import Link
@@ -47,11 +47,11 @@ class Section:
     duration: int
     from_: Optional[Place]
     to: Optional[Place]
-    links: Sequence[Link]
+    links: Collection[Link]
     display_informations: Optional[DisplayInformation]
     additional_informations: Optional[SectionAdditionalInformation]
     geojson: Optional[Any]
-    path: Optional[Sequence[Path]]
+    path: Optional[Collection[Path]]
     transfer_type: Optional[SectionTransferType]
     departure_date_time: datetime
     arrival_date_time: datetime
@@ -99,13 +99,13 @@ class Journey:
     departure_date_time: datetime
     requested_date_time: datetime
     arrival_date_time: datetime
-    sections: Sequence[Section]
+    sections: Collection[Section]
     from_: Optional[Place]
     to_: Optional[Place]
-    links: Sequence[Link]
+    links: Collection[Link]
     type: str
     fare: Fare
-    tags: Sequence[str]
+    tags: Collection[str]
     status: str
 
     @classmethod

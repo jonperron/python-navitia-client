@@ -1,4 +1,4 @@
-from typing import Any, Optional, Sequence, Type
+from typing import Any, Optional, Collection, Type
 
 from navitia_client.entities.line_and_route import Line, Route
 from navitia_client.entities.network import Network
@@ -7,17 +7,17 @@ from navitia_client.entities.vehicle_journey import VehicleJourney
 
 
 class Link:
-    lines: Optional[Sequence[Line]] = None
-    vehicle_journeys: Optional[Sequence[VehicleJourney]] = None
-    routes: Optional[Sequence[Route]] = None
-    commercial_modes: Optional[Sequence[CommercialMode]] = None
-    physical_modes: Optional[Sequence[PhysicalMode]] = None
-    networks: Optional[Sequence[Network]] = None
+    lines: Optional[Collection[Line]] = None
+    vehicle_journeys: Optional[Collection[VehicleJourney]] = None
+    routes: Optional[Collection[Route]] = None
+    commercial_modes: Optional[Collection[CommercialMode]] = None
+    physical_modes: Optional[Collection[PhysicalMode]] = None
+    networks: Optional[Collection[Network]] = None
 
     @staticmethod
     def _build_entity_list_from_payload(
         entity_class: Type, payload: list[dict[str, Any]]
-    ) -> Sequence[Any]:
+    ) -> Collection[Any]:
         return [entity_class.from_payload(item) for item in payload]
 
     @classmethod

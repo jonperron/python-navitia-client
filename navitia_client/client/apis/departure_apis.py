@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Optional, Collection, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.pagination import Pagination
 from navitia_client.entities.departure import Departure
@@ -13,10 +13,10 @@ class DepartureApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_departure_objects_from_response(response: Any) -> Sequence[Departure]
+    _get_departure_objects_from_response(response: Any) -> Collection[Departure]
         A static method to transform raw API response data into a list of Departure objects.
 
-    _get_departures(url: str, filters: dict) -> Tuple[Sequence[Departure], Pagination]
+    _get_departures(url: str, filters: dict) -> Tuple[Collection[Departure], Pagination]
         Fetches departures from the Navitia API based on the provided URL and filters.
 
     list_departures_by_region_id_and_path(
@@ -25,11 +25,11 @@ class DepartureApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all"
-    ) -> Tuple[Sequence[Departure], Pagination]
+    ) -> Tuple[Collection[Departure], Pagination]
         Retrieves a list of departures for a specified region and resource path from the Navitia API.
 
     list_departures_by_coordinates(
@@ -40,18 +40,18 @@ class DepartureApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all"
-    ) -> Tuple[Sequence[Departure], Pagination]
+    ) -> Tuple[Collection[Departure], Pagination]
         Retrieves a list of departures for a specified location based on coordinates from the Navitia API.
     """
 
     @staticmethod
     def _get_departure_objects_from_response(
         response: Any,
-    ) -> Sequence[Departure]:
+    ) -> Collection[Departure]:
         """
         Converts raw response data into a list of Departure objects.
 
@@ -62,7 +62,7 @@ class DepartureApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Departure]
+        Collection[Departure]
             A list of Departure objects created from the raw response data.
         """
         departures = []
@@ -73,7 +73,7 @@ class DepartureApiClient(ApiBaseClient):
 
     def _get_departures(
         self, url: str, filters: dict
-    ) -> Tuple[Sequence[Departure], Pagination]:
+    ) -> Tuple[Collection[Departure], Pagination]:
         """
         Fetches departures from the Navitia API based on the provided URL and filters.
 
@@ -86,7 +86,7 @@ class DepartureApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Departure], Pagination]
+        Tuple[Collection[Departure], Pagination]
             A tuple containing a list of Departure objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
@@ -101,11 +101,11 @@ class DepartureApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Tuple[Sequence[Departure], Pagination]:
+    ) -> Tuple[Collection[Departure], Pagination]:
         """
         Retrieves a list of departures for a specified region and resource path from the Navitia API.
 
@@ -121,7 +121,7 @@ class DepartureApiClient(ApiBaseClient):
             The duration for which to fetch departures, in seconds (default is 86400 seconds, i.e., 1 day).
         depth : int, optional
             The depth of the search (default is 1).
-        forbidden_uris : Optional[Sequence[str]], optional
+        forbidden_uris : Optional[Collection[str]], optional
             A list of URIs to exclude from the search (default is None).
         data_freshness : str, optional
             The data freshness parameter (default is "realtime").
@@ -132,7 +132,7 @@ class DepartureApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Departure], Pagination]
+        Tuple[Collection[Departure], Pagination]
             A tuple containing a list of Departure objects and a Pagination object for managing result pages.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/terminus_schedules"
@@ -158,11 +158,11 @@ class DepartureApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all",
-    ) -> Tuple[Sequence[Departure], Pagination]:
+    ) -> Tuple[Collection[Departure], Pagination]:
         """
         Retrieves a list of departures for a specified location based on coordinates from the Navitia API.
 
@@ -182,7 +182,7 @@ class DepartureApiClient(ApiBaseClient):
             The duration for which to fetch departures, in seconds (default is 86400 seconds, i.e., 1 day).
         depth : int, optional
             The depth of the search (default is 1).
-        forbidden_uris : Optional[Sequence[str]], optional
+        forbidden_uris : Optional[Collection[str]], optional
             A list of URIs to exclude from the search (default is None).
         data_freshness : str, optional
             The data freshness parameter (default is "realtime").
@@ -193,7 +193,7 @@ class DepartureApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Departure], Pagination]
+        Tuple[Collection[Departure], Pagination]
             A tuple containing a list of Departure objects and a Pagination object for managing result pages.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/terminus_schedules"

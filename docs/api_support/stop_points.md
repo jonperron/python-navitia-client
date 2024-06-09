@@ -18,7 +18,7 @@ Methods
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[StopPoint], Pagination]:
+    ) -> Tuple[Collection[StopPoint], Pagination]:
         List stop points for a given region.
 
     get_entity_by_id(
@@ -30,7 +30,7 @@ Methods
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[StopPoint], Pagination]:
+    ) -> Tuple[Collection[StopPoint], Pagination]:
         Get a stop point by its ID in a given region.
 
     list_entity_collection_from_coordinates(
@@ -42,7 +42,7 @@ Methods
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[StopPoint], Pagination]:
+    ) -> Tuple[Collection[StopPoint], Pagination]:
         List stop points for given geographic coordinates.
 
     get_entity_by_id_and_coordinates(
@@ -55,6 +55,6 @@ Methods
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[StopPoint], Pagination]:
+    ) -> Tuple[Collection[StopPoint], Pagination]:
         Get a stop point by its ID for given geographic coordinates.
 ```

@@ -1,4 +1,4 @@
-from typing import Any, Sequence, Tuple
+from typing import Any, Collection, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.contributor import Contributor
@@ -13,20 +13,20 @@ class ContributorsApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_contributors_from_response(raw_contributors_response: Any) -> Sequence[Contributor]
+    _get_contributors_from_response(raw_contributors_response: Any) -> Collection[Contributor]
         A static method to transform raw API response data into a list of Contributor objects.
 
-    list_contributors(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Contributor], Pagination]
+    list_contributors(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Collection[Contributor], Pagination]
         Retrieves a list of contributors for a specified region from the Navitia API.
 
-    get_contributor_on_dataset(region_id: str, dataset_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Contributor], Pagination]
+    get_contributor_on_dataset(region_id: str, dataset_id: str, start_page: int = 0, count: int = 25) -> Tuple[Collection[Contributor], Pagination]
         Retrieves a list of contributors for a specified dataset in a region from the Navitia API.
     """
 
     @staticmethod
     def _get_contributors_from_response(
         raw_contributors_response: Any,
-    ) -> Sequence[Contributor]:
+    ) -> Collection[Contributor]:
         """
         Converts raw response data into a list of Contributor objects.
 
@@ -37,7 +37,7 @@ class ContributorsApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Contributor]
+        Collection[Contributor]
             A list of Contributor objects created from the raw response data.
         """
         contributors = []
@@ -48,7 +48,7 @@ class ContributorsApiClient(ApiBaseClient):
 
     def list_contributors(
         self, region_id: str, start_page: int = 0, count: int = 25
-    ) -> Tuple[Sequence[Contributor], Pagination]:
+    ) -> Tuple[Collection[Contributor], Pagination]:
         """
         Retrieves a list of contributors for a specific region.
 
@@ -63,7 +63,7 @@ class ContributorsApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Contributor], Pagination]
+        Tuple[Collection[Contributor], Pagination]
             A tuple containing a list of Contributor objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(
@@ -77,7 +77,7 @@ class ContributorsApiClient(ApiBaseClient):
 
     def get_contributor_on_dataset(
         self, region_id: str, dataset_id: str, start_page: int = 0, count: int = 25
-    ) -> Tuple[Sequence[Contributor], Pagination]:
+    ) -> Tuple[Collection[Contributor], Pagination]:
         """
         Retrieves a list of contributors for a specific dataset in a region.
 
@@ -94,7 +94,7 @@ class ContributorsApiClient(ApiBaseClient):
 
         Returns
         -------
-        Tuple[Sequence[Contributor], Pagination]
+        Tuple[Collection[Contributor], Pagination]
             A tuple containing a list of Contributor objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(

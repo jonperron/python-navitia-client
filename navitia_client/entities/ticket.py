@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 from navitia_client.entities.base_entity import BaseEntity
 from navitia_client.entities.link import Link
 
@@ -21,7 +21,7 @@ class Cost:
 class Fare:
     total: Cost
     found: bool
-    links: Sequence[Link]
+    links: Collection[Link]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "Fare":
@@ -36,7 +36,7 @@ class Fare:
 class Ticket(BaseEntity):
     found: bool
     cost: Cost
-    links: Sequence[Link]
+    links: Collection[Link]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "Ticket":

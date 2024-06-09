@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.isochrones import Isochrone
 
@@ -12,36 +12,36 @@ class IsochronesApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_traffic_reports(url: str, filters: dict) -> Sequence[Isochrone]
+    _get_traffic_reports(url: str, filters: dict) -> Collection[Isochrone]
         Internal method to fetch isochrone data based on the provided URL and filters.
 
     list_isochrones_with_region_id(
         from_: str,
         region_id: str,
         start_datetime: datetime = datetime.now(),
-        boundary_duration: Sequence[int] = [],
+        boundary_duration: Collection[int] = [],
         to: Optional[str] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         min_duration: Optional[int] = None,
         max_duration: Optional[int] = None
-    ) -> Sequence[Isochrone]
+    ) -> Collection[Isochrone]
         Fetches isochrones data for a specific region based on various parameters.
 
     list_isochrones(
         from_: str,
         start_datetime: datetime = datetime.now(),
-        boundary_duration: Sequence[int] = [],
+        boundary_duration: Collection[int] = [],
         to: Optional[str] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         min_duration: Optional[int] = None,
         max_duration: Optional[int] = None
-    ) -> Sequence[Isochrone]
+    ) -> Collection[Isochrone]
         Fetches isochrones data based on various parameters.
     """
 
-    def _get_traffic_reports(self, url: str, filters: dict) -> Sequence[Isochrone]:
+    def _get_traffic_reports(self, url: str, filters: dict) -> Collection[Isochrone]:
         """
         Internal method to fetch isochrone data based on the provided URL and filters.
 
@@ -54,7 +54,7 @@ class IsochronesApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Isochrone]
+        Collection[Isochrone]
             A list of Isochrone objects created from the API response.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
@@ -68,13 +68,13 @@ class IsochronesApiClient(ApiBaseClient):
         from_: str,
         region_id: str,
         start_datetime: datetime = datetime.now(),
-        boundary_duration: Sequence[int] = [],
+        boundary_duration: Collection[int] = [],
         to: Optional[str] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         min_duration: Optional[int] = None,
         max_duration: Optional[int] = None,
-    ) -> Sequence[Isochrone]:
+    ) -> Collection[Isochrone]:
         """
         Fetches isochrones data for a specific region based on various parameters.
 
@@ -86,13 +86,13 @@ class IsochronesApiClient(ApiBaseClient):
             The identifier of the region.
         start_datetime : datetime, optional
             The starting date and time for the isochrone calculation (default is datetime.now()).
-        boundary_duration : Sequence[int], optional
+        boundary_duration : Collection[int], optional
             List of durations in seconds defining the isochrones boundaries.
         to : Optional[str], optional
             The ending point for the isochrone calculation.
-        first_section_mode : Optional[Sequence[str]], optional
+        first_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the first section of the journey.
-        last_section_mode : Optional[Sequence[str]], optional
+        last_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the last section of the journey.
         min_duration : Optional[int], optional
             The minimum duration for the isochrone calculation.
@@ -101,7 +101,7 @@ class IsochronesApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Isochrone]
+        Collection[Isochrone]
             A list of Isochrone objects representing the isochrone data.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/isochrones"
@@ -135,13 +135,13 @@ class IsochronesApiClient(ApiBaseClient):
         self,
         from_: str,
         start_datetime: datetime = datetime.now(),
-        boundary_duration: Sequence[int] = [],
+        boundary_duration: Collection[int] = [],
         to: Optional[str] = None,
-        first_section_mode: Optional[Sequence[str]] = None,
-        last_section_mode: Optional[Sequence[str]] = None,
+        first_section_mode: Optional[Collection[str]] = None,
+        last_section_mode: Optional[Collection[str]] = None,
         min_duration: Optional[int] = None,
         max_duration: Optional[int] = None,
-    ) -> Sequence[Isochrone]:
+    ) -> Collection[Isochrone]:
         """
         Fetches isochrones data based on various parameters.
 
@@ -151,13 +151,13 @@ class IsochronesApiClient(ApiBaseClient):
             The starting point for the isochrone calculation.
         start_datetime : datetime, optional
             The starting date and time for the isochrone calculation (default is datetime.now()).
-        boundary_duration : Sequence[int], optional
+        boundary_duration : Collection[int], optional
             List of durations in seconds defining the isochrones boundaries.
         to : Optional[str], optional
             The ending point for the isochrone calculation.
-        first_section_mode : Optional[Sequence[str]], optional
+        first_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the first section of the journey.
-        last_section_mode : Optional[Sequence[str]], optional
+        last_section_mode : Optional[Collection[str]], optional
             Modes of transportation for the last section of the journey.
         min_duration : Optional[int], optional
             The minimum duration for the isochrone calculation.
@@ -166,7 +166,7 @@ class IsochronesApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Isochrone]
+        Collection[Isochrone]
             A list of Isochrone objects representing the isochrone data.
         """
         request_url = f"{self.base_navitia_url}/isochrones"

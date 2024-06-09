@@ -13,7 +13,7 @@ Methods
     list_public_transport_objects(
         region_id: str,
         query: str,
-        type: Sequence[str] = [
+        type: Collection[str] = [
             "network",
             "commercial_mode",
             "line",
@@ -23,7 +23,7 @@ Methods
         disable_disruption: bool = False,
         depth: int = 1,
         post_query_filter: Optional[str] = None,
-    ) -> Sequence[PtObject]:
+    ) -> Collection[PtObject]:
         Retrieves a list of public transport objects for a specified region from the Navitia API.
 
 ```

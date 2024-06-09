@@ -1,4 +1,4 @@
-from typing import Any, Sequence
+from typing import Any, Collection
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.place import Place
 
@@ -11,30 +11,30 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
     Methods
     -------
-    _get_regions_from_response(response: Any) -> Sequence[Place]
+    _get_regions_from_response(response: Any) -> Collection[Place]
         A static method to transform raw API response data into a list of Place objects.
 
-    get_address_and_region_from_coordinates(lon: float, lat: float) -> Sequence[Place]
+    get_address_and_region_from_coordinates(lon: float, lat: float) -> Collection[Place]
         Retrieves address and region information based on given coordinates.
 
-    get_address_and_region_from_id(id: str) -> Sequence[Place]
+    get_address_and_region_from_id(id: str) -> Collection[Place]
         Retrieves address and region information based on a given place ID.
 
-    get_address_from_region_coordinates_and_coordinates(region_lon: float, region_lat: float, lon: float, lat: float) -> Sequence[Place]
+    get_address_from_region_coordinates_and_coordinates(region_lon: float, region_lat: float, lon: float, lat: float) -> Collection[Place]
         Retrieves address information based on region coordinates and specific coordinates.
 
-    get_address_from_region_coordinates_and_id(region_lon: float, region_lat: float, id: str) -> Sequence[Place]
+    get_address_from_region_coordinates_and_id(region_lon: float, region_lat: float, id: str) -> Collection[Place]
         Retrieves address information based on region coordinates and a specific place ID.
 
-    get_address_from_region_id_and_coordinates(region_id: str, lon: float, lat: float) -> Sequence[Place]
+    get_address_from_region_id_and_coordinates(region_id: str, lon: float, lat: float) -> Collection[Place]
         Retrieves address information based on a region ID and specific coordinates.
 
-    get_address_from_region_id_and_id(region_id: str, id: str) -> Sequence[Place]
+    get_address_from_region_id_and_id(region_id: str, id: str) -> Collection[Place]
         Retrieves address information based on a region ID and a specific place ID.
     """
 
     @staticmethod
-    def _get_regions_from_response(response: Any) -> Sequence[Place]:
+    def _get_regions_from_response(response: Any) -> Collection[Place]:
         """
         Converts raw response data into a list of Place objects.
 
@@ -45,7 +45,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Place]
+        Collection[Place]
             A list of Place objects created from the raw response data.
         """
         entities = []
@@ -56,7 +56,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
     def get_address_and_region_from_coordinates(
         self, lon: float, lat: float
-    ) -> Sequence[Place]:
+    ) -> Collection[Place]:
         """
         Retrieves address and region information based on given coordinates.
 
@@ -69,14 +69,14 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Place]
+        Collection[Place]
             A list of Place objects representing the address and region information.
         """
         result = self.get_navitia_api(f"{self.base_navitia_url}/places/{lon};{lat}")
         places = self._get_regions_from_response(result.json()["places"])
         return places
 
-    def get_address_and_region_from_id(self, id: str) -> Sequence[Place]:
+    def get_address_and_region_from_id(self, id: str) -> Collection[Place]:
         """
         Retrieves address and region information based on a given place ID.
 
@@ -87,7 +87,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Place]
+        Collection[Place]
             A list of Place objects representing the address and region information.
         """
         result = self.get_navitia_api(f"{self.base_navitia_url}/places/{id}")
@@ -96,7 +96,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
     def get_address_from_region_coordinates_and_coordinates(
         self, region_lon: float, region_lat: float, lon: float, lat: float
-    ) -> Sequence[Place]:
+    ) -> Collection[Place]:
         """
         Retrieves address information based on region coordinates and specific coordinates.
 
@@ -113,7 +113,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Place]
+        Collection[Place]
             A list of Place objects representing the address information.
         """
         result = self.get_navitia_api(
@@ -124,7 +124,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
     def get_address_from_region_coordinates_and_id(
         self, region_lon: float, region_lat: float, id: str
-    ) -> Sequence[Place]:
+    ) -> Collection[Place]:
         """
         Retrieves address information based on region coordinates and a specific place ID.
 
@@ -139,7 +139,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Place]
+        Collection[Place]
             A list of Place objects representing the address information.
         """
         result = self.get_navitia_api(
@@ -150,7 +150,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
     def get_address_from_region_id_and_coordinates(
         self, region_id: str, lon: float, lat: float
-    ) -> Sequence[Place]:
+    ) -> Collection[Place]:
         """
         Retrieves address information based on a region ID and specific coordinates.
 
@@ -165,7 +165,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Place]
+        Collection[Place]
             A list of Place objects representing the address information.
         """
         result = self.get_navitia_api(
@@ -176,7 +176,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
     def get_address_from_region_id_and_id(
         self, region_id: str, id: str
-    ) -> Sequence[Place]:
+    ) -> Collection[Place]:
         """
         Retrieves address information based on a region ID and a specific place ID.
 
@@ -189,7 +189,7 @@ class InvertedGeocodingApiClient(ApiBaseClient):
 
         Returns
         -------
-        Sequence[Place]
+        Collection[Place]
             A list of Place objects representing the address information.
         """
         result = self.get_navitia_api(

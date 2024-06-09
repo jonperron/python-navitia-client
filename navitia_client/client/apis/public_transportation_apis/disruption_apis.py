@@ -1,4 +1,4 @@
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Optional, Collection, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.client.apis.public_transportation_apis.entity_apis import EntityApi
 from navitia_client.entities.disruption import (
@@ -22,7 +22,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
 
     Methods
     -------
-    _get_entity_from_response(raw_entity_response: Any) -> Sequence[Disruption]:
+    _get_entity_from_response(raw_entity_response: Any) -> Collection[Disruption]:
         Static method to extract Disruption entities from the raw API response.
 
     list_entity_collection_from_region(
@@ -33,7 +33,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Disruption], Pagination]:
+    ) -> Tuple[Collection[Disruption], Pagination]:
         List disruptions for a given region.
 
     get_entity_by_id(
@@ -45,7 +45,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Disruption], Pagination]:
+    ) -> Tuple[Collection[Disruption], Pagination]:
         Get a disruption by its ID in a given region.
 
     list_entity_collection_from_coordinates(
@@ -57,7 +57,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Disruption], Pagination]:
+    ) -> Tuple[Collection[Disruption], Pagination]:
         List disruptions for given geographic coordinates.
 
     get_entity_by_id_and_coordinates(
@@ -70,7 +70,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Disruption], Pagination]:
+    ) -> Tuple[Collection[Disruption], Pagination]:
         Get a disruption by its ID for given geographic coordinates.
     """
 
@@ -78,7 +78,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
     get_navitia_api = ApiBaseClient.get_navitia_api
 
     @staticmethod
-    def _get_entity_from_response(raw_entity_response: Any) -> Sequence[Disruption]:
+    def _get_entity_from_response(raw_entity_response: Any) -> Collection[Disruption]:
         """
         Static method to extract Disruption entities from the raw API response.
 
@@ -89,7 +89,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
 
         Returns
         -------
-        Sequence[Disruption]
+        Collection[Disruption]
             List of disruption instances.
         """
         entities = []
@@ -106,7 +106,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[Disruption], Pagination]:
+    ) -> Tuple[Collection[Disruption], Pagination]:
         """
         List disruptions for a given region.
 
@@ -129,7 +129,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
 
         Returns
         -------
-        Tuple[Sequence[Disruption], Pagination]
+        Tuple[Collection[Disruption], Pagination]
             List of disruptions and pagination information.
         """
         filters = {
@@ -155,7 +155,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[Disruption], Pagination]:
+    ) -> Tuple[Collection[Disruption], Pagination]:
         """
         Get a disruption by its ID in a given region.
 
@@ -180,7 +180,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
 
         Returns
         -------
-        Tuple[Sequence[Disruption], Pagination]
+        Tuple[Collection[Disruption], Pagination]
             List of disruptions and pagination information.
         """
         filters = {
@@ -207,7 +207,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[Disruption], Pagination]:
+    ) -> Tuple[Collection[Disruption], Pagination]:
         """
         List disruptions for given geographic coordinates.
 
@@ -232,7 +232,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
 
         Returns
         -------
-        Tuple[Sequence[Disruption], Pagination]
+        Tuple[Collection[Disruption], Pagination]
             List of disruptions and pagination information.
         """
         filters = {
@@ -260,7 +260,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[Disruption], Pagination]:
+    ) -> Tuple[Collection[Disruption], Pagination]:
         """
         Get a disruption by its ID for given geographic coordinates.
 
@@ -287,7 +287,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
 
         Returns
         -------
-        Tuple[Sequence[Disruption], Pagination]
+        Tuple[Collection[Disruption], Pagination]
             List of disruptions and pagination information.
         """
         filters = {

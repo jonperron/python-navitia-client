@@ -17,9 +17,9 @@ Methods
         until: Optional[datetime] = None,
         count: int = 25,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         disable_geojson: bool = False,
-    ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
+    ) -> Tuple[Collection[Disruption], Collection[TrafficReport], Pagination]:
         Retrieves traffic reports for a specified region and resource path from the Navitia API.
 
 ```

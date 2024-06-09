@@ -1,4 +1,4 @@
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Optional, Collection, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.client.apis.public_transportation_apis.entity_apis import EntityApi
 from navitia_client.entities.network import Network
@@ -20,7 +20,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
 
     Methods
     -------
-    _get_entity_from_response(raw_entity_response: Any) -> Sequence[Network]:
+    _get_entity_from_response(raw_entity_response: Any) -> Collection[Network]:
         Static method to extract Network instances from the raw API response.
 
     list_entity_collection_from_region(
@@ -31,7 +31,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Network], Pagination]:
+    ) -> Tuple[Collection[Network], Pagination]:
         List networks for a given region.
 
     get_entity_by_id(
@@ -43,7 +43,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Network], Pagination]:
+    ) -> Tuple[Collection[Network], Pagination]:
         Get a network by its ID in a given region.
 
     list_entity_collection_from_coordinates(
@@ -55,7 +55,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Network], Pagination]:
+    ) -> Tuple[Collection[Network], Pagination]:
         List networks for given geographic coordinates.
 
     get_entity_by_id_and_coordinates(
@@ -68,7 +68,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Network], Pagination]:
+    ) -> Tuple[Collection[Network], Pagination]:
         Get a network by its ID for given geographic coordinates.
     """
 
@@ -76,7 +76,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
     get_navitia_api = ApiBaseClient.get_navitia_api
 
     @staticmethod
-    def _get_entity_from_response(raw_entity_response: Any) -> Sequence[Network]:
+    def _get_entity_from_response(raw_entity_response: Any) -> Collection[Network]:
         """
         Static method to extract Network instances from the raw API response.
 
@@ -87,7 +87,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
 
         Returns
         -------
-        Sequence[Network]
+        Collection[Network]
             List of Network instances.
         """
         entities = []
@@ -104,7 +104,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[Network], Pagination]:
+    ) -> Tuple[Collection[Network], Pagination]:
         """
         List networks for a given region.
 
@@ -127,7 +127,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
 
         Returns
         -------
-        Tuple[Sequence[Network], Pagination]
+        Tuple[Collection[Network], Pagination]
             List of Network instances and pagination information.
         """
         filters = {
@@ -153,7 +153,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[Network], Pagination]:
+    ) -> Tuple[Collection[Network], Pagination]:
         """
         Get a network by its ID in a given region.
 
@@ -178,7 +178,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
 
         Returns
         -------
-        Tuple[Sequence[Network], Pagination]
+        Tuple[Collection[Network], Pagination]
             List of Network instances and pagination information.
         """
         filters = {
@@ -205,7 +205,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[Network], Pagination]:
+    ) -> Tuple[Collection[Network], Pagination]:
         """
         List networks for given geographic coordinates.
 
@@ -230,7 +230,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
 
         Returns
         -------
-        Tuple[Sequence[Network], Pagination]
+        Tuple[Collection[Network], Pagination]
             List of Network instances and pagination information.
         """
         filters = {
@@ -258,7 +258,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[Network], Pagination]:
+    ) -> Tuple[Collection[Network], Pagination]:
         """
         Get a network by its ID for given geographic coordinates.
 
@@ -285,7 +285,7 @@ class NetworkApiClient(ApiBaseClient, EntityApi[Network]):
 
         Returns
         -------
-        Tuple[Sequence[Network], Pagination]
+        Tuple[Collection[Network], Pagination]
             List of Network instances and pagination information.
         """
         filters = {

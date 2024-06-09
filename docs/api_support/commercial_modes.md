@@ -17,7 +17,7 @@ Methods:
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
-        ) -> Tuple[Sequence[CommercialMode], Pagination]:
+        ) -> Tuple[Collection[CommercialMode], Pagination]:
             Lists commercial modes from a specified region.
 
         get_entity_by_id(
@@ -29,7 +29,7 @@ Methods:
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
-        ) -> Tuple[Sequence[CommercialMode], Pagination]:
+        ) -> Tuple[Collection[CommercialMode], Pagination]:
             Retrieves a specific commercial mode by its ID from a specified region.
 
         list_entity_collection_from_coordinates(
@@ -41,7 +41,7 @@ Methods:
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
-        ) -> Tuple[Sequence[CommercialMode], Pagination]:
+        ) -> Tuple[Collection[CommercialMode], Pagination]:
             Lists commercial modes from specified coordinates.
 
         get_entity_by_id_and_coordinates(
@@ -54,6 +54,6 @@ Methods:
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
-        ) -> Tuple[Sequence[CommercialMode], Pagination]:
+        ) -> Tuple[Collection[CommercialMode], Pagination]:
             Retrieves a specific commercial mode by its ID from specified coordinates.
 ```

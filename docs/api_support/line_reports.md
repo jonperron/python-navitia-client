@@ -17,8 +17,8 @@ Methods
         until: Optional[datetime] = None,
         count: int = 25,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         disable_geojson: bool = False
-    ) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
+    ) -> Tuple[Collection[Disruption], Collection[LineReport]]:
         Lists line reports based on specified criteria.
 ```

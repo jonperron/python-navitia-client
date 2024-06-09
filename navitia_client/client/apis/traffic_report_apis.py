@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional, Sequence, Tuple
+from typing import Optional, Collection, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.entities.disruption import Disruption
 from navitia_client.entities.pagination import Pagination
@@ -16,7 +16,7 @@ class TrafficReportsApiClient(ApiBaseClient):
     -------
     _get_traffic_reports(
         url: str, filters: dict
-    ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
+    ) -> Tuple[Collection[Disruption], Collection[TrafficReport], Pagination]:
         Retrieves traffic reports from the Navitia API based on provided URL and filters.
 
     list_traffic_reports(
@@ -26,15 +26,15 @@ class TrafficReportsApiClient(ApiBaseClient):
         until: Optional[datetime] = None,
         count: int = 25,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         disable_geojson: bool = False,
-    ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
+    ) -> Tuple[Collection[Disruption], Collection[TrafficReport], Pagination]:
         Retrieves traffic reports for a specified region and resource path from the Navitia API.
     """
 
     def _get_traffic_reports(
         self, url: str, filters: dict
-    ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
+    ) -> Tuple[Collection[Disruption], Collection[TrafficReport], Pagination]:
         """
         Retrieves traffic reports from the Navitia API based on provided URL and filters.
 
@@ -43,7 +43,7 @@ class TrafficReportsApiClient(ApiBaseClient):
             filters (dict): Filters to apply to the API request.
 
         Returns:
-            Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]: A tuple containing sequences of Disruption and TrafficReport objects, and Pagination object.
+            Tuple[Collection[Disruption], Collection[TrafficReport], Pagination]: A tuple containing Collections of Disruption and TrafficReport objects, and Pagination object.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         line_reports = [
@@ -64,9 +64,9 @@ class TrafficReportsApiClient(ApiBaseClient):
         until: Optional[datetime] = None,
         count: int = 25,
         depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
+        forbidden_uris: Optional[Collection[str]] = None,
         disable_geojson: bool = False,
-    ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
+    ) -> Tuple[Collection[Disruption], Collection[TrafficReport], Pagination]:
         """
         Retrieves traffic reports for a specified region and resource path from the Navitia API.
 
@@ -77,11 +77,11 @@ class TrafficReportsApiClient(ApiBaseClient):
             until (Optional[datetime]): The end datetime for the reports.
             count (int): The number of reports to retrieve. Defaults to 25.
             depth (int): The depth of data to retrieve. Defaults to 1.
-            forbidden_uris (Optional[Sequence[str]]): Forbidden URIs.
+            forbidden_uris (Optional[Collection[str]]): Forbidden URIs.
             disable_geojson (bool): Whether to disable GeoJSON in the response. Defaults to False.
 
         Returns:
-            Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]: A tuple containing sequences of Disruption and TrafficReport objects, and Pagination object.
+            Tuple[Collection[Disruption], Collection[TrafficReport], Pagination]: A tuple containing Collections of Disruption and TrafficReport objects, and Pagination object.
         """
         if resource_path:
             request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/traffic_reports"

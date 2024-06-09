@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, Optional, Sequence
+from typing import Any, Optional, Collection
 
 from .pt_object import PtObject
 from .line_and_route import Route
@@ -87,7 +87,7 @@ class DisruptionMessage:
 class ImpactedSection:
     section_from: PtObject
     section_to: PtObject
-    routes: Sequence[Route]
+    routes: Collection[Route]
 
     @classmethod
     def from_payload(cls, payload: dict[str, Any]) -> "ImpactedSection":
@@ -144,7 +144,7 @@ class ImpactedStop:
 class ImpactedObject:
     pt_object: Optional[PtObject]
     impacted_section: Optional[ImpactedSection]
-    impacted_stops: Optional[Sequence[ImpactedStop]]
+    impacted_stops: Optional[Collection[ImpactedStop]]
 
     @classmethod
     def from_payload(
@@ -177,10 +177,10 @@ class Disruption:
     disruption_id: Optional[str]
     impact_id: Optional[str]
     severity: Optional[Severity]
-    application_periods: Optional[Sequence[DisruptionPeriod]]
-    messages: Optional[Sequence[DisruptionMessage]]
+    application_periods: Optional[Collection[DisruptionPeriod]]
+    messages: Optional[Collection[DisruptionMessage]]
     updated_at: Optional[datetime]
-    impacted_objects: Optional[Sequence[ImpactedObject]]
+    impacted_objects: Optional[Collection[ImpactedObject]]
     cause: Optional[str]
     category: Optional[str]
     contributor: Optional[str]

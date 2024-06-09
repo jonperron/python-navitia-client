@@ -1,4 +1,4 @@
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Optional, Collection, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.client.apis.public_transportation_apis.entity_apis import EntityApi
 from navitia_client.entities.pagination import Pagination
@@ -16,7 +16,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         get_navitia_api: A method to get the Navitia API.
 
     Methods:
-        _get_entity_from_response(raw_entity_response: Any) -> Sequence[CommercialMode]:
+        _get_entity_from_response(raw_entity_response: Any) -> Collection[CommercialMode]:
             Extracts CommercialMode entities from the API response.
 
         list_entity_collection_from_region(
@@ -27,7 +27,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
-        ) -> Tuple[Sequence[CommercialMode], Pagination]:
+        ) -> Tuple[Collection[CommercialMode], Pagination]:
             Lists commercial modes from a specified region.
 
         get_entity_by_id(
@@ -39,7 +39,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
-        ) -> Tuple[Sequence[CommercialMode], Pagination]:
+        ) -> Tuple[Collection[CommercialMode], Pagination]:
             Retrieves a specific commercial mode by its ID from a specified region.
 
         list_entity_collection_from_coordinates(
@@ -51,7 +51,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
-        ) -> Tuple[Sequence[CommercialMode], Pagination]:
+        ) -> Tuple[Collection[CommercialMode], Pagination]:
             Lists commercial modes from specified coordinates.
 
         get_entity_by_id_and_coordinates(
@@ -64,7 +64,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
-        ) -> Tuple[Sequence[CommercialMode], Pagination]:
+        ) -> Tuple[Collection[CommercialMode], Pagination]:
             Retrieves a specific commercial mode by its ID from specified coordinates.
     """
 
@@ -72,7 +72,9 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
     get_navitia_api = ApiBaseClient.get_navitia_api
 
     @staticmethod
-    def _get_entity_from_response(raw_entity_response: Any) -> Sequence[CommercialMode]:
+    def _get_entity_from_response(
+        raw_entity_response: Any,
+    ) -> Collection[CommercialMode]:
         """
         Extracts CommercialMode entities from the API response.
 
@@ -80,7 +82,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             raw_entity_response (Any): The raw response from the API.
 
         Returns:
-            Sequence[CommercialMode]: A sequence of CommercialMode objects.
+            Collection[CommercialMode]: A Collection of CommercialMode objects.
         """
         entities = []
         for entity in raw_entity_response:
@@ -96,7 +98,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[CommercialMode], Pagination]:
+    ) -> Tuple[Collection[CommercialMode], Pagination]:
         """
         Lists commercial modes from a specified region.
 
@@ -110,7 +112,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             headsign (Optional[str]): The headsign for filtering. Defaults to None.
 
         Returns:
-            Tuple[Sequence[CommercialMode], Pagination]: A tuple containing a sequence of CommercialMode objects and Pagination object.
+            Tuple[Collection[CommercialMode], Pagination]: A tuple containing a Collection of CommercialMode objects and Pagination object.
         """
         filters = {
             "start_page": start_page,
@@ -135,7 +137,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[CommercialMode], Pagination]:
+    ) -> Tuple[Collection[CommercialMode], Pagination]:
         """
         Retrieves a specific commercial mode by its ID from a specified region.
 
@@ -150,7 +152,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             headsign (Optional[str]): The headsign for filtering. Defaults to None.
 
         Returns:
-            Tuple[Sequence[CommercialMode], Pagination]: A tuple containing a sequence of CommercialMode objects and Pagination object.
+            Tuple[Collection[CommercialMode], Pagination]: A tuple containing a Collection of CommercialMode objects and Pagination object.
         """
         filters = {
             "start_page": start_page,
@@ -176,7 +178,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[CommercialMode], Pagination]:
+    ) -> Tuple[Collection[CommercialMode], Pagination]:
         """
         Lists commercial modes from specified coordinates.
 
@@ -191,7 +193,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             headsign (Optional[str]): The headsign for filtering. Defaults to None.
 
         Returns:
-            Tuple[Sequence[CommercialMode], Pagination]: A tuple containing a sequence of CommercialMode objects and Pagination object.
+            Tuple[Collection[CommercialMode], Pagination]: A tuple containing a Collection of CommercialMode objects and Pagination object.
         """
         filters = {
             "start_page": start_page,
@@ -218,7 +220,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
-    ) -> Tuple[Sequence[CommercialMode], Pagination]:
+    ) -> Tuple[Collection[CommercialMode], Pagination]:
         """
         Retrieves a specific commercial mode by its ID from specified coordinates.
 
@@ -234,7 +236,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             headsign (Optional[str]): The headsign for filtering. Defaults to None.
 
         Returns:
-            Tuple[Sequence[CommercialMode], Pagination]: A tuple containing a sequence of CommercialMode objects and Pagination object.
+            Tuple[Collection[CommercialMode], Pagination]: A tuple containing a Collection of CommercialMode objects and Pagination object.
         """
         filters = {
             "start_page": start_page,
