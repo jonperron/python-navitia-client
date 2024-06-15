@@ -42,7 +42,7 @@ class JourneyApiClient(ApiBaseClient):
         wheelchair: bool = False,
         direct_path: str = "indifferent",
         direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        add_poi_infos: Optional[Sequence[str]] = None,
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
@@ -79,7 +79,7 @@ class JourneyApiClient(ApiBaseClient):
         wheelchair: bool = False,
         direct_path: str = "indifferent",
         direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        add_poi_infos: Optional[Sequence[str]] = None,
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
@@ -116,7 +116,7 @@ class JourneyApiClient(ApiBaseClient):
         wheelchair: bool = False,
         direct_path: str = "indifferent",
         direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        add_poi_infos: Optional[Sequence[str]] = None,
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
@@ -173,7 +173,7 @@ class JourneyApiClient(ApiBaseClient):
         wheelchair: bool = False,
         direct_path: str = "indifferent",
         direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        add_poi_infos: Optional[Sequence[str]] = None,
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
@@ -274,7 +274,6 @@ class JourneyApiClient(ApiBaseClient):
             "max_duration": max_duration,
             "wheelchair": wheelchair,
             "direct_path": direct_path,
-            "add_poi_infos[]": add_poi_infos,
             "debug": debug,
             "free_radius_from": free_radius_from,
             "free_radius_to": free_radius_to,
@@ -298,6 +297,9 @@ class JourneyApiClient(ApiBaseClient):
 
         if last_section_mode:
             filters["last_section_mode[]"] = last_section_mode
+
+        if add_poi_infos:
+            filters["add_poi_infos[]"] = add_poi_infos
 
         if any([direct_path_mode, first_section_mode]):
             filters["direct_path_mode[]"] = direct_path_mode or first_section_mode
@@ -333,7 +335,7 @@ class JourneyApiClient(ApiBaseClient):
         wheelchair: bool = False,
         direct_path: str = "indifferent",
         direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        add_poi_infos: Optional[Sequence[str]] = None,
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
@@ -436,7 +438,6 @@ class JourneyApiClient(ApiBaseClient):
             "max_duration": max_duration,
             "wheelchair": wheelchair,
             "direct_path": direct_path,
-            "add_poi_infos[]": add_poi_infos,
             "debug": debug,
             "free_radius_from": free_radius_from,
             "free_radius_to": free_radius_to,
@@ -460,6 +461,9 @@ class JourneyApiClient(ApiBaseClient):
 
         if last_section_mode:
             filters["last_section_mode[]"] = last_section_mode
+
+        if add_poi_infos:
+            filters["add_poi_infos[]"] = add_poi_infos
 
         if any([direct_path_mode, first_section_mode]):
             filters["direct_path_mode[]"] = direct_path_mode or first_section_mode
@@ -495,7 +499,7 @@ class JourneyApiClient(ApiBaseClient):
         wheelchair: bool = False,
         direct_path: str = "indifferent",
         direct_path_mode: Optional[Sequence[str]] = None,
-        add_poi_infos: Sequence[str] = [],
+        add_poi_infos: Optional[Sequence[str]] = None,
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
@@ -598,7 +602,6 @@ class JourneyApiClient(ApiBaseClient):
             "max_duration": max_duration,
             "wheelchair": wheelchair,
             "direct_path": direct_path,
-            "add_poi_infos[]": add_poi_infos,
             "debug": debug,
             "free_radius_from": free_radius_from,
             "free_radius_to": free_radius_to,
@@ -622,6 +625,9 @@ class JourneyApiClient(ApiBaseClient):
 
         if last_section_mode:
             filters["last_section_mode[]"] = last_section_mode
+
+        if add_poi_infos:
+            filters["add_poi_infos[]"] = add_poi_infos
 
         if any([direct_path_mode, first_section_mode]):
             filters["direct_path_mode[]"] = direct_path_mode or first_section_mode
