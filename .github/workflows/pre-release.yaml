@@ -4,6 +4,9 @@ on:
   release:
     types: [prereleased]
 
+permissions:
+  contents: read
+
 jobs:
   pre-release-build:
     runs-on: ubuntu-latest
