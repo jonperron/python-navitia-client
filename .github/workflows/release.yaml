@@ -1,6 +1,8 @@
 name: Publish release on TestPypi
 
 on:
+  push:
+    branches: [main]
   release:
     types: [released]
 
