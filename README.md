@@ -1,7 +1,7 @@
 # navitia-client
 
-[![Pre-release Build Status](https://img.shields.io/github/actions/workflow/status/jonperron/python-navitia-client/pre-release.yml?branch=main)](https://github.com/jonperron/python-navitia-client/actions)
-[![Release Build Status](https://img.shields.io/github/actions/workflow/status/jonperron/python-navitia-client/pre-release.yml?branch=main)](https://github.com/jonperron/python-navitia-client/actions)
+[![Pre-release Build Status](https://img.shields.io/github/actions/workflow/status/jonperron/python-navitia-client/pre-release.yaml?branch=main)](https://github.com/jonperron/python-navitia-client/actions)
+[![Release Build Status](https://img.shields.io/github/actions/workflow/status/jonperron/python-navitia-client/release.yaml?branch=main)](https://github.com/jonperron/python-navitia-client/actions)
 [![Python Version](https://img.shields.io/pypi/pyversions/python-navitia-client.svg)](https://pypi.org/project/python-navitia-client/)
 
 This repository provides a unofficial Python wrapper to use [navitia.io APIs](https://doc.navitia.io).
