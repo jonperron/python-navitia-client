@@ -1,0 +1,38 @@
+{
+    "free_floatings": [
+        {
+            "public_id": "scooter_12345",
+            "provider_name": "Lime",
+            "id": "scooter_12345",
+            "type": "scooter",
+            "propulsion": "electric",
+            "battery": 85,
+            "distance": 120,
+            "deeplink": "https://lime.com/scooter_12345",
+            "coord": {
+                "lat": "48.8560",
+                "lon": "2.3500"
+            }
+        },
+        {
+            "public_id": "bike_67890",
+            "provider_name": "Lime",
+            "id": "bike_67890",
+            "type": "bike",
+            "propulsion": "electric",
+            "battery": 92,
+            "distance": 250,
+            "deeplink": "https://lime.com/bike_67890",
+            "coord": {
+                "lat": "48.8570",
+                "lon": "2.3510"
+            }
+        }
+    ],
+    "pagination": {
+        "start_page": 0,
+        "items_on_page": 2,
+        "items_per_page": 10,
+        "total_result": 2
+    }
+}

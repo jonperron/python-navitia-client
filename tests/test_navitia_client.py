@@ -5,6 +5,9 @@ from navitia_client.client.apis.coverage_apis import CoverageApiClient
 from navitia_client.client.apis.datasets_apis import DatasetsApiClient
 from navitia_client.client.apis.departure_apis import DepartureApiClient
 from navitia_client.client.apis.equipment_report_apis import EquipmentReportsApiClient
+from navitia_client.client.apis.freefloatings_nearby_apis import (
+    FreefloatingsNearbyApiClient,
+)
 from navitia_client.client.apis.inverted_geocoding_apis import (
     InvertedGeocodingApiClient,
 )
@@ -145,6 +148,10 @@ def test_traffic_reports_client(navitia_client):
 
 def test_equipment_reports_client(navitia_client):
     assert isinstance(navitia_client.equipment_reports, EquipmentReportsApiClient)
+
+
+def test_freefloatings_nearby_client(navitia_client):
+    assert isinstance(navitia_client.freefloatings_nearby, FreefloatingsNearbyApiClient)
 
 
 def test_journeys_client(navitia_client):

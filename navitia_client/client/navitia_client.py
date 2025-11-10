@@ -6,6 +6,9 @@ from navitia_client.client.apis.coverage_apis import CoverageApiClient
 from navitia_client.client.apis.datasets_apis import DatasetsApiClient
 from navitia_client.client.apis.departure_apis import DepartureApiClient
 from navitia_client.client.apis.equipment_report_apis import EquipmentReportsApiClient
+from navitia_client.client.apis.freefloatings_nearby_apis import (
+    FreefloatingsNearbyApiClient,
+)
 from navitia_client.client.apis.inverted_geocoding_apis import (
     InvertedGeocodingApiClient,
 )
@@ -106,6 +109,8 @@ class NavitiaClient:
         Get an instance of TrafficReportsApiClient for accessing traffic reports-related endpoints.
     equipment_reports -> EquipmentReportsApiClient:
         Get an instance of EquipmentReportsApiClient for accessing equipment reports-related endpoints.
+    freefloatings_nearby -> FreefloatingsNearbyApiClient:
+        Get an instance of FreefloatingsNearbyApiClient for accessing freefloatings nearby-related endpoints.
     journeys -> JourneyApiClient:
         Get an instance of JourneyApiClient for accessing journey-related endpoints.
     isochrones -> IsochronesApiClient:
@@ -287,6 +292,13 @@ class NavitiaClient:
     def equipment_reports(self) -> EquipmentReportsApiClient:
         """Get an instance of EquipmentReportsApiClient for accessing equipment-reports-related endpoints."""
         return EquipmentReportsApiClient(
+            auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
+        )
+
+    @property
+    def freefloatings_nearby(self) -> FreefloatingsNearbyApiClient:
+        """Get an instance of FreefloatingsNearbyApiClient for accessing nearby free-floating vehicle endpoints."""
+        return FreefloatingsNearbyApiClient(
             auth_token=self.auth_token, base_navitia_url=self.base_navitia_url
         )
 
