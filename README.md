@@ -33,15 +33,16 @@ The library supports the following [APIs](https://doc.navitia.io/#api-catalog):
 | Autocomplete on geographical objects      | ✅           |                                              |
 | Places nearby                             | ✅           |                                              |
 | Journeys                                  | ✅           |                                              |
-| Isochrones                                | ✅           | Beta endpoint according to API response      |
+| Isochrones                                | ✅           |                                              |
 | Route Schedules                           | ✅           |                                              |
 | Stop Schedules                            | ✅           |                                              |
 | Terminus Schedules                        | ✅           |                                              |
 | Departures                                | ✅           |                                              |
 | Arrivals                                  | ✅           |                                              |
-| Line reports                              | ✅           | Beta endpoint according to API response      |
-| Traffic reports                           | ✅           | Beta endpoint according to API response      |
-| Equipment reports                         | ❌           | Beta service, not available to all providers |
+| Line reports                              | ✅           |                                              |
+| Traffic reports                           | ✅           |                                              |
+| Equipment reports                         | ✅           | Not available to all providers               |
+| Freefloating nearby                       | ✅           | Not available to all providers               |
 
 ## Usage
 
