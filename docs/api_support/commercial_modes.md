@@ -14,7 +14,8 @@ Methods:
             start_page: int = 0,
             count: int = 25,
             depth: int = 1,
-            odt: str = "all",
+        disable_geojson: bool = False,
+        odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
@@ -26,7 +27,8 @@ Methods:
             start_page: int = 0,
             count: int = 25,
             depth: int = 1,
-            odt: str = "all",
+        disable_geojson: bool = False,
+        odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
@@ -38,7 +40,8 @@ Methods:
             start_page: int = 0,
             count: int = 25,
             depth: int = 1,
-            odt: str = "all",
+        disable_geojson: bool = False,
+        odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
@@ -51,7 +54,8 @@ Methods:
             start_page: int = 0,
             count: int = 25,
             depth: int = 1,
-            odt: str = "all",
+        disable_geojson: bool = False,
+        odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:

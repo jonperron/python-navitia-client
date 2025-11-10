@@ -172,6 +172,7 @@ class EntityApi(Generic[TEntity], ABC):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -211,6 +212,7 @@ class EntityApi(Generic[TEntity], ABC):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -230,6 +232,8 @@ class EntityApi(Generic[TEntity], ABC):
             Number of items per page (default is 25).
         depth : int, optional
             Search depth (default is 1).
+        disable_geojson : bool, optional
+            Whether to disable GeoJSON in the response (default is False).
         odt : str, optional
             ODT type filter (default is "all").
         distance : int, optional
@@ -252,6 +256,7 @@ class EntityApi(Generic[TEntity], ABC):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -271,6 +276,8 @@ class EntityApi(Generic[TEntity], ABC):
             Number of items per page (default is 25).
         depth : int, optional
             Search depth (default is 1).
+        disable_geojson : bool, optional
+            Whether to disable GeoJSON in the response (default is False).
         odt : str, optional
             ODT type filter (default is "all").
         distance : int, optional
@@ -294,6 +301,7 @@ class EntityApi(Generic[TEntity], ABC):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -315,6 +323,8 @@ class EntityApi(Generic[TEntity], ABC):
             Number of items per page (default is 25).
         depth : int, optional
             Search depth (default is 1).
+        disable_geojson : bool, optional
+            Whether to disable GeoJSON in the response (default is False).
         odt : str, optional
             ODT type filter (default is "all").
         distance : int, optional

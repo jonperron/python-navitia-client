@@ -103,6 +103,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -120,6 +121,8 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             Number of items per page (default is 25).
         depth : int, optional
             Search depth (default is 1).
+        disable_geojson : bool, optional
+            Whether to disable GeoJSON in the response (default is False).
         odt : str, optional
             ODT type filter (default is "all").
         distance : int, optional
@@ -136,6 +139,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             "start_page": start_page,
             "count": count,
             "depth": depth,
+            "disable_geojson": disable_geojson,
             "odt": odt,
             "distance": distance,
         }
@@ -152,6 +156,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -171,6 +176,8 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             Number of items per page (default is 25).
         depth : int, optional
             Search depth (default is 1).
+        disable_geojson : bool, optional
+            Whether to disable GeoJSON in the response (default is False).
         odt : str, optional
             ODT type filter (default is "all").
         distance : int, optional
@@ -187,6 +194,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             "start_page": start_page,
             "count": count,
             "depth": depth,
+            "disable_geojson": disable_geojson,
             "odt": odt,
             "distance": distance,
         }
@@ -204,6 +212,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -223,6 +232,8 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             Number of items per page (default is 25).
         depth : int, optional
             Search depth (default is 1).
+        disable_geojson : bool, optional
+            Whether to disable GeoJSON in the response (default is False).
         odt : str, optional
             ODT type filter (default is "all").
         distance : int, optional
@@ -239,6 +250,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             "start_page": start_page,
             "count": count,
             "depth": depth,
+            "disable_geojson": disable_geojson,
             "odt": odt,
             "distance": distance,
         }
@@ -257,6 +269,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -278,6 +291,8 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             Number of items per page (default is 25).
         depth : int, optional
             Search depth (default is 1).
+        disable_geojson : bool, optional
+            Whether to disable GeoJSON in the response (default is False).
         odt : str, optional
             ODT type filter (default is "all").
         distance : int, optional
@@ -294,6 +309,7 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             "start_page": start_page,
             "count": count,
             "depth": depth,
+            "disable_geojson": disable_geojson,
             "odt": odt,
             "distance": distance,
         }
