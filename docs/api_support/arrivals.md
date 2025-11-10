@@ -1,16 +1,16 @@
-# Vehicle journeys
+# Arrivals
 
-A client class to interact with the Navitia API for fetching departure information.
+A client class to interact with the Navitia API for fetching arrival information.
 
-Official documentation: <https://doc.navitia.io/#departures>
+Official documentation: <https://doc.navitia.io/#arrivals>
 
-Property: `NavitiaClient.departures`
+Property: `NavitiaClient.arrivals`
 
 Methods
 
 ```python
 
-    list_departures_by_region_id_and_path(
+    list_arrivals_by_region_id_and_path(
         region_id: str,
         resource_path: str,
         from_datetime: datetime = datetime.now(),
@@ -22,10 +22,10 @@ Methods
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all"
-    ) -> Tuple[Sequence[Departure], Pagination]
-        Retrieves a list of departures for a specified region and resource path from the Navitia API.
+    ) -> Tuple[Sequence[Arrival], Pagination]
+        Retrieves a list of arrivals for a specific region and resource path.
 
-    list_departures_by_coordinates(
+    list_arrivals_by_coordinates(
         region_lon: float,
         region_lat: float,
         lon: float,
@@ -39,6 +39,8 @@ Methods
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
         direction_type: str = "all"
-    ) -> Tuple[Sequence[Departure], Pagination]
-        Retrieves a list of departures for a specified location based on coordinates from the Navitia API.
+    ) -> Tuple[Sequence[Arrival], Pagination]
+        Retrieves a list of arrivals for specific coordinates.
 ```
+
+````
