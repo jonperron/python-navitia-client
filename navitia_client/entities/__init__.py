@@ -21,3 +21,4 @@ from .stop_datetime import StopDateTime
 from .equipment import EquipmentAvailability, EquipmentDetails, StopAreaEquipments
 from .equipment_reports import EquipmentReports
 from .display_information import DisplayInformation
+from .journey import ParkMode
