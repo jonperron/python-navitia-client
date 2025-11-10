@@ -93,6 +93,8 @@ class StopSchedulesApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
+        count: int = 10,
+        start_page: int = 0,
         items_per_schedule: int = 1,
         forbidden_uris: Optional[Sequence[str]] = None,
         data_freshness: str = "realtime",
@@ -110,6 +112,8 @@ class StopSchedulesApiClient(ApiBaseClient):
             from_datetime (datetime, optional): The start datetime for the schedule. Defaults to datetime.now().
             duration (int, optional): The duration of the schedule in seconds. Defaults to 86400.
             depth (int, optional): The depth of data to retrieve. Defaults to 1.
+            count (int, optional): Maximum number of results. Defaults to 10.
+            start_page (int, optional): The page number to start from. Defaults to 0.
             items_per_schedule (int, optional): The number of items per schedule. Defaults to 1.
             forbidden_uris (Optional[Sequence[str]], optional): Forbidden URIs. Defaults to None.
             data_freshness (str, optional): The freshness of data to retrieve. Defaults to "realtime".
@@ -125,6 +129,8 @@ class StopSchedulesApiClient(ApiBaseClient):
             "from_datetime": from_datetime,
             "duration": duration,
             "depth": depth,
+            "count": count,
+            "start_page": start_page,
             "items_per_schedule": items_per_schedule,
             "disable_geojson": disable_geojson,
             "forbidden_uris[]": forbidden_uris,
@@ -141,6 +147,8 @@ class StopSchedulesApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
+        count: int = 10,
+        start_page: int = 0,
         items_per_schedule: int = 1,
         forbidden_uris: Optional[Sequence[str]] = None,
         data_freshness: str = "realtime",
@@ -156,6 +164,8 @@ class StopSchedulesApiClient(ApiBaseClient):
             from_datetime (datetime, optional): The start datetime for the schedule. Defaults to datetime.now().
             duration (int, optional): The duration of the schedule in seconds. Defaults to 86400.
             depth (int, optional): The depth of data to retrieve. Defaults to 1.
+            count (int, optional): Maximum number of results. Defaults to 10.
+            start_page (int, optional): The page number to start from. Defaults to 0.
             items_per_schedule (int, optional): The number of items per schedule. Defaults to 1.
             forbidden_uris (Optional[Sequence[str]], optional): Forbidden URIs. Defaults to None.
             data_freshness (str, optional): The freshness of data to retrieve. Defaults to "realtime".
@@ -171,6 +181,8 @@ class StopSchedulesApiClient(ApiBaseClient):
             "from_datetime": from_datetime,
             "duration": duration,
             "depth": depth,
+            "count": count,
+            "start_page": start_page,
             "items_per_schedule": items_per_schedule,
             "disable_geojson": disable_geojson,
             "forbidden_uris[]": forbidden_uris,

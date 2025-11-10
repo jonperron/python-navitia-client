@@ -80,6 +80,8 @@ class ArrivalApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
+        count: int = 10,
+        start_page: int = 0,
         forbidden_uris: Optional[Sequence[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
@@ -100,6 +102,10 @@ class ArrivalApiClient(ApiBaseClient):
             The duration in seconds for which to fetch arrivals (default is 86400 seconds).
         depth : int, optional
             The depth of the search (default is 1).
+        count : int, optional
+            Maximum number of results (default is 10).
+        start_page : int, optional
+            The page number to start from (default is 0).
         forbidden_uris : Optional[Sequence[str]], optional
             A list of URIs to exclude from the search (default is None).
         data_freshness : str, optional
@@ -120,6 +126,8 @@ class ArrivalApiClient(ApiBaseClient):
             "from_datetime": from_datetime,
             "duration": duration,
             "depth": depth,
+            "count": count,
+            "start_page": start_page,
             "disable_geojson": disable_geojson,
             "forbidden_uris[]": forbidden_uris,
             "data_freshness": data_freshness,
@@ -137,6 +145,8 @@ class ArrivalApiClient(ApiBaseClient):
         from_datetime: datetime = datetime.now(),
         duration: int = 86400,
         depth: int = 1,
+        count: int = 10,
+        start_page: int = 0,
         forbidden_uris: Optional[Sequence[str]] = None,
         data_freshness: str = "realtime",
         disable_geojson: bool = False,
@@ -161,6 +171,10 @@ class ArrivalApiClient(ApiBaseClient):
             The duration in seconds for which to fetch arrivals (default is 86400 seconds).
         depth : int, optional
             The depth of the search (default is 1).
+        count : int, optional
+            Maximum number of results (default is 10).
+        start_page : int, optional
+            The page number to start from (default is 0).
         forbidden_uris : Optional[Sequence[str]], optional
             A list of URIs to exclude from the search (default is None).
         data_freshness : str, optional
@@ -182,6 +196,8 @@ class ArrivalApiClient(ApiBaseClient):
             "from_datetime": from_datetime,
             "duration": duration,
             "depth": depth,
+            "count": count,
+            "start_page": start_page,
             "disable_geojson": disable_geojson,
             "forbidden_uris[]": forbidden_uris,
             "data_freshness": data_freshness,
