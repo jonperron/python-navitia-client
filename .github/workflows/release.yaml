@@ -35,7 +35,7 @@ jobs:
   pypi-publish:
     runs-on: ubuntu-latest
     needs: release-build
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'release' && github.event.action == 'released'
     permissions:
       id-token: write
 
@@ -52,7 +52,7 @@ jobs:
   test-pypi-publish:
     runs-on: ubuntu-latest
     needs: release-build
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'release' && github.event.action == 'released'
     permissions:
       id-token: write
 
