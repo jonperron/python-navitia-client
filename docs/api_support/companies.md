@@ -14,6 +14,7 @@ Methods:
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
@@ -26,6 +27,7 @@ Methods:
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
@@ -38,6 +40,7 @@ Methods:
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None
@@ -51,6 +54,7 @@ Methods:
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None

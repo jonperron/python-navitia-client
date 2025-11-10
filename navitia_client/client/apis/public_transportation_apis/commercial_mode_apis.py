@@ -93,6 +93,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -116,6 +117,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             "start_page": start_page,
             "count": count,
             "depth": depth,
+            "disable_geojson": disable_geojson,
             "odt": odt,
             "distance": distance,
         }
@@ -132,6 +134,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -156,6 +159,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             "start_page": start_page,
             "count": count,
             "depth": depth,
+            "disable_geojson": disable_geojson,
             "odt": odt,
             "distance": distance,
         }
@@ -173,6 +177,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -197,6 +202,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             "start_page": start_page,
             "count": count,
             "depth": depth,
+            "disable_geojson": disable_geojson,
             "odt": odt,
             "distance": distance,
         }
@@ -215,6 +221,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         start_page: int = 0,
         count: int = 25,
         depth: int = 1,
+        disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
@@ -240,6 +247,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             "start_page": start_page,
             "count": count,
             "depth": depth,
+            "disable_geojson": disable_geojson,
             "odt": odt,
             "distance": distance,
         }
