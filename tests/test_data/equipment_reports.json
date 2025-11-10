@@ -1,0 +1,117 @@
+{
+  "equipment_reports": [
+    {
+      "line": {
+        "id": "line:IDFM:C01742",
+        "name": "Metro 1",
+        "code": "1",
+        "color": "FFCD00",
+        "text_color": "000000",
+        "opening_time": "053000",
+        "closing_time": "013600",
+        "physical_modes": [],
+        "commercial_mode": {
+          "id": "commercial_mode:Metro",
+          "name": "Metro"
+        },
+        "network": {
+          "id": "network:IDFM",
+          "name": "RATP"
+        }
+      },
+      "stop_area_equipments": [
+        {
+          "stop_area": {
+            "id": "stop_area:IDFM:71261",
+            "name": "La Defense",
+            "label": "La Defense (Paris)",
+            "coord": {
+              "lat": "48.892038",
+              "lon": "2.237883"
+            }
+          },
+          "equipment_details": [
+            {
+              "id": "2702",
+              "name": "Escalator to platform 1",
+              "embedded_type": "escalator",
+              "current_availability": {
+                "status": "unavailable",
+                "cause": {
+                  "label": "engineering work in progress"
+                },
+                "effect": {
+                  "label": "platform 1 available via stairs only"
+                },
+                "periods": [
+                  {
+                    "begin": "20190216T000000",
+                    "end": "20190601T220000"
+                  }
+                ],
+                "updated_at": "2019-05-17T15:54:53+02:00"
+              }
+            },
+            {
+              "id": "2703",
+              "name": "Elevator to platform 2",
+              "embedded_type": "elevator",
+              "current_availability": {
+                "status": "unknown"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "line": {
+        "id": "line:IDFM:C01743",
+        "name": "Metro 2",
+        "code": "2",
+        "color": "0064B0",
+        "text_color": "FFFFFF",
+        "opening_time": "053000",
+        "closing_time": "013600",
+        "physical_modes": [],
+        "commercial_mode": {
+          "id": "commercial_mode:Metro",
+          "name": "Metro"
+        },
+        "network": {
+          "id": "network:IDFM",
+          "name": "RATP"
+        }
+      },
+      "stop_area_equipments": [
+        {
+          "stop_area": {
+            "id": "stop_area:IDFM:71262",
+            "name": "Nation",
+            "label": "Nation (Paris)",
+            "coord": {
+              "lat": "48.848571",
+              "lon": "2.396611"
+            }
+          },
+          "equipment_details": [
+            {
+              "id": "3001",
+              "name": "Main elevator",
+              "embedded_type": "elevator",
+              "current_availability": {
+                "status": "unknown"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "start_page": 0,
+    "items_on_page": 2,
+    "items_per_page": 10,
+    "total_result": 2
+  }
+}
