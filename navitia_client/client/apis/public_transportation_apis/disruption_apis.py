@@ -107,6 +107,9 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[Disruption], Pagination]:
         """
         List disruptions for a given region.
@@ -129,6 +132,12 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             Maximum search distance (default is 200).
         headsign : str, optional
             Line headsign.
+        since : Optional[str], optional
+            Filter objects active after this datetime (format: YYYYMMDDThhmmss).
+        until : Optional[str], optional
+            Filter objects active before this datetime (format: YYYYMMDDThhmmss).
+        disable_disruption : bool, optional
+            Whether to disable disruptions in the response (default is False).
 
         Returns
         -------
@@ -146,6 +155,13 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
 
         if headsign is not None:
             filters["headsign"] = headsign
+
+        if since is not None:
+            filters["since"] = since
+        if until is not None:
+            filters["until"] = until
+        if disable_disruption:
+            filters["disable_disruption"] = disable_disruption
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}"
         return self._get_entity_results(url, self.entity_name, filters)
 
@@ -160,6 +176,9 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[Disruption], Pagination]:
         """
         Get a disruption by its ID in a given region.
@@ -184,6 +203,12 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             Maximum search distance (default is 200).
         headsign : str, optional
             Line headsign.
+        since : Optional[str], optional
+            Filter objects active after this datetime (format: YYYYMMDDThhmmss).
+        until : Optional[str], optional
+            Filter objects active before this datetime (format: YYYYMMDDThhmmss).
+        disable_disruption : bool, optional
+            Whether to disable disruptions in the response (default is False).
 
         Returns
         -------
@@ -202,6 +227,15 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         if headsign is not None:
             filters["headsign"] = headsign
 
+        if since is not None:
+            filters["since"] = since
+
+        if until is not None:
+            filters["until"] = until
+
+        if disable_disruption:
+            filters["disable_disruption"] = disable_disruption
+
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}/{object_id}"
         return self._get_entity_results(url, self.entity_name, filters)
 
@@ -216,6 +250,9 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[Disruption], Pagination]:
         """
         List disruptions for given geographic coordinates.
@@ -240,6 +277,12 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             Maximum search distance (default is 200).
         headsign : str, optional
             Line headsign.
+        since : Optional[str], optional
+            Filter objects active after this datetime (format: YYYYMMDDThhmmss).
+        until : Optional[str], optional
+            Filter objects active before this datetime (format: YYYYMMDDThhmmss).
+        disable_disruption : bool, optional
+            Whether to disable disruptions in the response (default is False).
 
         Returns
         -------
@@ -258,6 +301,15 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         if headsign is not None:
             filters["headsign"] = headsign
 
+        if since is not None:
+            filters["since"] = since
+
+        if until is not None:
+            filters["until"] = until
+
+        if disable_disruption:
+            filters["disable_disruption"] = disable_disruption
+
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}"
         return self._get_entity_results(url, self.entity_name, filters)
 
@@ -273,6 +325,9 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[Disruption], Pagination]:
         """
         Get a disruption by its ID for given geographic coordinates.
@@ -299,6 +354,12 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
             Maximum search distance (default is 200).
         headsign : str, optional
             Line headsign.
+        since : Optional[str], optional
+            Filter objects active after this datetime (format: YYYYMMDDThhmmss).
+        until : Optional[str], optional
+            Filter objects active before this datetime (format: YYYYMMDDThhmmss).
+        disable_disruption : bool, optional
+            Whether to disable disruptions in the response (default is False).
 
         Returns
         -------
@@ -316,6 +377,15 @@ class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):
 
         if headsign is not None:
             filters["headsign"] = headsign
+
+        if since is not None:
+            filters["since"] = since
+
+        if until is not None:
+            filters["until"] = until
+
+        if disable_disruption:
+            filters["disable_disruption"] = disable_disruption
 
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}/{object_id}"
         return self._get_entity_results(url, self.entity_name, filters)

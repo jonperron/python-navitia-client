@@ -17,7 +17,10 @@ Methods:
         disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
-        headsign: Optional[str] = None
+        headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False
     ) -> Tuple[Sequence[PhysicalMode], Pagination]:
         List physical modes for a given region.
 
@@ -30,7 +33,10 @@ Methods:
         disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
-        headsign: Optional[str] = None
+        headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False
     ) -> Tuple[Sequence[PhysicalMode], Pagination]:
         Get a physical mode by its ID in a given region.
 
@@ -43,7 +49,10 @@ Methods:
         disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
-        headsign: Optional[str] = None
+        headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False
     ) -> Tuple[Sequence[PhysicalMode], Pagination]:
         List physical modes for given geographic coordinates.
 
@@ -57,7 +66,10 @@ Methods:
         disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
-        headsign: Optional[str] = None
+        headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False
     ) -> Tuple[Sequence[PhysicalMode], Pagination]:
         Get a physical mode by its ID for given geographic coordinates.
 ```

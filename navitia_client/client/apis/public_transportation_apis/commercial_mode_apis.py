@@ -27,6 +27,9 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
             Lists commercial modes from a specified region.
 
@@ -39,6 +42,9 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
             Retrieves a specific commercial mode by its ID from a specified region.
 
@@ -51,6 +57,9 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
             Lists commercial modes from specified coordinates.
 
@@ -64,6 +73,9 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             odt: str = "all",
             distance: int = 200,
             headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
             Retrieves a specific commercial mode by its ID from specified coordinates.
     """
@@ -97,6 +109,9 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[CommercialMode], Pagination]:
         """
         Lists commercial modes from a specified region.
@@ -124,6 +139,13 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
 
         if headsign is not None:
             filters["headsign"] = headsign
+
+        if since is not None:
+            filters["since"] = since
+        if until is not None:
+            filters["until"] = until
+        if disable_disruption:
+            filters["disable_disruption"] = disable_disruption
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}"
         return self._get_entity_results(url, self.entity_name, filters)
 
@@ -138,6 +160,9 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[CommercialMode], Pagination]:
         """
         Retrieves a specific commercial mode by its ID from a specified region.
@@ -167,6 +192,15 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         if headsign is not None:
             filters["headsign"] = headsign
 
+        if since is not None:
+            filters["since"] = since
+
+        if until is not None:
+            filters["until"] = until
+
+        if disable_disruption:
+            filters["disable_disruption"] = disable_disruption
+
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}/{object_id}"
         return self._get_entity_results(url, self.entity_name, filters)
 
@@ -181,6 +215,9 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[CommercialMode], Pagination]:
         """
         Lists commercial modes from specified coordinates.
@@ -210,6 +247,15 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         if headsign is not None:
             filters["headsign"] = headsign
 
+        if since is not None:
+            filters["since"] = since
+
+        if until is not None:
+            filters["until"] = until
+
+        if disable_disruption:
+            filters["disable_disruption"] = disable_disruption
+
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}"
         return self._get_entity_results(url, self.entity_name, filters)
 
@@ -225,6 +271,9 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[CommercialMode], Pagination]:
         """
         Retrieves a specific commercial mode by its ID from specified coordinates.
@@ -254,6 +303,15 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
 
         if headsign is not None:
             filters["headsign"] = headsign
+
+        if since is not None:
+            filters["since"] = since
+
+        if until is not None:
+            filters["until"] = until
+
+        if disable_disruption:
+            filters["disable_disruption"] = disable_disruption
 
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}/{object_id}"
         return self._get_entity_results(url, self.entity_name, filters)

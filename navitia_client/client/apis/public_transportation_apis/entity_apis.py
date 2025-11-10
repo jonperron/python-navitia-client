@@ -176,6 +176,9 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[TEntity], Pagination]:
         """
         List entities for a given region.
@@ -216,6 +219,9 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[TEntity], Pagination]:
         """
         Get an entity by its ID in a given region.
@@ -260,6 +266,9 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[TEntity], Pagination]:
         """
         List entities for given geographic coordinates.
@@ -305,6 +314,9 @@ class EntityApi(Generic[TEntity], ABC):
         odt: str = "all",
         distance: int = 200,
         headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False,
     ) -> Tuple[Sequence[TEntity], Pagination]:
         """
         Get an entity by its ID for given geographic coordinates.

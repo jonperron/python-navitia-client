@@ -18,7 +18,10 @@ Methods:
         disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
-        headsign: Optional[str] = None
+        headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False
     ) -> Tuple[Sequence[StopArea], Pagination]:
         List stop areas for a given region.
 
@@ -31,7 +34,10 @@ Methods:
         disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
-        headsign: Optional[str] = None
+        headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False
     ) -> Tuple[Sequence[StopArea], Pagination]:
         Get a stop area by its ID in a given region.
 
@@ -44,7 +50,10 @@ Methods:
         disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
-        headsign: Optional[str] = None
+        headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False
     ) -> Tuple[Sequence[StopArea], Pagination]:
         List stop areas for given geographic coordinates.
 
@@ -58,7 +67,10 @@ Methods:
         disable_geojson: bool = False,
         odt: str = "all",
         distance: int = 200,
-        headsign: Optional[str] = None
+        headsign: Optional[str] = None,
+        since: Optional[str] = None,
+        until: Optional[str] = None,
+        disable_disruption: bool = False
     ) -> Tuple[Sequence[StopArea], Pagination]:
         Get a stop area by its ID for given geographic coordinates.
 ```
