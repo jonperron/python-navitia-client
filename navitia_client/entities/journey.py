@@ -10,6 +10,12 @@ from navitia_client.entities.place import Place
 from navitia_client.entities.ticket import Fare
 
 
+class ParkMode(Enum):
+    NONE = "none"
+    ON_STREET = "on_street"
+    PARK_AND_RIDE = "park_and_ride"
+
+
 class SectionType(Enum):
     PUBLIC_TRANSPORT = "public_transport"
     STREET_NETWORK = "street_network"

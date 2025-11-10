@@ -82,7 +82,7 @@ def test_list_empty_add_poi_infos_parameter(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
-    expected_url = "https://api.navitia.io/v1//journeys?datetime=2024-06-01T00:00:00&datetime_represents=departure&traveler_type=standard&data_freshness=realtime&language=en-GB&depth=1&max_duration_to_pt=1800&walking_speed=1.12&bike_speed=4.1&bss_speed=4.1&car_speed=16.8&min_nb_journeys=1&max_nb_journeys=1&count=1&max_nb_transfers=10&min_nb_transfers=0&max_duration=86400&wheelchair=False&direct_path=indifferent&debug=False&free_radius_from=0&free_radius_to=0&timeframe_duration=0&from=foo"
+    expected_url = "https://api.navitia.io/v1//journeys?datetime=2024-06-01T00:00:00&datetime_represents=departure&traveler_type=standard&data_freshness=realtime&language=en-GB&depth=1&max_duration_to_pt=1800&walking_speed=1.12&bike_speed=4.1&bss_speed=4.1&car_speed=16.8&min_nb_journeys=1&max_nb_journeys=1&count=1&max_nb_transfers=10&min_nb_transfers=0&max_duration=86400&wheelchair=False&direct_path=indifferent&debug=False&free_radius_from=0&free_radius_to=0&timeframe_duration=0&is_journey_schedules=False&from=foo&park_mode=none"
 
     # When
     journeys_apis.list_journeys(datetime_=datetime(2024, 6, 1), from_="foo")
@@ -101,7 +101,7 @@ def test_list_add_poi_infos_parameter(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
-    expected_url = "https://api.navitia.io/v1//journeys?datetime=2024-06-01T00:00:00&datetime_represents=departure&traveler_type=standard&data_freshness=realtime&language=en-GB&depth=1&max_duration_to_pt=1800&walking_speed=1.12&bike_speed=4.1&bss_speed=4.1&car_speed=16.8&min_nb_journeys=1&max_nb_journeys=1&count=1&max_nb_transfers=10&min_nb_transfers=0&max_duration=86400&wheelchair=False&direct_path=indifferent&debug=False&free_radius_from=0&free_radius_to=0&timeframe_duration=0&from=foo&add_poi_infos[]=bss_stands&add_poi_infos[]=car_parks"
+    expected_url = "https://api.navitia.io/v1//journeys?datetime=2024-06-01T00:00:00&datetime_represents=departure&traveler_type=standard&data_freshness=realtime&language=en-GB&depth=1&max_duration_to_pt=1800&walking_speed=1.12&bike_speed=4.1&bss_speed=4.1&car_speed=16.8&min_nb_journeys=1&max_nb_journeys=1&count=1&max_nb_transfers=10&min_nb_transfers=0&max_duration=86400&wheelchair=False&direct_path=indifferent&debug=False&free_radius_from=0&free_radius_to=0&timeframe_duration=0&is_journey_schedules=False&from=foo&park_mode=none&add_poi_infos[]=bss_stands&add_poi_infos[]=car_parks"
 
     # When
     journeys_apis.list_journeys(

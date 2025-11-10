@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional, Sequence
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.journey import Journey
+from navitia_client.entities.journey import Journey, ParkMode
 
 
 class JourneyApiClient(ApiBaseClient):
@@ -178,6 +178,14 @@ class JourneyApiClient(ApiBaseClient):
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0,
+        park_mode: ParkMode = ParkMode.NONE,
+        is_journey_schedules: bool = False,
+        bike_use_hills: Optional[float] = None,
+        walking_use_hills: Optional[float] = None,
+        bike_avoid_bad_surfaces: Optional[float] = None,
+        walking_step_penalty: Optional[float] = None,
+        bike_maneuver_penalty: Optional[float] = None,
+        bike_use_living_streets: Optional[float] = None,
     ) -> Sequence[Journey]:
         """
         Fetches journey data based on various parameters.
@@ -246,6 +254,22 @@ class JourneyApiClient(ApiBaseClient):
             Free radius to the ending point in meters (default is 0).
         timeframe_duration : int, optional
             Timeframe duration in seconds for the journey calculation (default is 0).
+        park_mode : ParkMode, optional
+            Parking mode for car-based journeys: ParkMode.NONE, ParkMode.ON_STREET, or ParkMode.PARK_AND_RIDE (default is ParkMode.NONE).
+        is_journey_schedules : bool, optional
+            Whether to return journey schedules instead of journeys (default is False).
+        bike_use_hills : Optional[float], optional
+            Valhalla parameter: preference for using hills when biking, from 0 (avoid) to 1 (prefer) (default is None).
+        walking_use_hills : Optional[float], optional
+            Valhalla parameter: preference for using hills when walking, from 0 (avoid) to 1 (prefer) (default is None).
+        bike_avoid_bad_surfaces : Optional[float], optional
+            Valhalla parameter: preference for avoiding bad surfaces when biking, from 0 (don't avoid) to 1 (strongly avoid) (default is None).
+        walking_step_penalty : Optional[float], optional
+            Valhalla parameter: penalty applied to steps when walking, in seconds (default is None).
+        bike_maneuver_penalty : Optional[float], optional
+            Valhalla parameter: penalty applied to maneuvers when biking, in seconds (default is None).
+        bike_use_living_streets : Optional[float], optional
+            Valhalla parameter: preference for using living streets when biking, from 0 (avoid) to 1 (prefer) (default is None).
 
         Returns
         -------
@@ -278,6 +302,7 @@ class JourneyApiClient(ApiBaseClient):
             "free_radius_from": free_radius_from,
             "free_radius_to": free_radius_to,
             "timeframe_duration": timeframe_duration,
+            "is_journey_schedules": is_journey_schedules,
         }
 
         if from_:
@@ -285,6 +310,26 @@ class JourneyApiClient(ApiBaseClient):
 
         if to_:
             filters["to"] = to_
+
+        filters["park_mode"] = park_mode.value
+
+        if bike_use_hills is not None:
+            filters["bike_use_hills"] = bike_use_hills
+
+        if walking_use_hills is not None:
+            filters["walking_use_hills"] = walking_use_hills
+
+        if bike_avoid_bad_surfaces is not None:
+            filters["bike_avoid_bad_surfaces"] = bike_avoid_bad_surfaces
+
+        if walking_step_penalty is not None:
+            filters["walking_step_penalty"] = walking_step_penalty
+
+        if bike_maneuver_penalty is not None:
+            filters["bike_maneuver_penalty"] = bike_maneuver_penalty
+
+        if bike_use_living_streets is not None:
+            filters["bike_use_living_streets"] = bike_use_living_streets
 
         if forbidden_uris:
             filters["forbidden_uris[]"] = forbidden_uris
@@ -340,6 +385,14 @@ class JourneyApiClient(ApiBaseClient):
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0,
+        park_mode: ParkMode = ParkMode.NONE,
+        is_journey_schedules: bool = False,
+        bike_use_hills: Optional[float] = None,
+        walking_use_hills: Optional[float] = None,
+        bike_avoid_bad_surfaces: Optional[float] = None,
+        walking_step_penalty: Optional[float] = None,
+        bike_maneuver_penalty: Optional[float] = None,
+        bike_use_living_streets: Optional[float] = None,
     ) -> Sequence[Journey]:
         """
         Fetches journey data for a specific region based on various parameters.
@@ -410,6 +463,22 @@ class JourneyApiClient(ApiBaseClient):
             Free radius to the ending point in meters (default is 0).
         timeframe_duration : int, optional
             Timeframe duration in seconds for the journey calculation (default is 0).
+        park_mode : ParkMode, optional
+            Parking mode for car-based journeys: ParkMode.NONE, ParkMode.ON_STREET, or ParkMode.PARK_AND_RIDE (default is ParkMode.NONE).
+        is_journey_schedules : bool, optional
+            Whether to return journey schedules instead of journeys (default is False).
+        bike_use_hills : Optional[float], optional
+            Valhalla parameter: preference for using hills when biking, from 0 (avoid) to 1 (prefer) (default is None).
+        walking_use_hills : Optional[float], optional
+            Valhalla parameter: preference for using hills when walking, from 0 (avoid) to 1 (prefer) (default is None).
+        bike_avoid_bad_surfaces : Optional[float], optional
+            Valhalla parameter: preference for avoiding bad surfaces when biking, from 0 (don't avoid) to 1 (strongly avoid) (default is None).
+        walking_step_penalty : Optional[float], optional
+            Valhalla parameter: penalty applied to steps when walking, in seconds (default is None).
+        bike_maneuver_penalty : Optional[float], optional
+            Valhalla parameter: penalty applied to maneuvers when biking, in seconds (default is None).
+        bike_use_living_streets : Optional[float], optional
+            Valhalla parameter: preference for using living streets when biking, from 0 (avoid) to 1 (prefer) (default is None).
 
         Returns
         -------
@@ -442,6 +511,7 @@ class JourneyApiClient(ApiBaseClient):
             "free_radius_from": free_radius_from,
             "free_radius_to": free_radius_to,
             "timeframe_duration": timeframe_duration,
+            "is_journey_schedules": is_journey_schedules,
         }
 
         if from_:
@@ -449,6 +519,26 @@ class JourneyApiClient(ApiBaseClient):
 
         if to_:
             filters["to"] = to_
+
+        filters["park_mode"] = park_mode.value
+
+        if bike_use_hills is not None:
+            filters["bike_use_hills"] = bike_use_hills
+
+        if walking_use_hills is not None:
+            filters["walking_use_hills"] = walking_use_hills
+
+        if bike_avoid_bad_surfaces is not None:
+            filters["bike_avoid_bad_surfaces"] = bike_avoid_bad_surfaces
+
+        if walking_step_penalty is not None:
+            filters["walking_step_penalty"] = walking_step_penalty
+
+        if bike_maneuver_penalty is not None:
+            filters["bike_maneuver_penalty"] = bike_maneuver_penalty
+
+        if bike_use_living_streets is not None:
+            filters["bike_use_living_streets"] = bike_use_living_streets
 
         if forbidden_uris:
             filters["forbidden_uris[]"] = forbidden_uris
@@ -504,6 +594,14 @@ class JourneyApiClient(ApiBaseClient):
         free_radius_from: int = 0,
         free_radius_to: int = 0,
         timeframe_duration: int = 0,
+        park_mode: ParkMode = ParkMode.NONE,
+        is_journey_schedules: bool = False,
+        bike_use_hills: Optional[float] = None,
+        walking_use_hills: Optional[float] = None,
+        bike_avoid_bad_surfaces: Optional[float] = None,
+        walking_step_penalty: Optional[float] = None,
+        bike_maneuver_penalty: Optional[float] = None,
+        bike_use_living_streets: Optional[float] = None,
     ) -> Sequence[Journey]:
         """
         Fetches journey data for a specific resource path based on various parameters.
@@ -574,6 +672,22 @@ class JourneyApiClient(ApiBaseClient):
             Free radius to the ending point in meters (default is 0).
         timeframe_duration : int, optional
             Timeframe duration in seconds for the journey calculation (default is 0).
+        park_mode : ParkMode, optional
+            Parking mode for car-based journeys: ParkMode.NONE, ParkMode.ON_STREET, or ParkMode.PARK_AND_RIDE (default is ParkMode.NONE).
+        is_journey_schedules : bool, optional
+            Whether to return journey schedules instead of journeys (default is False).
+        bike_use_hills : Optional[float], optional
+            Valhalla parameter: preference for using hills when biking, from 0 (avoid) to 1 (prefer) (default is None).
+        walking_use_hills : Optional[float], optional
+            Valhalla parameter: preference for using hills when walking, from 0 (avoid) to 1 (prefer) (default is None).
+        bike_avoid_bad_surfaces : Optional[float], optional
+            Valhalla parameter: preference for avoiding bad surfaces when biking, from 0 (don't avoid) to 1 (strongly avoid) (default is None).
+        walking_step_penalty : Optional[float], optional
+            Valhalla parameter: penalty applied to steps when walking, in seconds (default is None).
+        bike_maneuver_penalty : Optional[float], optional
+            Valhalla parameter: penalty applied to maneuvers when biking, in seconds (default is None).
+        bike_use_living_streets : Optional[float], optional
+            Valhalla parameter: preference for using living streets when biking, from 0 (avoid) to 1 (prefer) (default is None).
 
         Returns
         -------
@@ -606,6 +720,7 @@ class JourneyApiClient(ApiBaseClient):
             "free_radius_from": free_radius_from,
             "free_radius_to": free_radius_to,
             "timeframe_duration": timeframe_duration,
+            "is_journey_schedules": is_journey_schedules,
         }
 
         if from_:
@@ -613,6 +728,26 @@ class JourneyApiClient(ApiBaseClient):
 
         if to_:
             filters["to"] = to_
+
+        filters["park_mode"] = park_mode.value
+
+        if bike_use_hills is not None:
+            filters["bike_use_hills"] = bike_use_hills
+
+        if walking_use_hills is not None:
+            filters["walking_use_hills"] = walking_use_hills
+
+        if bike_avoid_bad_surfaces is not None:
+            filters["bike_avoid_bad_surfaces"] = bike_avoid_bad_surfaces
+
+        if walking_step_penalty is not None:
+            filters["walking_step_penalty"] = walking_step_penalty
+
+        if bike_maneuver_penalty is not None:
+            filters["bike_maneuver_penalty"] = bike_maneuver_penalty
+
+        if bike_use_living_streets is not None:
+            filters["bike_use_living_streets"] = bike_use_living_streets
 
         if forbidden_uris:
             filters["forbidden_uris[]"] = forbidden_uris

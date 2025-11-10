@@ -41,7 +41,15 @@ Methods
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
-        timeframe_duration: int = 0
+        timeframe_duration: int = 0,
+        park_mode: ParkMode = ParkMode.NONE,
+        is_journey_schedules: bool = False,
+        bike_use_hills: Optional[float] = None,
+        walking_use_hills: Optional[float] = None,
+        bike_avoid_bad_surfaces: Optional[float] = None,
+        walking_step_penalty: Optional[float] = None,
+        bike_maneuver_penalty: Optional[float] = None,
+        bike_use_living_streets: Optional[float] = None
     ) -> Sequence[Journey]
         Fetches journey data based on various parameters.
 
@@ -78,7 +86,15 @@ Methods
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
-        timeframe_duration: int = 0
+        timeframe_duration: int = 0,
+        park_mode: ParkMode = ParkMode.NONE,
+        is_journey_schedules: bool = False,
+        bike_use_hills: Optional[float] = None,
+        walking_use_hills: Optional[float] = None,
+        bike_avoid_bad_surfaces: Optional[float] = None,
+        walking_step_penalty: Optional[float] = None,
+        bike_maneuver_penalty: Optional[float] = None,
+        bike_use_living_streets: Optional[float] = None
     ) -> Sequence[Journey]
         Fetches journey data for a specific region based on various parameters.
 
@@ -115,7 +131,15 @@ Methods
         debug: bool = False,
         free_radius_from: int = 0,
         free_radius_to: int = 0,
-        timeframe_duration: int = 0
+        timeframe_duration: int = 0,
+        park_mode: ParkMode = ParkMode.NONE,
+        is_journey_schedules: bool = False,
+        bike_use_hills: Optional[float] = None,
+        walking_use_hills: Optional[float] = None,
+        bike_avoid_bad_surfaces: Optional[float] = None,
+        walking_step_penalty: Optional[float] = None,
+        bike_maneuver_penalty: Optional[float] = None,
+        bike_use_living_streets: Optional[float] = None
     ) -> Sequence[Journey]
         Fetches journey data for a specific resource path based on various parameters.
 ```
