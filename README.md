@@ -6,7 +6,12 @@
 
 This repository provides a unofficial Python wrapper to use [navitia.io APIs](https://doc.navitia.io).
 
-##  Pre-requisites
+> **⚠️ Version 2.0.0 Breaking Changes**
+>
+> Version 2.0.0 introduces breaking changes with the adoption of Request objects for all API methods.
+> If you're upgrading from v1.x, please see the [CHANGELOG](CHANGELOG.md) for the migration guide.
+
+##  Pre-requisites
 
 To use this library, you will need an access token from [navitia.io](https://navitia.io/tarifs/).
 
@@ -50,30 +55,89 @@ To use this library, you need an authentication token provided by Navitia.io.
 
 ### Create client instance
 
-Once created, you will create an instance of the NavitiaClient class with the following:
+Create an instance of the NavitiaClient class with your authentication token:
 
 ```python
 from navitia_client.client import NavitiaClient
-client = NavitiaClient(auth=<YOUR_TOKEN_HERE>)
+
+client = NavitiaClient(auth="YOUR_TOKEN_HERE")
 ```
 
-A base URL for Navitia IO is hardcoded and provided to NavitiaClient by default. It can be updated using the base_navitia_url parameter.
+A base URL for Navitia IO is hardcoded and provided to NavitiaClient by default. It can be updated using the `base_navitia_url` parameter.
 
-###  Access APIs data
+###  Access APIs data
 
-URLs are mapped as property in the class `NavitiaClient`. You can find the mapping [here](docs/api_support/).
+URLs are mapped as properties in the `NavitiaClient` class. You can find the mapping [here](docs/api_support/).
 
-For example, if you want to have the list of datasets in a given region, use:
+#### Simple APIs (Coverage, Datasets, Contributors)
+
+For simple APIs like coverage, datasets, and contributors, you can call methods directly:
 
 ```python
-datasets, pagination = client.datasets.list_datasets(region_id=<REGION_ID>)
+# Get coverage information
+regions = client.coverage.list_coverage_regions()
+
+# Get datasets for a region
+datasets, pagination = client.datasets.list_datasets(region_id="fr-idf")
+```
+
+#### APIs with Request Objects (Journeys, Places, Schedules, etc.)
+
+Most APIs now use Request objects for better type safety and maintainability:
+
+```python
+from navitia_client.entities.request.journey import JourneyRequest
+from datetime import datetime
+
+# Create a journey request
+request = JourneyRequest(
+    from_="stop_area:RAT:SA:GDLYO",
+    to_="stop_area:RAT:SA:CHDEG",
+    datetime_=datetime(2024, 6, 1, 8, 0),
+    count=5
+)
+
+# Get journeys
+journeys = client.journeys.list_journeys(request=request)
+```
+
+Other examples:
+
+```python
+from navitia_client.entities.request.places_nearby import PlacesNearbyRequest
+
+# Places nearby with custom parameters
+request = PlacesNearbyRequest(
+    distance=1000,
+    type=["stop_area", "stop_point"],
+    count=20
+)
+places, pagination = client.places_nearby.list_objects_by_region_id_and_path(
+    region_id="fr-idf",
+    resource_path="lines/line:RAT:M1",
+    request=request
+)
 ```
 
 ### Pagination
 
-A couple of APIs are paginated, in particular the public transporations APIs.. In such case, you can navigate in the response using the parameters `start_page` and `count`.
+Several APIs are paginated, particularly the public transportation APIs. You can navigate through results using the `start_page` and `count` parameters in Request objects:
 
-An object `Pagination` will be provided by the impacted methods to help you navigating.
+```python
+from navitia_client.entities.request.journey import JourneyRequest
+
+# Request with pagination
+request = JourneyRequest(
+    from_="stop_area:RAT:SA:GDLYO",
+    to_="stop_area:RAT:SA:CHDEG",
+    start_page=0,  # First page
+    count=10       # 10 results per page
+)
+
+journeys = client.journeys.list_journeys(request=request)
+```
+
+A `Pagination` object is provided by paginated methods to help you navigate through results.
 
 ### Tips
 
