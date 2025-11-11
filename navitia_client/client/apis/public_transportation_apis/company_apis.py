@@ -7,70 +7,13 @@ from navitia_client.entities.response import Pagination
 
 
 class CompanyApiClient(ApiBaseClient, EntityApi[Company]):
-    """
-    API client for handling 'Company' entities in the Navitia API.
+    """API client for handling 'Company' entities in the Navitia API.
 
     See https://doc.navitia.io/#pt-ref
 
-    Attributes
-    ----------
-    entity_name : str
-        Name of the entity, defaults to "companies".
-    get_navitia_api : method
-        Method inherited from ApiBaseClient to get the Navitia API.
-
-    Methods
-    -------
-    _get_entity_from_response(raw_entity_response: Any) -> Sequence[Company]:
-        Static method to extract Company entities from the raw API response.
-
-    list_entity_collection_from_region(
-        region_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Company], Pagination]:
-        List companies for a given region.
-
-    get_entity_by_id(
-        region_id: str,
-        object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Company], Pagination]:
-        Get a company by its ID in a given region.
-
-    list_entity_collection_from_coordinates(
-        lon: float,
-        lat: float,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Company], Pagination]:
-        List companies for given geographic coordinates.
-
-    get_entity_by_id_and_coordinates(
-        lon: float,
-        lat: float,
-        object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None
-    ) -> Tuple[Sequence[Company], Pagination]:
-        Get a company by its ID for given geographic coordinates.
+    Attributes:
+        entity_name: Name of the entity, defaults to "companies".
+        get_navitia_api: Method inherited from ApiBaseClient to get the Navitia API.
     """
 
     entity_name: str = "companies"
@@ -78,17 +21,12 @@ class CompanyApiClient(ApiBaseClient, EntityApi[Company]):
 
     @staticmethod
     def _get_entity_from_response(raw_entity_response: Any) -> Sequence[Company]:
-        """
-        Static method to extract Company entities from the raw API response.
+        """Extract Company entities from the raw API response.
 
-        Parameters
-        ----------
-        raw_entity_response : Any
-            Raw API response containing company data.
+        Args:
+            raw_entity_response: Raw API response containing company data.
 
-        Returns
-        -------
-        Sequence[Company]
+        Returns:
             List of company instances.
         """
         entities = []
@@ -101,37 +39,13 @@ class CompanyApiClient(ApiBaseClient, EntityApi[Company]):
         region_id: str,
         request: BasePTEntityRequest,
     ) -> Tuple[Sequence[Company], Pagination]:
-        """
-        List companies for a given region.
+        """List companies for a given region.
 
-        Parameters
-        ----------
-        region_id : str
-            ID of the region.
-        start_page : int, optional
-            Starting page number (default is 0).
-        count : int, optional
-            Number of items per page (default is 25).
-        depth : int, optional
-            Search depth (default is 1).
-        disable_geojson : bool, optional
-            Whether to disable GeoJSON in the response (default is False).
-        odt : str, optional
-            ODT type filter (default is "all").
-        distance : int, optional
-            Maximum search distance (default is 200).
-        headsign : str, optional
-            Line headsign.
-        since : Optional[str], optional
-            Filter objects active after this datetime (format: YYYYMMDDThhmmss).
-        until : Optional[str], optional
-            Filter objects active before this datetime (format: YYYYMMDDThhmmss).
-        disable_disruption : bool, optional
-            Whether to disable disruptions in the response (default is False).
+        Args:
+            region_id: ID of the region.
+            request: Request parameters for filtering.
 
-        Returns
-        -------
-        Tuple[Sequence[Company], Pagination]
+        Returns:
             List of companies and pagination information.
         """
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}"
@@ -143,39 +57,14 @@ class CompanyApiClient(ApiBaseClient, EntityApi[Company]):
         object_id: str,
         request: BasePTEntityRequest,
     ) -> Tuple[Sequence[Company], Pagination]:
-        """
-        Get a company by its ID in a given region.
+        """Get a company by its ID in a given region.
 
-        Parameters
-        ----------
-        region_id : str
-            ID of the region.
-        object_id : str
-            ID of the company.
-        start_page : int, optional
-            Starting page number (default is 0).
-        count : int, optional
-            Number of items per page (default is 25).
-        depth : int, optional
-            Search depth (default is 1).
-        disable_geojson : bool, optional
-            Whether to disable GeoJSON in the response (default is False).
-        odt : str, optional
-            ODT type filter (default is "all").
-        distance : int, optional
-            Maximum search distance (default is 200).
-        headsign : str, optional
-            Line headsign.
-        since : Optional[str], optional
-            Filter objects active after this datetime (format: YYYYMMDDThhmmss).
-        until : Optional[str], optional
-            Filter objects active before this datetime (format: YYYYMMDDThhmmss).
-        disable_disruption : bool, optional
-            Whether to disable disruptions in the response (default is False).
+        Args:
+            region_id: ID of the region.
+            object_id: ID of the company.
+            request: Request parameters for filtering.
 
-        Returns
-        -------
-        Tuple[Sequence[Company], Pagination]
+        Returns:
             List of companies and pagination information.
         """
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}/{object_id}"
@@ -187,39 +76,14 @@ class CompanyApiClient(ApiBaseClient, EntityApi[Company]):
         lat: float,
         request: BasePTEntityRequest,
     ) -> Tuple[Sequence[Company], Pagination]:
-        """
-        List companies for given geographic coordinates.
+        """List companies for given geographic coordinates.
 
-        Parameters
-        ----------
-        lon : float
-            Longitude.
-        lat : float
-            Latitude.
-        start_page : int, optional
-            Starting page number (default is 0).
-        count : int, optional
-            Number of items per page (default is 25).
-        depth : int, optional
-            Search depth (default is 1).
-        disable_geojson : bool, optional
-            Whether to disable GeoJSON in the response (default is False).
-        odt : str, optional
-            ODT type filter (default is "all").
-        distance : int, optional
-            Maximum search distance (default is 200).
-        headsign : str, optional
-            Line headsign.
-        since : Optional[str], optional
-            Filter objects active after this datetime (format: YYYYMMDDThhmmss).
-        until : Optional[str], optional
-            Filter objects active before this datetime (format: YYYYMMDDThhmmss).
-        disable_disruption : bool, optional
-            Whether to disable disruptions in the response (default is False).
+        Args:
+            lon: Longitude.
+            lat: Latitude.
+            request: Request parameters for filtering.
 
-        Returns
-        -------
-        Tuple[Sequence[Company], Pagination]
+        Returns:
             List of companies and pagination information.
         """
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}"
@@ -232,41 +96,15 @@ class CompanyApiClient(ApiBaseClient, EntityApi[Company]):
         object_id: str,
         request: BasePTEntityRequest,
     ) -> Tuple[Sequence[Company], Pagination]:
-        """
-        Get a company by its ID for given geographic coordinates.
+        """Get a company by its ID for given geographic coordinates.
 
-        Parameters
-        ----------
-        lon : float
-            Longitude.
-        lat : float
-            Latitude.
-        object_id : str
-            ID of the company.
-        start_page : int, optional
-            Starting page number (default is 0).
-        count : int, optional
-            Number of items per page (default is 25).
-        depth : int, optional
-            Search depth (default is 1).
-        disable_geojson : bool, optional
-            Whether to disable GeoJSON in the response (default is False).
-        odt : str, optional
-            ODT type filter (default is "all").
-        distance : int, optional
-            Maximum search distance (default is 200).
-        headsign : str, optional
-            Line headsign.
-        since : Optional[str], optional
-            Filter objects active after this datetime (format: YYYYMMDDThhmmss).
-        until : Optional[str], optional
-            Filter objects active before this datetime (format: YYYYMMDDThhmmss).
-        disable_disruption : bool, optional
-            Whether to disable disruptions in the response (default is False).
+        Args:
+            lon: Longitude.
+            lat: Latitude.
+            object_id: ID of the company.
+            request: Request parameters for filtering.
 
-        Returns
-        -------
-        Tuple[Sequence[Company], Pagination]
+        Returns:
             List of companies and pagination information.
         """
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}/{object_id}"

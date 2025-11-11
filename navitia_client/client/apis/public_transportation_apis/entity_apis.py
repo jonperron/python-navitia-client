@@ -27,78 +27,14 @@ TEntity = TypeVar(
 
 
 class EntityApi(Generic[TEntity], ABC):
-    """
-    Abstract base class for API clients dealing with entities in the Navitia API.
+    """Abstract base class for API clients dealing with entities in the Navitia API.
 
-    Attributes
-    ----------
-    entity_name : str
-        Name of the entity.
-    get_navitia_api : method
-        Method to get the Navitia API.
+    This class provides common functionality for all PT entity API clients including
+    methods to fetch entities by region, coordinates, or ID.
 
-    Methods
-    -------
-    _get_entity_from_response(raw_entity_response: Any) -> Sequence[TEntity]:
-        Static method to extract entity instances from the raw API response.
-
-    _generate_filter_query(filters: dict[str, Any]) -> str:
-        Generate query string from provided filters.
-
-    _get_entity_results(
-        url: str,
-        entity: str,
-        filters: dict[str, Any]
-    ) -> Tuple[Sequence[TEntity], Pagination]:
-        Fetch entity results from the API.
-
-    list_entity_collection_from_region(
-        region_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None
-    ) -> Tuple[Sequence[TEntity], Pagination]:
-        Abstract method to list entities for a given region.
-
-    get_entity_by_id(
-        region_id: str,
-        object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None
-    ) -> Tuple[Sequence[TEntity], Pagination]:
-        Abstract method to get an entity by its ID in a given region.
-
-    list_entity_collection_from_coordinates(
-        lon: float,
-        lat: float,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None
-    ) -> Tuple[Sequence[TEntity], Pagination]:
-        Abstract method to list entities for given geographic coordinates.
-
-    get_entity_by_id_and_coordinates(
-        lon: float,
-        lat: float,
-        object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None
-    ) -> Tuple[Sequence[TEntity], Pagination]:
-        Abstract method to get an entity by its ID for given geographic coordinates.
+    Attributes:
+        entity_name: Name of the entity.
+        get_navitia_api: Method to get the Navitia API.
     """
 
     entity_name: str
@@ -107,34 +43,24 @@ class EntityApi(Generic[TEntity], ABC):
     @staticmethod
     @abstractmethod
     def _get_entity_from_response(raw_entity_response: Any) -> Sequence[TEntity]:
-        """
-        Static method to extract entity instances from the raw API response.
+        """Extract entity instances from the raw API response.
 
-        Parameters
-        ----------
-        raw_entity_response : Any
-            Raw API response containing entity data.
+        Args:
+            raw_entity_response: Raw API response containing entity data.
 
-        Returns
-        -------
-        Sequence[TEntity]
+        Returns:
             List of entity instances.
         """
         raise NotImplementedError
 
     @staticmethod
     def _generate_filter_query(filters: dict[str, Any]) -> str:
-        """
-        Generate query string from provided filters.
+        """Generate query string from provided filters.
 
-        Parameters
-        ----------
-        filters : dict[str, Any]
-            Dictionary of filters.
+        Args:
+            filters: Dictionary of filters.
 
-        Returns
-        -------
-        str
+        Returns:
             Query string.
         """
         filter_query = "&".join([f"{key}={value}" for key, value in filters.items()])
@@ -143,21 +69,14 @@ class EntityApi(Generic[TEntity], ABC):
     def _get_entity_results(
         self, url: str, entity: str, filters: dict[str, Any]
     ) -> Tuple[Sequence[TEntity], Pagination]:
-        """
-        Fetch entity results from the API.
+        """Fetch entity results from the API.
 
-        Parameters
-        ----------
-        url : str
-            API endpoint URL.
-        entity : str
-            Name of the entity.
-        filters : dict[str, Any]
-            Dictionary of filters.
+        Args:
+            url: API endpoint URL.
+            entity: Name of the entity.
+            filters: Dictionary of filters.
 
-        Returns
-        -------
-        Tuple[Sequence[TEntity], Pagination]
+        Returns:
             List of entity instances and pagination information.
         """
         query_string = self._generate_filter_query(filters)
@@ -172,19 +91,13 @@ class EntityApi(Generic[TEntity], ABC):
         region_id: str,
         request: BasePTEntityRequest,
     ) -> Tuple[Sequence[TEntity], Pagination]:
-        """
-        List entities for a given region.
+        """List entities for a given region.
 
-        Parameters
-        ----------
-        region_id : str
-            ID of the region.
-        request : BasePTEntityRequest
-            Request parameters for filtering.
+        Args:
+            region_id: ID of the region.
+            request: Request parameters for filtering.
 
-        Returns
-        -------
-        Tuple[Sequence[TEntity], Pagination]
+        Returns:
             List of entities and pagination information.
         """
         raise NotImplementedError
@@ -196,21 +109,14 @@ class EntityApi(Generic[TEntity], ABC):
         object_id: str,
         request: BasePTEntityRequest,
     ) -> Tuple[Sequence[TEntity], Pagination]:
-        """
-        Get an entity by its ID in a given region.
+        """Get an entity by its ID in a given region.
 
-        Parameters
-        ----------
-        region_id : str
-            ID of the region.
-        object_id : str
-            ID of the entity.
-        request : BasePTEntityRequest
-            Request parameters for filtering.
+        Args:
+            region_id: ID of the region.
+            object_id: ID of the entity.
+            request: Request parameters for filtering.
 
-        Returns
-        -------
-        Tuple[Sequence[TEntity], Pagination]
+        Returns:
             List of entities and pagination information.
         """
         raise NotImplementedError
@@ -222,21 +128,14 @@ class EntityApi(Generic[TEntity], ABC):
         lat: float,
         request: BasePTEntityRequest,
     ) -> Tuple[Sequence[TEntity], Pagination]:
-        """
-        List entities for given geographic coordinates.
+        """List entities for given geographic coordinates.
 
-        Parameters
-        ----------
-        lon : float
-            Longitude.
-        lat : float
-            Latitude.
-        request : BasePTEntityRequest
-            Request parameters for filtering.
+        Args:
+            lon: Longitude.
+            lat: Latitude.
+            request: Request parameters for filtering.
 
-        Returns
-        -------
-        Tuple[Sequence[TEntity], Pagination]
+        Returns:
             List of entities and pagination information.
         """
         raise NotImplementedError
@@ -249,23 +148,15 @@ class EntityApi(Generic[TEntity], ABC):
         object_id: str,
         request: BasePTEntityRequest,
     ) -> Tuple[Sequence[TEntity], Pagination]:
-        """
-        Get an entity by its ID for given geographic coordinates.
+        """Get an entity by its ID for given geographic coordinates.
 
-        Parameters
-        ----------
-        lon : float
-            Longitude.
-        lat : float
-            Latitude.
-        object_id : str
-            ID of the entity.
-        request : BasePTEntityRequest
-            Request parameters for filtering.
+        Args:
+            lon: Longitude.
+            lat: Latitude.
+            object_id: ID of the entity.
+            request: Request parameters for filtering.
 
-        Returns
-        -------
-        Tuple[Sequence[TEntity], Pagination]
+        Returns:
             List of entities and pagination information.
         """
         raise NotImplementedError
