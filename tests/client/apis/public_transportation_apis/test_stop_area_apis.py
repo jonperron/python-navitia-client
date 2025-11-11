@@ -4,6 +4,7 @@ import pytest
 from unittest.mock import MagicMock, patch
 
 from navitia_client.entities.response.stop_area import StopArea
+from navitia_client.entities.request.public_transportations import StopAreaRequest
 from navitia_client.client.apis.public_transportation_apis import StopAreaApiClient
 
 
@@ -26,7 +27,9 @@ def test_list_entity_collection_from_region(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    physical_modes, _ = stop_area_apis.list_entity_collection_from_region("bar")
+    physical_modes, _ = stop_area_apis.list_entity_collection_from_region(
+        "bar", StopAreaRequest()
+    )
 
     # Then
     assert len(physical_modes) == 3
@@ -45,7 +48,7 @@ def test_get_entity_by_id(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    physical_modes, _ = stop_area_apis.get_entity_by_id("tuz", "1")
+    physical_modes, _ = stop_area_apis.get_entity_by_id("tuz", "1", StopAreaRequest())
 
     # Then
     assert len(physical_modes) == 3

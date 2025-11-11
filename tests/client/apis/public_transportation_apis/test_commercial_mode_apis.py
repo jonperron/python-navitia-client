@@ -4,6 +4,7 @@ import pytest
 from unittest.mock import MagicMock, patch
 
 from navitia_client.entities.response.physical_mode import CommercialMode
+from navitia_client.entities.request.public_transportations import CommercialModeRequest
 from navitia_client.client.apis.public_transportation_apis import (
     CommercialModeApiClient,
 )
@@ -29,7 +30,7 @@ def test_list_entity_collection_from_region(
 
     # When
     commercial_modes, _ = commercial_modes_apis.list_entity_collection_from_region(
-        "tuz"
+        "tuz", CommercialModeRequest()
     )
 
     # Then
@@ -49,7 +50,9 @@ def test_get_entity_by_id(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    commercial_modes, _ = commercial_modes_apis.get_entity_by_id("tuz", "1")
+    commercial_modes, _ = commercial_modes_apis.get_entity_by_id(
+        "tuz", "1", CommercialModeRequest()
+    )
 
     # Then
     assert len(commercial_modes) == 2

@@ -1,6 +1,7 @@
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.client.apis.public_transportation_apis.entity_apis import EntityApi
+from navitia_client.entities.request.base_entity_request import BasePTEntityRequest
 from navitia_client.entities.response import Pagination
 from navitia_client.entities.response.stop_area import StopPoint
 
@@ -98,16 +99,7 @@ class StopPointApiClient(ApiBaseClient, EntityApi[StopPoint]):
     def list_entity_collection_from_region(
         self,
         region_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[StopPoint], Pagination]:
         """
         List stop points for a given region.
@@ -142,41 +134,14 @@ class StopPointApiClient(ApiBaseClient, EntityApi[StopPoint]):
         Tuple[Sequence[StopPoint], Pagination]
             List of StopPoint instances and pagination information.
         """
-        filters = {
-            "start_page": start_page,
-            "count": count,
-            "depth": depth,
-            "disable_geojson": disable_geojson,
-            "odt": odt,
-            "distance": distance,
-        }
-
-        if headsign is not None:
-            filters["headsign"] = headsign
-
-        if since is not None:
-            filters["since"] = since
-        if until is not None:
-            filters["until"] = until
-        if disable_disruption:
-            filters["disable_disruption"] = disable_disruption
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}"
-        return self._get_entity_results(url, self.entity_name, filters)
+        return self._get_entity_results(url, self.entity_name, request.to_filters())
 
     def get_entity_by_id(
         self,
         region_id: str,
         object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[StopPoint], Pagination]:
         """
         Get a stop point by its ID in a given region.
@@ -213,44 +178,14 @@ class StopPointApiClient(ApiBaseClient, EntityApi[StopPoint]):
         Tuple[Sequence[StopPoint], Pagination]
             List of StopPoint instances and pagination information.
         """
-        filters = {
-            "start_page": start_page,
-            "count": count,
-            "depth": depth,
-            "disable_geojson": disable_geojson,
-            "odt": odt,
-            "distance": distance,
-        }
-
-        if headsign is not None:
-            filters["headsign"] = headsign
-
-        if since is not None:
-            filters["since"] = since
-
-        if until is not None:
-            filters["until"] = until
-
-        if disable_disruption:
-            filters["disable_disruption"] = disable_disruption
-
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}/{object_id}"
-        return self._get_entity_results(url, self.entity_name, filters)
+        return self._get_entity_results(url, self.entity_name, request.to_filters())
 
     def list_entity_collection_from_coordinates(
         self,
         lon: float,
         lat: float,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[StopPoint], Pagination]:
         """
         List stop points for given geographic coordinates.
@@ -287,45 +222,15 @@ class StopPointApiClient(ApiBaseClient, EntityApi[StopPoint]):
         Tuple[Sequence[StopPoint], Pagination]
             List of StopPoint instances and pagination information.
         """
-        filters = {
-            "start_page": start_page,
-            "count": count,
-            "depth": depth,
-            "disable_geojson": disable_geojson,
-            "odt": odt,
-            "distance": distance,
-        }
-
-        if headsign is not None:
-            filters["headsign"] = headsign
-
-        if since is not None:
-            filters["since"] = since
-
-        if until is not None:
-            filters["until"] = until
-
-        if disable_disruption:
-            filters["disable_disruption"] = disable_disruption
-
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}"
-        return self._get_entity_results(url, self.entity_name, filters)
+        return self._get_entity_results(url, self.entity_name, request.to_filters())
 
     def get_entity_by_id_and_coordinates(
         self,
         lon: float,
         lat: float,
         object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[StopPoint], Pagination]:
         """
         Get a stop point by its ID for given geographic coordinates.
@@ -364,26 +269,5 @@ class StopPointApiClient(ApiBaseClient, EntityApi[StopPoint]):
         Tuple[Sequence[StopPoint], Pagination]
             List of StopPoint instances and pagination information.
         """
-        filters = {
-            "start_page": start_page,
-            "count": count,
-            "depth": depth,
-            "disable_geojson": disable_geojson,
-            "odt": odt,
-            "distance": distance,
-        }
-
-        if headsign is not None:
-            filters["headsign"] = headsign
-
-        if since is not None:
-            filters["since"] = since
-
-        if until is not None:
-            filters["until"] = until
-
-        if disable_disruption:
-            filters["disable_disruption"] = disable_disruption
-
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}/{object_id}"
-        return self._get_entity_results(url, self.entity_name, filters)
+        return self._get_entity_results(url, self.entity_name, request.to_filters())

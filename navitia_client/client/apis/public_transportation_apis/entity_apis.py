@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import Any, Generic, Optional, Sequence, Tuple, TypeVar
+from typing import Any, Generic, Sequence, Tuple, TypeVar
 
+from navitia_client.entities.request.base_entity_request import BasePTEntityRequest
 from navitia_client.entities.response.company import Company
 from navitia_client.entities.response.disruption import Disruption
 from navitia_client.entities.response.line_and_route import Line, Route
@@ -169,16 +170,7 @@ class EntityApi(Generic[TEntity], ABC):
     def list_entity_collection_from_region(
         self,
         region_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[TEntity], Pagination]:
         """
         List entities for a given region.
@@ -187,18 +179,8 @@ class EntityApi(Generic[TEntity], ABC):
         ----------
         region_id : str
             ID of the region.
-        start_page : int, optional
-            Starting page number (default is 0).
-        count : int, optional
-            Number of items per page (default is 25).
-        depth : int, optional
-            Search depth (default is 1).
-        odt : str, optional
-            ODT type filter (default is "all").
-        distance : int, optional
-            Maximum search distance (default is 200).
-        headsign : Optional[str], optional
-            Line headsign.
+        request : BasePTEntityRequest
+            Request parameters for filtering.
 
         Returns
         -------
@@ -212,16 +194,7 @@ class EntityApi(Generic[TEntity], ABC):
         self,
         region_id: str,
         object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[TEntity], Pagination]:
         """
         Get an entity by its ID in a given region.
@@ -232,20 +205,8 @@ class EntityApi(Generic[TEntity], ABC):
             ID of the region.
         object_id : str
             ID of the entity.
-        start_page : int, optional
-            Starting page number (default is 0).
-        count : int, optional
-            Number of items per page (default is 25).
-        depth : int, optional
-            Search depth (default is 1).
-        disable_geojson : bool, optional
-            Whether to disable GeoJSON in the response (default is False).
-        odt : str, optional
-            ODT type filter (default is "all").
-        distance : int, optional
-            Maximum search distance (default is 200).
-        headsign : Optional[str], optional
-            Line headsign.
+        request : BasePTEntityRequest
+            Request parameters for filtering.
 
         Returns
         -------
@@ -259,16 +220,7 @@ class EntityApi(Generic[TEntity], ABC):
         self,
         lon: float,
         lat: float,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[TEntity], Pagination]:
         """
         List entities for given geographic coordinates.
@@ -279,20 +231,8 @@ class EntityApi(Generic[TEntity], ABC):
             Longitude.
         lat : float
             Latitude.
-        start_page : int, optional
-            Starting page number (default is 0).
-        count : int, optional
-            Number of items per page (default is 25).
-        depth : int, optional
-            Search depth (default is 1).
-        disable_geojson : bool, optional
-            Whether to disable GeoJSON in the response (default is False).
-        odt : str, optional
-            ODT type filter (default is "all").
-        distance : int, optional
-            Maximum search distance (default is 200).
-        headsign : Optional[str], optional
-            Line headsign.
+        request : BasePTEntityRequest
+            Request parameters for filtering.
 
         Returns
         -------
@@ -307,16 +247,7 @@ class EntityApi(Generic[TEntity], ABC):
         lon: float,
         lat: float,
         object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[TEntity], Pagination]:
         """
         Get an entity by its ID for given geographic coordinates.
@@ -329,20 +260,8 @@ class EntityApi(Generic[TEntity], ABC):
             Latitude.
         object_id : str
             ID of the entity.
-        start_page : int, optional
-            Starting page number (default is 0).
-        count : int, optional
-            Number of items per page (default is 25).
-        depth : int, optional
-            Search depth (default is 1).
-        disable_geojson : bool, optional
-            Whether to disable GeoJSON in the response (default is False).
-        odt : str, optional
-            ODT type filter (default is "all").
-        distance : int, optional
-            Maximum search distance (default is 200).
-        headsign : Optional[str], optional
-            Line headsign.
+        request : BasePTEntityRequest
+            Request parameters for filtering.
 
         Returns
         -------
