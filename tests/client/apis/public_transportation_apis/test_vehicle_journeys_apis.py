@@ -3,6 +3,7 @@ import pytest
 from unittest.mock import MagicMock, patch
 
 from navitia_client.entities.response.vehicle_journey import VehicleJourney
+from navitia_client.entities.request.public_transportations import VehicleJourneyRequest
 from navitia_client.client.apis.public_transportation_apis import (
     VehicleJourneyApiClient,
 )
@@ -264,7 +265,7 @@ def test_list_entity_collection_from_region(
 
     # When
     vehicle_journeys, _ = vehicle_journeys_apis.list_entity_collection_from_region(
-        "tuz"
+        "tuz", VehicleJourneyRequest()
     )
 
     # Then
@@ -443,7 +444,9 @@ def test_get_entity_by_id(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    vehicle_journeys, _ = vehicle_journeys_apis.get_entity_by_id("tuz", "1")
+    vehicle_journeys, _ = vehicle_journeys_apis.get_entity_by_id(
+        "tuz", "1", VehicleJourneyRequest()
+    )
 
     # Then
     assert len(vehicle_journeys) == 1

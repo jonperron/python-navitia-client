@@ -50,3 +50,33 @@ class BasePTEntityRequest(BaseEntityRequest):
     until: Optional[str] = None
     disable_geojson: bool = False
     disable_disruption: bool = False
+
+    def to_filters(self) -> Dict[str, Any]:
+        """
+        Convert the request parameters to a filter dictionary for API calls.
+
+        Returns:
+            Dict[str, Any]: Dictionary of filter parameters.
+        """
+        filters: Dict[str, Any] = {
+            "start_page": self.start_page,
+            "count": self.count,
+            "depth": self.depth,
+            "disable_geojson": self.disable_geojson,
+            "odt": self.odt,
+            "distance": self.distance,
+        }
+
+        if self.headsign is not None:
+            filters["headsign"] = self.headsign
+
+        if self.since is not None:
+            filters["since"] = self.since
+
+        if self.until is not None:
+            filters["until"] = self.until
+
+        if self.disable_disruption:
+            filters["disable_disruption"] = self.disable_disruption
+
+        return filters

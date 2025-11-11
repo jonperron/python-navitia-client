@@ -4,6 +4,7 @@ import pytest
 from unittest.mock import MagicMock, patch
 
 from navitia_client.entities.response.physical_mode import PhysicalMode
+from navitia_client.entities.request.public_transportations import PhysicalModeRequest
 from navitia_client.client.apis.public_transportation_apis import (
     PhysicalModeApiClient,
 )
@@ -28,7 +29,9 @@ def test_list_entity_collection_from_region(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    physical_modes, _ = physical_modes_apis.list_entity_collection_from_region("tuz")
+    physical_modes, _ = physical_modes_apis.list_entity_collection_from_region(
+        "tuz", PhysicalModeRequest()
+    )
 
     # Then
     assert len(physical_modes) == 3
@@ -47,7 +50,9 @@ def test_get_entity_by_id(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    physical_modes, _ = physical_modes_apis.get_entity_by_id("tuz", "1")
+    physical_modes, _ = physical_modes_apis.get_entity_by_id(
+        "tuz", "1", PhysicalModeRequest()
+    )
 
     # Then
     assert len(physical_modes) == 3

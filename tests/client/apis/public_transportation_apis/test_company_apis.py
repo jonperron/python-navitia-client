@@ -4,6 +4,7 @@ import pytest
 from unittest.mock import MagicMock, patch
 
 from navitia_client.entities.response.company import Company
+from navitia_client.entities.request.public_transportations import CompanyRequest
 from navitia_client.client.apis.public_transportation_apis import CompanyApiClient
 
 
@@ -26,7 +27,9 @@ def test_list_entity_collection_from_region(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    companies, _ = company_apis.list_entity_collection_from_region("tuz")
+    companies, _ = company_apis.list_entity_collection_from_region(
+        "tuz", CompanyRequest()
+    )
 
     # Then
     assert len(companies) == 1
@@ -57,7 +60,7 @@ def test_get_entity_by_id(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    companies, _ = company_apis.get_entity_by_id("tuz", "1")
+    companies, _ = company_apis.get_entity_by_id("tuz", "1", CompanyRequest())
 
     # Then
     assert len(companies) == 1

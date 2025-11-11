@@ -4,6 +4,7 @@ import pytest
 from unittest.mock import MagicMock, patch
 
 from navitia_client.entities.response.disruption import Disruption
+from navitia_client.entities.request.public_transportations import DisruptionRequest
 from navitia_client.client.apis.public_transportation_apis import DisruptionApiClient
 
 
@@ -26,7 +27,9 @@ def test_list_entity_collection_from_region(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    disruptions, _ = disruption_apis.list_entity_collection_from_region("tuz")
+    disruptions, _ = disruption_apis.list_entity_collection_from_region(
+        "tuz", DisruptionRequest()
+    )
 
     # Then
     assert len(disruptions) == 3
@@ -45,7 +48,7 @@ def test_get_entity_by_id(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    disruptions, _ = disruption_apis.get_entity_by_id("tuz", "1")
+    disruptions, _ = disruption_apis.get_entity_by_id("tuz", "1", DisruptionRequest())
 
     # Then
     assert len(disruptions) == 3

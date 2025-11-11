@@ -1,6 +1,7 @@
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.client.apis.public_transportation_apis.entity_apis import EntityApi
+from navitia_client.entities.request.base_entity_request import BasePTEntityRequest
 from navitia_client.entities.response import Pagination
 from navitia_client.entities.response.physical_mode import CommercialMode
 
@@ -21,45 +22,21 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
 
         list_entity_collection_from_region(
             region_id: str,
-            start_page: int = 0,
-            count: int = 25,
-            depth: int = 1,
-            odt: str = "all",
-            distance: int = 200,
-            headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+            request: BasePTEntityRequest,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
             Lists commercial modes from a specified region.
 
         get_entity_by_id(
             region_id: str,
             object_id: str,
-            start_page: int = 0,
-            count: int = 25,
-            depth: int = 1,
-            odt: str = "all",
-            distance: int = 200,
-            headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+            request: BasePTEntityRequest,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
             Retrieves a specific commercial mode by its ID from a specified region.
 
         list_entity_collection_from_coordinates(
             lon: float,
             lat: float,
-            start_page: int = 0,
-            count: int = 25,
-            depth: int = 1,
-            odt: str = "all",
-            distance: int = 200,
-            headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+            request: BasePTEntityRequest,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
             Lists commercial modes from specified coordinates.
 
@@ -67,15 +44,7 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             lon: float,
             lat: float,
             object_id: str,
-            start_page: int = 0,
-            count: int = 25,
-            depth: int = 1,
-            odt: str = "all",
-            distance: int = 200,
-            headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+            request: BasePTEntityRequest,
         ) -> Tuple[Sequence[CommercialMode], Pagination]:
             Retrieves a specific commercial mode by its ID from specified coordinates.
     """
@@ -102,67 +71,26 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
     def list_entity_collection_from_region(
         self,
         region_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[CommercialMode], Pagination]:
         """
         Lists commercial modes from a specified region.
 
         Parameters:
             region_id (str): The ID of the region.
-            start_page (int): The starting page for pagination. Defaults to 0.
-            count (int): The number of results per page. Defaults to 25.
-            depth (int): The depth of data to retrieve. Defaults to 1.
-            odt (str): The object detail type. Defaults to "all".
-            distance (int): The distance in meters for filtering. Defaults to 200.
-            headsign (Optional[str]): The headsign for filtering. Defaults to None.
+            request (BasePTEntityRequest): Request parameters for filtering.
 
         Returns:
             Tuple[Sequence[CommercialMode], Pagination]: A tuple containing a sequence of CommercialMode objects and Pagination object.
         """
-        filters = {
-            "start_page": start_page,
-            "count": count,
-            "depth": depth,
-            "disable_geojson": disable_geojson,
-            "odt": odt,
-            "distance": distance,
-        }
-
-        if headsign is not None:
-            filters["headsign"] = headsign
-
-        if since is not None:
-            filters["since"] = since
-        if until is not None:
-            filters["until"] = until
-        if disable_disruption:
-            filters["disable_disruption"] = disable_disruption
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}"
-        return self._get_entity_results(url, self.entity_name, filters)
+        return self._get_entity_results(url, self.entity_name, request.to_filters())
 
     def get_entity_by_id(
         self,
         region_id: str,
         object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[CommercialMode], Pagination]:
         """
         Retrieves a specific commercial mode by its ID from a specified region.
@@ -170,54 +98,19 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         Parameters:
             region_id (str): The ID of the region.
             object_id (str): The ID of the commercial mode.
-            start_page (int): The starting page for pagination. Defaults to 0.
-            count (int): The number of results per page. Defaults to 25.
-            depth (int): The depth of data to retrieve. Defaults to 1.
-            odt (str): The object detail type. Defaults to "all".
-            distance (int): The distance in meters for filtering. Defaults to 200.
-            headsign (Optional[str]): The headsign for filtering. Defaults to None.
+            request (BasePTEntityRequest): Request parameters for filtering.
 
         Returns:
             Tuple[Sequence[CommercialMode], Pagination]: A tuple containing a sequence of CommercialMode objects and Pagination object.
         """
-        filters = {
-            "start_page": start_page,
-            "count": count,
-            "depth": depth,
-            "disable_geojson": disable_geojson,
-            "odt": odt,
-            "distance": distance,
-        }
-
-        if headsign is not None:
-            filters["headsign"] = headsign
-
-        if since is not None:
-            filters["since"] = since
-
-        if until is not None:
-            filters["until"] = until
-
-        if disable_disruption:
-            filters["disable_disruption"] = disable_disruption
-
         url = f"{self.base_navitia_url}/coverage/{region_id}/{self.entity_name}/{object_id}"
-        return self._get_entity_results(url, self.entity_name, filters)
+        return self._get_entity_results(url, self.entity_name, request.to_filters())
 
     def list_entity_collection_from_coordinates(
         self,
         lon: float,
         lat: float,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[CommercialMode], Pagination]:
         """
         Lists commercial modes from specified coordinates.
@@ -225,55 +118,20 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
         Parameters:
             lon (float): The longitude coordinate.
             lat (float): The latitude coordinate.
-            start_page (int): The starting page for pagination. Defaults to 0.
-            count (int): The number of results per page. Defaults to 25.
-            depth (int): The depth of data to retrieve. Defaults to 1.
-            odt (str): The object detail type. Defaults to "all".
-            distance (int): The distance in meters for filtering. Defaults to 200.
-            headsign (Optional[str]): The headsign for filtering. Defaults to None.
+            request (BasePTEntityRequest): Request parameters for filtering.
 
         Returns:
             Tuple[Sequence[CommercialMode], Pagination]: A tuple containing a sequence of CommercialMode objects and Pagination object.
         """
-        filters = {
-            "start_page": start_page,
-            "count": count,
-            "depth": depth,
-            "disable_geojson": disable_geojson,
-            "odt": odt,
-            "distance": distance,
-        }
-
-        if headsign is not None:
-            filters["headsign"] = headsign
-
-        if since is not None:
-            filters["since"] = since
-
-        if until is not None:
-            filters["until"] = until
-
-        if disable_disruption:
-            filters["disable_disruption"] = disable_disruption
-
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}"
-        return self._get_entity_results(url, self.entity_name, filters)
+        return self._get_entity_results(url, self.entity_name, request.to_filters())
 
     def get_entity_by_id_and_coordinates(
         self,
         lon: float,
         lat: float,
         object_id: str,
-        start_page: int = 0,
-        count: int = 25,
-        depth: int = 1,
-        disable_geojson: bool = False,
-        odt: str = "all",
-        distance: int = 200,
-        headsign: Optional[str] = None,
-        since: Optional[str] = None,
-        until: Optional[str] = None,
-        disable_disruption: bool = False,
+        request: BasePTEntityRequest,
     ) -> Tuple[Sequence[CommercialMode], Pagination]:
         """
         Retrieves a specific commercial mode by its ID from specified coordinates.
@@ -282,36 +140,10 @@ class CommercialModeApiClient(ApiBaseClient, EntityApi[CommercialMode]):
             lon (float): The longitude coordinate.
             lat (float): The latitude coordinate.
             object_id (str): The ID of the commercial mode.
-            start_page (int): The starting page for pagination. Defaults to 0.
-            count (int): The number of results per page. Defaults to 25.
-            depth (int): The depth of data to retrieve. Defaults to 1.
-            odt (str): The object detail type. Defaults to "all".
-            distance (int): The distance in meters for filtering. Defaults to 200.
-            headsign (Optional[str]): The headsign for filtering. Defaults to None.
+            request (BasePTEntityRequest): Request parameters for filtering.
 
         Returns:
             Tuple[Sequence[CommercialMode], Pagination]: A tuple containing a sequence of CommercialMode objects and Pagination object.
         """
-        filters = {
-            "start_page": start_page,
-            "count": count,
-            "depth": depth,
-            "disable_geojson": disable_geojson,
-            "odt": odt,
-            "distance": distance,
-        }
-
-        if headsign is not None:
-            filters["headsign"] = headsign
-
-        if since is not None:
-            filters["since"] = since
-
-        if until is not None:
-            filters["until"] = until
-
-        if disable_disruption:
-            filters["disable_disruption"] = disable_disruption
-
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}/{self.entity_name}/{object_id}"
-        return self._get_entity_results(url, self.entity_name, filters)
+        return self._get_entity_results(url, self.entity_name, request.to_filters())
