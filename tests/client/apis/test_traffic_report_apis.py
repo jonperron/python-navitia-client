@@ -4,6 +4,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.traffic_report_apis import TrafficReportsApiClient
+from navitia_client.entities.request.traffic_report import TrafficReportRequest
 from navitia_client.entities.response.disruption import Disruption
 from navitia_client.entities.response.traffic_report import TrafficReport
 
@@ -28,7 +29,7 @@ def test_list_covered_areas(
 
     # When
     disruptions, traffic_report, _ = traffic_reports_apis.list_traffic_reports(
-        region_id="bar", resource_path="foo"
+        request=TrafficReportRequest(), region_id="bar", resource_path="foo"
     )
 
     # Then

@@ -6,9 +6,7 @@ from navitia_client.entities.response.stop_schedule import TerminusSchedule
 
 
 class TerminusSchedulesApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching terminus schedules.
-    Uses the TerminusScheduleRequest class to encapsulate query parameters.
+    """Client class to interact with the Navitia API for fetching terminus schedules.
 
     See https://doc.navitia.io/#terminus-schedules
     """
@@ -17,14 +15,13 @@ class TerminusSchedulesApiClient(ApiBaseClient):
     def _get_terminus_schedule_objects_from_response(
         response: Any,
     ) -> Sequence[TerminusSchedule]:
-        """
-        Static method to transform raw API response data into a list of TerminusSchedule objects.
+        """Transform raw API response data into a list of TerminusSchedule objects.
 
-        Parameters:
-            response (Any): The raw API response data.
+        Args:
+            response: The raw API response data.
 
         Returns:
-            Sequence[TerminusSchedule]: A sequence of TerminusSchedule objects.
+            A sequence of TerminusSchedule objects.
         """
         terminus_schedules = []
         for terminus_schedule_data in response:
@@ -37,15 +34,14 @@ class TerminusSchedulesApiClient(ApiBaseClient):
     def _get_stop_schedules(
         self, url: str, filters: dict
     ) -> Tuple[Sequence[TerminusSchedule], Pagination]:
-        """
-        Retrieves terminus schedules from the Navitia API based on provided URL and filters.
+        """Retrieve terminus schedules from the Navitia API based on provided URL and filters.
 
-        Parameters:
-            url (str): The URL for the API request.
-            filters (dict): Filters to apply to the API request.
+        Args:
+            url: The URL for the API request.
+            filters: Filters to apply to the API request.
 
         Returns:
-            Tuple[Sequence[TerminusSchedule], Pagination]: A tuple containing a sequence of TerminusSchedule objects and Pagination object.
+            A tuple containing a sequence of TerminusSchedule objects and Pagination object.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         raw_results = results.json()["terminus_schedules"]
@@ -60,23 +56,14 @@ class TerminusSchedulesApiClient(ApiBaseClient):
         resource_path: str,
         request: TerminusScheduleRequest,
     ) -> Tuple[Sequence[TerminusSchedule], Pagination]:
-        """
-        Retrieves terminus schedules for a specified region and resource path from the Navitia API.
+        """Retrieve terminus schedules for a specified region and resource path.
 
-        Parameters
-        ----------
-        region_id : str
-            The region ID.
-        resource_path : str
-            The resource path.
-        request : TerminusScheduleRequest
-            The request object containing query parameters such as from_datetime,
-            duration, depth, count, start_page, items_per_schedule, forbidden_uris,
-            data_freshness, disable_geojson, and direction_type.
+        Args:
+            region_id: The region ID.
+            resource_path: The resource path.
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Tuple[Sequence[TerminusSchedule], Pagination]
+        Returns:
             A tuple containing a sequence of TerminusSchedule objects and Pagination object.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/terminus_schedules"
@@ -91,27 +78,16 @@ class TerminusSchedulesApiClient(ApiBaseClient):
         lat: float,
         request: TerminusScheduleRequest,
     ) -> Tuple[Sequence[TerminusSchedule], Pagination]:
-        """
-        Retrieves terminus schedules for a specified set of coordinates from the Navitia API.
+        """Retrieve terminus schedules for a specified set of coordinates.
 
-        Parameters
-        ----------
-        region_lon : float
-            The longitude of the region.
-        region_lat : float
-            The latitude of the region.
-        lon : float
-            The longitude of the coordinates.
-        lat : float
-            The latitude of the coordinates.
-        request : TerminusScheduleRequest
-            The request object containing query parameters such as from_datetime,
-            duration, depth, count, start_page, items_per_schedule, forbidden_uris,
-            data_freshness, disable_geojson, and direction_type.
+        Args:
+            region_lon: The longitude of the region.
+            region_lat: The latitude of the region.
+            lon: The longitude of the coordinates.
+            lat: The latitude of the coordinates.
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Tuple[Sequence[TerminusSchedule], Pagination]
+        Returns:
             A tuple containing a sequence of TerminusSchedule objects and Pagination object.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/terminus_schedules"

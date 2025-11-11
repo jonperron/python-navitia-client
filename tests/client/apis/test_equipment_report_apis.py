@@ -4,6 +4,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.equipment_report_apis import EquipmentReportsApiClient
+from navitia_client.entities.request.equipment_report import EquipmentReportRequest
 
 
 @pytest.fixture
@@ -29,7 +30,7 @@ def test_list_equipment_reports(
 
     # When
     equipment_reports, pagination = equipment_report_apis.list_equipment_reports(
-        region_id="fr-idf"
+        region_id="fr-idf", request=EquipmentReportRequest()
     )
 
     # Then
@@ -57,7 +58,9 @@ def test_list_equipment_reports_with_resource_path(
     # When
     equipment_reports, pagination = (
         equipment_report_apis.list_equipment_reports_with_resource_path(
-            region_id="fr-idf", resource_path="lines/line:IDFM:C01742"
+            region_id="fr-idf",
+            resource_path="lines/line:IDFM:C01742",
+            request=EquipmentReportRequest(),
         )
     )
 

@@ -7,26 +7,19 @@ from navitia_client.entities.response import Pagination
 
 
 class CoverageApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching coverage area information.
-    Uses the CoverageRequest class to encapsulate query parameters.
+    """Client class to interact with the Navitia API for fetching coverage area information.
 
     See https://doc.navitia.io/#coverage
     """
 
     @staticmethod
     def _get_regions_from_response(raw_regions_response: Any) -> Sequence[Region]:
-        """
-        Converts raw response data into a list of Region objects.
+        """Convert raw response data into a list of Region objects.
 
-        Parameters
-        ----------
-        raw_regions_response : Any
-            The raw response data from the API containing regions' information.
+        Args:
+            raw_regions_response: The raw response data from the API containing regions' information.
 
-        Returns
-        -------
-        Sequence[Region]
+        Returns:
             A list of Region objects created from the raw response data.
         """
         regions = []
@@ -37,17 +30,12 @@ class CoverageApiClient(ApiBaseClient):
     def list_covered_areas(
         self, request: CoverageRequest
     ) -> Tuple[Sequence[Region], Pagination]:
-        """
-        Retrieves a list of covered areas from the Navitia API.
+        """Retrieve a list of covered areas from the Navitia API.
 
-        Parameters
-        ----------
-        request : CoverageRequest
-            The request object containing query parameters (count, start_page).
+        Args:
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Tuple[Sequence[Region], Pagination]
+        Returns:
             A tuple containing a list of Region objects and a Pagination object for managing result pages.
         """
         url = f"{self.base_navitia_url}/coverage"
@@ -62,19 +50,13 @@ class CoverageApiClient(ApiBaseClient):
     def get_coverage_by_region_id(
         self, region_id: str, request: CoverageRequest
     ) -> Tuple[Sequence[Region], Pagination]:
-        """
-        Retrieves information about a specific region by its ID.
+        """Retrieve information about a specific region by its ID.
 
-        Parameters
-        ----------
-        region_id : str
-            The identifier of the region to fetch information about.
-        request : CoverageRequest
-            The request object containing query parameters (count, start_page).
+        Args:
+            region_id: The identifier of the region to fetch information about.
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Tuple[Sequence[Region], Pagination]
+        Returns:
             A tuple containing a list of Region objects and a Pagination object for managing result pages.
         """
         url = f"{self.base_navitia_url}/coverage/{region_id}"
@@ -89,21 +71,14 @@ class CoverageApiClient(ApiBaseClient):
     def get_coverage_by_region_coordinates_and_coordinates(
         self, lon: float, lat: float, request: CoverageRequest
     ) -> Tuple[Sequence[Region], Pagination]:
-        """
-        Retrieves information about a region based on coordinates.
+        """Retrieve information about a region based on coordinates.
 
-        Parameters
-        ----------
-        lon : float
-            The longitude of the location to fetch information about.
-        lat : float
-            The latitude of the location to fetch information about.
-        request : CoverageRequest
-            The request object containing query parameters (count, start_page).
+        Args:
+            lon: The longitude of the location to fetch information about.
+            lat: The latitude of the location to fetch information about.
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Tuple[Sequence[Region], Pagination]
+        Returns:
             A tuple containing a list of Region objects and a Pagination object for managing result pages.
         """
         url = f"{self.base_navitia_url}/coverage/{lon};{lat}"

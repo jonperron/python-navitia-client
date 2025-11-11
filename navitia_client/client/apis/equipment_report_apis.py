@@ -6,44 +6,22 @@ from navitia_client.entities.response import Pagination
 
 
 class EquipmentReportsApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching equipment reports.
+    """Client class to interact with the Navitia API for fetching equipment reports.
 
     See https://doc.navitia.io/#equipment-reports
-
-    Methods
-    -------
-    _get_equipment_reports(
-        url: str, filters: dict
-    ) -> Tuple[Sequence[EquipmentReports], Pagination]:
-        Retrieves equipment reports from the Navitia API based on provided URL and filters.
-
-    list_equipment_reports(
-        region_id: str,
-        request: EquipmentReportRequest = EquipmentReportRequest(),
-    ) -> Tuple[Sequence[EquipmentReports], Pagination]:
-        Retrieves equipment reports for a specified region from the Navitia API.
-
-    list_equipment_reports_with_resource_path(
-        region_id: str,
-        resource_path: str,
-        request: EquipmentReportRequest = EquipmentReportRequest(),
-    ) -> Tuple[Sequence[EquipmentReports], Pagination]:
-        Retrieves equipment reports for a specific resource path in a region from the Navitia API.
     """
 
     def _get_equipment_reports(
         self, url: str, filters: dict
     ) -> Tuple[Sequence[EquipmentReports], Pagination]:
-        """
-        Retrieves equipment reports from the Navitia API based on provided URL and filters.
+        """Retrieve equipment reports from the Navitia API based on provided URL and filters.
 
-        Parameters:
-            url (str): The URL for the API request.
-            filters (dict): Filters to apply to the API request.
+        Args:
+            url: The URL for the API request.
+            filters: Filters to apply to the API request.
 
         Returns:
-            Tuple[Sequence[EquipmentReports], Pagination]: A tuple containing sequences of EquipmentReports objects and Pagination object.
+            A tuple containing sequences of EquipmentReports objects and Pagination object.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         equipment_reports = [
@@ -56,21 +34,20 @@ class EquipmentReportsApiClient(ApiBaseClient):
     def list_equipment_reports(
         self,
         region_id: str,
-        request: EquipmentReportRequest = EquipmentReportRequest(),
+        request: EquipmentReportRequest,
     ) -> Tuple[Sequence[EquipmentReports], Pagination]:
-        """
-        Retrieves equipment reports for a specified region from the Navitia API.
+        """Retrieve equipment reports for a specified region from the Navitia API.
 
         This service provides the state of equipments such as lifts or elevators that
         are giving better accessibility to public transport facilities.
         The endpoint will report accessible equipment per stop area and per line.
 
-        Parameters:
-            region_id (str): The region ID (coverage identifier).
-            request (EquipmentReportRequest): The request object containing query parameters.
+        Args:
+            region_id: The region ID (coverage identifier).
+            request: The request object containing query parameters.
 
         Returns:
-            Tuple[Sequence[EquipmentReports], Pagination]: A tuple containing sequences of EquipmentReports objects and Pagination object.
+            A tuple containing sequences of EquipmentReports objects and Pagination object.
 
         Note:
             This feature requires a specific configuration from an equipment service provider.
@@ -83,22 +60,21 @@ class EquipmentReportsApiClient(ApiBaseClient):
         self,
         region_id: str,
         resource_path: str,
-        request: EquipmentReportRequest = EquipmentReportRequest(),
+        request: EquipmentReportRequest,
     ) -> Tuple[Sequence[EquipmentReports], Pagination]:
-        """
-        Retrieves equipment reports for a specific resource path in a region from the Navitia API.
+        """Retrieve equipment reports for a specific resource path in a region.
 
         This service provides the state of equipments such as lifts or elevators that
         are giving better accessibility to public transport facilities.
         The endpoint will report accessible equipment per stop area and per line.
 
-        Parameters:
-            region_id (str): The region ID (coverage identifier).
-            resource_path (str): The resource path (e.g., 'lines/line:A').
-            request (EquipmentReportRequest): The request object containing query parameters.
+        Args:
+            region_id: The region ID (coverage identifier).
+            resource_path: The resource path (e.g., 'lines/line:A').
+            request: The request object containing query parameters.
 
         Returns:
-            Tuple[Sequence[EquipmentReports], Pagination]: A tuple containing sequences of EquipmentReports objects and Pagination object.
+            A tuple containing sequences of EquipmentReports objects and Pagination object.
 
         Note:
             This feature requires a specific configuration from an equipment service provider.

@@ -6,6 +6,9 @@ import pytest
 from navitia_client.client.apis.freefloatings_nearby_apis import (
     FreefloatingsNearbyApiClient,
 )
+from navitia_client.entities.request.freefloatings_nearby import (
+    FreefloatingsNearbyRequest,
+)
 
 
 @pytest.fixture
@@ -32,7 +35,10 @@ def test_list_freefloatings_nearby(
 
     # When
     free_floatings, pagination = freefloatings_nearby_apis.list_freefloatings_nearby(
-        region_id="fr-idf", lon=2.3522, lat=48.8566
+        region_id="fr-idf",
+        lon=2.3522,
+        lat=48.8566,
+        request=FreefloatingsNearbyRequest(),
     )
 
     # Then
@@ -70,7 +76,9 @@ def test_list_freefloatings_nearby_with_resource_path(
         free_floatings,
         pagination,
     ) = freefloatings_nearby_apis.list_freefloatings_nearby_with_resource_path(
-        region_id="fr-idf", resource_path="stop_areas/stop_area:IDFM:71591"
+        region_id="fr-idf",
+        resource_path="stop_areas/stop_area:IDFM:71591",
+        request=FreefloatingsNearbyRequest(),
     )
 
     # Then

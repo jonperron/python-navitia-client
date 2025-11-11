@@ -7,9 +7,7 @@ from navitia_client.entities.response import Pagination
 
 
 class ContributorsApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching contributors APIs.
-    Uses the ContributorRequest class to encapsulate query parameters.
+    """Client class to interact with the Navitia API for fetching contributors.
 
     See https://doc.navitia.io/#contributors
     """
@@ -18,17 +16,12 @@ class ContributorsApiClient(ApiBaseClient):
     def _get_contributors_from_response(
         raw_contributors_response: Any,
     ) -> Sequence[Contributor]:
-        """
-        Converts raw response data into a list of Contributor objects.
+        """Convert raw response data into a list of Contributor objects.
 
-        Parameters
-        ----------
-        raw_contributors_response : Any
-            The raw response data from the API containing contributors' information.
+        Args:
+            raw_contributors_response: The raw response data from the API containing contributors' information.
 
-        Returns
-        -------
-        Sequence[Contributor]
+        Returns:
             A list of Contributor objects created from the raw response data.
         """
         contributors = []
@@ -40,19 +33,13 @@ class ContributorsApiClient(ApiBaseClient):
     def list_contributors(
         self, region_id: str, request: ContributorRequest
     ) -> Tuple[Sequence[Contributor], Pagination]:
-        """
-        Retrieves a list of contributors for a specific region.
+        """Retrieve a list of contributors for a specific region.
 
-        Parameters
-        ----------
-        region_id : str
-            The identifier of the region to fetch contributors from.
-        request : ContributorRequest
-            The request object containing query parameters (count, start_page).
+        Args:
+            region_id: The identifier of the region to fetch contributors from.
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Tuple[Sequence[Contributor], Pagination]
+        Returns:
             A tuple containing a list of Contributor objects and a Pagination object for managing result pages.
         """
         url = f"{self.base_navitia_url}/coverage/{region_id}/contributors"
@@ -68,21 +55,14 @@ class ContributorsApiClient(ApiBaseClient):
     def get_contributor_on_dataset(
         self, region_id: str, dataset_id: str, request: ContributorRequest
     ) -> Tuple[Sequence[Contributor], Pagination]:
-        """
-        Retrieves a list of contributors for a specific dataset in a region.
+        """Retrieve a list of contributors for a specific dataset in a region.
 
-        Parameters
-        ----------
-        region_id : str
-            The identifier of the region to fetch contributors from.
-        dataset_id : str
-            The identifier of the dataset to fetch contributors for.
-        request : ContributorRequest
-            The request object containing query parameters (count, start_page).
+        Args:
+            region_id: The identifier of the region to fetch contributors from.
+            dataset_id: The identifier of the dataset to fetch contributors for.
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Tuple[Sequence[Contributor], Pagination]
+        Returns:
             A tuple containing a list of Contributor objects and a Pagination object for managing result pages.
         """
         url = f"{self.base_navitia_url}/coverage/{region_id}/contributors/{dataset_id}"
