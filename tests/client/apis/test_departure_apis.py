@@ -6,6 +6,7 @@ import pytest
 from navitia_client.client.apis.departure_apis import (
     DepartureApiClient,
 )
+from navitia_client.entities.request.departure import DepartureRequest
 from navitia_client.entities.response.departure import Departure
 
 
@@ -26,10 +27,11 @@ def test_list_objects_by_region_id_and_path(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
+    request = DepartureRequest()
 
     # When
     departures, _ = departure_apis.list_departures_by_region_id_and_path(
-        region_id="bar", resource_path="foo:bar:fuzz"
+        region_id="bar", resource_path="foo:bar:fuzz", request=request
     )
 
     # Then
@@ -47,10 +49,11 @@ def test_list_objects_by_coordinates(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
+    request = DepartureRequest()
 
     # When
     departures, _ = departure_apis.list_departures_by_coordinates(
-        region_lon=1.1, region_lat=1.2, lon=2.1, lat=2.2
+        region_lon=1.1, region_lat=1.2, lon=2.1, lat=2.2, request=request
     )
 
     # Then

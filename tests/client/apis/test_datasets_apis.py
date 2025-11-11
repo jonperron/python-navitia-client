@@ -5,6 +5,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.datasets_apis import DatasetsApiClient
+from navitia_client.entities.request.dataset import DatasetRequest
 from navitia_client.entities.response.dataset import Dataset
 
 
@@ -25,9 +26,10 @@ def test_list_covered_areas(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
+    request = DatasetRequest()
 
     # When
-    datasets, _ = datasets_apis.list_datasets(region_id="bar")
+    datasets, _ = datasets_apis.list_datasets(region_id="bar", request=request)
 
     # Then
     assert len(datasets) == 1
@@ -55,10 +57,11 @@ def test_get_region_by_id(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
+    request = DatasetRequest()
 
     # When
     datasets, _ = datasets_apis.get_dataset_by_id(
-        region_id="bar", dataset_id="foo:foo-piv"
+        region_id="bar", dataset_id="foo:foo-piv", request=request
     )
 
     # Then
@@ -78,10 +81,11 @@ def test_get_region_by_id_missing_contributor(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
+    request = DatasetRequest()
 
     # When
     datasets, _ = datasets_apis.get_dataset_by_id(
-        region_id="bar", dataset_id="foo:foo-piv"
+        region_id="bar", dataset_id="foo:foo-piv", request=request
     )
 
     # Then

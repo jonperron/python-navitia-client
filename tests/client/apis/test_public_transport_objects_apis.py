@@ -6,6 +6,9 @@ import pytest
 from navitia_client.client.apis.public_transport_objects_apis import (
     PublicTransportObjectsApiClient,
 )
+from navitia_client.entities.request.public_transport_object import (
+    PublicTransportObjectRequest,
+)
 from navitia_client.entities.response.pt_object import PtObject
 
 
@@ -30,8 +33,9 @@ def test_list_objects(
     mock_get_navitia_api.return_value = mock_response
 
     # When
+    request = PublicTransportObjectRequest(query="REMY")
     pt_objects = pt_objects_apis.list_public_transport_objects(
-        region_id="bar", query="REMY"
+        region_id="bar", request=request
     )
 
     # Then

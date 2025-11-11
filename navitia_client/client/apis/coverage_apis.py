@@ -1,6 +1,7 @@
 from typing import Any, Sequence, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
+from navitia_client.entities.request.coverage import CoverageRequest
 from navitia_client.entities.response.administrative_region import Region
 from navitia_client.entities.response import Pagination
 
@@ -8,22 +9,9 @@ from navitia_client.entities.response import Pagination
 class CoverageApiClient(ApiBaseClient):
     """
     A client class to interact with the Navitia API for fetching coverage area information.
+    Uses the CoverageRequest class to encapsulate query parameters.
 
     See https://doc.navitia.io/#coverage
-
-    Methods
-    -------
-    _get_regions_from_response(raw_regions_response: Any) -> Sequence[Region]
-        A static method to transform raw API response data into a list of Region objects.
-
-    list_covered_areas(start_page: int = 0, count: int = 25) -> Tuple[Sequence[Region], Pagination]
-        Retrieves a list of covered areas from the Navitia API.
-
-    get_coverage_by_region_id(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Region], Pagination]
-        Retrieves information about a specific region by its ID.
-
-    get_coverage_by_region_coordinates_and_coordinates(lon: float, lat: float, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Region], Pagination]
-        Retrieves information about a region based on coordinates.
     """
 
     @staticmethod
@@ -47,25 +35,24 @@ class CoverageApiClient(ApiBaseClient):
         return regions
 
     def list_covered_areas(
-        self, start_page: int = 0, count: int = 25
+        self, request: CoverageRequest
     ) -> Tuple[Sequence[Region], Pagination]:
         """
         Retrieves a list of covered areas from the Navitia API.
 
         Parameters
         ----------
-        start_page : int, optional
-            The starting page for pagination (default is 0).
-        count : int, optional
-            The number of regions to fetch per page (default is 25).
+        request : CoverageRequest
+            The request object containing query parameters (count, start_page).
 
         Returns
         -------
         Tuple[Sequence[Region], Pagination]
             A tuple containing a list of Region objects and a Pagination object for managing result pages.
         """
+        url = f"{self.base_navitia_url}/coverage"
         results = self.get_navitia_api(
-            f"{self.base_navitia_url}/coverage?start_page={start_page}&count={count}"
+            url + self._generate_filter_query(request.to_filters())
         )
         result_regions = results.json()["regions"]
         regions = CoverageApiClient._get_regions_from_response(result_regions)
@@ -73,7 +60,7 @@ class CoverageApiClient(ApiBaseClient):
         return regions, pagination
 
     def get_coverage_by_region_id(
-        self, region_id: str, start_page: int = 0, count: int = 25
+        self, region_id: str, request: CoverageRequest
     ) -> Tuple[Sequence[Region], Pagination]:
         """
         Retrieves information about a specific region by its ID.
@@ -82,18 +69,17 @@ class CoverageApiClient(ApiBaseClient):
         ----------
         region_id : str
             The identifier of the region to fetch information about.
-        start_page : int, optional
-            The starting page for pagination (default is 0).
-        count : int, optional
-            The number of regions to fetch per page (default is 25).
+        request : CoverageRequest
+            The request object containing query parameters (count, start_page).
 
         Returns
         -------
         Tuple[Sequence[Region], Pagination]
             A tuple containing a list of Region objects and a Pagination object for managing result pages.
         """
+        url = f"{self.base_navitia_url}/coverage/{region_id}"
         results = self.get_navitia_api(
-            f"{self.base_navitia_url}/coverage/{region_id}?start_page={start_page}&count={count}"
+            url + self._generate_filter_query(request.to_filters())
         )
         result_regions = results.json()["regions"]
         regions = CoverageApiClient._get_regions_from_response(result_regions)
@@ -101,7 +87,7 @@ class CoverageApiClient(ApiBaseClient):
         return regions, pagination
 
     def get_coverage_by_region_coordinates_and_coordinates(
-        self, lon: float, lat: float, start_page: int = 0, count: int = 25
+        self, lon: float, lat: float, request: CoverageRequest
     ) -> Tuple[Sequence[Region], Pagination]:
         """
         Retrieves information about a region based on coordinates.
@@ -112,18 +98,17 @@ class CoverageApiClient(ApiBaseClient):
             The longitude of the location to fetch information about.
         lat : float
             The latitude of the location to fetch information about.
-        start_page : int, optional
-            The starting page for pagination (default is 0).
-        count : int, optional
-            The number of regions to fetch per page (default is 25).
+        request : CoverageRequest
+            The request object containing query parameters (count, start_page).
 
         Returns
         -------
         Tuple[Sequence[Region], Pagination]
             A tuple containing a list of Region objects and a Pagination object for managing result pages.
         """
+        url = f"{self.base_navitia_url}/coverage/{lon};{lat}"
         results = self.get_navitia_api(
-            f"{self.base_navitia_url}/coverage/{lon};{lat}?start_page={start_page}&count={count}"
+            url + self._generate_filter_query(request.to_filters())
         )
         result_regions = results.json()["regions"]
         regions = CoverageApiClient._get_regions_from_response(result_regions)

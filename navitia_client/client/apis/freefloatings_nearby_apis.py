@@ -1,6 +1,9 @@
-from typing import Any, Dict, Optional, Sequence, Tuple
+from typing import Sequence, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
+from navitia_client.entities.request.freefloatings_nearby import (
+    FreefloatingsNearbyRequest,
+)
 from navitia_client.entities.response.free_floating import FreeFloating
 from navitia_client.entities.response import Pagination
 
@@ -22,18 +25,14 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
         region_id: str,
         lon: float,
         lat: float,
-        distance: int = 500,
-        type: Optional[Sequence[str]] = None,
-        count: int = 10,
+        request: FreefloatingsNearbyRequest = FreefloatingsNearbyRequest(),
     ) -> Tuple[Sequence[FreeFloating], Pagination]:
         Retrieves free-floating vehicles near coordinates in a specific region from the Navitia API.
 
     list_freefloatings_nearby_with_resource_path(
         region_id: str,
         resource_path: str,
-        distance: int = 500,
-        type: Optional[Sequence[str]] = None,
-        count: int = 10,
+        request: FreefloatingsNearbyRequest = FreefloatingsNearbyRequest(),
     ) -> Tuple[Sequence[FreeFloating], Pagination]:
         Retrieves free-floating vehicles near a specific resource path in a region from the Navitia API.
 
@@ -42,18 +41,14 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
         region_lat: float,
         lon: float,
         lat: float,
-        distance: int = 500,
-        type: Optional[Sequence[str]] = None,
-        count: int = 10,
+        request: FreefloatingsNearbyRequest = FreefloatingsNearbyRequest(),
     ) -> Tuple[Sequence[FreeFloating], Pagination]:
         Retrieves free-floating vehicles near coordinates, navitia guesses the region from coordinates.
 
     list_freefloatings_nearby_by_coordinates_only(
         lon: float,
         lat: float,
-        distance: int = 500,
-        type: Optional[Sequence[str]] = None,
-        count: int = 10,
+        request: FreefloatingsNearbyRequest = FreefloatingsNearbyRequest(),
     ) -> Tuple[Sequence[FreeFloating], Pagination]:
         Retrieves free-floating vehicles near coordinates without any region id.
     """
@@ -83,9 +78,7 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
         region_id: str,
         lon: float,
         lat: float,
-        distance: int = 500,
-        type: Optional[Sequence[str]] = None,
-        count: int = 10,
+        request: FreefloatingsNearbyRequest = FreefloatingsNearbyRequest(),
     ) -> Tuple[Sequence[FreeFloating], Pagination]:
         """
         Retrieves free-floating vehicles near coordinates in a specific region from the Navitia API.
@@ -97,9 +90,7 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
             region_id (str): The region ID (coverage identifier).
             lon (float): The longitude coordinate.
             lat (float): The latitude coordinate.
-            distance (int): Search radius in meters. Defaults to 500.
-            type (Optional[Sequence[str]]): The type of shared mobility vehicles to return (e.g., bike, scooter, car).
-            count (int): Maximum number of results to return. Defaults to 10.
+            request (FreefloatingsNearbyRequest): The request object containing query parameters.
 
         Returns:
             Tuple[Sequence[FreeFloating], Pagination]: A tuple containing sequences of FreeFloating objects and Pagination object.
@@ -109,24 +100,13 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
             Therefore, this service is not available by default.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/coords/{lon};{lat}/freefloatings_nearby"
-
-        filters: Dict[str, Any] = {
-            "distance": distance,
-            "count": count,
-        }
-
-        if type:
-            filters["type[]"] = type
-
-        return self._get_freefloatings_nearby(request_url, filters)
+        return self._get_freefloatings_nearby(request_url, request.to_filters())
 
     def list_freefloatings_nearby_with_resource_path(
         self,
         region_id: str,
         resource_path: str,
-        distance: int = 500,
-        type: Optional[Sequence[str]] = None,
-        count: int = 10,
+        request: FreefloatingsNearbyRequest = FreefloatingsNearbyRequest(),
     ) -> Tuple[Sequence[FreeFloating], Pagination]:
         """
         Retrieves free-floating vehicles near a specific resource path in a region from the Navitia API.
@@ -137,9 +117,7 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
         Parameters:
             region_id (str): The region ID (coverage identifier).
             resource_path (str): The resource path (e.g., 'stop_areas/stop_area:XXX').
-            distance (int): Search radius in meters. Defaults to 500.
-            type (Optional[Sequence[str]]): The type of shared mobility vehicles to return (e.g., bike, scooter, car).
-            count (int): Maximum number of results to return. Defaults to 10.
+            request (FreefloatingsNearbyRequest): The request object containing query parameters.
 
         Returns:
             Tuple[Sequence[FreeFloating], Pagination]: A tuple containing sequences of FreeFloating objects and Pagination object.
@@ -149,16 +127,7 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
             Therefore, this service is not available by default.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/freefloatings_nearby"
-
-        filters: Dict[str, Any] = {
-            "distance": distance,
-            "count": count,
-        }
-
-        if type:
-            filters["type[]"] = type
-
-        return self._get_freefloatings_nearby(request_url, filters)
+        return self._get_freefloatings_nearby(request_url, request.to_filters())
 
     def list_freefloatings_nearby_by_coordinates(
         self,
@@ -166,9 +135,7 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
         region_lat: float,
         lon: float,
         lat: float,
-        distance: int = 500,
-        type: Optional[Sequence[str]] = None,
-        count: int = 10,
+        request: FreefloatingsNearbyRequest = FreefloatingsNearbyRequest(),
     ) -> Tuple[Sequence[FreeFloating], Pagination]:
         """
         Retrieves free-floating vehicles near coordinates, navitia guesses the region from coordinates.
@@ -182,9 +149,7 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
             region_lat (float): The latitude coordinate for region identification.
             lon (float): The longitude coordinate for the search center.
             lat (float): The latitude coordinate for the search center.
-            distance (int): Search radius in meters. Defaults to 500.
-            type (Optional[Sequence[str]]): The type of shared mobility vehicles to return (e.g., bike, scooter, car).
-            count (int): Maximum number of results to return. Defaults to 10.
+            request (FreefloatingsNearbyRequest): The request object containing query parameters.
 
         Returns:
             Tuple[Sequence[FreeFloating], Pagination]: A tuple containing sequences of FreeFloating objects and Pagination object.
@@ -194,24 +159,13 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
             Therefore, this service is not available by default.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/freefloatings_nearby"
-
-        filters: Dict[str, Any] = {
-            "distance": distance,
-            "count": count,
-        }
-
-        if type:
-            filters["type[]"] = type
-
-        return self._get_freefloatings_nearby(request_url, filters)
+        return self._get_freefloatings_nearby(request_url, request.to_filters())
 
     def list_freefloatings_nearby_by_coordinates_only(
         self,
         lon: float,
         lat: float,
-        distance: int = 500,
-        type: Optional[Sequence[str]] = None,
-        count: int = 10,
+        request: FreefloatingsNearbyRequest = FreefloatingsNearbyRequest(),
     ) -> Tuple[Sequence[FreeFloating], Pagination]:
         """
         Retrieves free-floating vehicles near coordinates without any region id.
@@ -223,9 +177,7 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
         Parameters:
             lon (float): The longitude coordinate.
             lat (float): The latitude coordinate.
-            distance (int): Search radius in meters. Defaults to 500.
-            type (Optional[Sequence[str]]): The type of shared mobility vehicles to return (e.g., bike, scooter, car).
-            count (int): Maximum number of results to return. Defaults to 10.
+            request (FreefloatingsNearbyRequest): The request object containing query parameters.
 
         Returns:
             Tuple[Sequence[FreeFloating], Pagination]: A tuple containing sequences of FreeFloating objects and Pagination object.
@@ -235,13 +187,4 @@ class FreefloatingsNearbyApiClient(ApiBaseClient):
             Therefore, this service is not available by default.
         """
         request_url = f"{self.base_navitia_url}/coord/{lon};{lat}/freefloatings_nearby"
-
-        filters: Dict[str, Any] = {
-            "distance": distance,
-            "count": count,
-        }
-
-        if type:
-            filters["type[]"] = type
-
-        return self._get_freefloatings_nearby(request_url, filters)
+        return self._get_freefloatings_nearby(request_url, request.to_filters())

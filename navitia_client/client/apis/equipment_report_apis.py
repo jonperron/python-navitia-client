@@ -1,5 +1,6 @@
-from typing import Optional, Sequence, Tuple
+from typing import Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
+from navitia_client.entities.request.equipment_report import EquipmentReportRequest
 from navitia_client.entities.response.equipment_reports import EquipmentReports
 from navitia_client.entities.response import Pagination
 
@@ -19,22 +20,14 @@ class EquipmentReportsApiClient(ApiBaseClient):
 
     list_equipment_reports(
         region_id: str,
-        count: int = 10,
-        depth: int = 1,
-        filter: Optional[str] = None,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        start_page: int = 0,
+        request: EquipmentReportRequest = EquipmentReportRequest(),
     ) -> Tuple[Sequence[EquipmentReports], Pagination]:
         Retrieves equipment reports for a specified region from the Navitia API.
 
     list_equipment_reports_with_resource_path(
         region_id: str,
         resource_path: str,
-        count: int = 10,
-        depth: int = 1,
-        filter: Optional[str] = None,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        start_page: int = 0,
+        request: EquipmentReportRequest = EquipmentReportRequest(),
     ) -> Tuple[Sequence[EquipmentReports], Pagination]:
         Retrieves equipment reports for a specific resource path in a region from the Navitia API.
     """
@@ -63,11 +56,7 @@ class EquipmentReportsApiClient(ApiBaseClient):
     def list_equipment_reports(
         self,
         region_id: str,
-        count: int = 10,
-        depth: int = 1,
-        filter: Optional[str] = None,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        start_page: int = 0,
+        request: EquipmentReportRequest = EquipmentReportRequest(),
     ) -> Tuple[Sequence[EquipmentReports], Pagination]:
         """
         Retrieves equipment reports for a specified region from the Navitia API.
@@ -78,11 +67,7 @@ class EquipmentReportsApiClient(ApiBaseClient):
 
         Parameters:
             region_id (str): The region ID (coverage identifier).
-            count (int): Elements per page. Defaults to 10.
-            depth (int): Json response depth. Defaults to 1.
-            filter (Optional[str]): A filter to refine your request (e.g., 'line.code=A').
-            forbidden_uris (Optional[Sequence[str]]): If you want to avoid lines, modes, networks, etc.
-            start_page (int): The page number. Defaults to 0.
+            request (EquipmentReportRequest): The request object containing query parameters.
 
         Returns:
             Tuple[Sequence[EquipmentReports], Pagination]: A tuple containing sequences of EquipmentReports objects and Pagination object.
@@ -92,28 +77,13 @@ class EquipmentReportsApiClient(ApiBaseClient):
             Therefore, this service is not available by default.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/equipment_reports"
-
-        filters = {
-            "count": count,
-            "depth": depth,
-            "start_page": start_page,
-            "forbidden_uris[]": forbidden_uris,
-        }
-
-        if filter:
-            filters["filter"] = filter
-
-        return self._get_equipment_reports(request_url, filters)
+        return self._get_equipment_reports(request_url, request.to_filters())
 
     def list_equipment_reports_with_resource_path(
         self,
         region_id: str,
         resource_path: str,
-        count: int = 10,
-        depth: int = 1,
-        filter: Optional[str] = None,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        start_page: int = 0,
+        request: EquipmentReportRequest = EquipmentReportRequest(),
     ) -> Tuple[Sequence[EquipmentReports], Pagination]:
         """
         Retrieves equipment reports for a specific resource path in a region from the Navitia API.
@@ -125,11 +95,7 @@ class EquipmentReportsApiClient(ApiBaseClient):
         Parameters:
             region_id (str): The region ID (coverage identifier).
             resource_path (str): The resource path (e.g., 'lines/line:A').
-            count (int): Elements per page. Defaults to 10.
-            depth (int): Json response depth. Defaults to 1.
-            filter (Optional[str]): A filter to refine your request (e.g., 'line.code=A').
-            forbidden_uris (Optional[Sequence[str]]): If you want to avoid lines, modes, networks, etc.
-            start_page (int): The page number. Defaults to 0.
+            request (EquipmentReportRequest): The request object containing query parameters.
 
         Returns:
             Tuple[Sequence[EquipmentReports], Pagination]: A tuple containing sequences of EquipmentReports objects and Pagination object.
@@ -139,15 +105,4 @@ class EquipmentReportsApiClient(ApiBaseClient):
             Therefore, this service is not available by default.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/equipment_reports"
-
-        filters = {
-            "count": count,
-            "depth": depth,
-            "start_page": start_page,
-            "forbidden_uris[]": forbidden_uris,
-        }
-
-        if filter:
-            filters["filter"] = filter
-
-        return self._get_equipment_reports(request_url, filters)
+        return self._get_equipment_reports(request_url, request.to_filters())

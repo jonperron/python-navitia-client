@@ -5,6 +5,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.coverage_apis import CoverageApiClient
+from navitia_client.entities.request.coverage import CoverageRequest
 from navitia_client.entities.response.administrative_region import Region
 from navitia_client.entities.response import Pagination
 
@@ -26,9 +27,10 @@ def test_list_covered_areas(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
+    request = CoverageRequest()
 
     # When
-    regions, pagination = coverage_apis.list_covered_areas()
+    regions, pagination = coverage_apis.list_covered_areas(request=request)
 
     # Then
     assert len(regions) == 1
@@ -71,9 +73,10 @@ def test_get_region_by_id(
         },
     }
     mock_get_navitia_api.return_value = mock_response
+    request = CoverageRequest()
 
     # When
-    regions, pagination = coverage_apis.get_coverage_by_region_id("12")
+    regions, pagination = coverage_apis.get_coverage_by_region_id("12", request=request)
 
     # Then
     assert len(regions) == 1
@@ -108,10 +111,13 @@ def test_get_region_by_coordinates(
         },
     }
     mock_get_navitia_api.return_value = mock_response
+    request = CoverageRequest()
 
     # When
     regions, pagination = (
-        coverage_apis.get_coverage_by_region_coordinates_and_coordinates(12.5, 13.2)
+        coverage_apis.get_coverage_by_region_coordinates_and_coordinates(
+            12.5, 13.2, request=request
+        )
     )
 
     # Then

@@ -4,6 +4,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.contributors_apis import ContributorsApiClient
+from navitia_client.entities.request.contributor import ContributorRequest
 from navitia_client.entities.response.contributor import Contributor
 from navitia_client.entities.response import Pagination
 
@@ -25,9 +26,12 @@ def test_list_contributors(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
+    request = ContributorRequest()
 
     # When
-    contributors, pagination = contributors_apis.list_contributors(region_id="bar")
+    contributors, pagination = contributors_apis.list_contributors(
+        region_id="bar", request=request
+    )
 
     # Then
     assert len(contributors) == 1
@@ -48,10 +52,11 @@ def test_get_region_by_id(
     with open("tests/test_data/contributors.json", encoding="utf-8") as file:
         mock_response.json.return_value = json.load(file)
     mock_get_navitia_api.return_value = mock_response
+    request = ContributorRequest()
 
     # When
     contributors, _ = contributors_apis.get_contributor_on_dataset(
-        region_id="bar", dataset_id="foo:xxx"
+        region_id="bar", dataset_id="foo:xxx", request=request
     )
 
     # Then

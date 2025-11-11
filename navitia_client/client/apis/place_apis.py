@@ -1,5 +1,6 @@
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Sequence
 from navitia_client.client.apis.api_base_client import ApiBaseClient
+from navitia_client.entities.request.place import PlaceRequest
 from navitia_client.entities.response.place import Place
 
 
@@ -42,33 +43,21 @@ class PlacesApiClient(ApiBaseClient):
     def list_places(
         self,
         region_id: str,
-        query: str,
-        type: Sequence[str] = ["stop_area", "address", "poi", "administrative_region"],
-        disable_geojson: bool = False,
-        depth: int = 1,
-        from_lon_lat: Optional[Tuple[float, float]] = None,
+        request: PlaceRequest,
     ) -> Sequence[Place]:
         """
         Retrieves a list of places based on the provided query and region ID from the Navitia API.
 
         Parameters:
             region_id (str): The region ID.
-            query (str): The query string to search for places.
-            type (Sequence[str], optional): The types of places to include in the search.
-                Defaults to ["stop_area", "address", "poi", "administrative_region"].
-            disable_geojson (bool, optional): Whether to disable GeoJSON format in the response.
-                Defaults to False.
-            depth (int, optional): The depth of data to retrieve. Defaults to 1.
-            from_lon_lat (Optional[Tuple[float, float]], optional): The longitude and latitude
-                from which to search for places. Defaults to None.
+            request (PlaceRequest): The request object containing query parameters.
 
         Returns:
             Sequence[Place]: A list of Place objects matching the query.
         """
-        request_url = f"{self.base_navitia_url}/coverage/{region_id}/places?q={query}&type={type}&disable_geojson={disable_geojson}&depth={depth}"
-        if from_lon_lat:
-            request_url += f"&filter={from_lon_lat[0]};{from_lon_lat[1]}"
-
-        results = self.get_navitia_api(request_url)
+        request_url = f"{self.base_navitia_url}/coverage/{region_id}/places"
+        results = self.get_navitia_api(
+            request_url + self._generate_filter_query(request.to_filters())
+        )
         raw_results = results.json()["places"]
         return self._get_pt_objects_from_response(raw_results)
