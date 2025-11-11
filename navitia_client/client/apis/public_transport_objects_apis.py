@@ -1,5 +1,8 @@
-from typing import Any, Optional, Sequence
+from typing import Any, Sequence
 from navitia_client.client.apis.api_base_client import ApiBaseClient
+from navitia_client.entities.request.public_transport_object import (
+    PublicTransportObjectRequest,
+)
 from navitia_client.entities.response.pt_object import PtObject
 
 
@@ -51,38 +54,21 @@ class PublicTransportObjectsApiClient(ApiBaseClient):
     def list_public_transport_objects(
         self,
         region_id: str,
-        query: str,
-        type: Sequence[str] = [
-            "network",
-            "commercial_mode",
-            "line",
-            "route",
-            "stop_area",
-        ],
-        disable_disruption: bool = False,
-        depth: int = 1,
-        post_query_filter: Optional[str] = None,
+        request: PublicTransportObjectRequest,
     ) -> Sequence[PtObject]:
         """
         Retrieves a list of public transport objects for a specified region from the Navitia API.
 
         Parameters:
             region_id (str): The region ID.
-            query (str): The search query.
-            type (Sequence[str], optional): The types of public transport objects to include
-                in the search. Defaults to ["network", "commercial_mode", "line", "route", "stop_area"].
-            disable_disruption (bool, optional): Whether to disable disruption information in the response.
-                Defaults to False.
-            depth (int, optional): The depth of data to retrieve. Defaults to 1.
-            post_query_filter (Optional[str], optional): Additional filtering criteria. Defaults to None.
+            request (PublicTransportObjectRequest): The request object containing query parameters.
 
         Returns:
             Sequence[PtObject]: A sequence of PtObject objects.
         """
-        request_url = f"{self.base_navitia_url}/coverage/{region_id}/pt_objects?q={query}&type={type}&disable_disruption={disable_disruption}&depth={depth}"
-        if post_query_filter:
-            request_url += f"&filter={post_query_filter}"
-
-        results = self.get_navitia_api(request_url)
+        request_url = f"{self.base_navitia_url}/coverage/{region_id}/pt_objects"
+        results = self.get_navitia_api(
+            request_url + self._generate_filter_query(request.to_filters())
+        )
         raw_results = results.json()["pt_objects"]
         return self._get_pt_objects_from_response(raw_results)

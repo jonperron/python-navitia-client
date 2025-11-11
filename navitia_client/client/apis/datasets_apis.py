@@ -1,6 +1,7 @@
 from typing import Any, Sequence, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
+from navitia_client.entities.request.dataset import DatasetRequest
 from navitia_client.entities.response.dataset import Dataset
 from navitia_client.entities.response import Pagination
 
@@ -8,19 +9,9 @@ from navitia_client.entities.response import Pagination
 class DatasetsApiClient(ApiBaseClient):
     """
     A client class to interact with the Navitia API for fetching dataset information.
+    Uses the DatasetRequest class to encapsulate query parameters.
 
     See https://doc.navitia.io/#datasets
-
-    Methods
-    -------
-    _get_datasets_from_response(raw_datasets_response: Any) -> Sequence[Dataset]
-        A static method to transform raw API response data into a list of Dataset objects.
-
-    list_datasets(region_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Dataset], Pagination]
-        Retrieves a list of datasets for a specified region from the Navitia API.
-
-    get_dataset_by_id(region_id: str, dataset_id: str, start_page: int = 0, count: int = 25) -> Tuple[Sequence[Dataset], Pagination]
-        Retrieves information about a specific dataset by its ID within a region.
     """
 
     @staticmethod
@@ -49,7 +40,7 @@ class DatasetsApiClient(ApiBaseClient):
         return datasets
 
     def list_datasets(
-        self, region_id: str, start_page: int = 0, count: int = 25
+        self, region_id: str, request: DatasetRequest
     ) -> Tuple[Sequence[Dataset], Pagination]:
         """
         Retrieves a list of datasets for a specified region from the Navitia API.
@@ -58,25 +49,24 @@ class DatasetsApiClient(ApiBaseClient):
         ----------
         region_id : str
             The identifier of the region to fetch datasets from.
-        start_page : int, optional
-            The starting page for pagination (default is 0).
-        count : int, optional
-            The number of datasets to fetch per page (default is 25).
+        request : DatasetRequest
+            The request object containing query parameters (count, start_page).
 
         Returns
         -------
         Tuple[Sequence[Dataset], Pagination]
             A tuple containing a list of Dataset objects and a Pagination object for managing result pages.
         """
+        url = f"{self.base_navitia_url}/coverage/{region_id}/datasets"
         results = self.get_navitia_api(
-            f"{self.base_navitia_url}/coverage/{region_id}/datasets?start_page={start_page}&count={count}"
+            url + self._generate_filter_query(request.to_filters())
         )
         raw_results = results.json()["datasets"]
         pagination = Pagination.from_payload(results.json()["pagination"])
         return DatasetsApiClient._get_datasets_from_response(raw_results), pagination
 
     def get_dataset_by_id(
-        self, region_id: str, dataset_id: str, start_page: int = 0, count: int = 25
+        self, region_id: str, dataset_id: str, request: DatasetRequest
     ) -> Tuple[Sequence[Dataset], Pagination]:
         """
         Retrieves information about a specific dataset by its ID within a region.
@@ -87,18 +77,17 @@ class DatasetsApiClient(ApiBaseClient):
             The identifier of the region to fetch the dataset from.
         dataset_id : str
             The identifier of the dataset to fetch.
-        start_page : int, optional
-            The starting page for pagination (default is 0).
-        count : int, optional
-            The number of datasets to fetch per page (default is 25).
+        request : DatasetRequest
+            The request object containing query parameters (count, start_page).
 
         Returns
         -------
         Tuple[Sequence[Dataset], Pagination]
             A tuple containing a list of Dataset objects and a Pagination object for managing result pages.
         """
+        url = f"{self.base_navitia_url}/coverage/{region_id}/datasets/{dataset_id}"
         results = self.get_navitia_api(
-            f"{self.base_navitia_url}/coverage/{region_id}/datasets/{dataset_id}?start_page={start_page}&count={count}"
+            url + self._generate_filter_query(request.to_filters())
         )
         raw_results = results.json()["datasets"]
         pagination = Pagination.from_payload(results.json()["pagination"])

@@ -1,6 +1,6 @@
-from datetime import datetime
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
+from navitia_client.entities.request.stop_schedule import StopScheduleRequest
 from navitia_client.entities.response import Pagination
 from navitia_client.entities.response.stop_schedule import StopSchedule
 
@@ -8,43 +8,9 @@ from navitia_client.entities.response.stop_schedule import StopSchedule
 class StopSchedulesApiClient(ApiBaseClient):
     """
     A client class to interact with the Navitia API for fetching stop schedules.
+    Uses the StopScheduleRequest class to encapsulate query parameters.
 
     See https://doc.navitia.io/#stop-schedules
-
-    Methods
-    -------
-    _get_stop_schedule_objects_from_response(response: Any) -> Sequence[StopSchedule]:
-        A static method to transform raw API response data into a list of StopSchedule objects.
-
-    list_stop_schedules_by_coordinates(
-        region_lon: float,
-        region_lat: float,
-        lon: float,
-        lat: float,
-        from_datetime: datetime = datetime.now(),
-        duration: int = 86400,
-        depth: int = 1,
-        items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        data_freshness: str = "realtime",
-        disable_geojson: bool = False,
-        direction_type: str = "all",
-    ) -> Tuple[Sequence[StopSchedule], Pagination]:
-        Retrieves stop schedules for a specified set of coordinates from the Navitia API.
-
-    list_stop_schedules_by_region_id_and_path(
-        region_id: str,
-        resource_path: str,
-        from_datetime: datetime = datetime.now(),
-        duration: int = 86400,
-        depth: int = 1,
-        items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        data_freshness: str = "realtime",
-        disable_geojson: bool = False,
-        direction_type: str = "all",
-    ) -> Tuple[Sequence[StopSchedule], Pagination]:
-        Retrieves stop schedules for a specified region and resource path from the Navitia API.
     """
 
     @staticmethod
@@ -90,104 +56,60 @@ class StopSchedulesApiClient(ApiBaseClient):
         region_lat: float,
         lon: float,
         lat: float,
-        from_datetime: datetime = datetime.now(),
-        duration: int = 86400,
-        depth: int = 1,
-        count: int = 10,
-        start_page: int = 0,
-        items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        data_freshness: str = "realtime",
-        disable_geojson: bool = False,
-        direction_type: str = "all",
+        request: StopScheduleRequest,
     ) -> Tuple[Sequence[StopSchedule], Pagination]:
         """
         Retrieves stop schedules for a specified set of coordinates from the Navitia API.
 
-        Parameters:
-            region_lon (float): The longitude of the region.
-            region_lat (float): The latitude of the region.
-            lon (float): The longitude of the coordinates.
-            lat (float): The latitude of the coordinates.
-            from_datetime (datetime, optional): The start datetime for the schedule. Defaults to datetime.now().
-            duration (int, optional): The duration of the schedule in seconds. Defaults to 86400.
-            depth (int, optional): The depth of data to retrieve. Defaults to 1.
-            count (int, optional): Maximum number of results. Defaults to 10.
-            start_page (int, optional): The page number to start from. Defaults to 0.
-            items_per_schedule (int, optional): The number of items per schedule. Defaults to 1.
-            forbidden_uris (Optional[Sequence[str]], optional): Forbidden URIs. Defaults to None.
-            data_freshness (str, optional): The freshness of data to retrieve. Defaults to "realtime".
-            disable_geojson (bool, optional): Whether to disable GeoJSON in the response. Defaults to False.
-            direction_type (str, optional): The direction type. Defaults to "all".
+        Parameters
+        ----------
+        region_lon : float
+            The longitude of the region.
+        region_lat : float
+            The latitude of the region.
+        lon : float
+            The longitude of the coordinates.
+        lat : float
+            The latitude of the coordinates.
+        request : StopScheduleRequest
+            The request object containing query parameters such as from_datetime,
+            duration, depth, count, start_page, items_per_schedule, forbidden_uris,
+            data_freshness, disable_geojson, and direction_type.
 
-        Returns:
-            Tuple[Sequence[StopSchedule], Pagination]: A tuple containing a sequence of StopSchedule objects and Pagination object.
+        Returns
+        -------
+        Tuple[Sequence[StopSchedule], Pagination]
+            A tuple containing a sequence of StopSchedule objects and Pagination object.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/stop_schedules"
 
-        filters = {
-            "from_datetime": from_datetime,
-            "duration": duration,
-            "depth": depth,
-            "count": count,
-            "start_page": start_page,
-            "items_per_schedule": items_per_schedule,
-            "disable_geojson": disable_geojson,
-            "forbidden_uris[]": forbidden_uris,
-            "data_freshness": data_freshness,
-            "direction_type": direction_type,
-        }
-
-        return self._get_stop_schedules(request_url, filters)
+        return self._get_stop_schedules(request_url, request.to_filters())
 
     def list_stop_schedules_by_region_id_and_path(
         self,
         region_id: str,
         resource_path: str,
-        from_datetime: datetime = datetime.now(),
-        duration: int = 86400,
-        depth: int = 1,
-        count: int = 10,
-        start_page: int = 0,
-        items_per_schedule: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        data_freshness: str = "realtime",
-        disable_geojson: bool = False,
-        direction_type: str = "all",
+        request: StopScheduleRequest,
     ) -> Tuple[Sequence[StopSchedule], Pagination]:
         """
         Retrieves stop schedules for a specified region and resource path from the Navitia API.
 
-        Parameters:
-            region_id (str): The region ID.
-            resource_path (str): The resource path.
-            from_datetime (datetime, optional): The start datetime for the schedule. Defaults to datetime.now().
-            duration (int, optional): The duration of the schedule in seconds. Defaults to 86400.
-            depth (int, optional): The depth of data to retrieve. Defaults to 1.
-            count (int, optional): Maximum number of results. Defaults to 10.
-            start_page (int, optional): The page number to start from. Defaults to 0.
-            items_per_schedule (int, optional): The number of items per schedule. Defaults to 1.
-            forbidden_uris (Optional[Sequence[str]], optional): Forbidden URIs. Defaults to None.
-            data_freshness (str, optional): The freshness of data to retrieve. Defaults to "realtime".
-            disable_geojson (bool, optional): Whether to disable GeoJSON in the response. Defaults to False.
-            direction_type (str, optional): The direction type. Defaults to "all".
+        Parameters
+        ----------
+        region_id : str
+            The region ID.
+        resource_path : str
+            The resource path.
+        request : StopScheduleRequest
+            The request object containing query parameters such as from_datetime,
+            duration, depth, count, start_page, items_per_schedule, forbidden_uris,
+            data_freshness, disable_geojson, and direction_type.
 
-        Returns:
-            Tuple[Sequence[StopSchedule], Pagination]: A tuple containing a sequence of StopSchedule objects and Pagination object.
+        Returns
+        -------
+        Tuple[Sequence[StopSchedule], Pagination]
+            A tuple containing a sequence of StopSchedule objects and Pagination object.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/stop_schedules"
 
-        filters = {
-            "from_datetime": from_datetime,
-            "duration": duration,
-            "depth": depth,
-            "count": count,
-            "start_page": start_page,
-            "items_per_schedule": items_per_schedule,
-            "disable_geojson": disable_geojson,
-            "forbidden_uris[]": forbidden_uris,
-            "data_freshness": data_freshness,
-            "direction_type": direction_type,
-        }
-
-        return self._get_stop_schedules(request_url, filters)
+        return self._get_stop_schedules(request_url, request.to_filters())

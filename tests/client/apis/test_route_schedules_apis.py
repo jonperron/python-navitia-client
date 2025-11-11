@@ -6,6 +6,7 @@ import pytest
 from navitia_client.client.apis.route_schedules_apis import (
     RouteSchedulesApiClient,
 )
+from navitia_client.entities.request.route_schedule import RouteScheduleRequest
 from navitia_client.entities.response.route_schedule import RouteSchedule
 
 
@@ -26,10 +27,11 @@ def test_list_objects_by_region_id_and_path(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
+    request = RouteScheduleRequest()
 
     # When
     route_schedules = route_schedules_apis.list_route_schedules_by_region_id_and_path(
-        region_id="bar", resource_path="foo:bar:fuzz"
+        region_id="bar", resource_path="foo:bar:fuzz", request=request
     )
 
     # Then
@@ -47,10 +49,11 @@ def test_list_objects_by_coordinates(
         mock_response.json.return_value = json.load(file)
 
     mock_get_navitia_api.return_value = mock_response
+    request = RouteScheduleRequest()
 
     # When
     route_schedules = route_schedules_apis.list_route_schedules_by_coordinates(
-        region_lon=1.1, region_lat=1.2, lon=2.1, lat=2.2
+        region_lon=1.1, region_lat=1.2, lon=2.1, lat=2.2, request=request
     )
 
     # Then

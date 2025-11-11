@@ -329,11 +329,6 @@ class PlacesNearbyApiClient(ApiBaseClient):
         """
         request_url = f"{self.base_navitia_url}/coverage/{lon};{lat}/places_nearby"
 
-        if not request_url:
-            raise ValueError(
-                "Region id, region coordinates or coordinates must be provided."
-            )
-
         filters = {
             "start_page": start_page,
             "count": count,

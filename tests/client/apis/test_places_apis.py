@@ -4,6 +4,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.place_apis import PlacesApiClient
+from navitia_client.entities.request.place import PlaceRequest
 from navitia_client.entities.response.place import Place
 
 
@@ -25,7 +26,8 @@ def test_list_objects(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    places = places_apis.list_places(region_id="bar", query="DEFENSE")
+    request = PlaceRequest(query="DEFENSE")
+    places = places_apis.list_places(region_id="bar", request=request)
 
     # Then
     assert len(places) == 1

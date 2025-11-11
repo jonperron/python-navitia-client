@@ -1,6 +1,6 @@
-from datetime import datetime
-from typing import Any, Optional, Sequence, Tuple
+from typing import Any, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
+from navitia_client.entities.request.arrival import ArrivalRequest
 from navitia_client.entities.response import Pagination
 from navitia_client.entities.response.arrival import Arrival
 
@@ -77,15 +77,7 @@ class ArrivalApiClient(ApiBaseClient):
         self,
         region_id: str,
         resource_path: str,
-        from_datetime: datetime = datetime.now(),
-        duration: int = 86400,
-        depth: int = 1,
-        count: int = 10,
-        start_page: int = 0,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        data_freshness: str = "realtime",
-        disable_geojson: bool = False,
-        direction_type: str = "all",
+        request: ArrivalRequest,
     ) -> Tuple[Sequence[Arrival], Pagination]:
         """
         Retrieves a list of arrivals for a specific region and resource path.
@@ -96,45 +88,18 @@ class ArrivalApiClient(ApiBaseClient):
             The identifier of the region to fetch arrivals from.
         resource_path : str
             The resource path within the region to fetch arrivals for.
-        from_datetime : datetime, optional
-            The starting datetime for fetching arrivals (default is current datetime).
-        duration : int, optional
-            The duration in seconds for which to fetch arrivals (default is 86400 seconds).
-        depth : int, optional
-            The depth of the search (default is 1).
-        count : int, optional
-            Maximum number of results (default is 10).
-        start_page : int, optional
-            The page number to start from (default is 0).
-        forbidden_uris : Optional[Sequence[str]], optional
-            A list of URIs to exclude from the search (default is None).
-        data_freshness : str, optional
-            The freshness of the data to fetch, either "realtime" or "base_schedule" (default is "realtime").
-        disable_geojson : bool, optional
-            Whether to disable geoJSON in the response (default is False).
-        direction_type : str, optional
-            The direction type of the arrivals to fetch, e.g., "all", "forward", "backward" (default is "all").
+
 
         Returns
         -------
         Tuple[Sequence[Arrival], Pagination]
             A tuple containing a list of Arrival objects and a Pagination object for managing result pages.
         """
-        request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/terminus_schedules"
+        request_url = (
+            f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/arrivals"
+        )
 
-        filters = {
-            "from_datetime": from_datetime,
-            "duration": duration,
-            "depth": depth,
-            "count": count,
-            "start_page": start_page,
-            "disable_geojson": disable_geojson,
-            "forbidden_uris[]": forbidden_uris,
-            "data_freshness": data_freshness,
-            "direction_type": direction_type,
-        }
-
-        return self._get_arrivals(request_url, filters)
+        return self._get_arrivals(request_url, request.to_filters())
 
     def list_arrivals_by_coordinates(
         self,
@@ -142,15 +107,7 @@ class ArrivalApiClient(ApiBaseClient):
         region_lat: float,
         lon: float,
         lat: float,
-        from_datetime: datetime = datetime.now(),
-        duration: int = 86400,
-        depth: int = 1,
-        count: int = 10,
-        start_page: int = 0,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        data_freshness: str = "realtime",
-        disable_geojson: bool = False,
-        direction_type: str = "all",
+        request: ArrivalRequest,
     ) -> Tuple[Sequence[Arrival], Pagination]:
         """
         Retrieves a list of arrivals for specific coordinates.
@@ -165,24 +122,6 @@ class ArrivalApiClient(ApiBaseClient):
             The longitude of the specific location to fetch arrivals for.
         lat : float
             The latitude of the specific location to fetch arrivals for.
-        from_datetime : datetime, optional
-            The starting datetime for fetching arrivals (default is current datetime).
-        duration : int, optional
-            The duration in seconds for which to fetch arrivals (default is 86400 seconds).
-        depth : int, optional
-            The depth of the search (default is 1).
-        count : int, optional
-            Maximum number of results (default is 10).
-        start_page : int, optional
-            The page number to start from (default is 0).
-        forbidden_uris : Optional[Sequence[str]], optional
-            A list of URIs to exclude from the search (default is None).
-        data_freshness : str, optional
-            The freshness of the data to fetch, either "realtime" or "base_schedule" (default is "realtime").
-        disable_geojson : bool, optional
-            Whether to disable geoJSON in the response (default is False).
-        direction_type : str, optional
-            The direction type of the arrivals to fetch, e.g., "all", "forward", "backward" (default is "all").
 
         Returns
         -------
@@ -190,18 +129,6 @@ class ArrivalApiClient(ApiBaseClient):
             A tuple containing a list of Arrival objects and a Pagination object for managing result pages.
         """
         # List of objects near the resource, navitia guesses the region from coordinates
-        request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/terminus_schedules"
+        request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/arrivals"
 
-        filters = {
-            "from_datetime": from_datetime,
-            "duration": duration,
-            "depth": depth,
-            "count": count,
-            "start_page": start_page,
-            "disable_geojson": disable_geojson,
-            "forbidden_uris[]": forbidden_uris,
-            "data_freshness": data_freshness,
-            "direction_type": direction_type,
-        }
-
-        return self._get_arrivals(request_url, filters)
+        return self._get_arrivals(request_url, request.to_filters())

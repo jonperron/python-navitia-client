@@ -4,6 +4,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.isochrone_apis import IsochronesApiClient
+from navitia_client.entities.request.isochrone import IsochroneRequest
 from navitia_client.entities.response.isochrones import Isochrone
 
 
@@ -26,8 +27,9 @@ def test_list_covered_areas_with_region_id(
     mock_get_navitia_api.return_value = mock_response
 
     # When
+    request = IsochroneRequest(from_="foo")
     isocrhones = isochrones_apis.list_isochrones_with_region_id(
-        region_id="bar", from_="foo"
+        region_id="bar", request=request
     )
 
     # Then
@@ -47,7 +49,8 @@ def test_list_covered_areas(
     mock_get_navitia_api.return_value = mock_response
 
     # When
-    isocrhones = isochrones_apis.list_isochrones(from_="foo")
+    request = IsochroneRequest(from_="foo")
+    isocrhones = isochrones_apis.list_isochrones(request=request)
 
     # Then
     assert len(isocrhones) == 1

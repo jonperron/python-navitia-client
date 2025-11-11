@@ -1,6 +1,6 @@
-from datetime import datetime
 from typing import Optional, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
+from navitia_client.entities.request.traffic_report import TrafficReportRequest
 from navitia_client.entities.response.disruption import Disruption
 from navitia_client.entities.response import Pagination
 from navitia_client.entities.response.traffic_report import TrafficReport
@@ -22,12 +22,7 @@ class TrafficReportsApiClient(ApiBaseClient):
     list_traffic_reports(
         region_id: Optional[str] = None,
         resource_path: Optional[str] = None,
-        since: Optional[datetime] = None,
-        until: Optional[datetime] = None,
-        count: int = 25,
-        depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        disable_geojson: bool = False,
+        request: TrafficReportRequest = TrafficReportRequest(),
     ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
         Retrieves traffic reports for a specified region and resource path from the Navitia API.
     """
@@ -60,12 +55,7 @@ class TrafficReportsApiClient(ApiBaseClient):
         self,
         region_id: Optional[str] = None,
         resource_path: Optional[str] = None,
-        since: Optional[datetime] = None,
-        until: Optional[datetime] = None,
-        count: int = 25,
-        depth: int = 1,
-        forbidden_uris: Optional[Sequence[str]] = None,
-        disable_geojson: bool = False,
+        request: TrafficReportRequest = TrafficReportRequest(),
     ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
         """
         Retrieves traffic reports for a specified region and resource path from the Navitia API.
@@ -73,12 +63,7 @@ class TrafficReportsApiClient(ApiBaseClient):
         Parameters:
             region_id (Optional[str]): The region ID.
             resource_path (Optional[str]): The resource path.
-            since (Optional[datetime]): The start datetime for the reports.
-            until (Optional[datetime]): The end datetime for the reports.
-            count (int): The number of reports to retrieve. Defaults to 25.
-            depth (int): The depth of data to retrieve. Defaults to 1.
-            forbidden_uris (Optional[Sequence[str]]): Forbidden URIs.
-            disable_geojson (bool): Whether to disable GeoJSON in the response. Defaults to False.
+            request (TrafficReportRequest): The request object containing query parameters.
 
         Returns:
             Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]: A tuple containing sequences of Disruption and TrafficReport objects, and Pagination object.
@@ -90,17 +75,4 @@ class TrafficReportsApiClient(ApiBaseClient):
                 f"{self.base_navitia_url}/coverage/{region_id}/traffic_reports"
             )
 
-        filters = {
-            "count": count,
-            "depth": depth,
-            "disable_geojson": disable_geojson,
-            "forbidden_uris[]": forbidden_uris,
-        }
-
-        if since:
-            filters["since"] = since.isoformat()
-
-        if until:
-            filters["until"] = until.isoformat()
-
-        return self._get_traffic_reports(request_url, filters)
+        return self._get_traffic_reports(request_url, request.to_filters())

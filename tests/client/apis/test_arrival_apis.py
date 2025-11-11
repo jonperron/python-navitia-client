@@ -6,6 +6,7 @@ import pytest
 from navitia_client.client.apis.arrival_apis import (
     ArrivalApiClient,
 )
+from navitia_client.entities.request.arrival import ArrivalRequest
 from navitia_client.entities.response.arrival import Arrival
 
 
@@ -28,8 +29,9 @@ def test_list_objects_by_id_and_path(
     mock_get_navitia_api.return_value = mock_response
 
     # When
+    request = ArrivalRequest()
     arrivals, _ = arrival_apis.list_arrivals_by_region_id_and_path(
-        region_id="bar", resource_path="foo:bar:fuzz"
+        region_id="bar", resource_path="foo:bar:fuzz", request=request
     )
 
     # Then
@@ -49,8 +51,9 @@ def test_list_objects_by_coordinates(
     mock_get_navitia_api.return_value = mock_response
 
     # When
+    request = ArrivalRequest()
     arrivals, _ = arrival_apis.list_arrivals_by_coordinates(
-        region_lon=1.1, region_lat=2.2, lat=1.3, lon=2.3
+        region_lon=1.1, region_lat=2.2, lat=1.3, lon=2.3, request=request
     )
 
     # Then
