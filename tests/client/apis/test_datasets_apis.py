@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.datasets_apis import DatasetsApiClient
-from navitia_client.entities.dataset import Dataset
+from navitia_client.entities.response.dataset import Dataset
 
 
 @pytest.fixture

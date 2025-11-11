@@ -1,10 +1,10 @@
 from typing import Any, Optional, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.client.apis.public_transportation_apis.entity_apis import EntityApi
-from navitia_client.entities.disruption import (
+from navitia_client.entities.response.disruption import (
     Disruption,
 )
-from navitia_client.entities.pagination import Pagination
+from navitia_client.entities.response import Pagination
 
 
 class DisruptionApiClient(ApiBaseClient, EntityApi[Disruption]):

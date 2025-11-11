@@ -3,7 +3,7 @@ import pytest
 
 from unittest.mock import MagicMock, patch
 
-from navitia_client.entities.line_and_route import Line
+from navitia_client.entities.response.line_and_route import Line
 from navitia_client.client.apis.public_transportation_apis import LineApiClient
 
 

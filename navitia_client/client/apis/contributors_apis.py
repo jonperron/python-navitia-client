@@ -1,8 +1,8 @@
 from typing import Any, Sequence, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.contributor import Contributor
-from navitia_client.entities.pagination import Pagination
+from navitia_client.entities.response.contributor import Contributor
+from navitia_client.entities.response import Pagination
 
 
 class ContributorsApiClient(ApiBaseClient):

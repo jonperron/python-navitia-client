@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import Any, Sequence
 
-from navitia_client.entities.line_and_route import Line
-from navitia_client.entities.pt_object import PtObject
+from navitia_client.entities.response.line_and_route import Line
+from navitia_client.entities.response.pt_object import PtObject
 
 
 @dataclass

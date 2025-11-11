@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any, Optional
 
-from navitia_client.entities.contributor import Contributor
+from navitia_client.entities.response.contributor import Contributor
 
 
 @dataclass

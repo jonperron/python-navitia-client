@@ -2,11 +2,11 @@ from dataclasses import dataclass
 
 from typing import Any, Optional, Sequence
 
-from navitia_client.entities.direction import Direction
-from navitia_client.entities.network import Network
+from navitia_client.entities.response.direction import Direction
+from navitia_client.entities.response.network import Network
 
-from navitia_client.entities.base_entity import BaseEntity
-from navitia_client.entities.physical_mode import CommercialMode, PhysicalMode
+from navitia_client.entities.response.base_entity import BaseEntity
+from navitia_client.entities.response.physical_mode import CommercialMode, PhysicalMode
 
 
 @dataclass

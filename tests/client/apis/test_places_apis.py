@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.place_apis import PlacesApiClient
-from navitia_client.entities.place import Place
+from navitia_client.entities.response.place import Place
 
 
 @pytest.fixture

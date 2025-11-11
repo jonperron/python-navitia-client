@@ -6,7 +6,7 @@ import pytest
 from navitia_client.client.apis.arrival_apis import (
     ArrivalApiClient,
 )
-from navitia_client.entities.arrival import Arrival
+from navitia_client.entities.response.arrival import Arrival
 
 
 @pytest.fixture

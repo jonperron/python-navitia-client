@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.journeys_apis import JourneyApiClient
-from navitia_client.entities.journey import Journey
+from navitia_client.entities.response import Journey
 
 
 @pytest.fixture

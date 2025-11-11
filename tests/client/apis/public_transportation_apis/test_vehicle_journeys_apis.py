@@ -2,7 +2,7 @@ import pytest
 
 from unittest.mock import MagicMock, patch
 
-from navitia_client.entities.vehicle_journey import VehicleJourney
+from navitia_client.entities.response.vehicle_journey import VehicleJourney
 from navitia_client.client.apis.public_transportation_apis import (
     VehicleJourneyApiClient,
 )

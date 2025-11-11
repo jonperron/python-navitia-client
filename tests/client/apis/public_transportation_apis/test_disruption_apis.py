@@ -3,7 +3,7 @@ import pytest
 
 from unittest.mock import MagicMock, patch
 
-from navitia_client.entities.disruption import Disruption
+from navitia_client.entities.response.disruption import Disruption
 from navitia_client.client.apis.public_transportation_apis import DisruptionApiClient
 
 

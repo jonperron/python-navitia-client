@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Any, Optional
 
-from navitia_client.entities.base_entity import BaseEntity
+from navitia_client.entities.response.base_entity import BaseEntity
 
 
 @dataclass

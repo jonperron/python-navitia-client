@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any
 
-from navitia_client.entities.place import Place
+from navitia_client.entities.response.place import Place
 
 
 @dataclass

@@ -5,8 +5,8 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.coverage_apis import CoverageApiClient
-from navitia_client.entities.administrative_region import Region
-from navitia_client.entities.pagination import Pagination
+from navitia_client.entities.response.administrative_region import Region
+from navitia_client.entities.response import Pagination
 
 
 @pytest.fixture

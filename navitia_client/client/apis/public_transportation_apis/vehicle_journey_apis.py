@@ -1,8 +1,8 @@
 from typing import Any, Optional, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
 from navitia_client.client.apis.public_transportation_apis.entity_apis import EntityApi
-from navitia_client.entities.pagination import Pagination
-from navitia_client.entities.vehicle_journey import VehicleJourney
+from navitia_client.entities.response import Pagination
+from navitia_client.entities.response.vehicle_journey import VehicleJourney
 
 
 class VehicleJourneyApiClient(ApiBaseClient, EntityApi[VehicleJourney]):

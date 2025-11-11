@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any, Optional, Sequence
 
-from navitia_client.entities.link import Link
+from navitia_client.entities.response.link import Link
 
 
 @dataclass

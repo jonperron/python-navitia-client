@@ -6,7 +6,7 @@ import pytest
 from navitia_client.client.apis.route_schedules_apis import (
     RouteSchedulesApiClient,
 )
-from navitia_client.entities.route_schedule import RouteSchedule
+from navitia_client.entities.response.route_schedule import RouteSchedule
 
 
 @pytest.fixture

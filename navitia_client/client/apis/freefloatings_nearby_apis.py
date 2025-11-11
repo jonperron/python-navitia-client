@@ -1,8 +1,8 @@
 from typing import Any, Dict, Optional, Sequence, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.free_floating import FreeFloating
-from navitia_client.entities.pagination import Pagination
+from navitia_client.entities.response.free_floating import FreeFloating
+from navitia_client.entities.response import Pagination
 
 
 class FreefloatingsNearbyApiClient(ApiBaseClient):

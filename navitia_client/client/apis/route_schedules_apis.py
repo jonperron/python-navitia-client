@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Any, Optional, Sequence
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.route_schedule import RouteSchedule
+from navitia_client.entities.response.route_schedule import RouteSchedule
 
 
 class RouteSchedulesApiClient(ApiBaseClient):

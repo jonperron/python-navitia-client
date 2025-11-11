@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Any, Optional, Sequence
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.isochrones import Isochrone
+from navitia_client.entities.response.isochrones import Isochrone
 
 
 class IsochronesApiClient(ApiBaseClient):

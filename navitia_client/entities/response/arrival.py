@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 from typing import Any
 
-from navitia_client.entities.line_and_route import Route
-from navitia_client.entities.stop_area import StopPoint
-from navitia_client.entities.stop_datetime import StopDateTime
+from navitia_client.entities.response.line_and_route import Route
+from navitia_client.entities.response.stop_area import StopPoint
+from navitia_client.entities.response.stop_datetime import StopDateTime
 
 
 @dataclass
