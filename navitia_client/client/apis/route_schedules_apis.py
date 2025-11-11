@@ -5,9 +5,7 @@ from navitia_client.entities.response.route_schedule import RouteSchedule
 
 
 class RouteSchedulesApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching route schedules.
-    Uses the RouteScheduleRequest class to encapsulate query parameters.
+    """Client class to interact with the Navitia API for fetching route schedules.
 
     See https://doc.navitia.io/#route-schedules
     """
@@ -16,14 +14,13 @@ class RouteSchedulesApiClient(ApiBaseClient):
     def _get_route_schedule_object_from_response(
         response: Any,
     ) -> Sequence[RouteSchedule]:
-        """
-        Static method to transform raw API response data into a list of RouteSchedule objects.
+        """Transform raw API response data into a list of RouteSchedule objects.
 
-        Parameters:
-            response (Any): The raw API response data.
+        Args:
+            response: The raw API response data.
 
         Returns:
-            Sequence[RouteSchedule]: A sequence of RouteSchedule objects.
+            A sequence of RouteSchedule objects.
         """
         route_schedules = []
         for route_schedule_data in response:
@@ -32,15 +29,14 @@ class RouteSchedulesApiClient(ApiBaseClient):
         return route_schedules
 
     def _get_routes_nearby(self, url: str, filters: dict) -> Sequence[RouteSchedule]:
-        """
-        Retrieves route schedules from the Navitia API based on provided URL and filters.
+        """Retrieve route schedules from the Navitia API based on provided URL and filters.
 
-        Parameters:
-            url (str): The URL for the API request.
-            filters (dict): Filters to apply to the API request.
+        Args:
+            url: The URL for the API request.
+            filters: Filters to apply to the API request.
 
         Returns:
-            Sequence[RouteSchedule]: A sequence of RouteSchedule objects.
+            A sequence of RouteSchedule objects.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         raw_results = results.json()["route_schedules"]
@@ -52,23 +48,14 @@ class RouteSchedulesApiClient(ApiBaseClient):
         resource_path: str,
         request: RouteScheduleRequest,
     ) -> Sequence[RouteSchedule]:
-        """
-        Retrieves route schedules for a specified region and resource path from the Navitia API.
+        """Retrieve route schedules for a specified region and resource path.
 
-        Parameters
-        ----------
-        region_id : str
-            The region ID.
-        resource_path : str
-            The resource path.
-        request : RouteScheduleRequest
-            The request object containing query parameters such as from_datetime,
-            duration, depth, count, start_page, items_per_schedule, forbidden_uris,
-            data_freshness, disable_geojson, and direction_type.
+        Args:
+            region_id: The region ID.
+            resource_path: The resource path.
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Sequence[RouteSchedule]
+        Returns:
             A sequence of RouteSchedule objects.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/route_schedules"
@@ -83,27 +70,16 @@ class RouteSchedulesApiClient(ApiBaseClient):
         lat: float,
         request: RouteScheduleRequest,
     ) -> Sequence[RouteSchedule]:
-        """
-        Retrieves route schedules for a specified set of coordinates from the Navitia API.
+        """Retrieve route schedules for a specified set of coordinates.
 
-        Parameters
-        ----------
-        region_lon : float
-            The longitude of the region.
-        region_lat : float
-            The latitude of the region.
-        lon : float
-            The longitude of the coordinates.
-        lat : float
-            The latitude of the coordinates.
-        request : RouteScheduleRequest
-            The request object containing query parameters such as from_datetime,
-            duration, depth, count, start_page, items_per_schedule, forbidden_uris,
-            data_freshness, disable_geojson, and direction_type.
+        Args:
+            region_lon: The longitude of the region.
+            region_lat: The latitude of the region.
+            lon: The longitude of the coordinates.
+            lat: The latitude of the coordinates.
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Sequence[RouteSchedule]
+        Returns:
             A sequence of RouteSchedule objects.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_lon};{region_lat}/coords/{lon};{lat}/route_schedules"

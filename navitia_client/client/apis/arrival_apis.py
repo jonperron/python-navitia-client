@@ -6,41 +6,21 @@ from navitia_client.entities.response.arrival import Arrival
 
 
 class ArrivalApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching arrival information.
+    """Client class to interact with the Navitia API for fetching arrival information.
 
     See https://doc.navitia.io/#arrivals
-
-    Methods
-    -------
-    _get_departure_objects_from_response(response: Any) -> Sequence[Arrival]
-        A static method to transform raw API response data into a list of Arrival objects.
-
-    _get_departures(url: str, filters: dict) -> Tuple[Sequence[Arrival], Pagination]
-        Internal method to fetch departures based on a given URL and filters.
-
-    list_arrivals_by_region_id_and_path(region_id: str, resource_path: str, from_datetime: datetime = datetime.now(), duration: int = 86400, depth: int = 1, forbidden_uris: Optional[Sequence[str]] = None, data_freshness: str = "realtime", disable_geojson: bool = False, direction_type: str = "all") -> Tuple[Sequence[Arrival], Pagination]
-        Retrieves a list of arrivals for a specific region and resource path.
-
-    list_arrivals_by_coordinates(region_lon: float, region_lat: float, lon: float, lat: float, from_datetime: datetime = datetime.now(), duration: int = 86400, depth: int = 1, forbidden_uris: Optional[Sequence[str]] = None, data_freshness: str = "realtime", disable_geojson: bool = False, direction_type: str = "all") -> Tuple[Sequence[Arrival], Pagination]
-        Retrieves a list of arrivals for specific coordinates.
     """
 
     @staticmethod
     def _get_arrival_objects_from_response(
         response: Any,
     ) -> Sequence[Arrival]:
-        """
-        Converts raw response data into a list of Arrival objects.
+        """Convert raw response data into a list of Arrival objects.
 
-        Parameters
-        ----------
-        response : Any
-            The raw response data from the API containing arrivals' information.
+        Args:
+            response: The raw response data from the API containing arrivals' information.
 
-        Returns
-        -------
-        Sequence[Arrival]
+        Returns:
             A list of Arrival objects created from the raw response data.
         """
 
@@ -53,19 +33,13 @@ class ArrivalApiClient(ApiBaseClient):
     def _get_arrivals(
         self, url: str, filters: dict
     ) -> Tuple[Sequence[Arrival], Pagination]:
-        """
-        Internal method to fetch departures based on a given URL and filters.
+        """Fetch arrivals based on a given URL and filters.
 
-        Parameters
-        ----------
-        url : str
-            The URL for the API request.
-        filters : dict
-            The filters to apply to the API request.
+        Args:
+            url: The URL for the API request.
+            filters: The filters to apply to the API request.
 
-        Returns
-        -------
-        Tuple[Sequence[Arrival], Pagination]
+        Returns:
             A tuple containing a list of Arrival objects and a Pagination object for managing result pages.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
@@ -79,20 +53,14 @@ class ArrivalApiClient(ApiBaseClient):
         resource_path: str,
         request: ArrivalRequest,
     ) -> Tuple[Sequence[Arrival], Pagination]:
-        """
-        Retrieves a list of arrivals for a specific region and resource path.
+        """Retrieve a list of arrivals for a specific region and resource path.
 
-        Parameters
-        ----------
-        region_id : str
-            The identifier of the region to fetch arrivals from.
-        resource_path : str
-            The resource path within the region to fetch arrivals for.
+        Args:
+            region_id: The identifier of the region to fetch arrivals from.
+            resource_path: The resource path within the region to fetch arrivals for.
+            request: The ArrivalRequest containing filters and parameters for the query.
 
-
-        Returns
-        -------
-        Tuple[Sequence[Arrival], Pagination]
+        Returns:
             A tuple containing a list of Arrival objects and a Pagination object for managing result pages.
         """
         request_url = (
@@ -109,23 +77,16 @@ class ArrivalApiClient(ApiBaseClient):
         lat: float,
         request: ArrivalRequest,
     ) -> Tuple[Sequence[Arrival], Pagination]:
-        """
-        Retrieves a list of arrivals for specific coordinates.
+        """Retrieve a list of arrivals for specific coordinates.
 
-        Parameters
-        ----------
-        region_lon : float
-            The longitude of the region to fetch arrivals from.
-        region_lat : float
-            The latitude of the region to fetch arrivals from.
-        lon : float
-            The longitude of the specific location to fetch arrivals for.
-        lat : float
-            The latitude of the specific location to fetch arrivals for.
+        Args:
+            region_lon: The longitude of the region to fetch arrivals from.
+            region_lat: The latitude of the region to fetch arrivals from.
+            lon: The longitude of the specific location to fetch arrivals for.
+            lat: The latitude of the specific location to fetch arrivals for.
+            request: The ArrivalRequest containing filters and parameters for the query.
 
-        Returns
-        -------
-        Tuple[Sequence[Arrival], Pagination]
+        Returns:
             A tuple containing a list of Arrival objects and a Pagination object for managing result pages.
         """
         # List of objects near the resource, navitia guesses the region from coordinates

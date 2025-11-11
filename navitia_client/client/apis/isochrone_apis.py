@@ -5,42 +5,19 @@ from navitia_client.entities.response.isochrones import Isochrone
 
 
 class IsochronesApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching isochrones data.
+    """Client class to interact with the Navitia API for fetching isochrones data.
 
     See https://doc.navitia.io/#isochrones-api
-
-    Methods
-    -------
-    _get_traffic_reports(url: str, filters: dict) -> Sequence[Isochrone]
-        Internal method to fetch isochrone data based on the provided URL and filters.
-
-    list_isochrones_with_region_id(
-        region_id: str,
-        request: IsochroneRequest
-    ) -> Sequence[Isochrone]
-        Fetches isochrones data for a specific region based on various parameters.
-
-    list_isochrones(
-        request: IsochroneRequest
-    ) -> Sequence[Isochrone]
-        Fetches isochrones data based on various parameters.
     """
 
     def _get_traffic_reports(self, url: str, filters: dict) -> Sequence[Isochrone]:
-        """
-        Internal method to fetch isochrone data based on the provided URL and filters.
+        """Fetch isochrone data based on the provided URL and filters.
 
-        Parameters
-        ----------
-        url : str
-            The API endpoint URL for fetching isochrone data.
-        filters : dict
-            The query parameters for filtering the isochrone data.
+        Args:
+            url: The API endpoint URL for fetching isochrone data.
+            filters: The query parameters for filtering the isochrone data.
 
-        Returns
-        -------
-        Sequence[Isochrone]
+        Returns:
             A list of Isochrone objects created from the API response.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
@@ -54,19 +31,13 @@ class IsochronesApiClient(ApiBaseClient):
         region_id: str,
         request: IsochroneRequest,
     ) -> Sequence[Isochrone]:
-        """
-        Fetches isochrones data for a specific region based on various parameters.
+        """Fetch isochrones data for a specific region based on various parameters.
 
-        Parameters
-        ----------
-        region_id : str
-            The identifier of the region.
-        request : IsochroneRequest
-            The request object containing query parameters.
+        Args:
+            region_id: The identifier of the region.
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Sequence[Isochrone]
+        Returns:
             A list of Isochrone objects representing the isochrone data.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/isochrones"
@@ -76,17 +47,12 @@ class IsochronesApiClient(ApiBaseClient):
         self,
         request: IsochroneRequest,
     ) -> Sequence[Isochrone]:
-        """
-        Fetches isochrones data based on various parameters.
+        """Fetch isochrones data based on various parameters.
 
-        Parameters
-        ----------
-        request : IsochroneRequest
-            The request object containing query parameters.
+        Args:
+            request: The request object containing query parameters.
 
-        Returns
-        -------
-        Sequence[Isochrone]
+        Returns:
             A list of Isochrone objects representing the isochrone data.
         """
         request_url = f"{self.base_navitia_url}/isochrones"

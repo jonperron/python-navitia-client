@@ -7,38 +7,22 @@ from navitia_client.entities.response.traffic_report import TrafficReport
 
 
 class TrafficReportsApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching traffic reports.
+    """Client class to interact with the Navitia API for fetching traffic reports.
 
     See https://doc.navitia.io/#traffic-reports
-
-    Methods
-    -------
-    _get_traffic_reports(
-        url: str, filters: dict
-    ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
-        Retrieves traffic reports from the Navitia API based on provided URL and filters.
-
-    list_traffic_reports(
-        region_id: Optional[str] = None,
-        resource_path: Optional[str] = None,
-        request: TrafficReportRequest = TrafficReportRequest(),
-    ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
-        Retrieves traffic reports for a specified region and resource path from the Navitia API.
     """
 
     def _get_traffic_reports(
         self, url: str, filters: dict
     ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
-        """
-        Retrieves traffic reports from the Navitia API based on provided URL and filters.
+        """Retrieve traffic reports from the Navitia API based on provided URL and filters.
 
-        Parameters:
-            url (str): The URL for the API request.
-            filters (dict): Filters to apply to the API request.
+        Args:
+            url: The URL for the API request.
+            filters: Filters to apply to the API request.
 
         Returns:
-            Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]: A tuple containing sequences of Disruption and TrafficReport objects, and Pagination object.
+            A tuple containing sequences of Disruption and TrafficReport objects, and Pagination object.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
         line_reports = [
@@ -53,20 +37,19 @@ class TrafficReportsApiClient(ApiBaseClient):
 
     def list_traffic_reports(
         self,
+        request: TrafficReportRequest,
         region_id: Optional[str] = None,
         resource_path: Optional[str] = None,
-        request: TrafficReportRequest = TrafficReportRequest(),
     ) -> Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]:
-        """
-        Retrieves traffic reports for a specified region and resource path from the Navitia API.
+        """Retrieve traffic reports for a specified region and resource path.
 
-        Parameters:
-            region_id (Optional[str]): The region ID.
-            resource_path (Optional[str]): The resource path.
-            request (TrafficReportRequest): The request object containing query parameters.
+        Args:
+            request: The request object containing query parameters.
+            region_id: The region ID.
+            resource_path: The resource path.
 
         Returns:
-            Tuple[Sequence[Disruption], Sequence[TrafficReport], Pagination]: A tuple containing sequences of Disruption and TrafficReport objects, and Pagination object.
+            A tuple containing sequences of Disruption and TrafficReport objects, and Pagination object.
         """
         if resource_path:
             request_url = f"{self.base_navitia_url}/coverage/{region_id}/{resource_path}/traffic_reports"

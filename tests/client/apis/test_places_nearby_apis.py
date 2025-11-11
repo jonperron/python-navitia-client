@@ -4,6 +4,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.places_nearby_apis import PlacesNearbyApiClient
+from navitia_client.entities.request.places_nearby import PlacesNearbyRequest
 from navitia_client.entities.response.place import Place
 
 
@@ -27,7 +28,9 @@ def test_list_objects(
 
     # When
     places, _ = places_nearby_apis.list_objects_by_region_id_and_path(
-        region_id="bar", resource_path="stop_area/foo:bar"
+        region_id="bar",
+        resource_path="stop_area/foo:bar",
+        request=PlacesNearbyRequest(),
     )
 
     # Then

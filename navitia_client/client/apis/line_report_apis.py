@@ -6,36 +6,21 @@ from navitia_client.entities.response.line_report import LineReport
 
 
 class LineReportsApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching line reports.
+    """Client class to interact with the Navitia API for fetching line reports.
 
     See https://doc.navitia.io/#line-reports
-
-    Methods
-    -------
-    _get_line_reports(url: str, filters: dict) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
-        Retrieves line reports from the specified URL with the provided filters.
-
-    list_line_reports(region_id: Optional[str] = None, resource_path: Optional[str] = None, request: LineReportRequest = LineReportRequest()) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
-        Lists line reports based on specified criteria.
     """
 
     def _get_line_reports(
         self, url: str, filters: dict
     ) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
-        """
-        Retrieves line reports from the specified URL with the provided filters.
+        """Retrieve line reports from the specified URL with the provided filters.
 
-        Parameters
-        ----------
-        url : str
-            The URL to fetch line reports from.
-        filters : dict
-            Filters to apply to the API request.
+        Args:
+            url: The URL to fetch line reports from.
+            filters: Filters to apply to the API request.
 
-        Returns
-        -------
-        Tuple[Sequence[Disruption], Sequence[LineReport]]
+        Returns:
             A tuple containing sequences of Disruption and LineReport objects.
         """
         results = self.get_navitia_api(url + self._generate_filter_query(filters))
@@ -49,25 +34,18 @@ class LineReportsApiClient(ApiBaseClient):
 
     def list_line_reports(
         self,
+        request: LineReportRequest,
         region_id: Optional[str] = None,
         resource_path: Optional[str] = None,
-        request: LineReportRequest = LineReportRequest(),
     ) -> Tuple[Sequence[Disruption], Sequence[LineReport]]:
-        """
-        Lists line reports based on specified criteria.
+        """List line reports based on specified criteria.
 
-        Parameters
-        ----------
-        region_id : Optional[str], optional
-            The ID of the region for which to fetch line reports, by default None.
-        resource_path : Optional[str], optional
-            The resource path for line reports, by default None.
-        request : LineReportRequest, optional
-            The request object containing query parameters.
+        Args:
+            request: The request object containing query parameters.
+            region_id: The ID of the region for which to fetch line reports, by default None.
+            resource_path: The resource path for line reports, by default None.
 
-        Returns
-        -------
-        Tuple[Sequence[Disruption], Sequence[LineReport]]
+        Returns:
             A tuple containing sequences of Disruption and LineReport objects.
         """
         if resource_path:

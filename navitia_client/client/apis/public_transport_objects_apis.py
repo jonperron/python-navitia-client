@@ -7,43 +7,20 @@ from navitia_client.entities.response.pt_object import PtObject
 
 
 class PublicTransportObjectsApiClient(ApiBaseClient):
-    """
-    A client class to interact with the Navitia API for fetching public transport objects.
+    """Client class to interact with the Navitia API for fetching public transport objects.
 
     See https://doc.navitia.io/#pt-objects
-
-    Methods
-    -------
-    _get_pt_objects_from_response(response: Any) -> Sequence[PtObject]:
-        A static method to transform raw API response data into a list of PtObject objects.
-
-    list_public_transport_objects(
-        region_id: str,
-        query: str,
-        type: Sequence[str] = [
-            "network",
-            "commercial_mode",
-            "line",
-            "route",
-            "stop_area",
-        ],
-        disable_disruption: bool = False,
-        depth: int = 1,
-        post_query_filter: Optional[str] = None,
-    ) -> Sequence[PtObject]:
-        Retrieves a list of public transport objects for a specified region from the Navitia API.
     """
 
     @staticmethod
     def _get_pt_objects_from_response(response: Any) -> Sequence[PtObject]:
-        """
-        Static method to transform raw API response data into a list of PtObject objects.
+        """Transform raw API response data into a list of PtObject objects.
 
-        Parameters:
-            response (Any): The raw API response data.
+        Args:
+            response: The raw API response data.
 
         Returns:
-            Sequence[PtObject]: A sequence of PtObject objects.
+            A sequence of PtObject objects.
         """
         pt_objects = []
         for pt_objects_data in response:
@@ -56,15 +33,14 @@ class PublicTransportObjectsApiClient(ApiBaseClient):
         region_id: str,
         request: PublicTransportObjectRequest,
     ) -> Sequence[PtObject]:
-        """
-        Retrieves a list of public transport objects for a specified region from the Navitia API.
+        """Retrieve a list of public transport objects for a specified region.
 
-        Parameters:
-            region_id (str): The region ID.
-            request (PublicTransportObjectRequest): The request object containing query parameters.
+        Args:
+            region_id: The region ID.
+            request: The request object containing query parameters.
 
         Returns:
-            Sequence[PtObject]: A sequence of PtObject objects.
+            A sequence of PtObject objects.
         """
         request_url = f"{self.base_navitia_url}/coverage/{region_id}/pt_objects"
         results = self.get_navitia_api(
