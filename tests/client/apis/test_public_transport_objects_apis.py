@@ -6,7 +6,7 @@ import pytest
 from navitia_client.client.apis.public_transport_objects_apis import (
     PublicTransportObjectsApiClient,
 )
-from navitia_client.entities.pt_object import PtObject
+from navitia_client.entities.response.pt_object import PtObject
 
 
 @pytest.fixture

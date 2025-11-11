@@ -1,8 +1,8 @@
 from datetime import datetime
 from typing import Optional, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.disruption import Disruption
-from navitia_client.entities.line_report import LineReport
+from navitia_client.entities.response.disruption import Disruption
+from navitia_client.entities.response.line_report import LineReport
 
 
 class LineReportsApiClient(ApiBaseClient):

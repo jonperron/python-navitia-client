@@ -1,9 +1,9 @@
 from datetime import datetime
 from typing import Optional, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.disruption import Disruption
-from navitia_client.entities.pagination import Pagination
-from navitia_client.entities.traffic_report import TrafficReport
+from navitia_client.entities.response.disruption import Disruption
+from navitia_client.entities.response import Pagination
+from navitia_client.entities.response.traffic_report import TrafficReport
 
 
 class TrafficReportsApiClient(ApiBaseClient):

@@ -1,8 +1,8 @@
 from typing import Any, Sequence, Tuple
 
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.administrative_region import Region
-from navitia_client.entities.pagination import Pagination
+from navitia_client.entities.response.administrative_region import Region
+from navitia_client.entities.response import Pagination
 
 
 class CoverageApiClient(ApiBaseClient):

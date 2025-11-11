@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 from typing import Any, Sequence
 
-from navitia_client.entities.display_information import DisplayInformation
-from navitia_client.entities.link import Link
-from navitia_client.entities.pt_datetime import PTDatetime
-from navitia_client.entities.stop_area import StopPoint
+from navitia_client.entities.response.display_information import DisplayInformation
+from navitia_client.entities.response.link import Link
+from navitia_client.entities.response.pt_datetime import PTDatetime
+from navitia_client.entities.response.stop_area import StopPoint
 
 
 @dataclass

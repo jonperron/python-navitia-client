@@ -1,9 +1,9 @@
 from typing import Any, Optional, Sequence, Type
 
-from navitia_client.entities.line_and_route import Line, Route
-from navitia_client.entities.network import Network
-from navitia_client.entities.physical_mode import CommercialMode, PhysicalMode
-from navitia_client.entities.vehicle_journey import VehicleJourney
+from navitia_client.entities.response.line_and_route import Line, Route
+from navitia_client.entities.response.network import Network
+from navitia_client.entities.response.physical_mode import CommercialMode, PhysicalMode
+from navitia_client.entities.response.vehicle_journey import VehicleJourney
 
 
 class Link:

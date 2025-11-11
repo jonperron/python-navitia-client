@@ -6,7 +6,7 @@ import pytest
 from navitia_client.client.apis.stop_schedules_apis import (
     StopSchedulesApiClient,
 )
-from navitia_client.entities.stop_schedule import StopSchedule
+from navitia_client.entities.response.stop_schedule import StopSchedule
 
 
 @pytest.fixture

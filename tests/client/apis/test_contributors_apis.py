@@ -4,8 +4,8 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.contributors_apis import ContributorsApiClient
-from navitia_client.entities.contributor import Contributor
-from navitia_client.entities.pagination import Pagination
+from navitia_client.entities.response.contributor import Contributor
+from navitia_client.entities.response import Pagination
 
 
 @pytest.fixture

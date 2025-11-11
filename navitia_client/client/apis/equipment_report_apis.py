@@ -1,7 +1,7 @@
 from typing import Optional, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.equipment_reports import EquipmentReports
-from navitia_client.entities.pagination import Pagination
+from navitia_client.entities.response.equipment_reports import EquipmentReports
+from navitia_client.entities.response import Pagination
 
 
 class EquipmentReportsApiClient(ApiBaseClient):

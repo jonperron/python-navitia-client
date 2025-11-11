@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional, Sequence
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.journey import Journey, ParkMode
+from navitia_client.entities.response import Journey, ParkMode
 
 
 class JourneyApiClient(ApiBaseClient):

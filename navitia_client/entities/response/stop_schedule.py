@@ -2,10 +2,10 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Optional, Sequence
 
-from navitia_client.entities.display_information import DisplayInformation
-from navitia_client.entities.line_and_route import Route
-from navitia_client.entities.pt_datetime import PTDatetime
-from navitia_client.entities.stop_area import StopPoint
+from navitia_client.entities.response.display_information import DisplayInformation
+from navitia_client.entities.response.line_and_route import Route
+from navitia_client.entities.response.pt_datetime import PTDatetime
+from navitia_client.entities.response.stop_area import StopPoint
 
 
 @dataclass

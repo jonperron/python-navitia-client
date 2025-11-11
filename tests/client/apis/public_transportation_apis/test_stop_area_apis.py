@@ -3,7 +3,7 @@ import pytest
 
 from unittest.mock import MagicMock, patch
 
-from navitia_client.entities.stop_area import StopArea
+from navitia_client.entities.response.stop_area import StopArea
 from navitia_client.client.apis.public_transportation_apis import StopAreaApiClient
 
 

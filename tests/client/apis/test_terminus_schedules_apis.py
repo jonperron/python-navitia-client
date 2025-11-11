@@ -6,7 +6,7 @@ import pytest
 from navitia_client.client.apis.terminus_schedules_apis import (
     TerminusSchedulesApiClient,
 )
-from navitia_client.entities.stop_schedule import TerminusSchedule
+from navitia_client.entities.response.stop_schedule import TerminusSchedule
 
 
 @pytest.fixture

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Any
-from navitia_client.entities.base_entity import BaseEntity
-from navitia_client.entities.stop_area import StopArea
+from navitia_client.entities.response.base_entity import BaseEntity
+from navitia_client.entities.response.stop_area import StopArea
 
 
 @dataclass

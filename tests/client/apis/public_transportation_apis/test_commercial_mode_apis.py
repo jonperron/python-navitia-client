@@ -3,7 +3,7 @@ import pytest
 
 from unittest.mock import MagicMock, patch
 
-from navitia_client.entities.physical_mode import CommercialMode
+from navitia_client.entities.response.physical_mode import CommercialMode
 from navitia_client.client.apis.public_transportation_apis import (
     CommercialModeApiClient,
 )

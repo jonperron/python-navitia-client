@@ -2,10 +2,10 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any, Optional, Sequence
 
-from navitia_client.entities.base_entity import BaseEntity
-from navitia_client.entities.disruption import Disruption
-from navitia_client.entities.stop_area import StopPoint
-from navitia_client.entities.trip import Trip
+from navitia_client.entities.response.base_entity import BaseEntity
+from navitia_client.entities.response.disruption import Disruption
+from navitia_client.entities.response.stop_area import StopPoint
+from navitia_client.entities.response.trip import Trip
 
 
 @dataclass

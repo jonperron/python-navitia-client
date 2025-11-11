@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.isochrone_apis import IsochronesApiClient
-from navitia_client.entities.isochrones import Isochrone
+from navitia_client.entities.response.isochrones import Isochrone
 
 
 @pytest.fixture

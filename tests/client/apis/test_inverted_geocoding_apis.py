@@ -6,7 +6,7 @@ import pytest
 from navitia_client.client.apis.inverted_geocoding_apis import (
     InvertedGeocodingApiClient,
 )
-from navitia_client.entities.place import Place
+from navitia_client.entities.response.place import Place
 
 
 @pytest.fixture

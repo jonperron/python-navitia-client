@@ -3,11 +3,11 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Optional, Sequence
 
-from navitia_client.entities.display_information import DisplayInformation
-from navitia_client.entities.link import Link
-from navitia_client.entities.path import Path
-from navitia_client.entities.place import Place
-from navitia_client.entities.ticket import Fare
+from navitia_client.entities.response.display_information import DisplayInformation
+from navitia_client.entities.response.link import Link
+from navitia_client.entities.response.path import Path
+from navitia_client.entities.response.place import Place
+from navitia_client.entities.response.ticket import Fare
 
 
 class ParkMode(Enum):

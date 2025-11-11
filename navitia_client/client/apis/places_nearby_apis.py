@@ -1,7 +1,7 @@
 from typing import Any, Optional, Sequence, Tuple
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.pagination import Pagination
-from navitia_client.entities.place import Place
+from navitia_client.entities.response import Pagination
+from navitia_client.entities.response.place import Place
 
 
 class PlacesNearbyApiClient(ApiBaseClient):

@@ -1,6 +1,6 @@
 from typing import Any, Optional, Sequence
 from navitia_client.client.apis.api_base_client import ApiBaseClient
-from navitia_client.entities.pt_object import PtObject
+from navitia_client.entities.response.pt_object import PtObject
 
 
 class PublicTransportObjectsApiClient(ApiBaseClient):

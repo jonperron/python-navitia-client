@@ -4,8 +4,8 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.traffic_report_apis import TrafficReportsApiClient
-from navitia_client.entities.disruption import Disruption
-from navitia_client.entities.traffic_report import TrafficReport
+from navitia_client.entities.response.disruption import Disruption
+from navitia_client.entities.response.traffic_report import TrafficReport
 
 
 @pytest.fixture

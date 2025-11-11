@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Any
-from navitia_client.entities.display_information import DisplayInformation
-from navitia_client.entities.schedule_table import ScheduleTable
+from navitia_client.entities.response.display_information import DisplayInformation
+from navitia_client.entities.response.schedule_table import ScheduleTable
 
 
 @dataclass

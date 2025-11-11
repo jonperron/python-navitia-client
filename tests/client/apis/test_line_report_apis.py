@@ -4,8 +4,8 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from navitia_client.client.apis.line_report_apis import LineReportsApiClient
-from navitia_client.entities.disruption import Disruption
-from navitia_client.entities.line_report import LineReport
+from navitia_client.entities.response.disruption import Disruption
+from navitia_client.entities.response.line_report import LineReport
 
 
 @pytest.fixture

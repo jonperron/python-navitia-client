@@ -1,14 +1,14 @@
 from abc import ABC, abstractmethod
 from typing import Any, Generic, Optional, Sequence, Tuple, TypeVar
 
-from navitia_client.entities.company import Company
-from navitia_client.entities.disruption import Disruption
-from navitia_client.entities.line_and_route import Line, Route
-from navitia_client.entities.network import Network
-from navitia_client.entities.pagination import Pagination
-from navitia_client.entities.physical_mode import CommercialMode, PhysicalMode
-from navitia_client.entities.stop_area import StopArea, StopPoint
-from navitia_client.entities.vehicle_journey import VehicleJourney
+from navitia_client.entities.response.company import Company
+from navitia_client.entities.response.disruption import Disruption
+from navitia_client.entities.response.line_and_route import Line, Route
+from navitia_client.entities.response.network import Network
+from navitia_client.entities.response import Pagination
+from navitia_client.entities.response.physical_mode import CommercialMode, PhysicalMode
+from navitia_client.entities.response.stop_area import StopArea, StopPoint
+from navitia_client.entities.response.vehicle_journey import VehicleJourney
 
 TEntity = TypeVar(
     "TEntity",
