@@ -58,7 +58,7 @@ To use this library, you need an authentication token provided by Navitia.io.
 Create an instance of the NavitiaClient class with your authentication token:
 
 ```python
-from navitia_client.client import NavitiaClient
+from navitia_client import NavitiaClient
 
 client = NavitiaClient(auth="YOUR_TOKEN_HERE")
 ```
