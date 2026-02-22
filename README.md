@@ -145,8 +145,8 @@ Few tips on how to use the Navitia APIs are available [here](docs/few_tips.md).
 
 ##  Dependencies
 
-* Python >= 3.10
-* requests>=2.31
+* Python >= 3.12
+* requests>=2.32
 
 Additional dependencies are described in the [pyproject.toml file](pyproject.toml).
 
