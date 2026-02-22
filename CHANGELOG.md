@@ -5,6 +5,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-02-22
+
+### ⚠️ BREAKING CHANGES
+
+This release drops support for Python 3.10 and 3.11. The minimum supported Python version is now 3.12.
+
+**Migration Guide:**
+
+To upgrade to v3.0:
+
+1. Ensure you are using Python 3.12 or higher:
+   ```bash
+   python --version  # Should be 3.12 or higher
+   ```
+
+2. Update your project's Python version requirements if needed
+
+3. Test your application with Python 3.12+ to ensure compatibility
+
+### Changed
+
+- **Python Version Support**: Dropped support for Python 3.10 and 3.11
+  - Minimum supported version is now Python 3.12
+  - This allows the project to leverage newer Python features and improvements
+
+---
+
 ## [2.0.0] - 2025-11-11
 
 ### ⚠️ BREAKING CHANGES
