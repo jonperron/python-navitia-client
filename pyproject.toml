@@ -19,7 +19,7 @@ classifiers = [
 version = "3.0.0"
 requires-python = ">=3.12"
 dependencies = [
-    "requests>=2.32, < 3",
+    "requests>=2.33, < 3",
 ]
 
 [project.urls]
